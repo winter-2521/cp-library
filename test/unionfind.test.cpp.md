@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/dsu.hpp
     title: graph/dsu.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/4/ITP1_4_A
+    PROBLEM: https://judge.yosupo.jp/problem/unionfind
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/4/ITP1_4_A
-  bundledCode: "#line 1 \"test/unionfind.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/4/ITP1_4_A\"\
+    - https://judge.yosupo.jp/problem/unionfind
+  bundledCode: "#line 1 \"test/unionfind.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\
     \n#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n#if\
     \ __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace atcoder;\n\
     #endif\n//*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
@@ -65,13 +65,13 @@ data:
     \ >> v;\n        if(t == 0){//test for unite\n            dsu.unite(u,v);\n  \
     \      }\n        if(t == 1){//test for same?\n            cout << dsu.same(u,v)\
     \ << '\\n';\n        }\n    }\n    return 0;\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/4/ITP1_4_A\"\
-    \n#include \"../template.hpp\"\n#include \"../graph/dsu.hpp\"\n\n//verify for\
-    \ UnionFind\n\nint main(){\n    int n,q; cin >> n >> q;\n    UnionFind dsu(n);\n\
-    \    for(int query = 0; query < q; query++){\n        int t,u,v; cin >> t >> u\
-    \ >> v;\n        if(t == 0){//test for unite\n            dsu.unite(u,v);\n  \
-    \      }\n        if(t == 1){//test for same?\n            cout << dsu.same(u,v)\
-    \ << '\\n';\n        }\n    }\n    return 0;\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\n#include \"\
+    ../template.hpp\"\n#include \"../graph/dsu.hpp\"\n\n//verify for UnionFind\n\n\
+    int main(){\n    int n,q; cin >> n >> q;\n    UnionFind dsu(n);\n    for(int query\
+    \ = 0; query < q; query++){\n        int t,u,v; cin >> t >> u >> v;\n        if(t\
+    \ == 0){//test for unite\n            dsu.unite(u,v);\n        }\n        if(t\
+    \ == 1){//test for same?\n            cout << dsu.same(u,v) << '\\n';\n      \
+    \  }\n    }\n    return 0;\n}"
   dependsOn:
   - template.hpp
   - graph/dsu.hpp
@@ -79,8 +79,8 @@ data:
   isVerificationFile: true
   path: test/unionfind.test.cpp
   requiredBy: []
-  timestamp: '2024-10-25 23:23:46+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-10-25 23:25:15+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/unionfind.test.cpp
 layout: document
