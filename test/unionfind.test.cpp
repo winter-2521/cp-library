@@ -1,4 +1,4 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/4/ITP1_4_A"
+#define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 #include "../template.hpp"
 #include "../graph/dsu.hpp"
 
