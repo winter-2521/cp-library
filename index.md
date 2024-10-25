@@ -1,11 +1,19 @@
 ---
 data:
   libraryCategories:
+  - name: graph
+    pages:
+    - icon: ':x:'
+      path: graph/dsu.hpp
+      title: graph/dsu.hpp
   - name: .
     pages:
     - icon: ':warning:'
       path: template.cpp
       title: template.cpp
+    - icon: ':x:'
+      path: template.hpp
+      title: template.hpp
   verificationCategories:
   - name: test
     pages:
