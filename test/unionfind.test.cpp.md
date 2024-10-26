@@ -7,9 +7,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
-  - icon: ':heavy_check_mark:'
-    path: template.hpp
-    title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -26,15 +23,6 @@ data:
     #endif\n//*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
     )\n#pragma GCC target(\"avx2,bmi,bmi2,lzcnt,popcnt\")\n#pragma GCC target(\"avx,avx2,fma\"\
     )\n#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma\"\
-    )\n//*/\n#define rep(i,n) for(int i=0;i<n;i++)\n#define Rep(i,a,b) for(int i=a;i<b;i++)\n\
-    #define ALL(x) (x).begin(),(x).end()\n#define dbgv(x); for(auto now : x) cout\
-    \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
-    \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
-    \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
-    #include <atcoder/all>\nusing namespace atcoder;\n#endif\n//*/\n#pragma GCC optimize(\"\
-    Ofast,unroll-loops,no-stack-protector,fast-math\")\n#pragma GCC target(\"avx2,bmi,bmi2,lzcnt,popcnt\"\
-    )\n#pragma GCC target(\"avx,avx2,fma\")\n#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma\"\
     )\n//*/\n#define rep(i,n) for(int i=0;i<n;i++)\n#define Rep(i,a,b) for(int i=a;i<b;i++)\n\
     #define ALL(x) (x).begin(),(x).end()\n#define dbgv(x); for(auto now : x) cout\
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
@@ -59,27 +47,26 @@ data:
     \        for(int i = 0; i < (int)par.size(); i++){\n            res[find(i)].push_back(i);\n\
     \        }\n        res.erase(remove_if(res.begin(), res.end(),\n            \
     \    [&](const vector<int> &v) { return v.empty(); }),\n                res.end());\n\
-    \        return res;\n    }\n};\n#line 4 \"test/unionfind.test.cpp\"\n\n//verify\
+    \        return res;\n    }\n};\n#line 3 \"test/unionfind.test.cpp\"\n\n//verify\
     \ for UnionFind\n\nint main(){\n    int n,q; cin >> n >> q;\n    UnionFind dsu(n);\n\
     \    for(int query = 0; query < q; query++){\n        int t,u,v; cin >> t >> u\
     \ >> v;\n        if(t == 0){//test for unite\n            dsu.unite(u,v);\n  \
     \      }\n        if(t == 1){//test for same?\n            cout << dsu.same(u,v)\
     \ << '\\n';\n        }\n    }\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\n#include \"\
-    ../template.hpp\"\n#include \"../graph/dsu.hpp\"\n\n//verify for UnionFind\n\n\
-    int main(){\n    int n,q; cin >> n >> q;\n    UnionFind dsu(n);\n    for(int query\
-    \ = 0; query < q; query++){\n        int t,u,v; cin >> t >> u >> v;\n        if(t\
-    \ == 0){//test for unite\n            dsu.unite(u,v);\n        }\n        if(t\
-    \ == 1){//test for same?\n            cout << dsu.same(u,v) << '\\n';\n      \
-    \  }\n    }\n    return 0;\n}"
+    ../graph/dsu.hpp\"\n\n//verify for UnionFind\n\nint main(){\n    int n,q; cin\
+    \ >> n >> q;\n    UnionFind dsu(n);\n    for(int query = 0; query < q; query++){\n\
+    \        int t,u,v; cin >> t >> u >> v;\n        if(t == 0){//test for unite\n\
+    \            dsu.unite(u,v);\n        }\n        if(t == 1){//test for same?\n\
+    \            cout << dsu.same(u,v) << '\\n';\n        }\n    }\n    return 0;\n\
+    }"
   dependsOn:
-  - template.hpp
   - graph/dsu.hpp
   - template.hpp
   isVerificationFile: true
   path: test/unionfind.test.cpp
   requiredBy: []
-  timestamp: '2024-10-25 23:25:15+09:00'
+  timestamp: '2024-10-26 10:23:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/unionfind.test.cpp

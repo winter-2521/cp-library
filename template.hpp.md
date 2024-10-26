@@ -9,9 +9,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/unionfind.test.cpp
     title: test/unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/unionfind.test.cpp
-    title: test/unionfind.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -119,7 +116,6 @@ data:
   timestamp: '2024-10-25 23:23:46+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/unionfind.test.cpp
   - test/unionfind.test.cpp
 documentation_of: template.hpp
 layout: document
