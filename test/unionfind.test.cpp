@@ -1,5 +1,4 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
-#include "../template.hpp"
 #include "../graph/dsu.hpp"
 
 //verify for UnionFind
