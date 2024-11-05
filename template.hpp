@@ -4,7 +4,8 @@ using namespace std;
 #include <atcoder/all>
 using namespace atcoder;
 #endif
-//*/
+// QCfium法を使う時はコメントアウトを外す
+/*/
 #pragma GCC optimize("Ofast,unroll-loops,no-stack-protector,fast-math")
 #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
 #pragma GCC target("avx,avx2,fma")
