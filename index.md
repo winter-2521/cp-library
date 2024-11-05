@@ -4,8 +4,14 @@ data:
   - name: graph
     pages:
     - icon: ':heavy_check_mark:'
+      path: graph/dijkstra.hpp
+      title: graph/dijkstra.hpp
+    - icon: ':heavy_check_mark:'
       path: graph/dsu.hpp
       title: graph/dsu.hpp
+    - icon: ':heavy_check_mark:'
+      path: graph/graph-template.hpp
+      title: graph/graph-template.hpp
   - name: .
     pages:
     - icon: ':warning:'
@@ -17,6 +23,9 @@ data:
   verificationCategories:
   - name: test
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/dijkstra.test.cpp
+      title: test/dijkstra.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/example.test.cpp
       title: test/example.test.cpp
