@@ -1,6 +1,11 @@
 ---
 data:
   libraryCategories:
+  - name: data_structure
+    pages:
+    - icon: ':warning:'
+      path: data_structure/weighted_dsu.hpp
+      title: data_structure/weighted_dsu.hpp
   - name: graph
     pages:
     - icon: ':heavy_check_mark:'

@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: data_structure/weighted_dsu.hpp
+    title: data_structure/weighted_dsu.hpp
   - icon: ':heavy_check_mark:'
     path: graph/dijkstra.hpp
     title: graph/dijkstra.hpp
@@ -49,6 +52,7 @@ data:
   isVerificationFile: false
   path: template.hpp
   requiredBy:
+  - data_structure/weighted_dsu.hpp
   - graph/graph-template.hpp
   - graph/dijkstra.hpp
   - graph/dsu.hpp
