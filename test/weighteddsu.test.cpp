@@ -10,12 +10,12 @@ int main(){
         int query_type; cin >> query_type;
         if(query_type == 0){
             int x,y,z; cin >> x >> y >> z;
-            dsu.unite(x,y,z);
+            dsu.unite(y,x,z);
         }
         if(query_type == 1){
             int x,y; cin >> x >> y;
             if(dsu.same(x,y)){
-                cout << dsu.diff(x,y);
+                cout << dsu.diff(y,x);
             }else{
                 cout << "?\n";
             }
