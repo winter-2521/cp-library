@@ -5,10 +5,13 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/weighteddsu.test.cpp
+    title: test/weighteddsu.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -25,9 +28,9 @@ data:
     \ 3 \"data_structure/weighted_dsu.hpp\"\n\ntemplate<typename T = int>\nstruct\
     \ WeightedUnionFind {\n\n    // \u89AA\u30FBrank\u30FB\u91CD\u307F\u3092\u4FDD\
     \u5B58\u3059\u308B\u914D\u5217\u3092\u5B9A\u7FA9\n    vector<int> par;\n    vector<int>\
-    \ rank;\n    vector<T> diff_weight;\n\n    UnionFind(int n = 1, T SUM_UNITY =\
-    \ 0) {\n        par.resize(n); rank.resize(n); diff_weight.resize(n);\n      \
-    \  for (int i = 0; i < n; ++i) par[i] = i, rank[i] = 0, diff_weight[i] = SUM_UNITY;\n\
+    \ rank;\n    vector<T> diff_weight;\n\n    WeightedUnionFind(int n = 1, T SUM_UNITY\
+    \ = 0) {\n        par.resize(n); rank.resize(n); diff_weight.resize(n);\n    \
+    \    for (int i = 0; i < n; ++i) par[i] = i, rank[i] = 0, diff_weight[i] = SUM_UNITY;\n\
     \    }\n\n    // \u96C6\u5408\u306E\u4EE3\u8868\u5143\u3092\u8FD4\u3059\n    int\
     \ find(int x) {\n        if (par[x] == x) {\n            return x;\n        }\n\
     \        else {\n            int r = find(par[x]);\n            diff_weight[x]\
@@ -39,7 +42,7 @@ data:
     \u5916\u3067false\u3092\u8FD4\u3059\uFF0E\n    bool same(int x, int y) {\n   \
     \     return find(x) == find(y);\n    }\n\n    // x-y = w \u3068\u306A\u308B\u3088\
     \u3046\u306B\u96C6\u5408\u3092\u30DE\u30FC\u30B8\uFF0C\u3059\u3067\u306B\u30DE\
-    \u30FC\u30B8\u6E08\u307F\u306A\u3089false\u304C\u5E30\u308B\uFF0E\n    bool merge(int\
+    \u30FC\u30B8\u6E08\u307F\u306A\u3089false\u304C\u5E30\u308B\uFF0E\n    bool unite(int\
     \ x, int y, T w) {\n        w += weight(x); w -= weight(y);\n        x = find(x);\
     \ y = find(y);\n        if (x == y) return false;\n        if (rank[x] < rank[y])\
     \ swap(x, y), w = -w;\n        if (rank[x] == rank[y]) ++rank[x];\n        par[y]\
@@ -49,9 +52,9 @@ data:
   code: "#pragma once\n#include \"../template.hpp\"\n\ntemplate<typename T = int>\n\
     struct WeightedUnionFind {\n\n    // \u89AA\u30FBrank\u30FB\u91CD\u307F\u3092\u4FDD\
     \u5B58\u3059\u308B\u914D\u5217\u3092\u5B9A\u7FA9\n    vector<int> par;\n    vector<int>\
-    \ rank;\n    vector<T> diff_weight;\n\n    UnionFind(int n = 1, T SUM_UNITY =\
-    \ 0) {\n        par.resize(n); rank.resize(n); diff_weight.resize(n);\n      \
-    \  for (int i = 0; i < n; ++i) par[i] = i, rank[i] = 0, diff_weight[i] = SUM_UNITY;\n\
+    \ rank;\n    vector<T> diff_weight;\n\n    WeightedUnionFind(int n = 1, T SUM_UNITY\
+    \ = 0) {\n        par.resize(n); rank.resize(n); diff_weight.resize(n);\n    \
+    \    for (int i = 0; i < n; ++i) par[i] = i, rank[i] = 0, diff_weight[i] = SUM_UNITY;\n\
     \    }\n\n    // \u96C6\u5408\u306E\u4EE3\u8868\u5143\u3092\u8FD4\u3059\n    int\
     \ find(int x) {\n        if (par[x] == x) {\n            return x;\n        }\n\
     \        else {\n            int r = find(par[x]);\n            diff_weight[x]\
@@ -63,7 +66,7 @@ data:
     \u5916\u3067false\u3092\u8FD4\u3059\uFF0E\n    bool same(int x, int y) {\n   \
     \     return find(x) == find(y);\n    }\n\n    // x-y = w \u3068\u306A\u308B\u3088\
     \u3046\u306B\u96C6\u5408\u3092\u30DE\u30FC\u30B8\uFF0C\u3059\u3067\u306B\u30DE\
-    \u30FC\u30B8\u6E08\u307F\u306A\u3089false\u304C\u5E30\u308B\uFF0E\n    bool merge(int\
+    \u30FC\u30B8\u6E08\u307F\u306A\u3089false\u304C\u5E30\u308B\uFF0E\n    bool unite(int\
     \ x, int y, T w) {\n        w += weight(x); w -= weight(y);\n        x = find(x);\
     \ y = find(y);\n        if (x == y) return false;\n        if (rank[x] < rank[y])\
     \ swap(x, y), w = -w;\n        if (rank[x] == rank[y]) ++rank[x];\n        par[y]\
@@ -75,9 +78,10 @@ data:
   isVerificationFile: false
   path: data_structure/weighted_dsu.hpp
   requiredBy: []
-  timestamp: '2024-11-12 23:07:21+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2024-11-14 10:49:09+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/weighteddsu.test.cpp
 documentation_of: data_structure/weighted_dsu.hpp
 layout: document
 redirect_from:

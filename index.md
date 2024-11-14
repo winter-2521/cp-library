@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: data_structure
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/weighted_dsu.hpp
       title: data_structure/weighted_dsu.hpp
   - name: graph
@@ -37,5 +37,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/unionfind.test.cpp
       title: test/unionfind.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/weighteddsu.test.cpp
+      title: test/weighteddsu.test.cpp
 layout: toppage
 ---

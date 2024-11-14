@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/weighted_dsu.hpp
     title: data_structure/weighted_dsu.hpp
   - icon: ':heavy_check_mark:'
@@ -21,6 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/unionfind.test.cpp
     title: test/unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/weighteddsu.test.cpp
+    title: test/weighteddsu.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -61,6 +64,7 @@ data:
   verifiedWith:
   - test/unionfind.test.cpp
   - test/dijkstra.test.cpp
+  - test/weighteddsu.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:
