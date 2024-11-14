@@ -15,7 +15,7 @@ int main(){
         if(query_type == 1){
             int x,y; cin >> x >> y;
             if(dsu.same(x,y)){
-                cout << dsu.diff(y,x);
+                cout << dsu.diff(y,x) << endl;
             }else{
                 cout << "?\n";
             }
