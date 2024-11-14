@@ -1,5 +1,6 @@
 {
 "test/dijkstra.test.cpp": "2024-11-05 15:14:50 +0900",
 "test/example.test.cpp": "2024-10-23 21:41:56 +0900",
-"test/unionfind.test.cpp": "2024-11-05 15:14:50 +0900"
+"test/unionfind.test.cpp": "2024-11-05 15:14:50 +0900",
+"test/weighteddsu.test.cpp": "2024-11-14 10:56:38 +0900"
 }
