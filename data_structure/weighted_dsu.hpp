@@ -37,7 +37,7 @@ struct WeightedUnionFind {
         return find(x) == find(y);
     }
 
-    // x-y = w となるように集合をマージ，すでにマージ済みならfalseが帰る．
+    // weight(y) - weight(x) = w となるように集合をマージ，すでにマージ済みならfalseが返る．
     bool unite(int x, int y, T w) {
         w += weight(x); w -= weight(y);
         x = find(x); y = find(y);
@@ -49,7 +49,7 @@ struct WeightedUnionFind {
         return true;
     }
 
-    // x-yを出力
+    // weight(y) - weight(x) を返す
     T diff(int x, int y) {
         return weight(y) - weight(x);
     }
