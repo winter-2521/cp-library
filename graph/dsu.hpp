@@ -14,7 +14,7 @@ struct UnionFind {
     }
 
     //x を含む集合と y を含む集合をマージ
-    //既に同じ集合に属すならtrue , それ以外でfalseを返す．
+    //新たにマージしたらtrue , 既に同じ集合に属すならfalseを返す．
     bool unite(int x, int y){
         x = find(x); y = find(y);
         if(x==y) return false;

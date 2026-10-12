@@ -11,30 +11,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: 3.12.0
+        python-version: '3.12'
 
+    # setuptools 82 以降は pkg_resources が削除されており、oj-verify-helper が import に失敗する
     - name: Install dependencies
-      run: pip3 install -U online-judge-verify-helper
-
-    - name: Set up Rust (1.70.0)
-      run: |
-        rustup set profile minimal
-        rustup install 1.70.0
-        rustup override set nightly
-
-    # required by cargo-udeps
-    - name: Set up Rust (nightly)
-      run: |
-        rustup set profile minimal
-        rustup install nightly
-        rustup override set nightly
+      run: pip3 install -U online-judge-verify-helper "setuptools<82"
 
     - name: Clone AC Library
       run: cd ${GITHUB_WORKSPACE}/../ && git clone https://github.com/atcoder/ac-library.git

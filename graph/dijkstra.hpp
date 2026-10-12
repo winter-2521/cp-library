@@ -49,7 +49,7 @@ Pathutil<T> Dijikstra(const Graph<T> &G, int from, int to = 0){
             // ダイクストラは負辺があると壊れる．
             // 正確にはこのアルゴリズムは負の閉路があるとき停止しない
             // 参考 -> https://theory-and-me.hatenablog.com/entry/2019/09/08/182442
-            assert(e.to >= 0);
+            assert(e.cost >= 0);
             if(distance[e.to] > distance[v] + e.cost) {
                 distance[e.to] = distance[v] + e.cost;
                 // v を通って e.to にきた
@@ -62,8 +62,9 @@ Pathutil<T> Dijikstra(const Graph<T> &G, int from, int to = 0){
     // 到達不可能な頂点への距離を -1 にする．(競プロでは到達不可能なら　-1　を出力することが通例．)
     for (T &costs : distance)if(costs == INF) costs = -1;
 
+    // to に到達できないときは path を空にする
     vector<int> path;
-    for (int cur = to; cur != -1; cur = prev[cur]) {
+    if (distance[to] != -1) for (int cur = to; cur != -1; cur = prev[cur]) {
         path.push_back(cur);
     }
     reverse(path.begin(), path.end()); // 逆順なのでひっくり返す
