@@ -21,6 +21,7 @@ fin >> s >> c;                 // 空白区切りの文字列 / 空白以外の 
 double d; fin >> d;            // 浮動小数点数
 vector<int> a(n); fin >> a;    // vector は要素数ぶん読む (あらかじめサイズを確保しておく)
 pair<int, int> p; fin >> p;    // pair
+mint m; fin >> m; fout << m;   // modint (自作 ModInt・ACL の modint どちらも可．val() を持つ型)
 auto y = fin.read<long long>();  // 値を返す形でも読める
 
 fout << x << ' ' << s << '\n';   // 整数・文字・文字列・bool (0/1)
