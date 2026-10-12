@@ -46,11 +46,11 @@ struct IntervalHeap {
     }
 
     T pop_min() {
-        T res = move(d[0]);
-        T last = move(d.back());
+        T res = std::move(d[0]);
+        T last = std::move(d.back());
         d.pop_back();
         if (!d.empty()) {
-            d[0] = move(last);
+            d[0] = std::move(last);
             down_min();
         }
         return res;
@@ -58,14 +58,14 @@ struct IntervalHeap {
 
     T pop_max() {
         if (d.size() <= 2) {
-            T res = move(d.back());
+            T res = std::move(d.back());
             d.pop_back();
             return res;
         }
-        T res = move(d[1]);
-        T last = move(d.back());
+        T res = std::move(d[1]);
+        T last = std::move(d.back());
         d.pop_back();
-        d[1] = move(last);
+        d[1] = std::move(last);
         down_max();
         return res;
     }
@@ -73,30 +73,30 @@ struct IntervalHeap {
   private:
     // 位置 i (左端) の要素を min-heap として上げる
     void up_min(int i) {
-        T x = move(d[i]);
+        T x = std::move(d[i]);
         int k = i >> 1;
         while (k > 0) {
             int p = (k - 1) >> 1;
             if (!comp(x, d[p << 1])) break;
-            d[k << 1] = move(d[p << 1]);
+            d[k << 1] = std::move(d[p << 1]);
             k = p;
         }
-        d[k << 1] = move(x);
+        d[k << 1] = std::move(x);
     }
 
     // 位置 i (右端．要素 1 個の節点なら左端) の要素を max-heap として上げる
     void up_max(int i) {
-        T x = move(d[i]);
+        T x = std::move(d[i]);
         int k = i >> 1;
         int pos = i;
         while (k > 0) {
             int p = (k - 1) >> 1;
             if (!comp(d[p << 1 | 1], x)) break;
-            d[pos] = move(d[p << 1 | 1]);
+            d[pos] = std::move(d[p << 1 | 1]);
             pos = p << 1 | 1;
             k = p;
         }
-        d[pos] = move(x);
+        d[pos] = std::move(x);
     }
 
     void down_min() {

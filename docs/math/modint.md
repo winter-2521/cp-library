@@ -30,7 +30,7 @@ fin >> a; fout << a;               // fastio で読み書きできる (cin / cou
 | `ModInt<MOD>(T x)` | 整数 `x` を剰余類に変換（負の数も可） | $O(1)$ |
 | `+`, `-`, `*`, 単項 `-`, `++`, `--`, `==`, `!=` | 演算 | $O(1)$ |
 | `/` | `r.inv()` をかける | $O(\log \mathrm{MOD})$ |
-| `unsigned val()` | 値 | $O(1)$ |
+| `int val()` | 値 | $O(1)$ |
 | `mint pow(long long n)` | $a^n$（$n < 0$ なら $(a^{-1})^{-n}$） | $O(\log \lvert n \rvert)$ |
 | `mint inv()` | 逆元（拡張ユークリッドの互除法） | $O(\log \mathrm{MOD})$ |
 | `static int mod()` | 法 | $O(1)$ |

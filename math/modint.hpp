@@ -33,7 +33,8 @@ struct ModInt {
         return r;
     }
 
-    constexpr unsigned int val() const { return v; }
+    // ACL (現行版) と同じく int で返す
+    constexpr int val() const { return int(v); }
 
     constexpr mint &operator+=(const mint &r) {
         v += r.v;

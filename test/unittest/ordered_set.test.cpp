@@ -13,12 +13,16 @@ void check(mt19937_64 &rng) {
             OrderedSet<long long, B> st(init);
             set<long long> ref(init.begin(), init.end());
             const long long NG = LLONG_MIN;
-            for (int it = 0; it < 100000; it++) {
+            for (int it = 0; it < 30000; it++) {
                 long long x = (long long)(rng() % (2 * range + 4)) - range - 2;
                 int t = rng() % 12;
+                // 愚直側の next / distance が O(n) なので，集合を 500 要素程度に保つ
+                if (ref.size() > 500 && t <= 2) t = 3;
                 if (t <= 2) {
                     assert(st.insert(x) == ref.insert(x).second);
                 } else if (t <= 4) {
+                    // 半分は既存の要素を消す
+                    if (!ref.empty() && rng() % 2) x = *next(ref.begin(), rng() % ref.size());
                     assert(st.erase(x) == (ref.erase(x) == 1));
                 } else if (t == 5) {
                     assert(st.contains(x) == (ref.count(x) == 1) && st.count(x) == ref.count(x));

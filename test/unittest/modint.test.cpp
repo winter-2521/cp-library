@@ -56,9 +56,10 @@ int main() {
     assert(uf.merge(2, 0, am(-3)));
 
     // fastio が ACL の modint と自作 ModInt の両方を読み書きできる (出力は aplusb の答え)
+    // 入力は 1e9 以下なので，法 1e9+7 で読めば値は変わらない
     static_assert(fastio::has_val<am>::value && fastio::has_val<ModInt998244353>::value);
-    am a;
-    ModInt998244353 b;
+    atcoder::modint1000000007 a;
+    ModInt1000000007 b;
     fin >> a >> b;
     fout << (long long)a.val() + b.val() << '\n';
     return 0;

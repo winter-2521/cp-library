@@ -47,15 +47,15 @@ struct HashMap {
     }
 
     void grow() {
-        vector<Slot> old_slots = move(slots);
-        vector<uint8_t> old_used = move(used);
+        vector<Slot> old_slots = std::move(slots);
+        vector<uint8_t> old_used = std::move(used);
         init(old_slots.size() * 2);
         for (size_t i = 0; i < old_slots.size(); i++) {
             if (!old_used[i]) continue;
             uint32_t j = home(old_slots[i].key);
             while (used[j]) j = (j + 1) & mask;
             used[j] = 1;
-            slots[j] = move(old_slots[i]);
+            slots[j] = std::move(old_slots[i]);
         }
     }
 
@@ -113,7 +113,7 @@ struct HashMap {
             uint32_t h = home(slots[j].key);
             // j の要素の本来の位置 h が (i, j] の外にあれば i に移せる
             if (((j - h) & mask) >= ((j - i) & mask)) {
-                slots[i] = move(slots[j]);
+                slots[i] = std::move(slots[j]);
                 used[i] = 1;
                 used[j] = 0;
                 i = j;
