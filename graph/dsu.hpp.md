@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: template.hpp
-    title: template.hpp
+    title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -30,35 +30,36 @@ data:
     \ {}\n\n    //\u96C6\u5408\u306E\u4EE3\u8868\u5143\u3092\u8FD4\u3059\n    int\
     \ find(int x) {\n        if(par[x] < 0) return x;\n        return par[x] = find(par[x]);\n\
     \    }\n\n    //x \u3092\u542B\u3080\u96C6\u5408\u3068 y \u3092\u542B\u3080\u96C6\
-    \u5408\u3092\u30DE\u30FC\u30B8\n    //\u65E2\u306B\u540C\u3058\u96C6\u5408\u306B\
+    \u5408\u3092\u30DE\u30FC\u30B8\n    //\u65B0\u305F\u306B\u30DE\u30FC\u30B8\u3057\
+    \u305F\u3089true , \u65E2\u306B\u540C\u3058\u96C6\u5408\u306B\u5C5E\u3059\u306A\
+    \u3089false\u3092\u8FD4\u3059\uFF0E\n    bool unite(int x, int y){\n        x\
+    \ = find(x); y = find(y);\n        if(x==y) return false;\n        if(par[x] >\
+    \ par[y]) swap(x,y);\n        par[x] += par[y];\n        par[y] = x;\n       \
+    \ return true;\n    }\n\n    //x \u3068 y \u304C\u540C\u3058\u96C6\u5408\u306B\
     \u5C5E\u3059\u306A\u3089true , \u305D\u308C\u4EE5\u5916\u3067false\u3092\u8FD4\
-    \u3059\uFF0E\n    bool unite(int x, int y){\n        x = find(x); y = find(y);\n\
-    \        if(x==y) return false;\n        if(par[x] > par[y]) swap(x,y);\n    \
-    \    par[x] += par[y];\n        par[y] = x;\n        return true;\n    }\n\n \
-    \   //x \u3068 y \u304C\u540C\u3058\u96C6\u5408\u306B\u5C5E\u3059\u306A\u3089\
-    true , \u305D\u308C\u4EE5\u5916\u3067false\u3092\u8FD4\u3059\uFF0E\n    bool same(int\
-    \ x, int y) {return find(x) == find(y);}\n\n    //x \u306E\u5C5E\u3059\u308B\u96C6\
-    \u5408\u306E\u30B5\u30A4\u30BA\u3092\u8FD4\u3059\uFF0E\n    int size(int x) {return\
-    \ -par[find(x)];}\n\n    //\u73FE\u5728\u5B58\u5728\u3059\u308B\u96C6\u5408\u306E\
-    \u5217\u6319\n    vector<vector<int>> groups(){\n        vector<vector<int>> res(par.size());\n\
-    \        for(int i = 0; i < (int)par.size(); i++){\n            res[find(i)].push_back(i);\n\
-    \        }\n        res.erase(remove_if(res.begin(), res.end(),\n            \
-    \    [&](const vector<int> &v) { return v.empty(); }),\n                res.end());\n\
-    \        return res;\n    }\n};\n"
+    \u3059\uFF0E\n    bool same(int x, int y) {return find(x) == find(y);}\n\n   \
+    \ //x \u306E\u5C5E\u3059\u308B\u96C6\u5408\u306E\u30B5\u30A4\u30BA\u3092\u8FD4\
+    \u3059\uFF0E\n    int size(int x) {return -par[find(x)];}\n\n    //\u73FE\u5728\
+    \u5B58\u5728\u3059\u308B\u96C6\u5408\u306E\u5217\u6319\n    vector<vector<int>>\
+    \ groups(){\n        vector<vector<int>> res(par.size());\n        for(int i =\
+    \ 0; i < (int)par.size(); i++){\n            res[find(i)].push_back(i);\n    \
+    \    }\n        res.erase(remove_if(res.begin(), res.end(),\n                [&](const\
+    \ vector<int> &v) { return v.empty(); }),\n                res.end());\n     \
+    \   return res;\n    }\n};\n"
   code: "#pragma once\n#include \"../template.hpp\"\n\nstruct UnionFind {\n    //\u89AA\
     \u3092\u4FDD\u5B58\u3059\u308B\u914D\u5217\n    vector<int> par;\n\n    UnionFind(int\
     \ n=0): par(n,-1) {}\n\n    //\u96C6\u5408\u306E\u4EE3\u8868\u5143\u3092\u8FD4\
     \u3059\n    int find(int x) {\n        if(par[x] < 0) return x;\n        return\
     \ par[x] = find(par[x]);\n    }\n\n    //x \u3092\u542B\u3080\u96C6\u5408\u3068\
-    \ y \u3092\u542B\u3080\u96C6\u5408\u3092\u30DE\u30FC\u30B8\n    //\u65E2\u306B\
-    \u540C\u3058\u96C6\u5408\u306B\u5C5E\u3059\u306A\u3089true , \u305D\u308C\u4EE5\
-    \u5916\u3067false\u3092\u8FD4\u3059\uFF0E\n    bool unite(int x, int y){\n   \
-    \     x = find(x); y = find(y);\n        if(x==y) return false;\n        if(par[x]\
-    \ > par[y]) swap(x,y);\n        par[x] += par[y];\n        par[y] = x;\n     \
-    \   return true;\n    }\n\n    //x \u3068 y \u304C\u540C\u3058\u96C6\u5408\u306B\
-    \u5C5E\u3059\u306A\u3089true , \u305D\u308C\u4EE5\u5916\u3067false\u3092\u8FD4\
-    \u3059\uFF0E\n    bool same(int x, int y) {return find(x) == find(y);}\n\n   \
-    \ //x \u306E\u5C5E\u3059\u308B\u96C6\u5408\u306E\u30B5\u30A4\u30BA\u3092\u8FD4\
+    \ y \u3092\u542B\u3080\u96C6\u5408\u3092\u30DE\u30FC\u30B8\n    //\u65B0\u305F\
+    \u306B\u30DE\u30FC\u30B8\u3057\u305F\u3089true , \u65E2\u306B\u540C\u3058\u96C6\
+    \u5408\u306B\u5C5E\u3059\u306A\u3089false\u3092\u8FD4\u3059\uFF0E\n    bool unite(int\
+    \ x, int y){\n        x = find(x); y = find(y);\n        if(x==y) return false;\n\
+    \        if(par[x] > par[y]) swap(x,y);\n        par[x] += par[y];\n        par[y]\
+    \ = x;\n        return true;\n    }\n\n    //x \u3068 y \u304C\u540C\u3058\u96C6\
+    \u5408\u306B\u5C5E\u3059\u306A\u3089true , \u305D\u308C\u4EE5\u5916\u3067false\u3092\
+    \u8FD4\u3059\uFF0E\n    bool same(int x, int y) {return find(x) == find(y);}\n\
+    \n    //x \u306E\u5C5E\u3059\u308B\u96C6\u5408\u306E\u30B5\u30A4\u30BA\u3092\u8FD4\
     \u3059\uFF0E\n    int size(int x) {return -par[find(x)];}\n\n    //\u73FE\u5728\
     \u5B58\u5728\u3059\u308B\u96C6\u5408\u306E\u5217\u6319\n    vector<vector<int>>\
     \ groups(){\n        vector<vector<int>> res(par.size());\n        for(int i =\
@@ -71,14 +72,42 @@ data:
   isVerificationFile: false
   path: graph/dsu.hpp
   requiredBy: []
-  timestamp: '2024-11-05 15:14:50+09:00'
+  timestamp: '2026-10-12 09:25:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/unionfind.test.cpp
 documentation_of: graph/dsu.hpp
 layout: document
-redirect_from:
-- /library/graph/dsu.hpp
-- /library/graph/dsu.hpp.html
-title: graph/dsu.hpp
+title: Union-Find (Disjoint Set Union)
 ---
+
+## 概要
+
+素集合を管理するデータ構造。「2 つの集合の併合」と「2 要素が同じ集合か判定」を高速に行う。
+union by size と経路圧縮を併用している。頂点は 0-indexed。
+
+## 使い方
+
+```cpp
+UnionFind uf(n);          // 要素 0, 1, ..., n-1 がそれぞれ単独の集合
+uf.unite(x, y);           // x を含む集合と y を含む集合を併合
+uf.same(x, y);            // x と y が同じ集合なら true
+uf.find(x);               // x の属する集合の代表元
+uf.size(x);               // x の属する集合の要素数
+uf.groups();              // 集合ごとの要素の列挙 (vector<vector<int>>)
+```
+
+| 関数 | 説明 | 計算量 |
+| --- | --- | --- |
+| `UnionFind(int n)` | 要素数 `n` で初期化 | $O(n)$ |
+| `int find(int x)` | 代表元を返す | ならし $O(\alpha(n))$ |
+| `bool unite(int x, int y)` | 併合する。**新たに併合したら `true`、既に同じ集合なら `false`** | ならし $O(\alpha(n))$ |
+| `bool same(int x, int y)` | 同じ集合か判定 | ならし $O(\alpha(n))$ |
+| `int size(int x)` | `x` の属する集合のサイズ | ならし $O(\alpha(n))$ |
+| `vector<vector<int>> groups()` | 各集合の要素を列挙（空集合は除く） | $O(n \alpha(n))$ |
+
+$\alpha$ はアッカーマン関数の逆関数で、実用上は定数とみなせる。
+
+## 注意
+
+- `find` は再帰で実装されているが、union by size を併用しているので木の高さは $O(\log n)$ に収まり、スタックオーバーフローの心配はない。

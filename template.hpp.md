@@ -4,16 +4,16 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: data_structure/weighted_dsu.hpp
-    title: data_structure/weighted_dsu.hpp
+    title: "\u91CD\u307F\u4ED8\u304D Union-Find (Weighted Union-Find)"
   - icon: ':heavy_check_mark:'
     path: graph/dijkstra.hpp
-    title: graph/dijkstra.hpp
+    title: "\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5 (Dijkstra)"
   - icon: ':heavy_check_mark:'
     path: graph/dsu.hpp
-    title: graph/dsu.hpp
+    title: Union-Find (Disjoint Set Union)
   - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
-    title: graph/graph-template.hpp
+    title: "\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/dijkstra.test.cpp
@@ -55,20 +55,39 @@ data:
   isVerificationFile: false
   path: template.hpp
   requiredBy:
-  - data_structure/weighted_dsu.hpp
-  - graph/graph-template.hpp
-  - graph/dijkstra.hpp
   - graph/dsu.hpp
+  - graph/dijkstra.hpp
+  - graph/graph-template.hpp
+  - data_structure/weighted_dsu.hpp
   timestamp: '2024-11-05 15:14:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/unionfind.test.cpp
-  - test/dijkstra.test.cpp
   - test/weighteddsu.test.cpp
+  - test/dijkstra.test.cpp
 documentation_of: template.hpp
 layout: document
-redirect_from:
-- /library/template.hpp
-- /library/template.hpp.html
-title: template.hpp
+title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
 ---
+
+## 概要
+
+各ライブラリが `#include` する共通ヘッダ。`<bits/stdc++.h>` と `using namespace std;`、よく使うマクロ・型エイリアスを定義する。
+AC Library (`<atcoder/all>`) がインクルードパスにあれば自動で読み込む（`__has_include` で判定）。
+
+## 定義されているもの
+
+| 名前 | 内容 |
+| --- | --- |
+| `rep(i, n)` | `for (int i = 0; i < n; i++)` |
+| `Rep(i, a, b)` | `for (int i = a; i < b; i++)` |
+| `ALL(x)` | `(x).begin(), (x).end()` |
+| `dbgv(x)` | コンテナの中身を空白区切りで出力 |
+| `ll`, `ull` | `long long`, `unsigned long long` |
+| `pii`, `pll` | `pair<int,int>`, `pair<ll,ll>` |
+| `vint`, `vll` | `vector<int>`, `vector<ll>` |
+
+## 注意
+
+- `#pragma GCC optimize("Ofast,...,fast-math")` / `#pragma GCC target("avx2", ...)` はコメントアウトされている（QCfium 法を使うときだけ `/*/` を `//*/` に変えて有効化する）。有効化すると `fast-math` により浮動小数点の厳密な比較・`NaN` 判定が壊れることがあるので注意。
+- `#pragma once` が無いが、各ライブラリは `#pragma once` 付きでこのファイルを 1 回だけ読み込む想定。

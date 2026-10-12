@@ -3,13 +3,13 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/dijkstra.hpp
-    title: graph/dijkstra.hpp
+    title: "\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5 (Dijkstra)"
   - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
-    title: graph/graph-template.hpp
+    title: "\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   - icon: ':heavy_check_mark:'
     path: template.hpp
-    title: template.hpp
+    title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -84,26 +84,27 @@ data:
     \u306E\u30A2\u30EB\u30B4\u30EA\u30BA\u30E0\u306F\u8CA0\u306E\u9589\u8DEF\u304C\
     \u3042\u308B\u3068\u304D\u505C\u6B62\u3057\u306A\u3044\n            // \u53C2\u8003\
     \ -> https://theory-and-me.hatenablog.com/entry/2019/09/08/182442\n          \
-    \  assert(e.to >= 0);\n            if(distance[e.to] > distance[v] + e.cost) {\n\
-    \                distance[e.to] = distance[v] + e.cost;\n                // v\
-    \ \u3092\u901A\u3063\u3066 e.to \u306B\u304D\u305F\n                prev[e.to]\
+    \  assert(e.cost >= 0);\n            if(distance[e.to] > distance[v] + e.cost)\
+    \ {\n                distance[e.to] = distance[v] + e.cost;\n                //\
+    \ v \u3092\u901A\u3063\u3066 e.to \u306B\u304D\u305F\n                prev[e.to]\
     \ = v;\n                pq.emplace(distance[e.to], e.to);\n            }\n   \
     \     }\n    }\n\n    // \u5230\u9054\u4E0D\u53EF\u80FD\u306A\u9802\u70B9\u3078\
     \u306E\u8DDD\u96E2\u3092 -1 \u306B\u3059\u308B\uFF0E(\u7AF6\u30D7\u30ED\u3067\u306F\
     \u5230\u9054\u4E0D\u53EF\u80FD\u306A\u3089\u3000-1\u3000\u3092\u51FA\u529B\u3059\
     \u308B\u3053\u3068\u304C\u901A\u4F8B\uFF0E)\n    for (T &costs : distance)if(costs\
-    \ == INF) costs = -1;\n\n    vector<int> path;\n    for (int cur = to; cur !=\
-    \ -1; cur = prev[cur]) {\n        path.push_back(cur);\n    }\n    reverse(path.begin(),\
-    \ path.end()); // \u9006\u9806\u306A\u306E\u3067\u3072\u3063\u304F\u308A\u8FD4\
-    \u3059\n\n    return {distance, prev, path};\n\n};\n#line 3 \"test/dijkstra.test.cpp\"\
-    \n\n//verify for Dijkstra\n\nint main(){\n    int n,m,s,t; cin >> n >> m >> s\
-    \ >> t;\n    Graph<long long> g(n);\n    for(int idx = 0; idx < m; idx++)\n  \
-    \  {\n        int a,b; long long c; cin >> a >> b >> c;\n        g.add_directed_edge(a,b,c);\n\
-    \    }\n    \n    auto [dist,prev,path] = Dijikstra(g,s,t);\n\n    if(dist[t]\
-    \ == -1) {\n        cout << \"-1\\n\";\n        return 0;\n    }\n    cout <<\
-    \ dist[t] << \" \" << path.size()-1 << \"\\n\";\n    rep(idx,path.size()-1){\n\
-    \        cout << path[idx] << \" \" << path[idx+1] << \"\\n\";\n    }\n\n    return\
-    \ 0;\n}\n"
+    \ == INF) costs = -1;\n\n    // to \u306B\u5230\u9054\u3067\u304D\u306A\u3044\u3068\
+    \u304D\u306F path \u3092\u7A7A\u306B\u3059\u308B\n    vector<int> path;\n    if\
+    \ (distance[to] != -1) for (int cur = to; cur != -1; cur = prev[cur]) {\n    \
+    \    path.push_back(cur);\n    }\n    reverse(path.begin(), path.end()); // \u9006\
+    \u9806\u306A\u306E\u3067\u3072\u3063\u304F\u308A\u8FD4\u3059\n\n    return {distance,\
+    \ prev, path};\n\n};\n#line 3 \"test/dijkstra.test.cpp\"\n\n//verify for Dijkstra\n\
+    \nint main(){\n    int n,m,s,t; cin >> n >> m >> s >> t;\n    Graph<long long>\
+    \ g(n);\n    for(int idx = 0; idx < m; idx++)\n    {\n        int a,b; long long\
+    \ c; cin >> a >> b >> c;\n        g.add_directed_edge(a,b,c);\n    }\n    \n \
+    \   auto [dist,prev,path] = Dijikstra(g,s,t);\n\n    if(dist[t] == -1) {\n   \
+    \     cout << \"-1\\n\";\n        return 0;\n    }\n    cout << dist[t] << \"\
+    \ \" << path.size()-1 << \"\\n\";\n    rep(idx,path.size()-1){\n        cout <<\
+    \ path[idx] << \" \" << path[idx+1] << \"\\n\";\n    }\n\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n#include\
     \ \"../graph/dijkstra.hpp\"\n\n//verify for Dijkstra\n\nint main(){\n    int n,m,s,t;\
     \ cin >> n >> m >> s >> t;\n    Graph<long long> g(n);\n    for(int idx = 0; idx\
@@ -120,7 +121,7 @@ data:
   isVerificationFile: true
   path: test/dijkstra.test.cpp
   requiredBy: []
-  timestamp: '2024-11-05 15:14:50+09:00'
+  timestamp: '2026-10-12 09:25:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dijkstra.test.cpp
