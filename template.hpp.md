@@ -14,10 +14,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
     title: "\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
+  - icon: ':heavy_check_mark:'
+    path: io/fastio.hpp
+    title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aplusb.test.cpp
+    title: test/aplusb.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/dijkstra.test.cpp
     title: test/dijkstra.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/many_aplusb.test.cpp
+    title: test/many_aplusb.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/many_aplusb_128bit.test.cpp
+    title: test/many_aplusb_128bit.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unionfind.test.cpp
     title: test/unionfind.test.cpp
@@ -59,12 +71,16 @@ data:
   - graph/dijkstra.hpp
   - graph/graph-template.hpp
   - data_structure/weighted_dsu.hpp
+  - io/fastio.hpp
   timestamp: '2024-11-05 15:14:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/unionfind.test.cpp
+  - test/many_aplusb.test.cpp
+  - test/aplusb.test.cpp
   - test/weighteddsu.test.cpp
   - test/dijkstra.test.cpp
+  - test/many_aplusb_128bit.test.cpp
 documentation_of: template.hpp
 layout: document
 title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"

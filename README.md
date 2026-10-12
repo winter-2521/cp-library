@@ -6,3 +6,6 @@
 
 # ドキュメント (まだぜんぜん整備していないです)
 https://winter-2521.github.io/cp-library/
+
+# Library Checker 対応状況
+[PROGRESS.md](PROGRESS.md) で管理しています。
