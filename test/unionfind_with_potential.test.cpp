@@ -15,10 +15,9 @@ int main() {
         if (t == 0) {
             mint x;
             fin >> x;
-            // a_u - a_v = x
-            fout << uf.merge(v, u, x) << '\n';
+            fout << uf.merge(u, v, x) << '\n';
         } else {
-            if (uf.same(u, v)) fout << uf.diff(v, u) << '\n';
+            if (uf.same(u, v)) fout << uf.diff(u, v) << '\n';
             else fout << -1 << '\n';
         }
     }

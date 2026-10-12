@@ -3,6 +3,7 @@
 #include "../../data_structure/potentialized_unionfind.hpp"
 
 // 隠れた値を決めておき，正しい関係・誤った関係をランダムに与えて愚直と照合する
+// merge(u, v, w) は a_u = a_v w，diff(u, v) は a_v^{-1} a_u．以下では x = v, y = u として a_x^{-1} a_y = w を扱う
 
 // 4 要素の置換のなす群 (非可換)．p * q は「先に q，次に p」ではなく配列としての合成 (p * q)[i] = p[q[i]]
 struct S4 {
@@ -28,12 +29,12 @@ void check(mt19937_64 &rng, int n, Gen gen) {
         int x = rng() % n, y = rng() % n;
         T truth = G::op(G::inv(hidden[x]), hidden[y]);
         if (rng() % 2) {
-            assert(uf.merge(x, y, truth));
+            assert(uf.merge(y, x, truth));
             int cx = comp[x], cy = comp[y];
             for (auto &c : comp) if (c == cy) c = cx;
         } else {
             T w = gen();
-            bool ok = uf.merge(x, y, w);
+            bool ok = uf.merge(y, x, w);
             if (comp[x] == comp[y]) {
                 assert(ok == (w == truth));
             } else {
@@ -47,7 +48,7 @@ void check(mt19937_64 &rng, int n, Gen gen) {
         }
         int u = rng() % n, v = rng() % n;
         assert(uf.same(u, v) == (comp[u] == comp[v]));
-        if (comp[u] == comp[v]) assert(uf.diff(u, v) == G::op(G::inv(hidden[u]), hidden[v]));
+        if (comp[u] == comp[v]) assert(uf.diff(v, u) == G::op(G::inv(hidden[u]), hidden[v]));
         assert(uf.size(u) == count(comp.begin(), comp.end(), comp[u]));
     }
     auto gs = uf.groups();

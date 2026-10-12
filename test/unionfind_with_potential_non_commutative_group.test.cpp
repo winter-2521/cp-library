@@ -25,11 +25,10 @@ int main() {
         if (t == 0) {
             SL2::T x;
             for (auto &c : x) fin >> c;
-            // a_u = a_v x
-            fout << uf.merge(v, u, x) << '\n';
+            fout << uf.merge(u, v, x) << '\n';
         } else {
             if (uf.same(u, v)) {
-                auto m = uf.diff(v, u);
+                auto m = uf.diff(u, v);
                 fout << m[0] << ' ' << m[1] << ' ' << m[2] << ' ' << m[3] << '\n';
             } else {
                 fout << -1 << '\n';

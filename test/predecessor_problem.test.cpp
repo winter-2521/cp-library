@@ -13,12 +13,8 @@ int main() {
         if (c == 0) fs.insert(k);
         else if (c == 1) fs.erase(k);
         else if (c == 2) fout << fs.contains(k) << '\n';
-        else if (c == 3) {
-            int x = fs.next(k);
-            fout << (x == n ? -1 : x) << '\n';
-        } else {
-            fout << fs.prev(k) << '\n';
-        }
+        else if (c == 3) fout << fs.next(k) << '\n';
+        else fout << fs.prev(k) << '\n';
     }
     return 0;
 }

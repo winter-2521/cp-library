@@ -2,8 +2,8 @@
 #include "../template.hpp"
 
 // ポテンシャル付き Union-Find
-// 各要素 x に群 G の元 a_x を持たせ，「a_x^{-1} a_y = w」という関係を追加・矛盾判定・取得する
-// G は非可換群でもよい．加法群なら「a_y - a_x = w」という意味になる
+// 各要素 u に群 G の元 a_u を持たせ，「a_u = a_v w」という関係を追加・矛盾判定し，a_v^{-1} a_u を取得する
+// G は非可換群でもよい．加法群なら「a_u - a_v = w」という意味になる (Library Checker と同じ向き)
 //
 // G には次を定義する:
 //   using T = 群の元の型;
@@ -41,15 +41,17 @@ struct PotentializedUnionFind {
         return pot[x];
     }
 
-    // a_x^{-1} a_y．同じ集合に属していること
-    T diff(int x, int y) {
-        assert(same(x, y));
-        return G::op(G::inv(potential(x)), potential(y));
+    // a_v^{-1} a_u (加法群なら a_u - a_v)．同じ集合に属していること
+    T diff(int u, int v) {
+        assert(same(u, v));
+        return G::op(G::inv(potential(v)), potential(u));
     }
 
-    // a_x^{-1} a_y = w という関係を追加する
+    // a_u = a_v w (加法群なら a_u - a_v = w) という関係を追加する
     // これまでの関係と矛盾するなら何もせず false，矛盾しなければ true (既に分かっていた関係でも true)
-    bool merge(int x, int y, T w) {
+    bool merge(int u, int v, T w) {
+        // 以下では x = v, y = u として a_x^{-1} a_y = w を扱う
+        int x = v, y = u;
         int rx = leader(x), ry = leader(y);
         const T &px = pot[x], &py = pot[y];
         if (rx == ry) return G::op(G::inv(px), py) == w;
@@ -78,7 +80,7 @@ struct PotentializedUnionFind {
     }
 };
 
-// 加法群 (a_y - a_x = w)
+// 加法群 (a_u - a_v = w)
 template <class X>
 struct AdditiveGroup {
     using T = X;
@@ -87,7 +89,7 @@ struct AdditiveGroup {
     static T e() { return T(0); }
 };
 
-// xor の群 (a_x xor a_y = w)．偶奇の制約などに使う
+// xor の群 (a_u xor a_v = w)．偶奇の制約などに使う
 template <class X>
 struct XorGroup {
     using T = X;

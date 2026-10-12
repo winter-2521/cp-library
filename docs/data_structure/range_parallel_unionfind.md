@@ -40,6 +40,7 @@ RangeParallelUnionFind::merge_offline(n, qs, [&](int t, int r, int c) { ... });
 ## 注意
 
 - $0 \le a, b$ かつ $a + k, b + k \le n$ であること。$k = 0$ や $a = b$ のときは何もしない。
+- **`merge_offline` はクエリを全て先読みできるときのみ使える**。各クエリの直後に連結性を問い合わせて次のクエリを決める（オンラインで答える必要がある）問題では `merge` を使うこと。
 - メモリは $O(n \log n)$（`merge_offline` は $O(n + q)$）。
 - `merge_offline` の後の連結性は、コールバックで受け取った `(r, c)` を通常の Union-Find で併合すれば再現できる（`r`, `c` は段 0 の Union-Find の根）。
 - コールバックの中で `uf` 自体を操作してはいけない（`leader` などの参照は可）。

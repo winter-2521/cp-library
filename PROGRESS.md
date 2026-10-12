@@ -24,7 +24,7 @@
 | :-: | --- | --- | --- |
 | ✅ | [Associative Array](https://judge.yosupo.jp/problem/associative_array) (`associative_array`) | [`data_structure/hash_map.hpp`](data_structure/hash_map.hpp) | [`test/associative_array.test.cpp`](test/associative_array.test.cpp) |
 | ✅ | [Predecessor Problem](https://judge.yosupo.jp/problem/predecessor_problem) (`predecessor_problem`) | [`data_structure/fast_set.hpp`](data_structure/fast_set.hpp) | [`test/predecessor_problem.test.cpp`](test/predecessor_problem.test.cpp) |
-| ✅ | [Ordered Set](https://judge.yosupo.jp/problem/ordered_set) (`ordered_set`) | [`data_structure/fast_set.hpp`](data_structure/fast_set.hpp), [`data_structure/fenwick_tree.hpp`](data_structure/fenwick_tree.hpp) | [`test/ordered_set.test.cpp`](test/ordered_set.test.cpp) |
+| ✅ | [Ordered Set](https://judge.yosupo.jp/problem/ordered_set) (`ordered_set`) | [`data_structure/ordered_set.hpp`](data_structure/ordered_set.hpp) | [`test/ordered_set.test.cpp`](test/ordered_set.test.cpp) |
 | ✅ | [Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) (`double_ended_priority_queue`) | [`data_structure/interval_heap.hpp`](data_structure/interval_heap.hpp) | [`test/double_ended_priority_queue.test.cpp`](test/double_ended_priority_queue.test.cpp) |
 | ✅ | [Unionfind](https://judge.yosupo.jp/problem/unionfind) (`unionfind`) | [`graph/dsu.hpp`](graph/dsu.hpp) | [`test/unionfind.test.cpp`](test/unionfind.test.cpp) |
 | ✅ | [Unionfind with Potential](https://judge.yosupo.jp/problem/unionfind_with_potential) (`unionfind_with_potential`) | [`data_structure/potentialized_unionfind.hpp`](data_structure/potentialized_unionfind.hpp) | [`test/unionfind_with_potential.test.cpp`](test/unionfind_with_potential.test.cpp) |

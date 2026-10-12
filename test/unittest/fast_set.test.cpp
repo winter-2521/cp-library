@@ -22,13 +22,13 @@ int main() {
             else if (t == 2 && in) assert(fs.contains(k) == (ref.count(k) == 1) && fs[k] == fs.contains(k));
             else if (t == 3) {
                 auto p = ref.lower_bound(k);
-                assert(fs.next(k) == (p == ref.end() ? n : *p));
+                assert(fs.next(k) == (p == ref.end() ? -1 : *p));
             } else {
                 auto p = ref.upper_bound(k);
                 assert(fs.prev(k) == (p == ref.begin() ? -1 : *prev(p)));
             }
             assert(fs.empty() == ref.empty());
-            assert(fs.min() == (ref.empty() ? n : *ref.begin()));
+            assert(fs.min() == (ref.empty() ? -1 : *ref.begin()));
             assert(fs.max() == (ref.empty() ? -1 : *ref.rbegin()));
         }
         int l = n ? rng() % n : 0, r = n ? rng() % (n + 1) : 0;

@@ -5,8 +5,8 @@ documentation_of: //data_structure/potentialized_unionfind.hpp
 
 ## 概要
 
-各要素 $x$ に群 $G$ の元 $a_x$ を持たせ、「$a_x^{-1} a_y = w$」という関係の追加・矛盾判定と、同じ集合に属する 2 要素の $a_x^{-1} a_y$ の取得を行う。
-$G$ は **非可換群でもよい**。加法群なら「$a_y - a_x = w$」、xor なら「$a_x \oplus a_y = w$」という意味になる。
+各要素 $u$ に群 $G$ の元 $a_u$ を持たせ、「$a_u = a_v w$」という関係の追加・矛盾判定と、同じ集合に属する 2 要素の $a_v^{-1} a_u$ の取得を行う。
+$G$ は **非可換群でもよい**。加法群なら「$a_u - a_v = w$」、xor なら「$a_u \oplus a_v = w$」という意味になる。向きは Library Checker と同じ。
 
 union by size と経路圧縮を併用している。頂点は 0-indexed。
 [`weighted_dsu.hpp`](weighted_dsu.hpp) と違い、矛盾判定を `merge` の戻り値で返し、群を自由に差し替えられる。
@@ -14,10 +14,10 @@ union by size と経路圧縮を併用している。頂点は 0-indexed。
 ## 使い方
 
 ```cpp
-PotentializedUnionFind<AdditiveGroup<long long>> uf(n);  // a_y - a_x = w
-uf.merge(x, y, w);   // a_x^{-1} a_y = w を追加．矛盾したら false (状態は変わらない)
-uf.same(x, y);
-uf.diff(x, y);       // a_x^{-1} a_y (同じ集合のときのみ)
+PotentializedUnionFind<AdditiveGroup<long long>> uf(n);
+uf.merge(u, v, w);   // a_u = a_v w (加法なら a_u - a_v = w) を追加．矛盾したら false (状態は変わらない)
+uf.same(u, v);
+uf.diff(u, v);       // a_v^{-1} a_u (加法なら a_u - a_v)．同じ集合のときのみ
 uf.potential(x);     // a_r^{-1} a_x (r は x の集合の根)
 uf.size(x); uf.leader(x); uf.groups();
 
@@ -36,8 +36,8 @@ PotentializedUnionFind<G> uf2(n);
 | 関数 | 説明 | 計算量 |
 | --- | --- | --- |
 | `PotentializedUnionFind<G>(int n)` | 要素数 `n` で初期化 | $O(n)$ |
-| `bool merge(int x, int y, T w)` | $a_x^{-1} a_y = w$ を追加。矛盾すれば何もせず `false`、そうでなければ `true`（既知の関係でも `true`） | ならし $O(\alpha(n))$ |
-| `T diff(int x, int y)` | $a_x^{-1} a_y$。`same(x, y)` であること | ならし $O(\alpha(n))$ |
+| `bool merge(int u, int v, T w)` | $a_u = a_v w$ を追加。矛盾すれば何もせず `false`、そうでなければ `true`（既知の関係でも `true`） | ならし $O(\alpha(n))$ |
+| `T diff(int u, int v)` | $a_v^{-1} a_u$（加法なら $a_u - a_v$）。`same(u, v)` であること | ならし $O(\alpha(n))$ |
 | `T potential(int x)` | $a_r^{-1} a_x$（$r$ は根） | ならし $O(\alpha(n))$ |
 | `int leader(int x)` | 代表元 | ならし $O(\alpha(n))$ |
 | `bool same(int x, int y)` | 同じ集合か | ならし $O(\alpha(n))$ |
@@ -48,6 +48,6 @@ PotentializedUnionFind<G> uf2(n);
 
 ## 注意
 
-- **向きに注意**：`merge(x, y, w)` は $a_x^{-1} a_y = w$（加法なら $a_y - a_x = w$）。「$a_u = a_v \cdot x$」なら `merge(v, u, x)`。
+- **向きに注意**：`merge(u, v, w)` は $a_u = a_v w$（加法なら $a_u - a_v = w$）、`diff(u, v)` は $a_v^{-1} a_u$。[`weighted_dsu.hpp`](weighted_dsu.hpp) とは向きが逆。
 - `T` は `==` で比較できること（矛盾判定に使う）。
 - `leader` は再帰で実装しているが、union by size なので深さは $O(\log n)$。

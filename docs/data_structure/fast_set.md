@@ -15,7 +15,7 @@ FastSet fs(n);                                   // 空集合
 FastSet fs2(n, [&](int i) { return s[i] == '1'; });  // f(i) が true の i を入れて O(n) で構築
 fs.insert(i); fs.erase(i);
 fs.contains(i);   // fs[i] でも可
-fs.next(i);       // i 以上の最小の要素 (なければ n)
+fs.next(i);       // i 以上の最小の要素 (なければ -1)
 fs.prev(i);       // i 以下の最大の要素 (なければ -1)
 fs.min(); fs.max(); fs.empty();
 fs.enumerate(l, r, [&](int x) { ... });  // [l, r) の要素を昇順に列挙
@@ -28,13 +28,13 @@ fs.enumerate(l, r, [&](int x) { ... });  // [l, r) の要素を昇順に列挙
 | `void insert(int i)` | `i` を追加（既にあれば何もしない） | $O(\log_{64} n)$ |
 | `void erase(int i)` | `i` を削除（なければ何もしない） | $O(\log_{64} n)$ |
 | `bool contains(int i)` | `i` が含まれるか | $O(1)$ |
-| `int next(int i)` | `i` 以上の最小の要素。なければ `n`（`i < 0` なら 0 とみなす） | $O(\log_{64} n)$ |
+| `int next(int i)` | `i` 以上の最小の要素。なければ `-1`（`i < 0` なら 0 とみなす） | $O(\log_{64} n)$ |
 | `int prev(int i)` | `i` 以下の最大の要素。なければ `-1`（`i >= n` なら `n - 1` とみなす） | $O(\log_{64} n)$ |
-| `int min()` / `int max()` | 最小 / 最大の要素（空なら `n` / `-1`） | $O(\log_{64} n)$ |
+| `int min()` / `int max()` | 最小 / 最大の要素（空なら `-1`） | $O(\log_{64} n)$ |
 | `bool empty()` | 空か | $O(1)$ |
 | `void enumerate(int l, int r, F f)` | $[l, r)$ の要素を昇順に `f(x)` | $O((\text{個数} + 1) \log_{64} n)$ |
 
 ## 注意
 
-- 要素数を数える機能はない（順位が必要なら [Fenwick Tree](fenwick_tree.hpp) と併用する。`test/ordered_set.test.cpp` を参照）。
+- 要素数を数える機能はない（順位や $k$ 番目が必要なら [OrderedSet](ordered_set.hpp) を使う）。
 - 値の範囲が大きい場合は座標圧縮してから使う。

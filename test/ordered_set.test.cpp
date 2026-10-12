@@ -1,53 +1,22 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/ordered_set"
 #include "../io/fastio.hpp"
-#include "../data_structure/fast_set.hpp"
-#include "../data_structure/fenwick_tree.hpp"
-
-// 挿入されうる値を先読みして座標圧縮し，FastSet (前後の要素) と FenwickTree (順位) を併用する
+#include "../data_structure/ordered_set.hpp"
 
 int main() {
     int n, q;
     fin >> n >> q;
     vector<int> a(n);
     fin >> a;
-    vector<int> t(q), x(q);
-    vector<int> vals = a;
-    for (int i = 0; i < q; i++) {
-        fin >> t[i] >> x[i];
-        if (t[i] == 0) vals.push_back(x[i]);
-    }
-    sort(vals.begin(), vals.end());
-    vals.erase(unique(vals.begin(), vals.end()), vals.end());
-    int m = vals.size();
-    auto idx = [&](int v) { return int(lower_bound(vals.begin(), vals.end(), v) - vals.begin()); };
-
-    vector<int> init(m, 0);
-    for (int v : a) init[idx(v)] = 1;
-    FastSet fs(m, [&](int i) { return init[i] == 1; });
-    FenwickTree<int> bit(init);
-    int cnt = n;
-
-    for (int i = 0; i < q; i++) {
-        int v = x[i];
-        if (t[i] == 0) {
-            int p = idx(v);
-            if (!fs.contains(p)) fs.insert(p), bit.add(p, 1), cnt++;
-        } else if (t[i] == 1) {
-            int p = idx(v);
-            if (p < m && vals[p] == v && fs.contains(p)) fs.erase(p), bit.add(p, -1), cnt--;
-        } else if (t[i] == 2) {
-            fout << (cnt < v ? -1 : vals[bit.lower_bound(v)]) << '\n';
-        } else if (t[i] == 3) {
-            int p = int(upper_bound(vals.begin(), vals.end(), v) - vals.begin());
-            fout << bit.sum(p) << '\n';
-        } else if (t[i] == 4) {
-            int p = int(upper_bound(vals.begin(), vals.end(), v) - vals.begin());
-            int r = fs.prev(p - 1);
-            fout << (r < 0 ? -1 : vals[r]) << '\n';
-        } else {
-            int r = fs.next(idx(v));
-            fout << (r >= m ? -1 : vals[r]) << '\n';
-        }
+    OrderedSet<int> st(a);
+    while (q--) {
+        int t, x;
+        fin >> t >> x;
+        if (t == 0) st.insert(x);
+        else if (t == 1) st.erase(x);
+        else if (t == 2) fout << st.kth(x - 1) << '\n';
+        else if (t == 3) fout << st.count_le(x) << '\n';
+        else if (t == 4) fout << st.max_le(x) << '\n';
+        else fout << st.min_ge(x) << '\n';
     }
     return 0;
 }

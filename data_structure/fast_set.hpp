@@ -58,10 +58,10 @@ struct FastSet {
         }
     }
 
-    // i 以上の最小の要素 (存在しなければ n)
+    // i 以上の最小の要素 (存在しなければ -1)
     int next(int i) const {
         if (i < 0) i = 0;
-        if (i >= n) return n;
+        if (i >= n) return -1;
         for (int h = 0; h < lg; h++) {
             if ((i >> 6) == (int)seg[h].size()) break;
             uint64_t d = seg[h][i >> 6] >> (i & 63);
@@ -76,7 +76,7 @@ struct FastSet {
             }
             return i;
         }
-        return n;
+        return -1;
     }
 
     // i 以下の最大の要素 (存在しなければ -1)
@@ -99,7 +99,7 @@ struct FastSet {
         return -1;
     }
 
-    // 最小の要素 (空なら n)
+    // 最小の要素 (空なら -1)
     int min() const { return next(0); }
     // 最大の要素 (空なら -1)
     int max() const { return prev(n - 1); }
@@ -108,6 +108,6 @@ struct FastSet {
     // [l, r) に含まれる要素を昇順に f に渡す
     template <class F>
     void enumerate(int l, int r, F f) const {
-        for (int x = next(l); x < r; x = next(x + 1)) f(x);
+        for (int x = next(l); x != -1 && x < r; x = next(x + 1)) f(x);
     }
 };
