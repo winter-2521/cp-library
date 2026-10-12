@@ -8,7 +8,7 @@
 
 既存のライブラリ（`graph/dsu.hpp`, `graph/dijkstra.hpp`）は fastio 導入前に作ったもので、速度面の見直しはまだしていない。
 
-**進捗: 5 / 235**
+**進捗: 15 / 235**
 
 ## Sample
 
@@ -22,17 +22,17 @@
 
 | 状態 | 問題 | ライブラリ | verify |
 | :-: | --- | --- | --- |
-| ⬜ | [Associative Array](https://judge.yosupo.jp/problem/associative_array) (`associative_array`) |  |  |
-| ⬜ | [Predecessor Problem](https://judge.yosupo.jp/problem/predecessor_problem) (`predecessor_problem`) |  |  |
-| ⬜ | [Ordered Set](https://judge.yosupo.jp/problem/ordered_set) (`ordered_set`) |  |  |
-| ⬜ | [Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) (`double_ended_priority_queue`) |  |  |
+| ✅ | [Associative Array](https://judge.yosupo.jp/problem/associative_array) (`associative_array`) | [`data_structure/hash_map.hpp`](data_structure/hash_map.hpp) | [`test/associative_array.test.cpp`](test/associative_array.test.cpp) |
+| ✅ | [Predecessor Problem](https://judge.yosupo.jp/problem/predecessor_problem) (`predecessor_problem`) | [`data_structure/fast_set.hpp`](data_structure/fast_set.hpp) | [`test/predecessor_problem.test.cpp`](test/predecessor_problem.test.cpp) |
+| ✅ | [Ordered Set](https://judge.yosupo.jp/problem/ordered_set) (`ordered_set`) | [`data_structure/fast_set.hpp`](data_structure/fast_set.hpp), [`data_structure/fenwick_tree.hpp`](data_structure/fenwick_tree.hpp) | [`test/ordered_set.test.cpp`](test/ordered_set.test.cpp) |
+| ✅ | [Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) (`double_ended_priority_queue`) | [`data_structure/interval_heap.hpp`](data_structure/interval_heap.hpp) | [`test/double_ended_priority_queue.test.cpp`](test/double_ended_priority_queue.test.cpp) |
 | ✅ | [Unionfind](https://judge.yosupo.jp/problem/unionfind) (`unionfind`) | [`graph/dsu.hpp`](graph/dsu.hpp) | [`test/unionfind.test.cpp`](test/unionfind.test.cpp) |
-| ⬜ | [Unionfind with Potential](https://judge.yosupo.jp/problem/unionfind_with_potential) (`unionfind_with_potential`) |  |  |
-| ⬜ | [Unionfind with Potential (Non-Commutative Group)](https://judge.yosupo.jp/problem/unionfind_with_potential_non_commutative_group) (`unionfind_with_potential_non_commutative_group`) |  |  |
-| ⬜ | [Range Parallel Unionfind](https://judge.yosupo.jp/problem/range_parallel_unionfind) (`range_parallel_unionfind`) |  |  |
-| ⬜ | [Static Range Sum](https://judge.yosupo.jp/problem/static_range_sum) (`static_range_sum`) |  |  |
-| ⬜ | [Static RMQ](https://judge.yosupo.jp/problem/staticrmq) (`staticrmq`) |  |  |
-| ⬜ | [Point Add Range Sum](https://judge.yosupo.jp/problem/point_add_range_sum) (`point_add_range_sum`) |  |  |
+| ✅ | [Unionfind with Potential](https://judge.yosupo.jp/problem/unionfind_with_potential) (`unionfind_with_potential`) | [`data_structure/potentialized_unionfind.hpp`](data_structure/potentialized_unionfind.hpp) | [`test/unionfind_with_potential.test.cpp`](test/unionfind_with_potential.test.cpp) |
+| ✅ | [Unionfind with Potential (Non-Commutative Group)](https://judge.yosupo.jp/problem/unionfind_with_potential_non_commutative_group) (`unionfind_with_potential_non_commutative_group`) | [`data_structure/potentialized_unionfind.hpp`](data_structure/potentialized_unionfind.hpp) | [`test/unionfind_with_potential_non_commutative_group.test.cpp`](test/unionfind_with_potential_non_commutative_group.test.cpp) |
+| ✅ | [Range Parallel Unionfind](https://judge.yosupo.jp/problem/range_parallel_unionfind) (`range_parallel_unionfind`) | [`data_structure/range_parallel_unionfind.hpp`](data_structure/range_parallel_unionfind.hpp) | [`test/range_parallel_unionfind.test.cpp`](test/range_parallel_unionfind.test.cpp), [`test/range_parallel_unionfind_online.test.cpp`](test/range_parallel_unionfind_online.test.cpp) |
+| ✅ | [Static Range Sum](https://judge.yosupo.jp/problem/static_range_sum) (`static_range_sum`) | [`data_structure/cumulative_sum.hpp`](data_structure/cumulative_sum.hpp) | [`test/static_range_sum.test.cpp`](test/static_range_sum.test.cpp) |
+| ✅ | [Static RMQ](https://judge.yosupo.jp/problem/staticrmq) (`staticrmq`) | [`data_structure/static_rmq.hpp`](data_structure/static_rmq.hpp), [`data_structure/sparse_table.hpp`](data_structure/sparse_table.hpp) | [`test/staticrmq.test.cpp`](test/staticrmq.test.cpp), [`test/staticrmq_sparse_table.test.cpp`](test/staticrmq_sparse_table.test.cpp) |
+| ✅ | [Point Add Range Sum](https://judge.yosupo.jp/problem/point_add_range_sum) (`point_add_range_sum`) | [`data_structure/fenwick_tree.hpp`](data_structure/fenwick_tree.hpp) | [`test/point_add_range_sum.test.cpp`](test/point_add_range_sum.test.cpp) |
 | ⬜ | [Point Set Range Composite](https://judge.yosupo.jp/problem/point_set_range_composite) (`point_set_range_composite`) |  |  |
 | ⬜ | [Point Set Range Composite (Large Array)](https://judge.yosupo.jp/problem/point_set_range_composite_large_array) (`point_set_range_composite_large_array`) |  |  |
 | ⬜ | [Range Affine Point Get](https://judge.yosupo.jp/problem/range_affine_point_get) (`range_affine_point_get`) |  |  |

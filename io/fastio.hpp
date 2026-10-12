@@ -34,6 +34,10 @@ template <> struct unsigned_of<__int128> { using type = unsigned __int128; };
 template <class T> using unsigned_of_t = typename unsigned_of<T>::type;
 
 template <class T> constexpr bool is_integer_v = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;
+// ModInt のように val() で整数値を返し，整数から構築できる型
+template <class T, class = void> struct has_val : false_type {};
+template <class T> struct has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};
+
 template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128> || (is_integral_v<T> && is_signed_v<T>);
 
 struct Reader {
@@ -140,6 +144,7 @@ struct Reader {
         else if constexpr (is_same_v<T, string>) read_string(x);
         else if constexpr (is_floating_point_v<T>) read_float(x);
         else if constexpr (is_same_v<T, bool>) { int t; read_integer(t); x = t; }
+        else if constexpr (has_val<T>::value) { long long t; read_integer(t); x = T(t); }
         else static_assert(is_integer_v<T>, "fastio: unsupported type");
         return *this;
     }
@@ -266,6 +271,7 @@ struct Writer {
         else if constexpr (is_same_v<T, string_view>) write_string(x.data(), x.size());
         else if constexpr (is_convertible_v<T, const char *>) { const char *s = x; write_string(s, strlen(s)); }
         else if constexpr (is_floating_point_v<T>) write_float(x);
+        else if constexpr (has_val<T>::value) write_integer(x.val()), check_flush();
         else static_assert(is_integer_v<T>, "fastio: unsupported type");
         return *this;
     }
