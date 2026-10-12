@@ -10,11 +10,77 @@ data:
     path: test/aplusb.test.cpp
     title: test/aplusb.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/associative_array.test.cpp
+    title: test/associative_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/double_ended_priority_queue.test.cpp
+    title: test/double_ended_priority_queue.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/many_aplusb.test.cpp
     title: test/many_aplusb.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/many_aplusb_128bit.test.cpp
     title: test/many_aplusb_128bit.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/ordered_set.test.cpp
+    title: test/ordered_set.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_add_range_sum.test.cpp
+    title: test/point_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/predecessor_problem.test.cpp
+    title: test/predecessor_problem.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_parallel_unionfind.test.cpp
+    title: test/range_parallel_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_parallel_unionfind_online.test.cpp
+    title: test/range_parallel_unionfind_online.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/static_range_sum.test.cpp
+    title: test/static_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/staticrmq.test.cpp
+    title: test/staticrmq.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/staticrmq_sparse_table.test.cpp
+    title: test/staticrmq_sparse_table.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unionfind_with_potential.test.cpp
+    title: test/unionfind_with_potential.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unionfind_with_potential_non_commutative_group.test.cpp
+    title: test/unionfind_with_potential_non_commutative_group.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/cumulative_sum.test.cpp
+    title: test/unittest/cumulative_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/fast_set.test.cpp
+    title: test/unittest/fast_set.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/fenwick_tree.test.cpp
+    title: test/unittest/fenwick_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/hash_map.test.cpp
+    title: test/unittest/hash_map.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/interval_heap.test.cpp
+    title: test/unittest/interval_heap.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/modint.test.cpp
+    title: test/unittest/modint.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/ordered_set.test.cpp
+    title: test/unittest/ordered_set.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/potentialized_unionfind.test.cpp
+    title: test/unittest/potentialized_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/range_parallel_unionfind.test.cpp
+    title: test/unittest/range_parallel_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/static_rmq.test.cpp
+    title: test/unittest/static_rmq.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -54,6 +120,10 @@ data:
     \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
     \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
     \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
+    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
+    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
+    \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
     \ || (is_integral_v<T> && is_signed_v<T>);\n\nstruct Reader {\n    // \u6570\u5024\
     \u3092\u8AAD\u3080\u524D\u306B\u5E38\u306B TOKEN_MARGIN \u6587\u5B57\u4EE5\u4E0A\
@@ -108,8 +178,9 @@ data:
     \ char>) read_char(x);\n        else if constexpr (is_same_v<T, string>) read_string(x);\n\
     \        else if constexpr (is_floating_point_v<T>) read_float(x);\n        else\
     \ if constexpr (is_same_v<T, bool>) { int t; read_integer(t); x = t; }\n     \
-    \   else static_assert(is_integer_v<T>, \"fastio: unsupported type\");\n     \
-    \   return *this;\n    }\n\n    template <class T> Reader &operator>>(vector<T>\
+    \   else if constexpr (has_val<T>::value) { long long t; read_integer(t); x =\
+    \ T(t); }\n        else static_assert(is_integer_v<T>, \"fastio: unsupported type\"\
+    );\n        return *this;\n    }\n\n    template <class T> Reader &operator>>(vector<T>\
     \ &v) {\n        for (auto &e : v) *this >> e;\n        return *this;\n    }\n\
     \n    template <class T, class U> Reader &operator>>(pair<T, U> &p) { return *this\
     \ >> p.first >> p.second; }\n\n    template <class T> T read() {\n        T x;\n\
@@ -166,6 +237,7 @@ data:
     \ (is_same_v<T, string_view>) write_string(x.data(), x.size());\n        else\
     \ if constexpr (is_convertible_v<T, const char *>) { const char *s = x; write_string(s,\
     \ strlen(s)); }\n        else if constexpr (is_floating_point_v<T>) write_float(x);\n\
+    \        else if constexpr (has_val<T>::value) write_integer(x.val()), check_flush();\n\
     \        else static_assert(is_integer_v<T>, \"fastio: unsupported type\");\n\
     \        return *this;\n    }\n\n    // vector \u306F\u7A7A\u767D\u533A\u5207\u308A\
     \u3067\u51FA\u529B\u3059\u308B\n    template <class T> Writer &operator<<(const\
@@ -196,25 +268,29 @@ data:
     \ unsigned_of<__int128> { using type = unsigned __int128; };\ntemplate <class\
     \ T> using unsigned_of_t = typename unsigned_of<T>::type;\n\ntemplate <class T>\
     \ constexpr bool is_integer_v = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T,\
-    \ char>) || is_int128<T>::value;\ntemplate <class T> constexpr bool is_signed_integer_v\
-    \ = is_same_v<T, __int128> || (is_integral_v<T> && is_signed_v<T>);\n\nstruct\
-    \ Reader {\n    // \u6570\u5024\u3092\u8AAD\u3080\u524D\u306B\u5E38\u306B TOKEN_MARGIN\
-    \ \u6587\u5B57\u4EE5\u4E0A\u304C buf \u306B\u6B8B\u3063\u3066\u3044\u308B\u3088\
-    \u3046\u306B\u3057\u3066\uFF0C\u6570\u5024\u306E\u8AAD\u307F\u8FBC\u307F\u4E2D\
-    \u306E\u5883\u754C\u30C1\u30A7\u30C3\u30AF\u3092\u7701\u304F\n    static constexpr\
-    \ size_t TOKEN_MARGIN = 64;\n    char buf[BUF_SIZE + TOKEN_MARGIN + 8];\n    size_t\
-    \ pos = 0, len = 0;\n    bool eof = false;\n\n    // \u672A\u8AAD\u90E8\u5206\u3092\
-    \u5148\u982D\u306B\u5BC4\u305B\u3066\u304B\u3089\u8AAD\u307F\u8DB3\u3059\n   \
-    \ void refill() {\n        size_t rem = len - pos;\n        memmove(buf, buf +\
-    \ pos, rem);\n        pos = 0, len = rem;\n        while (!eof && len < TOKEN_MARGIN)\
-    \ {\n            size_t r = fread(buf + len, 1, BUF_SIZE - len, stdin);\n    \
-    \        if (r == 0) eof = true;\n            len += r;\n        }\n        //\
-    \ 8 \u30D0\u30A4\u30C8\u5358\u4F4D\u3067\u6570\u5B57\u3092\u8AAD\u3080\u3068\u304D\
-    \u306B\u672B\u5C3E\u306E\u5148\u3092\u8AAD\u3093\u3067\u3082\u6B62\u307E\u308B\
-    \u3088\u3046\u756A\u5175\u3092\u7F6E\u304F\n        memset(buf + len, 0, 8);\n\
-    \    }\n\n    // \u7A7A\u767D\u3092\u8AAD\u307F\u98DB\u3070\u3059\uFF0E\u8AAD\u307F\
-    \u7D42\u308F\u3063\u305F\u5F8C\u306F TOKEN_MARGIN \u6587\u5B57\u4EE5\u4E0A(\u307E\
-    \u305F\u306F EOF \u307E\u3067)\u304C\u6B8B\u3063\u3066\u3044\u308B\n    void skip_space()\
+    \ char>) || is_int128<T>::value;\n// ModInt \u306E\u3088\u3046\u306B val() \u3067\
+    \u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\
+    \u3067\u304D\u308B\u578B\ntemplate <class T, class = void> struct has_val : false_type\
+    \ {};\ntemplate <class T> struct has_val<T, void_t<decltype(declval<const T &>().val())>>\
+    \ : true_type {};\n\ntemplate <class T> constexpr bool is_signed_integer_v = is_same_v<T,\
+    \ __int128> || (is_integral_v<T> && is_signed_v<T>);\n\nstruct Reader {\n    //\
+    \ \u6570\u5024\u3092\u8AAD\u3080\u524D\u306B\u5E38\u306B TOKEN_MARGIN \u6587\u5B57\
+    \u4EE5\u4E0A\u304C buf \u306B\u6B8B\u3063\u3066\u3044\u308B\u3088\u3046\u306B\u3057\
+    \u3066\uFF0C\u6570\u5024\u306E\u8AAD\u307F\u8FBC\u307F\u4E2D\u306E\u5883\u754C\
+    \u30C1\u30A7\u30C3\u30AF\u3092\u7701\u304F\n    static constexpr size_t TOKEN_MARGIN\
+    \ = 64;\n    char buf[BUF_SIZE + TOKEN_MARGIN + 8];\n    size_t pos = 0, len =\
+    \ 0;\n    bool eof = false;\n\n    // \u672A\u8AAD\u90E8\u5206\u3092\u5148\u982D\
+    \u306B\u5BC4\u305B\u3066\u304B\u3089\u8AAD\u307F\u8DB3\u3059\n    void refill()\
+    \ {\n        size_t rem = len - pos;\n        memmove(buf, buf + pos, rem);\n\
+    \        pos = 0, len = rem;\n        while (!eof && len < TOKEN_MARGIN) {\n \
+    \           size_t r = fread(buf + len, 1, BUF_SIZE - len, stdin);\n         \
+    \   if (r == 0) eof = true;\n            len += r;\n        }\n        // 8 \u30D0\
+    \u30A4\u30C8\u5358\u4F4D\u3067\u6570\u5B57\u3092\u8AAD\u3080\u3068\u304D\u306B\
+    \u672B\u5C3E\u306E\u5148\u3092\u8AAD\u3093\u3067\u3082\u6B62\u307E\u308B\u3088\
+    \u3046\u756A\u5175\u3092\u7F6E\u304F\n        memset(buf + len, 0, 8);\n    }\n\
+    \n    // \u7A7A\u767D\u3092\u8AAD\u307F\u98DB\u3070\u3059\uFF0E\u8AAD\u307F\u7D42\
+    \u308F\u3063\u305F\u5F8C\u306F TOKEN_MARGIN \u6587\u5B57\u4EE5\u4E0A(\u307E\u305F\
+    \u306F EOF \u307E\u3067)\u304C\u6B8B\u3063\u3066\u3044\u308B\n    void skip_space()\
     \ {\n        while (true) {\n            if (len - pos < TOKEN_MARGIN && !eof)\
     \ refill();\n            while (pos < len && (unsigned char)buf[pos] <= ' ') pos++;\n\
     \            if (pos < len || eof) break;\n        }\n        if (len - pos <\
@@ -250,8 +326,9 @@ data:
     \ char>) read_char(x);\n        else if constexpr (is_same_v<T, string>) read_string(x);\n\
     \        else if constexpr (is_floating_point_v<T>) read_float(x);\n        else\
     \ if constexpr (is_same_v<T, bool>) { int t; read_integer(t); x = t; }\n     \
-    \   else static_assert(is_integer_v<T>, \"fastio: unsupported type\");\n     \
-    \   return *this;\n    }\n\n    template <class T> Reader &operator>>(vector<T>\
+    \   else if constexpr (has_val<T>::value) { long long t; read_integer(t); x =\
+    \ T(t); }\n        else static_assert(is_integer_v<T>, \"fastio: unsupported type\"\
+    );\n        return *this;\n    }\n\n    template <class T> Reader &operator>>(vector<T>\
     \ &v) {\n        for (auto &e : v) *this >> e;\n        return *this;\n    }\n\
     \n    template <class T, class U> Reader &operator>>(pair<T, U> &p) { return *this\
     \ >> p.first >> p.second; }\n\n    template <class T> T read() {\n        T x;\n\
@@ -308,6 +385,7 @@ data:
     \ (is_same_v<T, string_view>) write_string(x.data(), x.size());\n        else\
     \ if constexpr (is_convertible_v<T, const char *>) { const char *s = x; write_string(s,\
     \ strlen(s)); }\n        else if constexpr (is_floating_point_v<T>) write_float(x);\n\
+    \        else if constexpr (has_val<T>::value) write_integer(x.val()), check_flush();\n\
     \        else static_assert(is_integer_v<T>, \"fastio: unsupported type\");\n\
     \        return *this;\n    }\n\n    // vector \u306F\u7A7A\u767D\u533A\u5207\u308A\
     \u3067\u51FA\u529B\u3059\u308B\n    template <class T> Writer &operator<<(const\
@@ -320,12 +398,34 @@ data:
   isVerificationFile: false
   path: io/fastio.hpp
   requiredBy: []
-  timestamp: '2026-10-12 09:36:51+09:00'
+  timestamp: '2026-10-12 10:14:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/unionfind_with_potential_non_commutative_group.test.cpp
+  - test/static_range_sum.test.cpp
+  - test/double_ended_priority_queue.test.cpp
   - test/many_aplusb.test.cpp
   - test/aplusb.test.cpp
+  - test/staticrmq.test.cpp
+  - test/unittest/modint.test.cpp
+  - test/unittest/fenwick_tree.test.cpp
+  - test/unittest/cumulative_sum.test.cpp
+  - test/unittest/potentialized_unionfind.test.cpp
+  - test/unittest/hash_map.test.cpp
+  - test/unittest/range_parallel_unionfind.test.cpp
+  - test/unittest/ordered_set.test.cpp
+  - test/unittest/fast_set.test.cpp
+  - test/unittest/interval_heap.test.cpp
+  - test/unittest/static_rmq.test.cpp
+  - test/staticrmq_sparse_table.test.cpp
+  - test/range_parallel_unionfind_online.test.cpp
+  - test/predecessor_problem.test.cpp
+  - test/range_parallel_unionfind.test.cpp
+  - test/ordered_set.test.cpp
+  - test/unionfind_with_potential.test.cpp
+  - test/associative_array.test.cpp
   - test/many_aplusb_128bit.test.cpp
+  - test/point_add_range_sum.test.cpp
 documentation_of: io/fastio.hpp
 layout: document
 title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
@@ -349,6 +449,7 @@ fin >> s >> c;                 // 空白区切りの文字列 / 空白以外の 
 double d; fin >> d;            // 浮動小数点数
 vector<int> a(n); fin >> a;    // vector は要素数ぶん読む (あらかじめサイズを確保しておく)
 pair<int, int> p; fin >> p;    // pair
+mint m; fin >> m; fout << m;   // modint (自作 ModInt・ACL の modint どちらも可．val() を持つ型)
 auto y = fin.read<long long>();  // 値を返す形でも読める
 
 fout << x << ' ' << s << '\n';   // 整数・文字・文字列・bool (0/1)

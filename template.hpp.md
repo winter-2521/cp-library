@@ -3,6 +3,38 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: data_structure/cumulative_sum.hpp
+    title: "\u7D2F\u7A4D\u548C (Cumulative Sum)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/fast_set.hpp
+    title: "64 \u5206\u6728\u306B\u3088\u308B\u6574\u6570\u96C6\u5408 (Fast Set)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/fenwick_tree.hpp
+    title: Fenwick Tree (Binary Indexed Tree)
+  - icon: ':heavy_check_mark:'
+    path: data_structure/hash_map.hpp
+    title: "\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7 (Hash Map)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/interval_heap.hpp
+    title: "Interval Heap (\u4E21\u7AEF\u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC\
+      )"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/ordered_set.hpp
+    title: "\u9806\u5E8F\u4ED8\u304D\u96C6\u5408 (Ordered Set)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/potentialized_unionfind.hpp
+    title: "\u30DD\u30C6\u30F3\u30B7\u30E3\u30EB\u4ED8\u304D Union-Find (\u975E\u53EF\
+      \u63DB\u7FA4\u5BFE\u5FDC)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/range_parallel_unionfind.hpp
+    title: "\u533A\u9593\u4E26\u5217 Union-Find (Range Parallel Union-Find)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/sparse_table.hpp
+    title: Sparse Table
+  - icon: ':heavy_check_mark:'
+    path: data_structure/static_rmq.hpp
+    title: "\u9759\u7684 RMQ (Static Range Minimum Query)"
+  - icon: ':heavy_check_mark:'
     path: data_structure/weighted_dsu.hpp
     title: "\u91CD\u307F\u4ED8\u304D Union-Find (Weighted Union-Find)"
   - icon: ':heavy_check_mark:'
@@ -17,13 +49,29 @@ data:
   - icon: ':heavy_check_mark:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
+  - icon: ':heavy_check_mark:'
+    path: math/modint.hpp
+    title: "ModInt (\u6CD5\u304C\u30B3\u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E\
+      \ modint)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aplusb.test.cpp
     title: test/aplusb.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/associative_array.test.cpp
+    title: test/associative_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/associative_array.test.cpp
+    title: test/associative_array.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/dijkstra.test.cpp
     title: test/dijkstra.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/double_ended_priority_queue.test.cpp
+    title: test/double_ended_priority_queue.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/double_ended_priority_queue.test.cpp
+    title: test/double_ended_priority_queue.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/many_aplusb.test.cpp
     title: test/many_aplusb.test.cpp
@@ -31,8 +79,143 @@ data:
     path: test/many_aplusb_128bit.test.cpp
     title: test/many_aplusb_128bit.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/ordered_set.test.cpp
+    title: test/ordered_set.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/ordered_set.test.cpp
+    title: test/ordered_set.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_add_range_sum.test.cpp
+    title: test/point_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_add_range_sum.test.cpp
+    title: test/point_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/predecessor_problem.test.cpp
+    title: test/predecessor_problem.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/predecessor_problem.test.cpp
+    title: test/predecessor_problem.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_parallel_unionfind.test.cpp
+    title: test/range_parallel_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_parallel_unionfind.test.cpp
+    title: test/range_parallel_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_parallel_unionfind.test.cpp
+    title: test/range_parallel_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_parallel_unionfind_online.test.cpp
+    title: test/range_parallel_unionfind_online.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_parallel_unionfind_online.test.cpp
+    title: test/range_parallel_unionfind_online.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_parallel_unionfind_online.test.cpp
+    title: test/range_parallel_unionfind_online.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/static_range_sum.test.cpp
+    title: test/static_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/static_range_sum.test.cpp
+    title: test/static_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/staticrmq.test.cpp
+    title: test/staticrmq.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/staticrmq.test.cpp
+    title: test/staticrmq.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/staticrmq_sparse_table.test.cpp
+    title: test/staticrmq_sparse_table.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/staticrmq_sparse_table.test.cpp
+    title: test/staticrmq_sparse_table.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unionfind.test.cpp
     title: test/unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unionfind_with_potential.test.cpp
+    title: test/unionfind_with_potential.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unionfind_with_potential.test.cpp
+    title: test/unionfind_with_potential.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unionfind_with_potential.test.cpp
+    title: test/unionfind_with_potential.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unionfind_with_potential_non_commutative_group.test.cpp
+    title: test/unionfind_with_potential_non_commutative_group.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unionfind_with_potential_non_commutative_group.test.cpp
+    title: test/unionfind_with_potential_non_commutative_group.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unionfind_with_potential_non_commutative_group.test.cpp
+    title: test/unionfind_with_potential_non_commutative_group.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/cumulative_sum.test.cpp
+    title: test/unittest/cumulative_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/cumulative_sum.test.cpp
+    title: test/unittest/cumulative_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/fast_set.test.cpp
+    title: test/unittest/fast_set.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/fast_set.test.cpp
+    title: test/unittest/fast_set.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/fenwick_tree.test.cpp
+    title: test/unittest/fenwick_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/fenwick_tree.test.cpp
+    title: test/unittest/fenwick_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/hash_map.test.cpp
+    title: test/unittest/hash_map.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/hash_map.test.cpp
+    title: test/unittest/hash_map.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/interval_heap.test.cpp
+    title: test/unittest/interval_heap.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/interval_heap.test.cpp
+    title: test/unittest/interval_heap.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/modint.test.cpp
+    title: test/unittest/modint.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/modint.test.cpp
+    title: test/unittest/modint.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/modint.test.cpp
+    title: test/unittest/modint.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/ordered_set.test.cpp
+    title: test/unittest/ordered_set.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/ordered_set.test.cpp
+    title: test/unittest/ordered_set.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/potentialized_unionfind.test.cpp
+    title: test/unittest/potentialized_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/potentialized_unionfind.test.cpp
+    title: test/unittest/potentialized_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/range_parallel_unionfind.test.cpp
+    title: test/unittest/range_parallel_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/range_parallel_unionfind.test.cpp
+    title: test/unittest/range_parallel_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/static_rmq.test.cpp
+    title: test/unittest/static_rmq.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/static_rmq.test.cpp
+    title: test/unittest/static_rmq.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/weighteddsu.test.cpp
     title: test/weighteddsu.test.cpp
@@ -70,17 +253,77 @@ data:
   - graph/dsu.hpp
   - graph/dijkstra.hpp
   - graph/graph-template.hpp
+  - data_structure/fenwick_tree.hpp
+  - data_structure/hash_map.hpp
   - data_structure/weighted_dsu.hpp
+  - data_structure/potentialized_unionfind.hpp
+  - data_structure/interval_heap.hpp
+  - data_structure/sparse_table.hpp
+  - data_structure/fast_set.hpp
+  - data_structure/range_parallel_unionfind.hpp
+  - data_structure/static_rmq.hpp
+  - data_structure/ordered_set.hpp
+  - data_structure/cumulative_sum.hpp
   - io/fastio.hpp
+  - math/modint.hpp
   timestamp: '2024-11-05 15:14:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/unionfind_with_potential_non_commutative_group.test.cpp
+  - test/unionfind_with_potential_non_commutative_group.test.cpp
+  - test/unionfind_with_potential_non_commutative_group.test.cpp
   - test/unionfind.test.cpp
+  - test/static_range_sum.test.cpp
+  - test/static_range_sum.test.cpp
+  - test/double_ended_priority_queue.test.cpp
+  - test/double_ended_priority_queue.test.cpp
   - test/many_aplusb.test.cpp
   - test/aplusb.test.cpp
+  - test/staticrmq.test.cpp
+  - test/staticrmq.test.cpp
   - test/weighteddsu.test.cpp
+  - test/unittest/modint.test.cpp
+  - test/unittest/modint.test.cpp
+  - test/unittest/modint.test.cpp
+  - test/unittest/fenwick_tree.test.cpp
+  - test/unittest/fenwick_tree.test.cpp
+  - test/unittest/cumulative_sum.test.cpp
+  - test/unittest/cumulative_sum.test.cpp
+  - test/unittest/potentialized_unionfind.test.cpp
+  - test/unittest/potentialized_unionfind.test.cpp
+  - test/unittest/hash_map.test.cpp
+  - test/unittest/hash_map.test.cpp
+  - test/unittest/range_parallel_unionfind.test.cpp
+  - test/unittest/range_parallel_unionfind.test.cpp
+  - test/unittest/ordered_set.test.cpp
+  - test/unittest/ordered_set.test.cpp
+  - test/unittest/fast_set.test.cpp
+  - test/unittest/fast_set.test.cpp
+  - test/unittest/interval_heap.test.cpp
+  - test/unittest/interval_heap.test.cpp
+  - test/unittest/static_rmq.test.cpp
+  - test/unittest/static_rmq.test.cpp
+  - test/staticrmq_sparse_table.test.cpp
+  - test/staticrmq_sparse_table.test.cpp
+  - test/range_parallel_unionfind_online.test.cpp
+  - test/range_parallel_unionfind_online.test.cpp
+  - test/range_parallel_unionfind_online.test.cpp
+  - test/predecessor_problem.test.cpp
+  - test/predecessor_problem.test.cpp
+  - test/range_parallel_unionfind.test.cpp
+  - test/range_parallel_unionfind.test.cpp
+  - test/range_parallel_unionfind.test.cpp
+  - test/ordered_set.test.cpp
+  - test/ordered_set.test.cpp
+  - test/unionfind_with_potential.test.cpp
+  - test/unionfind_with_potential.test.cpp
+  - test/unionfind_with_potential.test.cpp
+  - test/associative_array.test.cpp
+  - test/associative_array.test.cpp
   - test/dijkstra.test.cpp
   - test/many_aplusb_128bit.test.cpp
+  - test/point_add_range_sum.test.cpp
+  - test/point_add_range_sum.test.cpp
 documentation_of: template.hpp
 layout: document
 title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"

@@ -52,6 +52,10 @@ data:
     \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
     \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
     \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
+    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
+    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
+    \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
     \ || (is_integral_v<T> && is_signed_v<T>);\n\nstruct Reader {\n    // \u6570\u5024\
     \u3092\u8AAD\u3080\u524D\u306B\u5E38\u306B TOKEN_MARGIN \u6587\u5B57\u4EE5\u4E0A\
@@ -106,8 +110,9 @@ data:
     \ char>) read_char(x);\n        else if constexpr (is_same_v<T, string>) read_string(x);\n\
     \        else if constexpr (is_floating_point_v<T>) read_float(x);\n        else\
     \ if constexpr (is_same_v<T, bool>) { int t; read_integer(t); x = t; }\n     \
-    \   else static_assert(is_integer_v<T>, \"fastio: unsupported type\");\n     \
-    \   return *this;\n    }\n\n    template <class T> Reader &operator>>(vector<T>\
+    \   else if constexpr (has_val<T>::value) { long long t; read_integer(t); x =\
+    \ T(t); }\n        else static_assert(is_integer_v<T>, \"fastio: unsupported type\"\
+    );\n        return *this;\n    }\n\n    template <class T> Reader &operator>>(vector<T>\
     \ &v) {\n        for (auto &e : v) *this >> e;\n        return *this;\n    }\n\
     \n    template <class T, class U> Reader &operator>>(pair<T, U> &p) { return *this\
     \ >> p.first >> p.second; }\n\n    template <class T> T read() {\n        T x;\n\
@@ -164,6 +169,7 @@ data:
     \ (is_same_v<T, string_view>) write_string(x.data(), x.size());\n        else\
     \ if constexpr (is_convertible_v<T, const char *>) { const char *s = x; write_string(s,\
     \ strlen(s)); }\n        else if constexpr (is_floating_point_v<T>) write_float(x);\n\
+    \        else if constexpr (has_val<T>::value) write_integer(x.val()), check_flush();\n\
     \        else static_assert(is_integer_v<T>, \"fastio: unsupported type\");\n\
     \        return *this;\n    }\n\n    // vector \u306F\u7A7A\u767D\u533A\u5207\u308A\
     \u3067\u51FA\u529B\u3059\u308B\n    template <class T> Writer &operator<<(const\
@@ -185,7 +191,7 @@ data:
   isVerificationFile: true
   path: test/many_aplusb_128bit.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 09:36:51+09:00'
+  timestamp: '2026-10-12 10:14:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/many_aplusb_128bit.test.cpp
