@@ -7,11 +7,35 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/persistent_range_affine_range_sum.test.cpp
+    title: test/persistent_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_composite.test.cpp
+    title: test/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_composite_large_array.test.cpp
+    title: test/point_set_range_composite_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_sort_range_composite.test.cpp
+    title: test/point_set_range_sort_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_point_get.test.cpp
+    title: test/range_affine_point_get.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_range_sum.test.cpp
+    title: test/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_range_sum_large_array.test.cpp
+    title: test/range_affine_range_sum_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/range_parallel_unionfind.test.cpp
     title: test/range_parallel_unionfind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/range_parallel_unionfind_online.test.cpp
     title: test/range_parallel_unionfind_online.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_set_range_composite.test.cpp
+    title: test/range_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unionfind_with_potential.test.cpp
     title: test/unionfind_with_potential.test.cpp
@@ -19,8 +43,20 @@ data:
     path: test/unionfind_with_potential_non_commutative_group.test.cpp
     title: test/unionfind_with_potential_non_commutative_group.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/unittest/lazy_segment_tree.test.cpp
+    title: test/unittest/lazy_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unittest/modint.test.cpp
     title: test/unittest/modint.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/range_assign_segment_tree.test.cpp
+    title: test/unittest/range_assign_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/segment_tree.test.cpp
+    title: test/unittest/segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/sortable_segment_tree.test.cpp
+    title: test/unittest/sortable_segment_tree.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -158,10 +194,22 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/unionfind_with_potential_non_commutative_group.test.cpp
+  - test/point_set_range_composite_large_array.test.cpp
+  - test/persistent_range_affine_range_sum.test.cpp
   - test/unittest/modint.test.cpp
+  - test/unittest/lazy_segment_tree.test.cpp
+  - test/unittest/segment_tree.test.cpp
+  - test/unittest/range_assign_segment_tree.test.cpp
+  - test/unittest/sortable_segment_tree.test.cpp
+  - test/point_set_range_sort_range_composite.test.cpp
   - test/range_parallel_unionfind_online.test.cpp
   - test/range_parallel_unionfind.test.cpp
+  - test/range_affine_point_get.test.cpp
+  - test/point_set_range_composite.test.cpp
   - test/unionfind_with_potential.test.cpp
+  - test/range_set_range_composite.test.cpp
+  - test/range_affine_range_sum.test.cpp
+  - test/range_affine_range_sum_large_array.test.cpp
 documentation_of: math/modint.hpp
 layout: document
 title: "ModInt (\u6CD5\u304C\u30B3\u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E\

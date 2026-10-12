@@ -8,7 +8,7 @@
 
 既存のライブラリ（`graph/dsu.hpp`, `graph/dijkstra.hpp`）は fastio 導入前に作ったもので、速度面の見直しはまだしていない。
 
-**進捗: 15 / 235**
+**進捗: 25 / 235**
 
 ## Sample
 
@@ -33,16 +33,16 @@
 | ✅ | [Static Range Sum](https://judge.yosupo.jp/problem/static_range_sum) (`static_range_sum`) | [`data_structure/cumulative_sum.hpp`](data_structure/cumulative_sum.hpp) | [`test/static_range_sum.test.cpp`](test/static_range_sum.test.cpp) |
 | ✅ | [Static RMQ](https://judge.yosupo.jp/problem/staticrmq) (`staticrmq`) | [`data_structure/static_rmq.hpp`](data_structure/static_rmq.hpp), [`data_structure/sparse_table.hpp`](data_structure/sparse_table.hpp) | [`test/staticrmq.test.cpp`](test/staticrmq.test.cpp), [`test/staticrmq_sparse_table.test.cpp`](test/staticrmq_sparse_table.test.cpp) |
 | ✅ | [Point Add Range Sum](https://judge.yosupo.jp/problem/point_add_range_sum) (`point_add_range_sum`) | [`data_structure/fenwick_tree.hpp`](data_structure/fenwick_tree.hpp) | [`test/point_add_range_sum.test.cpp`](test/point_add_range_sum.test.cpp) |
-| ⬜ | [Point Set Range Composite](https://judge.yosupo.jp/problem/point_set_range_composite) (`point_set_range_composite`) |  |  |
-| ⬜ | [Point Set Range Composite (Large Array)](https://judge.yosupo.jp/problem/point_set_range_composite_large_array) (`point_set_range_composite_large_array`) |  |  |
-| ⬜ | [Range Affine Point Get](https://judge.yosupo.jp/problem/range_affine_point_get) (`range_affine_point_get`) |  |  |
-| ⬜ | [Range Affine Range Sum](https://judge.yosupo.jp/problem/range_affine_range_sum) (`range_affine_range_sum`) |  |  |
-| ⬜ | [Range Affine Range Sum (Large Array)](https://judge.yosupo.jp/problem/range_affine_range_sum_large_array) (`range_affine_range_sum_large_array`) |  |  |
-| ⬜ | [Persistent Range Affine Range Sum](https://judge.yosupo.jp/problem/persistent_range_affine_range_sum) (`persistent_range_affine_range_sum`) |  |  |
-| ⬜ | [Range Set Range Composite](https://judge.yosupo.jp/problem/range_set_range_composite) (`range_set_range_composite`) |  |  |
-| ⬜ | [Range Chmin Chmax Add Range Sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) (`range_chmin_chmax_add_range_sum`) |  |  |
-| ⬜ | [Range Kth Smallest](https://judge.yosupo.jp/problem/range_kth_smallest) (`range_kth_smallest`) |  |  |
-| ⬜ | [Point Set Range Sort Range Composite](https://judge.yosupo.jp/problem/point_set_range_sort_range_composite) (`point_set_range_sort_range_composite`) |  |  |
+| ✅ | [Point Set Range Composite](https://judge.yosupo.jp/problem/point_set_range_composite) (`point_set_range_composite`) | [`data_structure/segment_tree.hpp`](data_structure/segment_tree.hpp) | [`test/point_set_range_composite.test.cpp`](test/point_set_range_composite.test.cpp) |
+| ✅ | [Point Set Range Composite (Large Array)](https://judge.yosupo.jp/problem/point_set_range_composite_large_array) (`point_set_range_composite_large_array`) | [`data_structure/dynamic_segment_tree.hpp`](data_structure/dynamic_segment_tree.hpp) | [`test/point_set_range_composite_large_array.test.cpp`](test/point_set_range_composite_large_array.test.cpp) |
+| ✅ | [Range Affine Point Get](https://judge.yosupo.jp/problem/range_affine_point_get) (`range_affine_point_get`) | [`data_structure/dual_segment_tree.hpp`](data_structure/dual_segment_tree.hpp) | [`test/range_affine_point_get.test.cpp`](test/range_affine_point_get.test.cpp) |
+| ✅ | [Range Affine Range Sum](https://judge.yosupo.jp/problem/range_affine_range_sum) (`range_affine_range_sum`) | [`data_structure/lazy_segment_tree.hpp`](data_structure/lazy_segment_tree.hpp) | [`test/range_affine_range_sum.test.cpp`](test/range_affine_range_sum.test.cpp) |
+| ✅ | [Range Affine Range Sum (Large Array)](https://judge.yosupo.jp/problem/range_affine_range_sum_large_array) (`range_affine_range_sum_large_array`) | [`data_structure/dynamic_lazy_segment_tree.hpp`](data_structure/dynamic_lazy_segment_tree.hpp) | [`test/range_affine_range_sum_large_array.test.cpp`](test/range_affine_range_sum_large_array.test.cpp) |
+| ✅ | [Persistent Range Affine Range Sum](https://judge.yosupo.jp/problem/persistent_range_affine_range_sum) (`persistent_range_affine_range_sum`) | [`data_structure/persistent_lazy_segment_tree.hpp`](data_structure/persistent_lazy_segment_tree.hpp) | [`test/persistent_range_affine_range_sum.test.cpp`](test/persistent_range_affine_range_sum.test.cpp) |
+| ✅ | [Range Set Range Composite](https://judge.yosupo.jp/problem/range_set_range_composite) (`range_set_range_composite`) | [`data_structure/range_assign_segment_tree.hpp`](data_structure/range_assign_segment_tree.hpp) | [`test/range_set_range_composite.test.cpp`](test/range_set_range_composite.test.cpp) |
+| ✅ | [Range Chmin Chmax Add Range Sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) (`range_chmin_chmax_add_range_sum`) | [`data_structure/segment_tree_beats.hpp`](data_structure/segment_tree_beats.hpp) | [`test/range_chmin_chmax_add_range_sum.test.cpp`](test/range_chmin_chmax_add_range_sum.test.cpp) |
+| ✅ | [Range Kth Smallest](https://judge.yosupo.jp/problem/range_kth_smallest) (`range_kth_smallest`) | [`data_structure/wavelet_matrix.hpp`](data_structure/wavelet_matrix.hpp) | [`test/range_kth_smallest.test.cpp`](test/range_kth_smallest.test.cpp) |
+| ✅ | [Point Set Range Sort Range Composite](https://judge.yosupo.jp/problem/point_set_range_sort_range_composite) (`point_set_range_sort_range_composite`) | [`data_structure/sortable_segment_tree.hpp`](data_structure/sortable_segment_tree.hpp) | [`test/point_set_range_sort_range_composite.test.cpp`](test/point_set_range_sort_range_composite.test.cpp) |
 | ⬜ | [Range Reverse Range Sum](https://judge.yosupo.jp/problem/range_reverse_range_sum) (`range_reverse_range_sum`) |  |  |
 | ⬜ | [Dynamic Sequence Range Affine Range Sum](https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum) (`dynamic_sequence_range_affine_range_sum`) |  |  |
 | ⬜ | [Range Linear Add Range Min](https://judge.yosupo.jp/problem/range_linear_add_range_min) (`range_linear_add_range_min`) |  |  |

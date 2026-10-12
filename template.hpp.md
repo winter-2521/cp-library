@@ -3,8 +3,34 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: algebra/acted_monoid.hpp
+    title: "\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9 (Acted Monoid)"
+  - icon: ':heavy_check_mark:'
+    path: algebra/monoid.hpp
+    title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
+  - icon: ':heavy_check_mark:'
     path: data_structure/cumulative_sum.hpp
     title: "\u7D2F\u7A4D\u548C (Cumulative Sum)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/dual_segment_tree.hpp
+    title: "\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dual Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/dual_segment_tree.hpp
+    title: "\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dual Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/dynamic_lazy_segment_tree.hpp
+    title: "\u52D5\u7684\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dynamic\
+      \ Lazy Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/dynamic_lazy_segment_tree.hpp
+    title: "\u52D5\u7684\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dynamic\
+      \ Lazy Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/dynamic_segment_tree.hpp
+    title: "\u52D5\u7684\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dynamic Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/dynamic_segment_tree.hpp
+    title: "\u52D5\u7684\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dynamic Segment Tree)"
   - icon: ':heavy_check_mark:'
     path: data_structure/fast_set.hpp
     title: "64 \u5206\u6728\u306B\u3088\u308B\u6574\u6570\u96C6\u5408 (Fast Set)"
@@ -19,21 +45,63 @@ data:
     title: "Interval Heap (\u4E21\u7AEF\u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC\
       )"
   - icon: ':heavy_check_mark:'
+    path: data_structure/lazy_segment_tree.hpp
+    title: "\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Lazy Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/lazy_segment_tree.hpp
+    title: "\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Lazy Segment Tree)"
+  - icon: ':heavy_check_mark:'
     path: data_structure/ordered_set.hpp
     title: "\u9806\u5E8F\u4ED8\u304D\u96C6\u5408 (Ordered Set)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/persistent_lazy_segment_tree.hpp
+    title: "\u6C38\u7D9A\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Persistent\
+      \ Lazy Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/persistent_lazy_segment_tree.hpp
+    title: "\u6C38\u7D9A\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Persistent\
+      \ Lazy Segment Tree)"
   - icon: ':heavy_check_mark:'
     path: data_structure/potentialized_unionfind.hpp
     title: "\u30DD\u30C6\u30F3\u30B7\u30E3\u30EB\u4ED8\u304D Union-Find (\u975E\u53EF\
       \u63DB\u7FA4\u5BFE\u5FDC)"
   - icon: ':heavy_check_mark:'
+    path: data_structure/range_assign_segment_tree.hpp
+    title: "\u533A\u9593\u4EE3\u5165\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Range Assign\
+      \ Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/range_assign_segment_tree.hpp
+    title: "\u533A\u9593\u4EE3\u5165\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Range Assign\
+      \ Segment Tree)"
+  - icon: ':heavy_check_mark:'
     path: data_structure/range_parallel_unionfind.hpp
     title: "\u533A\u9593\u4E26\u5217 Union-Find (Range Parallel Union-Find)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/segment_tree.hpp
+    title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/segment_tree.hpp
+    title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/segment_tree_beats.hpp
+    title: Segment Tree Beats
+  - icon: ':heavy_check_mark:'
+    path: data_structure/sortable_segment_tree.hpp
+    title: "\u533A\u9593\u30BD\u30FC\u30C8\u304C\u3067\u304D\u308B\u30BB\u30B0\u30E1\
+      \u30F3\u30C8\u6728 (Sortable Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/sortable_segment_tree.hpp
+    title: "\u533A\u9593\u30BD\u30FC\u30C8\u304C\u3067\u304D\u308B\u30BB\u30B0\u30E1\
+      \u30F3\u30C8\u6728 (Sortable Segment Tree)"
   - icon: ':heavy_check_mark:'
     path: data_structure/sparse_table.hpp
     title: Sparse Table
   - icon: ':heavy_check_mark:'
     path: data_structure/static_rmq.hpp
     title: "\u9759\u7684 RMQ (Static Range Minimum Query)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/wavelet_matrix.hpp
+    title: "\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\u5217 (Wavelet Matrix)"
   - icon: ':heavy_check_mark:'
     path: data_structure/weighted_dsu.hpp
     title: "\u91CD\u307F\u4ED8\u304D Union-Find (Weighted Union-Find)"
@@ -85,11 +153,59 @@ data:
     path: test/ordered_set.test.cpp
     title: test/ordered_set.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/persistent_range_affine_range_sum.test.cpp
+    title: test/persistent_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/persistent_range_affine_range_sum.test.cpp
+    title: test/persistent_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/persistent_range_affine_range_sum.test.cpp
+    title: test/persistent_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/persistent_range_affine_range_sum.test.cpp
+    title: test/persistent_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/point_add_range_sum.test.cpp
     title: test/point_add_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/point_add_range_sum.test.cpp
     title: test/point_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_composite.test.cpp
+    title: test/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_composite.test.cpp
+    title: test/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_composite.test.cpp
+    title: test/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_composite.test.cpp
+    title: test/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_composite_large_array.test.cpp
+    title: test/point_set_range_composite_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_composite_large_array.test.cpp
+    title: test/point_set_range_composite_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_composite_large_array.test.cpp
+    title: test/point_set_range_composite_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_composite_large_array.test.cpp
+    title: test/point_set_range_composite_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_sort_range_composite.test.cpp
+    title: test/point_set_range_sort_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_sort_range_composite.test.cpp
+    title: test/point_set_range_sort_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_sort_range_composite.test.cpp
+    title: test/point_set_range_sort_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_sort_range_composite.test.cpp
+    title: test/point_set_range_sort_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/predecessor_problem.test.cpp
     title: test/predecessor_problem.test.cpp
@@ -97,6 +213,54 @@ data:
     path: test/predecessor_problem.test.cpp
     title: test/predecessor_problem.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/range_affine_point_get.test.cpp
+    title: test/range_affine_point_get.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_point_get.test.cpp
+    title: test/range_affine_point_get.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_point_get.test.cpp
+    title: test/range_affine_point_get.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_point_get.test.cpp
+    title: test/range_affine_point_get.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_range_sum.test.cpp
+    title: test/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_range_sum.test.cpp
+    title: test/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_range_sum.test.cpp
+    title: test/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_range_sum.test.cpp
+    title: test/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_range_sum_large_array.test.cpp
+    title: test/range_affine_range_sum_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_range_sum_large_array.test.cpp
+    title: test/range_affine_range_sum_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_range_sum_large_array.test.cpp
+    title: test/range_affine_range_sum_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_affine_range_sum_large_array.test.cpp
+    title: test/range_affine_range_sum_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_chmin_chmax_add_range_sum.test.cpp
+    title: test/range_chmin_chmax_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_chmin_chmax_add_range_sum.test.cpp
+    title: test/range_chmin_chmax_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_kth_smallest.test.cpp
+    title: test/range_kth_smallest.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_kth_smallest.test.cpp
+    title: test/range_kth_smallest.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/range_parallel_unionfind.test.cpp
     title: test/range_parallel_unionfind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -114,6 +278,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/range_parallel_unionfind_online.test.cpp
     title: test/range_parallel_unionfind_online.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_set_range_composite.test.cpp
+    title: test/range_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_set_range_composite.test.cpp
+    title: test/range_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_set_range_composite.test.cpp
+    title: test/range_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_set_range_composite.test.cpp
+    title: test/range_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/static_range_sum.test.cpp
     title: test/static_range_sum.test.cpp
@@ -184,6 +360,18 @@ data:
     path: test/unittest/interval_heap.test.cpp
     title: test/unittest/interval_heap.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/unittest/lazy_segment_tree.test.cpp
+    title: test/unittest/lazy_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/lazy_segment_tree.test.cpp
+    title: test/unittest/lazy_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/lazy_segment_tree.test.cpp
+    title: test/unittest/lazy_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/lazy_segment_tree.test.cpp
+    title: test/unittest/lazy_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unittest/modint.test.cpp
     title: test/unittest/modint.test.cpp
   - icon: ':heavy_check_mark:'
@@ -205,17 +393,65 @@ data:
     path: test/unittest/potentialized_unionfind.test.cpp
     title: test/unittest/potentialized_unionfind.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/unittest/range_assign_segment_tree.test.cpp
+    title: test/unittest/range_assign_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/range_assign_segment_tree.test.cpp
+    title: test/unittest/range_assign_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/range_assign_segment_tree.test.cpp
+    title: test/unittest/range_assign_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/range_assign_segment_tree.test.cpp
+    title: test/unittest/range_assign_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unittest/range_parallel_unionfind.test.cpp
     title: test/unittest/range_parallel_unionfind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/range_parallel_unionfind.test.cpp
     title: test/unittest/range_parallel_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/segment_tree.test.cpp
+    title: test/unittest/segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/segment_tree.test.cpp
+    title: test/unittest/segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/segment_tree.test.cpp
+    title: test/unittest/segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/segment_tree.test.cpp
+    title: test/unittest/segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/segment_tree_beats.test.cpp
+    title: test/unittest/segment_tree_beats.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/segment_tree_beats.test.cpp
+    title: test/unittest/segment_tree_beats.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/sortable_segment_tree.test.cpp
+    title: test/unittest/sortable_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/sortable_segment_tree.test.cpp
+    title: test/unittest/sortable_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/sortable_segment_tree.test.cpp
+    title: test/unittest/sortable_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/sortable_segment_tree.test.cpp
+    title: test/unittest/sortable_segment_tree.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/static_rmq.test.cpp
     title: test/unittest/static_rmq.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/static_rmq.test.cpp
     title: test/unittest/static_rmq.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/wavelet_matrix.test.cpp
+    title: test/unittest/wavelet_matrix.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/wavelet_matrix.test.cpp
+    title: test/unittest/wavelet_matrix.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/weighteddsu.test.cpp
     title: test/weighteddsu.test.cpp
@@ -255,17 +491,37 @@ data:
   - graph/graph-template.hpp
   - data_structure/fenwick_tree.hpp
   - data_structure/hash_map.hpp
+  - data_structure/dual_segment_tree.hpp
+  - data_structure/dual_segment_tree.hpp
   - data_structure/weighted_dsu.hpp
   - data_structure/potentialized_unionfind.hpp
+  - data_structure/lazy_segment_tree.hpp
+  - data_structure/lazy_segment_tree.hpp
+  - data_structure/segment_tree_beats.hpp
   - data_structure/interval_heap.hpp
   - data_structure/sparse_table.hpp
+  - data_structure/wavelet_matrix.hpp
+  - data_structure/sortable_segment_tree.hpp
+  - data_structure/sortable_segment_tree.hpp
   - data_structure/fast_set.hpp
+  - data_structure/persistent_lazy_segment_tree.hpp
+  - data_structure/persistent_lazy_segment_tree.hpp
   - data_structure/range_parallel_unionfind.hpp
+  - data_structure/dynamic_segment_tree.hpp
+  - data_structure/dynamic_segment_tree.hpp
+  - data_structure/dynamic_lazy_segment_tree.hpp
+  - data_structure/dynamic_lazy_segment_tree.hpp
+  - data_structure/segment_tree.hpp
+  - data_structure/segment_tree.hpp
+  - data_structure/range_assign_segment_tree.hpp
+  - data_structure/range_assign_segment_tree.hpp
   - data_structure/static_rmq.hpp
   - data_structure/ordered_set.hpp
   - data_structure/cumulative_sum.hpp
   - io/fastio.hpp
   - math/modint.hpp
+  - algebra/acted_monoid.hpp
+  - algebra/monoid.hpp
   timestamp: '2024-11-05 15:14:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -279,16 +535,32 @@ data:
   - test/double_ended_priority_queue.test.cpp
   - test/many_aplusb.test.cpp
   - test/aplusb.test.cpp
+  - test/point_set_range_composite_large_array.test.cpp
+  - test/point_set_range_composite_large_array.test.cpp
+  - test/point_set_range_composite_large_array.test.cpp
+  - test/point_set_range_composite_large_array.test.cpp
   - test/staticrmq.test.cpp
   - test/staticrmq.test.cpp
   - test/weighteddsu.test.cpp
+  - test/persistent_range_affine_range_sum.test.cpp
+  - test/persistent_range_affine_range_sum.test.cpp
+  - test/persistent_range_affine_range_sum.test.cpp
+  - test/persistent_range_affine_range_sum.test.cpp
+  - test/unittest/segment_tree_beats.test.cpp
+  - test/unittest/segment_tree_beats.test.cpp
   - test/unittest/modint.test.cpp
   - test/unittest/modint.test.cpp
   - test/unittest/modint.test.cpp
+  - test/unittest/wavelet_matrix.test.cpp
+  - test/unittest/wavelet_matrix.test.cpp
   - test/unittest/fenwick_tree.test.cpp
   - test/unittest/fenwick_tree.test.cpp
   - test/unittest/cumulative_sum.test.cpp
   - test/unittest/cumulative_sum.test.cpp
+  - test/unittest/lazy_segment_tree.test.cpp
+  - test/unittest/lazy_segment_tree.test.cpp
+  - test/unittest/lazy_segment_tree.test.cpp
+  - test/unittest/lazy_segment_tree.test.cpp
   - test/unittest/potentialized_unionfind.test.cpp
   - test/unittest/potentialized_unionfind.test.cpp
   - test/unittest/hash_map.test.cpp
@@ -303,8 +575,26 @@ data:
   - test/unittest/interval_heap.test.cpp
   - test/unittest/static_rmq.test.cpp
   - test/unittest/static_rmq.test.cpp
+  - test/unittest/segment_tree.test.cpp
+  - test/unittest/segment_tree.test.cpp
+  - test/unittest/segment_tree.test.cpp
+  - test/unittest/segment_tree.test.cpp
+  - test/unittest/range_assign_segment_tree.test.cpp
+  - test/unittest/range_assign_segment_tree.test.cpp
+  - test/unittest/range_assign_segment_tree.test.cpp
+  - test/unittest/range_assign_segment_tree.test.cpp
+  - test/unittest/sortable_segment_tree.test.cpp
+  - test/unittest/sortable_segment_tree.test.cpp
+  - test/unittest/sortable_segment_tree.test.cpp
+  - test/unittest/sortable_segment_tree.test.cpp
+  - test/point_set_range_sort_range_composite.test.cpp
+  - test/point_set_range_sort_range_composite.test.cpp
+  - test/point_set_range_sort_range_composite.test.cpp
+  - test/point_set_range_sort_range_composite.test.cpp
   - test/staticrmq_sparse_table.test.cpp
   - test/staticrmq_sparse_table.test.cpp
+  - test/range_kth_smallest.test.cpp
+  - test/range_kth_smallest.test.cpp
   - test/range_parallel_unionfind_online.test.cpp
   - test/range_parallel_unionfind_online.test.cpp
   - test/range_parallel_unionfind_online.test.cpp
@@ -315,15 +605,37 @@ data:
   - test/range_parallel_unionfind.test.cpp
   - test/ordered_set.test.cpp
   - test/ordered_set.test.cpp
+  - test/range_affine_point_get.test.cpp
+  - test/range_affine_point_get.test.cpp
+  - test/range_affine_point_get.test.cpp
+  - test/range_affine_point_get.test.cpp
+  - test/point_set_range_composite.test.cpp
+  - test/point_set_range_composite.test.cpp
+  - test/point_set_range_composite.test.cpp
+  - test/point_set_range_composite.test.cpp
   - test/unionfind_with_potential.test.cpp
   - test/unionfind_with_potential.test.cpp
   - test/unionfind_with_potential.test.cpp
+  - test/range_chmin_chmax_add_range_sum.test.cpp
+  - test/range_chmin_chmax_add_range_sum.test.cpp
   - test/associative_array.test.cpp
   - test/associative_array.test.cpp
   - test/dijkstra.test.cpp
   - test/many_aplusb_128bit.test.cpp
+  - test/range_set_range_composite.test.cpp
+  - test/range_set_range_composite.test.cpp
+  - test/range_set_range_composite.test.cpp
+  - test/range_set_range_composite.test.cpp
   - test/point_add_range_sum.test.cpp
   - test/point_add_range_sum.test.cpp
+  - test/range_affine_range_sum.test.cpp
+  - test/range_affine_range_sum.test.cpp
+  - test/range_affine_range_sum.test.cpp
+  - test/range_affine_range_sum.test.cpp
+  - test/range_affine_range_sum_large_array.test.cpp
+  - test/range_affine_range_sum_large_array.test.cpp
+  - test/range_affine_range_sum_large_array.test.cpp
+  - test/range_affine_range_sum_large_array.test.cpp
 documentation_of: template.hpp
 layout: document
 title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"

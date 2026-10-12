@@ -4,14 +4,34 @@ data:
   - icon: ':heavy_check_mark:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/range_assign_segment_tree.hpp
+    title: "\u533A\u9593\u4EE3\u5165\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Range Assign\
+      \ Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/sortable_segment_tree.hpp
+    title: "\u533A\u9593\u30BD\u30FC\u30C8\u304C\u3067\u304D\u308B\u30BB\u30B0\u30E1\
+      \u30F3\u30C8\u6728 (Sortable Segment Tree)"
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_sort_range_composite.test.cpp
+    title: test/point_set_range_sort_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/predecessor_problem.test.cpp
     title: test/predecessor_problem.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/range_set_range_composite.test.cpp
+    title: test/range_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unittest/fast_set.test.cpp
     title: test/unittest/fast_set.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/range_assign_segment_tree.test.cpp
+    title: test/unittest/range_assign_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/sortable_segment_tree.test.cpp
+    title: test/unittest/sortable_segment_tree.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -141,12 +161,18 @@ data:
   - template.hpp
   isVerificationFile: false
   path: data_structure/fast_set.hpp
-  requiredBy: []
+  requiredBy:
+  - data_structure/sortable_segment_tree.hpp
+  - data_structure/range_assign_segment_tree.hpp
   timestamp: '2026-10-12 10:34:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/unittest/fast_set.test.cpp
+  - test/unittest/range_assign_segment_tree.test.cpp
+  - test/unittest/sortable_segment_tree.test.cpp
+  - test/point_set_range_sort_range_composite.test.cpp
   - test/predecessor_problem.test.cpp
+  - test/range_set_range_composite.test.cpp
 documentation_of: data_structure/fast_set.hpp
 layout: document
 title: "64 \u5206\u6728\u306B\u3088\u308B\u6574\u6570\u96C6\u5408 (Fast Set)"
