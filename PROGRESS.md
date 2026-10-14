@@ -8,7 +8,7 @@
 
 既存のライブラリ（`graph/dsu.hpp`, `graph/dijkstra.hpp`）は fastio 導入前に作ったもので、速度面の見直しはまだしていない。
 
-**進捗: 25 / 235**
+**進捗: 33 / 235**
 
 ## Sample
 
@@ -43,14 +43,14 @@
 | ✅ | [Range Chmin Chmax Add Range Sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) (`range_chmin_chmax_add_range_sum`) | [`data_structure/segment_tree_beats.hpp`](data_structure/segment_tree_beats.hpp) | [`test/range_chmin_chmax_add_range_sum.test.cpp`](test/range_chmin_chmax_add_range_sum.test.cpp) |
 | ✅ | [Range Kth Smallest](https://judge.yosupo.jp/problem/range_kth_smallest) (`range_kth_smallest`) | [`data_structure/wavelet_matrix.hpp`](data_structure/wavelet_matrix.hpp) | [`test/range_kth_smallest.test.cpp`](test/range_kth_smallest.test.cpp) |
 | ✅ | [Point Set Range Sort Range Composite](https://judge.yosupo.jp/problem/point_set_range_sort_range_composite) (`point_set_range_sort_range_composite`) | [`data_structure/sortable_segment_tree.hpp`](data_structure/sortable_segment_tree.hpp) | [`test/point_set_range_sort_range_composite.test.cpp`](test/point_set_range_sort_range_composite.test.cpp) |
-| ⬜ | [Range Reverse Range Sum](https://judge.yosupo.jp/problem/range_reverse_range_sum) (`range_reverse_range_sum`) |  |  |
-| ⬜ | [Dynamic Sequence Range Affine Range Sum](https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum) (`dynamic_sequence_range_affine_range_sum`) |  |  |
-| ⬜ | [Range Linear Add Range Min](https://judge.yosupo.jp/problem/range_linear_add_range_min) (`range_linear_add_range_min`) |  |  |
-| ⬜ | [Set Xor-Min](https://judge.yosupo.jp/problem/set_xor_min) (`set_xor_min`) |  |  |
-| ⬜ | [Line Add Get Min](https://judge.yosupo.jp/problem/line_add_get_min) (`line_add_get_min`) |  |  |
-| ⬜ | [Segment Add Get Min](https://judge.yosupo.jp/problem/segment_add_get_min) (`segment_add_get_min`) |  |  |
-| ⬜ | [Queue Operate All Composite](https://judge.yosupo.jp/problem/queue_operate_all_composite) (`queue_operate_all_composite`) |  |  |
-| ⬜ | [Deque Operate All Composite](https://judge.yosupo.jp/problem/deque_operate_all_composite) (`deque_operate_all_composite`) |  |  |
+| ✅ | [Range Reverse Range Sum](https://judge.yosupo.jp/problem/range_reverse_range_sum) (`range_reverse_range_sum`) | [`data_structure/dynamic_sequence.hpp`](data_structure/dynamic_sequence.hpp) | [`test/range_reverse_range_sum.test.cpp`](test/range_reverse_range_sum.test.cpp) |
+| ✅ | [Dynamic Sequence Range Affine Range Sum](https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum) (`dynamic_sequence_range_affine_range_sum`) | [`data_structure/dynamic_sequence.hpp`](data_structure/dynamic_sequence.hpp) | [`test/dynamic_sequence_range_affine_range_sum.test.cpp`](test/dynamic_sequence_range_affine_range_sum.test.cpp) |
+| ✅ | [Range Linear Add Range Min](https://judge.yosupo.jp/problem/range_linear_add_range_min) (`range_linear_add_range_min`) | [`data_structure/linear_add_min_segment_tree.hpp`](data_structure/linear_add_min_segment_tree.hpp) | [`test/range_linear_add_range_min.test.cpp`](test/range_linear_add_range_min.test.cpp) |
+| ✅ | [Set Xor-Min](https://judge.yosupo.jp/problem/set_xor_min) (`set_xor_min`) | [`data_structure/binary_trie.hpp`](data_structure/binary_trie.hpp) | [`test/set_xor_min.test.cpp`](test/set_xor_min.test.cpp) |
+| ✅ | [Line Add Get Min](https://judge.yosupo.jp/problem/line_add_get_min) (`line_add_get_min`) | [`data_structure/li_chao_tree.hpp`](data_structure/li_chao_tree.hpp) | [`test/line_add_get_min.test.cpp`](test/line_add_get_min.test.cpp) |
+| ✅ | [Segment Add Get Min](https://judge.yosupo.jp/problem/segment_add_get_min) (`segment_add_get_min`) | [`data_structure/li_chao_tree.hpp`](data_structure/li_chao_tree.hpp) | [`test/segment_add_get_min.test.cpp`](test/segment_add_get_min.test.cpp), [`test/segment_add_get_min_offline.test.cpp`](test/segment_add_get_min_offline.test.cpp) |
+| ✅ | [Queue Operate All Composite](https://judge.yosupo.jp/problem/queue_operate_all_composite) (`queue_operate_all_composite`) | [`data_structure/foldable_queue.hpp`](data_structure/foldable_queue.hpp) | [`test/queue_operate_all_composite.test.cpp`](test/queue_operate_all_composite.test.cpp) |
+| ✅ | [Deque Operate All Composite](https://judge.yosupo.jp/problem/deque_operate_all_composite) (`deque_operate_all_composite`) | [`data_structure/foldable_deque.hpp`](data_structure/foldable_deque.hpp) | [`test/deque_operate_all_composite.test.cpp`](test/deque_operate_all_composite.test.cpp) |
 | ⬜ | [Static Range Frequency](https://judge.yosupo.jp/problem/static_range_frequency) (`static_range_frequency`) |  |  |
 | ⬜ | [Static Range Count Distinct](https://judge.yosupo.jp/problem/static_range_count_distinct) (`static_range_count_distinct`) |  |  |
 | ⬜ | [Static Range Mode Query](https://judge.yosupo.jp/problem/static_range_mode_query) (`static_range_mode_query`) |  |  |
