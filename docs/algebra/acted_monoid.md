@@ -30,6 +30,7 @@ struct AM {
 | `ActedAssignSum<T>` | `{sum, len}` | `AssignAction<T>` | 区間代入・区間和 |
 | `ActedAssignMin<T>` | `T` | `AssignAction<T>` | 区間代入・区間最小値 |
 | `ActedAssignMax<T>` | `T` | `AssignAction<T>` | 区間代入・区間最大値 |
+| `ActedNone<M>` | `M::S` | なし | モノイド `M` をそのまま使う（平衡二分木で反転だけしたいときなど） |
 
 ```cpp
 using AM = ActedAffineSum<mint>;

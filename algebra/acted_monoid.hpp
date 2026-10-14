@@ -111,3 +111,15 @@ struct ActedAssignMax {
     static F composition(const F &f, const F &g) { return f.has ? f : g; }
     static F id() { return F(); }
 };
+
+// 作用なし (モノイド M をそのまま作用付きモノイドとして使う)．平衡二分木で反転だけしたいときなど
+template <class M>
+struct ActedNone {
+    using S = typename M::S;
+    struct F {};
+    static S op(const S &a, const S &b) { return M::op(a, b); }
+    static S e() { return M::e(); }
+    static S mapping(const F &, const S &x) { return x; }
+    static F composition(const F &, const F &) { return F(); }
+    static F id() { return F(); }
+};
