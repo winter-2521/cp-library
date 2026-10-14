@@ -16,6 +16,9 @@ data:
     path: test/dynamic_sequence_range_affine_range_sum.test.cpp
     title: test/dynamic_sequence_range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/incremental_scc.test.cpp
+    title: test/incremental_scc.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/persistent_range_affine_range_sum.test.cpp
     title: test/persistent_range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -236,6 +239,7 @@ data:
   - test/unittest/sortable_segment_tree.test.cpp
   - test/deque_operate_all_composite.test.cpp
   - test/point_set_range_sort_range_composite.test.cpp
+  - test/incremental_scc.test.cpp
   - test/dynamic_sequence_range_affine_range_sum.test.cpp
   - test/range_parallel_unionfind_online.test.cpp
   - test/range_parallel_unionfind.test.cpp

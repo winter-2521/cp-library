@@ -157,14 +157,49 @@ data:
   - name: graph
     pages:
     - icon: ':heavy_check_mark:'
+      path: graph/biconnected_components.hpp
+      title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\u89E3 (Biconnected\
+        \ Components)"
+    - icon: ':heavy_check_mark:'
+      path: graph/complement_graph_components.hpp
+      title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
+    - icon: ':heavy_check_mark:'
+      path: graph/csr.hpp
+      title: "CSR (\u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\
+        \u3067\u6301\u3064)"
+    - icon: ':heavy_check_mark:'
+      path: graph/cycle_detection.hpp
+      title: "\u9589\u8DEF\u691C\u51FA (Cycle Detection)"
+    - icon: ':heavy_check_mark:'
       path: graph/dijkstra.hpp
       title: "\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5 (Dijkstra)"
     - icon: ':heavy_check_mark:'
       path: graph/dsu.hpp
       title: Union-Find (Disjoint Set Union)
     - icon: ':heavy_check_mark:'
+      path: graph/eulerian_trail.hpp
+      title: "\u30AA\u30A4\u30E9\u30FC\u8DEF (Eulerian Trail)"
+    - icon: ':heavy_check_mark:'
       path: graph/graph-template.hpp
       title: "\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
+    - icon: ':heavy_check_mark:'
+      path: graph/incremental_scc.hpp
+      title: "\u8FBA\u306E\u8FFD\u52A0\u3068\u5F37\u9023\u7D50\u6210\u5206 (Incremental\
+        \ SCC)"
+    - icon: ':heavy_check_mark:'
+      path: graph/k_shortest_walk.hpp
+      title: "K \u6700\u77ED\u8DEF (K-Shortest Walk, Eppstein)"
+    - icon: ':heavy_check_mark:'
+      path: graph/scc.hpp
+      title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3 (SCC)"
+    - icon: ':heavy_check_mark:'
+      path: graph/three_edge_connected_components.hpp
+      title: "\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 (Three-Edge-Connected\
+        \ Components)"
+    - icon: ':heavy_check_mark:'
+      path: graph/two_edge_connected_components.hpp
+      title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 (Two-Edge-Connected\
+        \ Components)"
   - name: io
     pages:
     - icon: ':heavy_check_mark:'
@@ -197,6 +232,18 @@ data:
       path: test/associative_array.test.cpp
       title: test/associative_array.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/biconnected_components.test.cpp
+      title: test/biconnected_components.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/connected_components_of_complement_graph.test.cpp
+      title: test/connected_components_of_complement_graph.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/cycle_detection.test.cpp
+      title: test/cycle_detection.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/cycle_detection_undirected.test.cpp
+      title: test/cycle_detection_undirected.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/deque_operate_all_composite.test.cpp
       title: test/deque_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
@@ -212,8 +259,17 @@ data:
       path: test/dynamic_sequence_range_affine_range_sum.test.cpp
       title: test/dynamic_sequence_range_affine_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/eulerian_trail_directed.test.cpp
+      title: test/eulerian_trail_directed.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/example.test.cpp
       title: test/example.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/incremental_scc.test.cpp
+      title: test/incremental_scc.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/k_shortest_walk.test.cpp
+      title: test/k_shortest_walk.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/line_add_get_min.test.cpp
       title: test/line_add_get_min.test.cpp
@@ -296,6 +352,9 @@ data:
       path: test/rectangle_sum.test.cpp
       title: test/rectangle_sum.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/scc.test.cpp
+      title: test/scc.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/segment_add_get_min.test.cpp
       title: test/segment_add_get_min.test.cpp
     - icon: ':heavy_check_mark:'
@@ -332,6 +391,12 @@ data:
       path: test/staticrmq_sparse_table.test.cpp
       title: test/staticrmq_sparse_table.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/three_edge_connected_components.test.cpp
+      title: test/three_edge_connected_components.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/two_edge_connected_components.test.cpp
+      title: test/two_edge_connected_components.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/unionfind.test.cpp
       title: test/unionfind.test.cpp
     - icon: ':heavy_check_mark:'
@@ -364,8 +429,14 @@ data:
       path: test/unittest/foldable_queue.test.cpp
       title: test/unittest/foldable_queue.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/unittest/graph_components.test.cpp
+      title: test/unittest/graph_components.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/unittest/hash_map.test.cpp
       title: test/unittest/hash_map.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/unittest/incremental_scc_k_shortest.test.cpp
+      title: test/unittest/incremental_scc_k_shortest.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/unittest/interval_heap.test.cpp
       title: test/unittest/interval_heap.test.cpp

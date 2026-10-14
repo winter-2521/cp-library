@@ -8,7 +8,7 @@
 
 既存のライブラリ（`graph/dsu.hpp`, `graph/dijkstra.hpp`）は fastio 導入前に作ったもので、速度面の見直しはまだしていない。
 
-**進捗: 47 / 235**
+**進捗: 57 / 235**
 
 ## Sample
 
@@ -70,17 +70,17 @@
 
 | 状態 | 問題 | ライブラリ | verify |
 | :-: | --- | --- | --- |
-| ⬜ | [Cycle Detection (Directed)](https://judge.yosupo.jp/problem/cycle_detection) (`cycle_detection`) |  |  |
-| ⬜ | [Cycle Detection (Undirected)](https://judge.yosupo.jp/problem/cycle_detection_undirected) (`cycle_detection_undirected`) |  |  |
+| ✅ | [Cycle Detection (Directed)](https://judge.yosupo.jp/problem/cycle_detection) (`cycle_detection`) | [`graph/cycle_detection.hpp`](graph/cycle_detection.hpp) | [`test/cycle_detection.test.cpp`](test/cycle_detection.test.cpp) |
+| ✅ | [Cycle Detection (Undirected)](https://judge.yosupo.jp/problem/cycle_detection_undirected) (`cycle_detection_undirected`) | [`graph/cycle_detection.hpp`](graph/cycle_detection.hpp) | [`test/cycle_detection_undirected.test.cpp`](test/cycle_detection_undirected.test.cpp) |
 | ✅ | [Shortest Path](https://judge.yosupo.jp/problem/shortest_path) (`shortest_path`) | [`graph/dijkstra.hpp`](graph/dijkstra.hpp) | [`test/dijkstra.test.cpp`](test/dijkstra.test.cpp) |
-| ⬜ | [Strongly Connected Components](https://judge.yosupo.jp/problem/scc) (`scc`) |  |  |
-| ⬜ | [Strongly Connected Components (Incremental)](https://judge.yosupo.jp/problem/incremental_scc) (`incremental_scc`) |  |  |
-| ⬜ | [K-Shortest Walk](https://judge.yosupo.jp/problem/k_shortest_walk) (`k_shortest_walk`) |  |  |
-| ⬜ | [Two-Edge-Connected Components](https://judge.yosupo.jp/problem/two_edge_connected_components) (`two_edge_connected_components`) |  |  |
-| ⬜ | [Three-Edge-Connected Components](https://judge.yosupo.jp/problem/three_edge_connected_components) (`three_edge_connected_components`) |  |  |
-| ⬜ | [Biconnected Components](https://judge.yosupo.jp/problem/biconnected_components) (`biconnected_components`) |  |  |
-| ⬜ | [Connected Components of Complement Graph](https://judge.yosupo.jp/problem/connected_components_of_complement_graph) (`connected_components_of_complement_graph`) |  |  |
-| ⬜ | [Eulerian Trail (Directed)](https://judge.yosupo.jp/problem/eulerian_trail_directed) (`eulerian_trail_directed`) |  |  |
+| ✅ | [Strongly Connected Components](https://judge.yosupo.jp/problem/scc) (`scc`) | [`graph/scc.hpp`](graph/scc.hpp) | [`test/scc.test.cpp`](test/scc.test.cpp) |
+| ✅ | [Strongly Connected Components (Incremental)](https://judge.yosupo.jp/problem/incremental_scc) (`incremental_scc`) | [`graph/incremental_scc.hpp`](graph/incremental_scc.hpp) | [`test/incremental_scc.test.cpp`](test/incremental_scc.test.cpp) |
+| ✅ | [K-Shortest Walk](https://judge.yosupo.jp/problem/k_shortest_walk) (`k_shortest_walk`) | [`graph/k_shortest_walk.hpp`](graph/k_shortest_walk.hpp) | [`test/k_shortest_walk.test.cpp`](test/k_shortest_walk.test.cpp) |
+| ✅ | [Two-Edge-Connected Components](https://judge.yosupo.jp/problem/two_edge_connected_components) (`two_edge_connected_components`) | [`graph/two_edge_connected_components.hpp`](graph/two_edge_connected_components.hpp) | [`test/two_edge_connected_components.test.cpp`](test/two_edge_connected_components.test.cpp) |
+| ✅ | [Three-Edge-Connected Components](https://judge.yosupo.jp/problem/three_edge_connected_components) (`three_edge_connected_components`) | [`graph/three_edge_connected_components.hpp`](graph/three_edge_connected_components.hpp) | [`test/three_edge_connected_components.test.cpp`](test/three_edge_connected_components.test.cpp) |
+| ✅ | [Biconnected Components](https://judge.yosupo.jp/problem/biconnected_components) (`biconnected_components`) | [`graph/biconnected_components.hpp`](graph/biconnected_components.hpp) | [`test/biconnected_components.test.cpp`](test/biconnected_components.test.cpp) |
+| ✅ | [Connected Components of Complement Graph](https://judge.yosupo.jp/problem/connected_components_of_complement_graph) (`connected_components_of_complement_graph`) | [`graph/complement_graph_components.hpp`](graph/complement_graph_components.hpp) | [`test/connected_components_of_complement_graph.test.cpp`](test/connected_components_of_complement_graph.test.cpp) |
+| ✅ | [Eulerian Trail (Directed)](https://judge.yosupo.jp/problem/eulerian_trail_directed) (`eulerian_trail_directed`) | [`graph/eulerian_trail.hpp`](graph/eulerian_trail.hpp) | [`test/eulerian_trail_directed.test.cpp`](test/eulerian_trail_directed.test.cpp) |
 | ⬜ | [Eulerian Trail (Undirected)](https://judge.yosupo.jp/problem/eulerian_trail_undirected) (`eulerian_trail_undirected`) |  |  |
 | ⬜ | [st-Numbering](https://judge.yosupo.jp/problem/st_numbering) (`st_numbering`) |  |  |
 | ⬜ | [Minimum Cost b-flow](https://judge.yosupo.jp/problem/min_cost_b_flow) (`min_cost_b_flow`) |  |  |

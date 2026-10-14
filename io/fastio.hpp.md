@@ -16,6 +16,18 @@ data:
     path: test/associative_array.test.cpp
     title: test/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/biconnected_components.test.cpp
+    title: test/biconnected_components.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/connected_components_of_complement_graph.test.cpp
+    title: test/connected_components_of_complement_graph.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/cycle_detection.test.cpp
+    title: test/cycle_detection.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/cycle_detection_undirected.test.cpp
+    title: test/cycle_detection_undirected.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/deque_operate_all_composite.test.cpp
     title: test/deque_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -27,6 +39,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/dynamic_sequence_range_affine_range_sum.test.cpp
     title: test/dynamic_sequence_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/eulerian_trail_directed.test.cpp
+    title: test/eulerian_trail_directed.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/incremental_scc.test.cpp
+    title: test/incremental_scc.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/k_shortest_walk.test.cpp
+    title: test/k_shortest_walk.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/line_add_get_min.test.cpp
     title: test/line_add_get_min.test.cpp
@@ -109,6 +130,9 @@ data:
     path: test/rectangle_sum.test.cpp
     title: test/rectangle_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/scc.test.cpp
+    title: test/scc.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/segment_add_get_min.test.cpp
     title: test/segment_add_get_min.test.cpp
   - icon: ':heavy_check_mark:'
@@ -145,6 +169,12 @@ data:
     path: test/staticrmq_sparse_table.test.cpp
     title: test/staticrmq_sparse_table.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/three_edge_connected_components.test.cpp
+    title: test/three_edge_connected_components.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/two_edge_connected_components.test.cpp
+    title: test/two_edge_connected_components.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unionfind_with_potential.test.cpp
     title: test/unionfind_with_potential.test.cpp
   - icon: ':heavy_check_mark:'
@@ -169,8 +199,14 @@ data:
     path: test/unittest/foldable_queue.test.cpp
     title: test/unittest/foldable_queue.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/unittest/graph_components.test.cpp
+    title: test/unittest/graph_components.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unittest/hash_map.test.cpp
     title: test/unittest/hash_map.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/incremental_scc_k_shortest.test.cpp
+    title: test/unittest/incremental_scc_k_shortest.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/interval_heap.test.cpp
     title: test/unittest/interval_heap.test.cpp
@@ -564,8 +600,12 @@ data:
   - test/range_reverse_range_sum.test.cpp
   - test/segment_add_get_min.test.cpp
   - test/point_add_rectangle_sum.test.cpp
+  - test/cycle_detection_undirected.test.cpp
   - test/staticrmq.test.cpp
   - test/queue_operate_all_composite.test.cpp
+  - test/three_edge_connected_components.test.cpp
+  - test/biconnected_components.test.cpp
+  - test/two_edge_connected_components.test.cpp
   - test/persistent_range_affine_range_sum.test.cpp
   - test/unittest/segment_tree_beats.test.cpp
   - test/unittest/modint.test.cpp
@@ -575,10 +615,12 @@ data:
   - test/unittest/kd_tree.test.cpp
   - test/unittest/cumulative_sum.test.cpp
   - test/unittest/foldable_queue.test.cpp
+  - test/unittest/incremental_scc_k_shortest.test.cpp
   - test/unittest/static_range_lis.test.cpp
   - test/unittest/linear_add_min_segment_tree.test.cpp
   - test/unittest/lazy_segment_tree.test.cpp
   - test/unittest/potentialized_unionfind.test.cpp
+  - test/unittest/graph_components.test.cpp
   - test/unittest/hash_map.test.cpp
   - test/unittest/rectangle_add.test.cpp
   - test/unittest/range_parallel_unionfind.test.cpp
@@ -596,9 +638,11 @@ data:
   - test/unittest/sortable_segment_tree.test.cpp
   - test/deque_operate_all_composite.test.cpp
   - test/point_set_range_sort_range_composite.test.cpp
+  - test/incremental_scc.test.cpp
   - test/set_xor_min.test.cpp
   - test/staticrmq_sparse_table.test.cpp
   - test/dynamic_sequence_range_affine_range_sum.test.cpp
+  - test/connected_components_of_complement_graph.test.cpp
   - test/range_kth_smallest.test.cpp
   - test/point_set_range_frequency.test.cpp
   - test/static_range_lis_query.test.cpp
@@ -608,14 +652,18 @@ data:
   - test/ordered_set.test.cpp
   - test/static_range_frequency.test.cpp
   - test/range_affine_point_get.test.cpp
+  - test/cycle_detection.test.cpp
   - test/point_set_range_composite.test.cpp
   - test/persistent_queue.test.cpp
+  - test/scc.test.cpp
   - test/unionfind_with_potential.test.cpp
   - test/range_chmin_chmax_add_range_sum.test.cpp
+  - test/k_shortest_walk.test.cpp
   - test/associative_array.test.cpp
   - test/line_add_get_min.test.cpp
   - test/area_of_union_of_rectangles.test.cpp
   - test/static_range_mode_query.test.cpp
+  - test/eulerian_trail_directed.test.cpp
   - test/many_aplusb_128bit.test.cpp
   - test/static_rectangle_add_rectangle_sum.test.cpp
   - test/rectangle_sum.test.cpp
