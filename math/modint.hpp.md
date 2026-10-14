@@ -7,6 +7,12 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/deque_operate_all_composite.test.cpp
+    title: test/deque_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/dynamic_sequence_range_affine_range_sum.test.cpp
+    title: test/dynamic_sequence_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/persistent_range_affine_range_sum.test.cpp
     title: test/persistent_range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -18,6 +24,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/point_set_range_sort_range_composite.test.cpp
     title: test/point_set_range_sort_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/queue_operate_all_composite.test.cpp
+    title: test/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/range_affine_point_get.test.cpp
     title: test/range_affine_point_get.test.cpp
@@ -42,6 +51,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/unionfind_with_potential_non_commutative_group.test.cpp
     title: test/unionfind_with_potential_non_commutative_group.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/dynamic_sequence.test.cpp
+    title: test/unittest/dynamic_sequence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/foldable_queue.test.cpp
+    title: test/unittest/foldable_queue.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/lazy_segment_tree.test.cpp
     title: test/unittest/lazy_segment_tree.test.cpp
@@ -195,13 +210,18 @@ data:
   verifiedWith:
   - test/unionfind_with_potential_non_commutative_group.test.cpp
   - test/point_set_range_composite_large_array.test.cpp
+  - test/queue_operate_all_composite.test.cpp
   - test/persistent_range_affine_range_sum.test.cpp
   - test/unittest/modint.test.cpp
+  - test/unittest/foldable_queue.test.cpp
   - test/unittest/lazy_segment_tree.test.cpp
+  - test/unittest/dynamic_sequence.test.cpp
   - test/unittest/segment_tree.test.cpp
   - test/unittest/range_assign_segment_tree.test.cpp
   - test/unittest/sortable_segment_tree.test.cpp
+  - test/deque_operate_all_composite.test.cpp
   - test/point_set_range_sort_range_composite.test.cpp
+  - test/dynamic_sequence_range_affine_range_sum.test.cpp
   - test/range_parallel_unionfind_online.test.cpp
   - test/range_parallel_unionfind.test.cpp
   - test/range_affine_point_get.test.cpp

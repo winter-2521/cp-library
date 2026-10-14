@@ -13,6 +13,10 @@ data:
     title: "\u52D5\u7684\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dynamic\
       \ Lazy Segment Tree)"
   - icon: ':heavy_check_mark:'
+    path: data_structure/dynamic_sequence.hpp
+    title: "\u5217\u306E\u633F\u5165\u30FB\u524A\u9664\u30FB\u53CD\u8EE2\u30FB\u533A\
+      \u9593\u4F5C\u7528 (Dynamic Sequence, Splay \u6728)"
+  - icon: ':heavy_check_mark:'
     path: data_structure/lazy_segment_tree.hpp
     title: "\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Lazy Segment Tree)"
   - icon: ':heavy_check_mark:'
@@ -20,6 +24,9 @@ data:
     title: "\u6C38\u7D9A\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Persistent\
       \ Lazy Segment Tree)"
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/dynamic_sequence_range_affine_range_sum.test.cpp
+    title: test/dynamic_sequence_range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/persistent_range_affine_range_sum.test.cpp
     title: test/persistent_range_affine_range_sum.test.cpp
@@ -29,6 +36,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/range_affine_range_sum_large_array.test.cpp
     title: test/range_affine_range_sum_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_reverse_range_sum.test.cpp
+    title: test/range_reverse_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/dynamic_sequence.test.cpp
+    title: test/unittest/dynamic_sequence.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/lazy_segment_tree.test.cpp
     title: test/unittest/lazy_segment_tree.test.cpp
@@ -140,7 +153,14 @@ data:
     \ S e() { return numeric_limits<T>::lowest(); }\n    static S mapping(const F\
     \ &f, const S &x) { return f.has ? f.x : x; }\n    static F composition(const\
     \ F &f, const F &g) { return f.has ? f : g; }\n    static F id() { return F();\
-    \ }\n};\n"
+    \ }\n};\n\n// \u4F5C\u7528\u306A\u3057 (\u30E2\u30CE\u30A4\u30C9 M \u3092\u305D\
+    \u306E\u307E\u307E\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9\u3068\u3057\
+    \u3066\u4F7F\u3046)\uFF0E\u5E73\u8861\u4E8C\u5206\u6728\u3067\u53CD\u8EE2\u3060\
+    \u3051\u3057\u305F\u3044\u3068\u304D\u306A\u3069\ntemplate <class M>\nstruct ActedNone\
+    \ {\n    using S = typename M::S;\n    struct F {};\n    static S op(const S &a,\
+    \ const S &b) { return M::op(a, b); }\n    static S e() { return M::e(); }\n \
+    \   static S mapping(const F &, const S &x) { return x; }\n    static F composition(const\
+    \ F &, const F &) { return F(); }\n    static F id() { return F(); }\n};\n"
   code: "#pragma once\n#include \"monoid.hpp\"\n\n// \u9045\u5EF6\u30BB\u30B0\u30E1\
     \u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u300C\u4F5C\u7528\u4ED8\u304D\
     \u30E2\u30CE\u30A4\u30C9\u300D(ACL \u306E lazy_segtree \u3068\u540C\u3058\u898F\
@@ -201,7 +221,14 @@ data:
     \ S e() { return numeric_limits<T>::lowest(); }\n    static S mapping(const F\
     \ &f, const S &x) { return f.has ? f.x : x; }\n    static F composition(const\
     \ F &f, const F &g) { return f.has ? f : g; }\n    static F id() { return F();\
-    \ }\n};\n"
+    \ }\n};\n\n// \u4F5C\u7528\u306A\u3057 (\u30E2\u30CE\u30A4\u30C9 M \u3092\u305D\
+    \u306E\u307E\u307E\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9\u3068\u3057\
+    \u3066\u4F7F\u3046)\uFF0E\u5E73\u8861\u4E8C\u5206\u6728\u3067\u53CD\u8EE2\u3060\
+    \u3051\u3057\u305F\u3044\u3068\u304D\u306A\u3069\ntemplate <class M>\nstruct ActedNone\
+    \ {\n    using S = typename M::S;\n    struct F {};\n    static S op(const S &a,\
+    \ const S &b) { return M::op(a, b); }\n    static S e() { return M::e(); }\n \
+    \   static S mapping(const F &, const S &x) { return x; }\n    static F composition(const\
+    \ F &, const F &) { return F(); }\n    static F id() { return F(); }\n};\n"
   dependsOn:
   - algebra/monoid.hpp
   - template.hpp
@@ -210,12 +237,16 @@ data:
   requiredBy:
   - data_structure/lazy_segment_tree.hpp
   - data_structure/persistent_lazy_segment_tree.hpp
+  - data_structure/dynamic_sequence.hpp
   - data_structure/dynamic_lazy_segment_tree.hpp
-  timestamp: '2026-10-12 11:35:48+09:00'
+  timestamp: '2026-10-14 23:17:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/range_reverse_range_sum.test.cpp
   - test/persistent_range_affine_range_sum.test.cpp
   - test/unittest/lazy_segment_tree.test.cpp
+  - test/unittest/dynamic_sequence.test.cpp
+  - test/dynamic_sequence_range_affine_range_sum.test.cpp
   - test/range_affine_range_sum.test.cpp
   - test/range_affine_range_sum_large_array.test.cpp
 documentation_of: algebra/acted_monoid.hpp
@@ -250,6 +281,7 @@ struct AM {
 | `ActedAssignSum<T>` | `{sum, len}` | `AssignAction<T>` | 区間代入・区間和 |
 | `ActedAssignMin<T>` | `T` | `AssignAction<T>` | 区間代入・区間最小値 |
 | `ActedAssignMax<T>` | `T` | `AssignAction<T>` | 区間代入・区間最大値 |
+| `ActedNone<M>` | `M::S` | なし | モノイド `M` をそのまま使う（平衡二分木で反転だけしたいときなど） |
 
 ```cpp
 using AM = ActedAffineSum<mint>;

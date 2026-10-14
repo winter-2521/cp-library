@@ -19,6 +19,18 @@ data:
     path: data_structure/dynamic_segment_tree.hpp
     title: "\u52D5\u7684\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dynamic Segment Tree)"
   - icon: ':heavy_check_mark:'
+    path: data_structure/dynamic_sequence.hpp
+    title: "\u5217\u306E\u633F\u5165\u30FB\u524A\u9664\u30FB\u53CD\u8EE2\u30FB\u533A\
+      \u9593\u4F5C\u7528 (Dynamic Sequence, Splay \u6728)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/foldable_deque.hpp
+    title: "\u5168\u4F53\u306E\u7A4D\u304C\u53D6\u308C\u308B\u4E21\u7AEF\u30AD\u30E5\
+      \u30FC (Foldable Deque)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/foldable_queue.hpp
+    title: "\u5168\u4F53\u306E\u7A4D\u304C\u53D6\u308C\u308B\u30AD\u30E5\u30FC (Foldable\
+      \ Queue / SWAG)"
+  - icon: ':heavy_check_mark:'
     path: data_structure/lazy_segment_tree.hpp
     title: "\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Lazy Segment Tree)"
   - icon: ':heavy_check_mark:'
@@ -38,6 +50,12 @@ data:
       \u30F3\u30C8\u6728 (Sortable Segment Tree)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/deque_operate_all_composite.test.cpp
+    title: test/deque_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/dynamic_sequence_range_affine_range_sum.test.cpp
+    title: test/dynamic_sequence_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/persistent_range_affine_range_sum.test.cpp
     title: test/persistent_range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -50,6 +68,9 @@ data:
     path: test/point_set_range_sort_range_composite.test.cpp
     title: test/point_set_range_sort_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/queue_operate_all_composite.test.cpp
+    title: test/queue_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/range_affine_point_get.test.cpp
     title: test/range_affine_point_get.test.cpp
   - icon: ':heavy_check_mark:'
@@ -59,8 +80,17 @@ data:
     path: test/range_affine_range_sum_large_array.test.cpp
     title: test/range_affine_range_sum_large_array.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/range_reverse_range_sum.test.cpp
+    title: test/range_reverse_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/range_set_range_composite.test.cpp
     title: test/range_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/dynamic_sequence.test.cpp
+    title: test/unittest/dynamic_sequence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/foldable_queue.test.cpp
+    title: test/unittest/foldable_queue.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/lazy_segment_tree.test.cpp
     title: test/unittest/lazy_segment_tree.test.cpp
@@ -166,20 +196,29 @@ data:
   - data_structure/sortable_segment_tree.hpp
   - data_structure/persistent_lazy_segment_tree.hpp
   - data_structure/dynamic_segment_tree.hpp
+  - data_structure/foldable_deque.hpp
+  - data_structure/dynamic_sequence.hpp
   - data_structure/dynamic_lazy_segment_tree.hpp
   - data_structure/segment_tree.hpp
+  - data_structure/foldable_queue.hpp
   - data_structure/range_assign_segment_tree.hpp
   - algebra/acted_monoid.hpp
   timestamp: '2026-10-12 11:35:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/point_set_range_composite_large_array.test.cpp
+  - test/range_reverse_range_sum.test.cpp
+  - test/queue_operate_all_composite.test.cpp
   - test/persistent_range_affine_range_sum.test.cpp
+  - test/unittest/foldable_queue.test.cpp
   - test/unittest/lazy_segment_tree.test.cpp
+  - test/unittest/dynamic_sequence.test.cpp
   - test/unittest/segment_tree.test.cpp
   - test/unittest/range_assign_segment_tree.test.cpp
   - test/unittest/sortable_segment_tree.test.cpp
+  - test/deque_operate_all_composite.test.cpp
   - test/point_set_range_sort_range_composite.test.cpp
+  - test/dynamic_sequence_range_affine_range_sum.test.cpp
   - test/range_affine_point_get.test.cpp
   - test/point_set_range_composite.test.cpp
   - test/range_set_range_composite.test.cpp

@@ -140,23 +140,31 @@ data:
     \ S e() { return numeric_limits<T>::lowest(); }\n    static S mapping(const F\
     \ &f, const S &x) { return f.has ? f.x : x; }\n    static F composition(const\
     \ F &f, const F &g) { return f.has ? f : g; }\n    static F id() { return F();\
-    \ }\n};\n#line 4 \"data_structure/dynamic_lazy_segment_tree.hpp\"\n\n// \u52D5\
-    \u7684\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u6DFB\u5B57\u304C\u5927\
-    \u304D\u3044\u5834\u5408\u306E\u533A\u9593\u4F5C\u7528\u30FB\u533A\u9593\u7A4D\
-    )\n// \u6DFB\u5B57\u306F [0, n) (n \u306F 2^62 \u7A0B\u5EA6\u307E\u3067)\uFF0E\
-    \u306F\u3058\u3081\u5168\u3066\u306E\u8981\u7D20\u304C x0 (\u7701\u7565\u6642\
-    \ e())\n// \u89E6\u3063\u305F\u90E8\u5206\u3060\u3051\u30CE\u30FC\u30C9\u3092\u4F5C\
-    \u308B\uFF0E1 \u56DE\u306E\u64CD\u4F5C\u3067\u4F5C\u308B\u30CE\u30FC\u30C9\u306F\
-    \ O(log n) \u500B\n//\n// \u5927\u304D\u3055\u3092 2 \u51AA\u306B\u5207\u308A\u4E0A\
-    \u3052\uFF0C\u307E\u3060\u4F5C\u3063\u3066\u3044\u306A\u3044\u9577\u3055 2^k \u306E\
-    \u533A\u9593\u306E\u7A4D\u306F x0^(2^k) \u3092\u4E8B\u524D\u8A08\u7B97\u3057\u3066\
-    \u304A\u3044\u3066\u4F7F\u3046\ntemplate <class AM>\nstruct DynamicLazySegmentTree\
-    \ {\n    using S = typename AM::S;\n    using F = typename AM::F;\n    struct\
-    \ Node {\n        S val;\n        F lz;\n        int l, r;\n    };\n    long long\
-    \ n;\n    int lg;\n    vector<S> pw;  // pw[k] = x0^(2^k)\n    vector<Node> t;\n\
-    \    int root;\n\n    DynamicLazySegmentTree(long long n = 0, S x0 = AM::e())\
-    \ : n(n) {\n        lg = 0;\n        while ((1LL << lg) < n) lg++;\n        pw.resize(lg\
-    \ + 1);\n        pw[0] = x0;\n        for (int k = 1; k <= lg; k++) pw[k] = AM::op(pw[k\
+    \ }\n};\n\n// \u4F5C\u7528\u306A\u3057 (\u30E2\u30CE\u30A4\u30C9 M \u3092\u305D\
+    \u306E\u307E\u307E\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9\u3068\u3057\
+    \u3066\u4F7F\u3046)\uFF0E\u5E73\u8861\u4E8C\u5206\u6728\u3067\u53CD\u8EE2\u3060\
+    \u3051\u3057\u305F\u3044\u3068\u304D\u306A\u3069\ntemplate <class M>\nstruct ActedNone\
+    \ {\n    using S = typename M::S;\n    struct F {};\n    static S op(const S &a,\
+    \ const S &b) { return M::op(a, b); }\n    static S e() { return M::e(); }\n \
+    \   static S mapping(const F &, const S &x) { return x; }\n    static F composition(const\
+    \ F &, const F &) { return F(); }\n    static F id() { return F(); }\n};\n#line\
+    \ 4 \"data_structure/dynamic_lazy_segment_tree.hpp\"\n\n// \u52D5\u7684\u9045\u5EF6\
+    \u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u6DFB\u5B57\u304C\u5927\u304D\u3044\u5834\
+    \u5408\u306E\u533A\u9593\u4F5C\u7528\u30FB\u533A\u9593\u7A4D)\n// \u6DFB\u5B57\
+    \u306F [0, n) (n \u306F 2^62 \u7A0B\u5EA6\u307E\u3067)\uFF0E\u306F\u3058\u3081\
+    \u5168\u3066\u306E\u8981\u7D20\u304C x0 (\u7701\u7565\u6642 e())\n// \u89E6\u3063\
+    \u305F\u90E8\u5206\u3060\u3051\u30CE\u30FC\u30C9\u3092\u4F5C\u308B\uFF0E1 \u56DE\
+    \u306E\u64CD\u4F5C\u3067\u4F5C\u308B\u30CE\u30FC\u30C9\u306F O(log n) \u500B\n\
+    //\n// \u5927\u304D\u3055\u3092 2 \u51AA\u306B\u5207\u308A\u4E0A\u3052\uFF0C\u307E\
+    \u3060\u4F5C\u3063\u3066\u3044\u306A\u3044\u9577\u3055 2^k \u306E\u533A\u9593\u306E\
+    \u7A4D\u306F x0^(2^k) \u3092\u4E8B\u524D\u8A08\u7B97\u3057\u3066\u304A\u3044\u3066\
+    \u4F7F\u3046\ntemplate <class AM>\nstruct DynamicLazySegmentTree {\n    using\
+    \ S = typename AM::S;\n    using F = typename AM::F;\n    struct Node {\n    \
+    \    S val;\n        F lz;\n        int l, r;\n    };\n    long long n;\n    int\
+    \ lg;\n    vector<S> pw;  // pw[k] = x0^(2^k)\n    vector<Node> t;\n    int root;\n\
+    \n    DynamicLazySegmentTree(long long n = 0, S x0 = AM::e()) : n(n) {\n     \
+    \   lg = 0;\n        while ((1LL << lg) < n) lg++;\n        pw.resize(lg + 1);\n\
+    \        pw[0] = x0;\n        for (int k = 1; k <= lg; k++) pw[k] = AM::op(pw[k\
     \ - 1], pw[k - 1]);\n        root = new_node(lg);\n    }\n\n    void reserve(int\
     \ k) { t.reserve(k); }\n\n    // a[p] = x\n    void set(long long p, const S &x)\
     \ { set(root, lg, 0, p, x); }\n\n    S get(long long p) { return prod(p, p + 1);\
@@ -270,7 +278,7 @@ data:
   isVerificationFile: false
   path: data_structure/dynamic_lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2026-10-12 11:35:48+09:00'
+  timestamp: '2026-10-14 23:17:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/unittest/lazy_segment_tree.test.cpp

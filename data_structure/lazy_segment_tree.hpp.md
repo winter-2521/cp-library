@@ -140,15 +140,23 @@ data:
     \ S e() { return numeric_limits<T>::lowest(); }\n    static S mapping(const F\
     \ &f, const S &x) { return f.has ? f.x : x; }\n    static F composition(const\
     \ F &f, const F &g) { return f.has ? f : g; }\n    static F id() { return F();\
-    \ }\n};\n#line 4 \"data_structure/lazy_segment_tree.hpp\"\n\n// \u9045\u5EF6\u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728 (\u533A\u9593\u4F5C\u7528\u30FB\u533A\u9593\u7A4D\
-    )\n// AM \u306F\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9 (algebra/acted_monoid.hpp\
-    \ \u53C2\u7167\uFF0E\u898F\u7D04\u306F ACL \u306E lazy_segtree \u3068\u540C\u3058\
-    )\ntemplate <class AM>\nstruct LazySegmentTree {\n    using S = typename AM::S;\n\
-    \    using F = typename AM::F;\n    int n, sz, lg;\n    vector<S> d;\n    vector<F>\
-    \ lz;\n\n    LazySegmentTree(int n = 0) : LazySegmentTree(vector<S>(n, AM::e()))\
-    \ {}\n\n    LazySegmentTree(const vector<S> &a) : n(a.size()) {\n        lg =\
-    \ 0;\n        while ((1 << lg) < n) lg++;\n        sz = 1 << lg;\n        d.assign(2\
+    \ }\n};\n\n// \u4F5C\u7528\u306A\u3057 (\u30E2\u30CE\u30A4\u30C9 M \u3092\u305D\
+    \u306E\u307E\u307E\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9\u3068\u3057\
+    \u3066\u4F7F\u3046)\uFF0E\u5E73\u8861\u4E8C\u5206\u6728\u3067\u53CD\u8EE2\u3060\
+    \u3051\u3057\u305F\u3044\u3068\u304D\u306A\u3069\ntemplate <class M>\nstruct ActedNone\
+    \ {\n    using S = typename M::S;\n    struct F {};\n    static S op(const S &a,\
+    \ const S &b) { return M::op(a, b); }\n    static S e() { return M::e(); }\n \
+    \   static S mapping(const F &, const S &x) { return x; }\n    static F composition(const\
+    \ F &, const F &) { return F(); }\n    static F id() { return F(); }\n};\n#line\
+    \ 4 \"data_structure/lazy_segment_tree.hpp\"\n\n// \u9045\u5EF6\u30BB\u30B0\u30E1\
+    \u30F3\u30C8\u6728 (\u533A\u9593\u4F5C\u7528\u30FB\u533A\u9593\u7A4D)\n// AM \u306F\
+    \u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9 (algebra/acted_monoid.hpp \u53C2\
+    \u7167\uFF0E\u898F\u7D04\u306F ACL \u306E lazy_segtree \u3068\u540C\u3058)\ntemplate\
+    \ <class AM>\nstruct LazySegmentTree {\n    using S = typename AM::S;\n    using\
+    \ F = typename AM::F;\n    int n, sz, lg;\n    vector<S> d;\n    vector<F> lz;\n\
+    \n    LazySegmentTree(int n = 0) : LazySegmentTree(vector<S>(n, AM::e())) {}\n\
+    \n    LazySegmentTree(const vector<S> &a) : n(a.size()) {\n        lg = 0;\n \
+    \       while ((1 << lg) < n) lg++;\n        sz = 1 << lg;\n        d.assign(2\
     \ * sz, AM::e());\n        lz.assign(sz, AM::id());\n        copy(a.begin(), a.end(),\
     \ d.begin() + sz);\n        for (int i = sz - 1; i >= 1; i--) update(i);\n   \
     \ }\n\n    int size() const { return n; }\n\n    // a[p] = x\n    void set(int\
@@ -270,7 +278,7 @@ data:
   isVerificationFile: false
   path: data_structure/lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2026-10-12 11:35:48+09:00'
+  timestamp: '2026-10-14 23:17:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/unittest/lazy_segment_tree.test.cpp

@@ -381,14 +381,22 @@ data:
     \ S e() { return numeric_limits<T>::lowest(); }\n    static S mapping(const F\
     \ &f, const S &x) { return f.has ? f.x : x; }\n    static F composition(const\
     \ F &f, const F &g) { return f.has ? f : g; }\n    static F id() { return F();\
-    \ }\n};\n#line 4 \"data_structure/persistent_lazy_segment_tree.hpp\"\n\n// \u6C38\
-    \u7D9A\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\n// \u5404\u30D0\u30FC\u30B8\
-    \u30E7\u30F3\u3092\u6839\u306E\u30CE\u30FC\u30C9\u756A\u53F7 (int) \u3067\u8868\
-    \u3059\uFF0E\u66F4\u65B0\u306F\u65B0\u3057\u3044\u30D0\u30FC\u30B8\u30E7\u30F3\
-    \u306E\u6839\u3092\u8FD4\u3057\uFF0C\u53E4\u3044\u30D0\u30FC\u30B8\u30E7\u30F3\
-    \u306F\u5909\u308F\u3089\u306A\u3044\n// 1 \u56DE\u306E\u66F4\u65B0\u3067\u4F5C\
-    \u308B\u30CE\u30FC\u30C9\u306F O(log n) \u500B\uFF0E\u533A\u9593\u7A4D\u306F\u30CE\
-    \u30FC\u30C9\u3092\u4F5C\u3089\u306A\u3044\ntemplate <class AM>\nstruct PersistentLazySegmentTree\
+    \ }\n};\n\n// \u4F5C\u7528\u306A\u3057 (\u30E2\u30CE\u30A4\u30C9 M \u3092\u305D\
+    \u306E\u307E\u307E\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9\u3068\u3057\
+    \u3066\u4F7F\u3046)\uFF0E\u5E73\u8861\u4E8C\u5206\u6728\u3067\u53CD\u8EE2\u3060\
+    \u3051\u3057\u305F\u3044\u3068\u304D\u306A\u3069\ntemplate <class M>\nstruct ActedNone\
+    \ {\n    using S = typename M::S;\n    struct F {};\n    static S op(const S &a,\
+    \ const S &b) { return M::op(a, b); }\n    static S e() { return M::e(); }\n \
+    \   static S mapping(const F &, const S &x) { return x; }\n    static F composition(const\
+    \ F &, const F &) { return F(); }\n    static F id() { return F(); }\n};\n#line\
+    \ 4 \"data_structure/persistent_lazy_segment_tree.hpp\"\n\n// \u6C38\u7D9A\u9045\
+    \u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\n// \u5404\u30D0\u30FC\u30B8\u30E7\u30F3\
+    \u3092\u6839\u306E\u30CE\u30FC\u30C9\u756A\u53F7 (int) \u3067\u8868\u3059\uFF0E\
+    \u66F4\u65B0\u306F\u65B0\u3057\u3044\u30D0\u30FC\u30B8\u30E7\u30F3\u306E\u6839\
+    \u3092\u8FD4\u3057\uFF0C\u53E4\u3044\u30D0\u30FC\u30B8\u30E7\u30F3\u306F\u5909\
+    \u308F\u3089\u306A\u3044\n// 1 \u56DE\u306E\u66F4\u65B0\u3067\u4F5C\u308B\u30CE\
+    \u30FC\u30C9\u306F O(log n) \u500B\uFF0E\u533A\u9593\u7A4D\u306F\u30CE\u30FC\u30C9\
+    \u3092\u4F5C\u3089\u306A\u3044\ntemplate <class AM>\nstruct PersistentLazySegmentTree\
     \ {\n    using S = typename AM::S;\n    using F = typename AM::F;\n    struct\
     \ Node {\n        S val;\n        F lz;\n        int l, r;\n        bool has_lz;\
     \  // lz \u304C\u6052\u7B49\u5199\u50CF\u3067\u306A\u3044\u53EF\u80FD\u6027\u304C\
@@ -529,7 +537,7 @@ data:
   isVerificationFile: true
   path: test/persistent_range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 11:35:48+09:00'
+  timestamp: '2026-10-14 23:17:41+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/persistent_range_affine_range_sum.test.cpp

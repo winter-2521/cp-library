@@ -9,6 +9,9 @@ data:
     path: algebra/monoid.hpp
     title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
   - icon: ':heavy_check_mark:'
+    path: data_structure/binary_trie.hpp
+    title: "2 \u5206\u30C8\u30E9\u30A4 (Binary Trie)"
+  - icon: ':heavy_check_mark:'
     path: data_structure/cumulative_sum.hpp
     title: "\u7D2F\u7A4D\u548C (Cumulative Sum)"
   - icon: ':heavy_check_mark:'
@@ -32,11 +35,35 @@ data:
     path: data_structure/dynamic_segment_tree.hpp
     title: "\u52D5\u7684\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dynamic Segment Tree)"
   - icon: ':heavy_check_mark:'
+    path: data_structure/dynamic_sequence.hpp
+    title: "\u5217\u306E\u633F\u5165\u30FB\u524A\u9664\u30FB\u53CD\u8EE2\u30FB\u533A\
+      \u9593\u4F5C\u7528 (Dynamic Sequence, Splay \u6728)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/dynamic_sequence.hpp
+    title: "\u5217\u306E\u633F\u5165\u30FB\u524A\u9664\u30FB\u53CD\u8EE2\u30FB\u533A\
+      \u9593\u4F5C\u7528 (Dynamic Sequence, Splay \u6728)"
+  - icon: ':heavy_check_mark:'
     path: data_structure/fast_set.hpp
     title: "64 \u5206\u6728\u306B\u3088\u308B\u6574\u6570\u96C6\u5408 (Fast Set)"
   - icon: ':heavy_check_mark:'
     path: data_structure/fenwick_tree.hpp
     title: Fenwick Tree (Binary Indexed Tree)
+  - icon: ':heavy_check_mark:'
+    path: data_structure/foldable_deque.hpp
+    title: "\u5168\u4F53\u306E\u7A4D\u304C\u53D6\u308C\u308B\u4E21\u7AEF\u30AD\u30E5\
+      \u30FC (Foldable Deque)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/foldable_deque.hpp
+    title: "\u5168\u4F53\u306E\u7A4D\u304C\u53D6\u308C\u308B\u4E21\u7AEF\u30AD\u30E5\
+      \u30FC (Foldable Deque)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/foldable_queue.hpp
+    title: "\u5168\u4F53\u306E\u7A4D\u304C\u53D6\u308C\u308B\u30AD\u30E5\u30FC (Foldable\
+      \ Queue / SWAG)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/foldable_queue.hpp
+    title: "\u5168\u4F53\u306E\u7A4D\u304C\u53D6\u308C\u308B\u30AD\u30E5\u30FC (Foldable\
+      \ Queue / SWAG)"
   - icon: ':heavy_check_mark:'
     path: data_structure/hash_map.hpp
     title: "\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7 (Hash Map)"
@@ -50,6 +77,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/lazy_segment_tree.hpp
     title: "\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Lazy Segment Tree)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/li_chao_tree.hpp
+    title: Li Chao Tree
+  - icon: ':heavy_check_mark:'
+    path: data_structure/linear_add_min_segment_tree.hpp
+    title: "\u533A\u9593 1 \u6B21\u95A2\u6570\u52A0\u7B97\u30FB\u533A\u9593\u6700\u5C0F\
+      \u5024 (Range Linear Add Range Min)"
   - icon: ':heavy_check_mark:'
     path: data_structure/ordered_set.hpp
     title: "\u9806\u5E8F\u4ED8\u304D\u96C6\u5408 (Ordered Set)"
@@ -132,6 +166,18 @@ data:
     path: test/associative_array.test.cpp
     title: test/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/deque_operate_all_composite.test.cpp
+    title: test/deque_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/deque_operate_all_composite.test.cpp
+    title: test/deque_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/deque_operate_all_composite.test.cpp
+    title: test/deque_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/deque_operate_all_composite.test.cpp
+    title: test/deque_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/dijkstra.test.cpp
     title: test/dijkstra.test.cpp
   - icon: ':heavy_check_mark:'
@@ -140,6 +186,24 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/double_ended_priority_queue.test.cpp
     title: test/double_ended_priority_queue.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/dynamic_sequence_range_affine_range_sum.test.cpp
+    title: test/dynamic_sequence_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/dynamic_sequence_range_affine_range_sum.test.cpp
+    title: test/dynamic_sequence_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/dynamic_sequence_range_affine_range_sum.test.cpp
+    title: test/dynamic_sequence_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/dynamic_sequence_range_affine_range_sum.test.cpp
+    title: test/dynamic_sequence_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/line_add_get_min.test.cpp
+    title: test/line_add_get_min.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/line_add_get_min.test.cpp
+    title: test/line_add_get_min.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/many_aplusb.test.cpp
     title: test/many_aplusb.test.cpp
@@ -213,6 +277,18 @@ data:
     path: test/predecessor_problem.test.cpp
     title: test/predecessor_problem.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/queue_operate_all_composite.test.cpp
+    title: test/queue_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/queue_operate_all_composite.test.cpp
+    title: test/queue_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/queue_operate_all_composite.test.cpp
+    title: test/queue_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/queue_operate_all_composite.test.cpp
+    title: test/queue_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/range_affine_point_get.test.cpp
     title: test/range_affine_point_get.test.cpp
   - icon: ':heavy_check_mark:'
@@ -261,6 +337,12 @@ data:
     path: test/range_kth_smallest.test.cpp
     title: test/range_kth_smallest.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/range_linear_add_range_min.test.cpp
+    title: test/range_linear_add_range_min.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_linear_add_range_min.test.cpp
+    title: test/range_linear_add_range_min.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/range_parallel_unionfind.test.cpp
     title: test/range_parallel_unionfind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -279,8 +361,14 @@ data:
     path: test/range_parallel_unionfind_online.test.cpp
     title: test/range_parallel_unionfind_online.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/range_set_range_composite.test.cpp
-    title: test/range_set_range_composite.test.cpp
+    path: test/range_reverse_range_sum.test.cpp
+    title: test/range_reverse_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_reverse_range_sum.test.cpp
+    title: test/range_reverse_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_reverse_range_sum.test.cpp
+    title: test/range_reverse_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/range_set_range_composite.test.cpp
     title: test/range_set_range_composite.test.cpp
@@ -290,6 +378,27 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/range_set_range_composite.test.cpp
     title: test/range_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/range_set_range_composite.test.cpp
+    title: test/range_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/segment_add_get_min.test.cpp
+    title: test/segment_add_get_min.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/segment_add_get_min.test.cpp
+    title: test/segment_add_get_min.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/segment_add_get_min_offline.test.cpp
+    title: test/segment_add_get_min_offline.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/segment_add_get_min_offline.test.cpp
+    title: test/segment_add_get_min_offline.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/set_xor_min.test.cpp
+    title: test/set_xor_min.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/set_xor_min.test.cpp
+    title: test/set_xor_min.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/static_range_sum.test.cpp
     title: test/static_range_sum.test.cpp
@@ -330,11 +439,29 @@ data:
     path: test/unionfind_with_potential_non_commutative_group.test.cpp
     title: test/unionfind_with_potential_non_commutative_group.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/unittest/binary_trie.test.cpp
+    title: test/unittest/binary_trie.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/binary_trie.test.cpp
+    title: test/unittest/binary_trie.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unittest/cumulative_sum.test.cpp
     title: test/unittest/cumulative_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/cumulative_sum.test.cpp
     title: test/unittest/cumulative_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/dynamic_sequence.test.cpp
+    title: test/unittest/dynamic_sequence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/dynamic_sequence.test.cpp
+    title: test/unittest/dynamic_sequence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/dynamic_sequence.test.cpp
+    title: test/unittest/dynamic_sequence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/dynamic_sequence.test.cpp
+    title: test/unittest/dynamic_sequence.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/fast_set.test.cpp
     title: test/unittest/fast_set.test.cpp
@@ -347,6 +474,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/unittest/fenwick_tree.test.cpp
     title: test/unittest/fenwick_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/foldable_queue.test.cpp
+    title: test/unittest/foldable_queue.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/foldable_queue.test.cpp
+    title: test/unittest/foldable_queue.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/foldable_queue.test.cpp
+    title: test/unittest/foldable_queue.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/foldable_queue.test.cpp
+    title: test/unittest/foldable_queue.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/hash_map.test.cpp
     title: test/unittest/hash_map.test.cpp
@@ -371,6 +510,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/unittest/lazy_segment_tree.test.cpp
     title: test/unittest/lazy_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/li_chao_tree.test.cpp
+    title: test/unittest/li_chao_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/li_chao_tree.test.cpp
+    title: test/unittest/li_chao_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/linear_add_min_segment_tree.test.cpp
+    title: test/unittest/linear_add_min_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/linear_add_min_segment_tree.test.cpp
+    title: test/unittest/linear_add_min_segment_tree.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/modint.test.cpp
     title: test/unittest/modint.test.cpp
@@ -491,6 +642,7 @@ data:
   - graph/graph-template.hpp
   - data_structure/fenwick_tree.hpp
   - data_structure/hash_map.hpp
+  - data_structure/li_chao_tree.hpp
   - data_structure/dual_segment_tree.hpp
   - data_structure/dual_segment_tree.hpp
   - data_structure/weighted_dsu.hpp
@@ -509,15 +661,23 @@ data:
   - data_structure/range_parallel_unionfind.hpp
   - data_structure/dynamic_segment_tree.hpp
   - data_structure/dynamic_segment_tree.hpp
+  - data_structure/foldable_deque.hpp
+  - data_structure/foldable_deque.hpp
+  - data_structure/dynamic_sequence.hpp
+  - data_structure/dynamic_sequence.hpp
+  - data_structure/linear_add_min_segment_tree.hpp
   - data_structure/dynamic_lazy_segment_tree.hpp
   - data_structure/dynamic_lazy_segment_tree.hpp
   - data_structure/segment_tree.hpp
   - data_structure/segment_tree.hpp
+  - data_structure/foldable_queue.hpp
+  - data_structure/foldable_queue.hpp
   - data_structure/range_assign_segment_tree.hpp
   - data_structure/range_assign_segment_tree.hpp
   - data_structure/static_rmq.hpp
   - data_structure/ordered_set.hpp
   - data_structure/cumulative_sum.hpp
+  - data_structure/binary_trie.hpp
   - io/fastio.hpp
   - math/modint.hpp
   - algebra/acted_monoid.hpp
@@ -539,8 +699,17 @@ data:
   - test/point_set_range_composite_large_array.test.cpp
   - test/point_set_range_composite_large_array.test.cpp
   - test/point_set_range_composite_large_array.test.cpp
+  - test/range_reverse_range_sum.test.cpp
+  - test/range_reverse_range_sum.test.cpp
+  - test/range_reverse_range_sum.test.cpp
+  - test/segment_add_get_min.test.cpp
+  - test/segment_add_get_min.test.cpp
   - test/staticrmq.test.cpp
   - test/staticrmq.test.cpp
+  - test/queue_operate_all_composite.test.cpp
+  - test/queue_operate_all_composite.test.cpp
+  - test/queue_operate_all_composite.test.cpp
+  - test/queue_operate_all_composite.test.cpp
   - test/weighteddsu.test.cpp
   - test/persistent_range_affine_range_sum.test.cpp
   - test/persistent_range_affine_range_sum.test.cpp
@@ -557,6 +726,12 @@ data:
   - test/unittest/fenwick_tree.test.cpp
   - test/unittest/cumulative_sum.test.cpp
   - test/unittest/cumulative_sum.test.cpp
+  - test/unittest/foldable_queue.test.cpp
+  - test/unittest/foldable_queue.test.cpp
+  - test/unittest/foldable_queue.test.cpp
+  - test/unittest/foldable_queue.test.cpp
+  - test/unittest/linear_add_min_segment_tree.test.cpp
+  - test/unittest/linear_add_min_segment_tree.test.cpp
   - test/unittest/lazy_segment_tree.test.cpp
   - test/unittest/lazy_segment_tree.test.cpp
   - test/unittest/lazy_segment_tree.test.cpp
@@ -571,10 +746,18 @@ data:
   - test/unittest/ordered_set.test.cpp
   - test/unittest/fast_set.test.cpp
   - test/unittest/fast_set.test.cpp
+  - test/unittest/dynamic_sequence.test.cpp
+  - test/unittest/dynamic_sequence.test.cpp
+  - test/unittest/dynamic_sequence.test.cpp
+  - test/unittest/dynamic_sequence.test.cpp
   - test/unittest/interval_heap.test.cpp
   - test/unittest/interval_heap.test.cpp
+  - test/unittest/binary_trie.test.cpp
+  - test/unittest/binary_trie.test.cpp
   - test/unittest/static_rmq.test.cpp
   - test/unittest/static_rmq.test.cpp
+  - test/unittest/li_chao_tree.test.cpp
+  - test/unittest/li_chao_tree.test.cpp
   - test/unittest/segment_tree.test.cpp
   - test/unittest/segment_tree.test.cpp
   - test/unittest/segment_tree.test.cpp
@@ -587,12 +770,22 @@ data:
   - test/unittest/sortable_segment_tree.test.cpp
   - test/unittest/sortable_segment_tree.test.cpp
   - test/unittest/sortable_segment_tree.test.cpp
+  - test/deque_operate_all_composite.test.cpp
+  - test/deque_operate_all_composite.test.cpp
+  - test/deque_operate_all_composite.test.cpp
+  - test/deque_operate_all_composite.test.cpp
   - test/point_set_range_sort_range_composite.test.cpp
   - test/point_set_range_sort_range_composite.test.cpp
   - test/point_set_range_sort_range_composite.test.cpp
   - test/point_set_range_sort_range_composite.test.cpp
+  - test/set_xor_min.test.cpp
+  - test/set_xor_min.test.cpp
   - test/staticrmq_sparse_table.test.cpp
   - test/staticrmq_sparse_table.test.cpp
+  - test/dynamic_sequence_range_affine_range_sum.test.cpp
+  - test/dynamic_sequence_range_affine_range_sum.test.cpp
+  - test/dynamic_sequence_range_affine_range_sum.test.cpp
+  - test/dynamic_sequence_range_affine_range_sum.test.cpp
   - test/range_kth_smallest.test.cpp
   - test/range_kth_smallest.test.cpp
   - test/range_parallel_unionfind_online.test.cpp
@@ -621,6 +814,8 @@ data:
   - test/associative_array.test.cpp
   - test/associative_array.test.cpp
   - test/dijkstra.test.cpp
+  - test/line_add_get_min.test.cpp
+  - test/line_add_get_min.test.cpp
   - test/many_aplusb_128bit.test.cpp
   - test/range_set_range_composite.test.cpp
   - test/range_set_range_composite.test.cpp
@@ -628,10 +823,14 @@ data:
   - test/range_set_range_composite.test.cpp
   - test/point_add_range_sum.test.cpp
   - test/point_add_range_sum.test.cpp
+  - test/range_linear_add_range_min.test.cpp
+  - test/range_linear_add_range_min.test.cpp
   - test/range_affine_range_sum.test.cpp
   - test/range_affine_range_sum.test.cpp
   - test/range_affine_range_sum.test.cpp
   - test/range_affine_range_sum.test.cpp
+  - test/segment_add_get_min_offline.test.cpp
+  - test/segment_add_get_min_offline.test.cpp
   - test/range_affine_range_sum_large_array.test.cpp
   - test/range_affine_range_sum_large_array.test.cpp
   - test/range_affine_range_sum_large_array.test.cpp

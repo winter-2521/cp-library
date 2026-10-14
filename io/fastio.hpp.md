@@ -13,8 +13,17 @@ data:
     path: test/associative_array.test.cpp
     title: test/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/deque_operate_all_composite.test.cpp
+    title: test/deque_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/double_ended_priority_queue.test.cpp
     title: test/double_ended_priority_queue.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/dynamic_sequence_range_affine_range_sum.test.cpp
+    title: test/dynamic_sequence_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/line_add_get_min.test.cpp
+    title: test/line_add_get_min.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/many_aplusb.test.cpp
     title: test/many_aplusb.test.cpp
@@ -43,6 +52,9 @@ data:
     path: test/predecessor_problem.test.cpp
     title: test/predecessor_problem.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/queue_operate_all_composite.test.cpp
+    title: test/queue_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/range_affine_point_get.test.cpp
     title: test/range_affine_point_get.test.cpp
   - icon: ':heavy_check_mark:'
@@ -58,14 +70,29 @@ data:
     path: test/range_kth_smallest.test.cpp
     title: test/range_kth_smallest.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/range_linear_add_range_min.test.cpp
+    title: test/range_linear_add_range_min.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/range_parallel_unionfind.test.cpp
     title: test/range_parallel_unionfind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/range_parallel_unionfind_online.test.cpp
     title: test/range_parallel_unionfind_online.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/range_reverse_range_sum.test.cpp
+    title: test/range_reverse_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/range_set_range_composite.test.cpp
     title: test/range_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/segment_add_get_min.test.cpp
+    title: test/segment_add_get_min.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/segment_add_get_min_offline.test.cpp
+    title: test/segment_add_get_min_offline.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/set_xor_min.test.cpp
+    title: test/set_xor_min.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/static_range_sum.test.cpp
     title: test/static_range_sum.test.cpp
@@ -82,14 +109,23 @@ data:
     path: test/unionfind_with_potential_non_commutative_group.test.cpp
     title: test/unionfind_with_potential_non_commutative_group.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/unittest/binary_trie.test.cpp
+    title: test/unittest/binary_trie.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unittest/cumulative_sum.test.cpp
     title: test/unittest/cumulative_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/dynamic_sequence.test.cpp
+    title: test/unittest/dynamic_sequence.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/fast_set.test.cpp
     title: test/unittest/fast_set.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/fenwick_tree.test.cpp
     title: test/unittest/fenwick_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/foldable_queue.test.cpp
+    title: test/unittest/foldable_queue.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/hash_map.test.cpp
     title: test/unittest/hash_map.test.cpp
@@ -99,6 +135,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/unittest/lazy_segment_tree.test.cpp
     title: test/unittest/lazy_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/li_chao_tree.test.cpp
+    title: test/unittest/li_chao_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/linear_add_min_segment_tree.test.cpp
+    title: test/unittest/linear_add_min_segment_tree.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/modint.test.cpp
     title: test/unittest/modint.test.cpp
@@ -455,26 +497,37 @@ data:
   - test/many_aplusb.test.cpp
   - test/aplusb.test.cpp
   - test/point_set_range_composite_large_array.test.cpp
+  - test/range_reverse_range_sum.test.cpp
+  - test/segment_add_get_min.test.cpp
   - test/staticrmq.test.cpp
+  - test/queue_operate_all_composite.test.cpp
   - test/persistent_range_affine_range_sum.test.cpp
   - test/unittest/segment_tree_beats.test.cpp
   - test/unittest/modint.test.cpp
   - test/unittest/wavelet_matrix.test.cpp
   - test/unittest/fenwick_tree.test.cpp
   - test/unittest/cumulative_sum.test.cpp
+  - test/unittest/foldable_queue.test.cpp
+  - test/unittest/linear_add_min_segment_tree.test.cpp
   - test/unittest/lazy_segment_tree.test.cpp
   - test/unittest/potentialized_unionfind.test.cpp
   - test/unittest/hash_map.test.cpp
   - test/unittest/range_parallel_unionfind.test.cpp
   - test/unittest/ordered_set.test.cpp
   - test/unittest/fast_set.test.cpp
+  - test/unittest/dynamic_sequence.test.cpp
   - test/unittest/interval_heap.test.cpp
+  - test/unittest/binary_trie.test.cpp
   - test/unittest/static_rmq.test.cpp
+  - test/unittest/li_chao_tree.test.cpp
   - test/unittest/segment_tree.test.cpp
   - test/unittest/range_assign_segment_tree.test.cpp
   - test/unittest/sortable_segment_tree.test.cpp
+  - test/deque_operate_all_composite.test.cpp
   - test/point_set_range_sort_range_composite.test.cpp
+  - test/set_xor_min.test.cpp
   - test/staticrmq_sparse_table.test.cpp
+  - test/dynamic_sequence_range_affine_range_sum.test.cpp
   - test/range_kth_smallest.test.cpp
   - test/range_parallel_unionfind_online.test.cpp
   - test/predecessor_problem.test.cpp
@@ -485,10 +538,13 @@ data:
   - test/unionfind_with_potential.test.cpp
   - test/range_chmin_chmax_add_range_sum.test.cpp
   - test/associative_array.test.cpp
+  - test/line_add_get_min.test.cpp
   - test/many_aplusb_128bit.test.cpp
   - test/range_set_range_composite.test.cpp
   - test/point_add_range_sum.test.cpp
+  - test/range_linear_add_range_min.test.cpp
   - test/range_affine_range_sum.test.cpp
+  - test/segment_add_get_min_offline.test.cpp
   - test/range_affine_range_sum_large_array.test.cpp
 documentation_of: io/fastio.hpp
 layout: document
