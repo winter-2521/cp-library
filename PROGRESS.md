@@ -8,7 +8,7 @@
 
 既存のライブラリ（`graph/dsu.hpp`, `graph/dijkstra.hpp`）は fastio 導入前に作ったもので、速度面の見直しはまだしていない。
 
-**進捗: 41 / 235**
+**進捗: 47 / 235**
 
 ## Sample
 
@@ -59,12 +59,12 @@
 | ✅ | [Point Set Range Frequency](https://judge.yosupo.jp/problem/point_set_range_frequency) (`point_set_range_frequency`) | [`data_structure/dynamic_range_frequency.hpp`](data_structure/dynamic_range_frequency.hpp) | [`test/point_set_range_frequency.test.cpp`](test/point_set_range_frequency.test.cpp) |
 | ✅ | [Rectangle Sum](https://judge.yosupo.jp/problem/rectangle_sum) (`rectangle_sum`) | [`data_structure/static_rectangle_sum.hpp`](data_structure/static_rectangle_sum.hpp) | [`test/rectangle_sum.test.cpp`](test/rectangle_sum.test.cpp) |
 | ✅ | [Point Add Rectangle Sum](https://judge.yosupo.jp/problem/point_add_rectangle_sum) (`point_add_rectangle_sum`) | [`data_structure/static_rectangle_sum.hpp`](data_structure/static_rectangle_sum.hpp) | [`test/point_add_rectangle_sum.test.cpp`](test/point_add_rectangle_sum.test.cpp) |
-| ⬜ | [Rectangle Add Point Get](https://judge.yosupo.jp/problem/rectangle_add_point_get) (`rectangle_add_point_get`) |  |  |
-| ⬜ | [Static Rectangle Add Rectangle Sum](https://judge.yosupo.jp/problem/static_rectangle_add_rectangle_sum) (`static_rectangle_add_rectangle_sum`) |  |  |
-| ⬜ | [Dynamic Point Rectangle Affine Rectangle Sum](https://judge.yosupo.jp/problem/dynamic_point_set_rectangle_affine_rectangle_sum) (`dynamic_point_set_rectangle_affine_rectangle_sum`) |  |  |
-| ⬜ | [Area of Union of Rectangles](https://judge.yosupo.jp/problem/area_of_union_of_rectangles) (`area_of_union_of_rectangles`) |  |  |
-| ⬜ | [Persistent Queue](https://judge.yosupo.jp/problem/persistent_queue) (`persistent_queue`) |  |  |
-| ⬜ | [Persistent Unionfind](https://judge.yosupo.jp/problem/persistent_unionfind) (`persistent_unionfind`) |  |  |
+| ✅ | [Rectangle Add Point Get](https://judge.yosupo.jp/problem/rectangle_add_point_get) (`rectangle_add_point_get`) | [`data_structure/rectangle_add_point_get.hpp`](data_structure/rectangle_add_point_get.hpp) | [`test/rectangle_add_point_get.test.cpp`](test/rectangle_add_point_get.test.cpp) |
+| ✅ | [Static Rectangle Add Rectangle Sum](https://judge.yosupo.jp/problem/static_rectangle_add_rectangle_sum) (`static_rectangle_add_rectangle_sum`) | [`data_structure/static_rectangle_add_rectangle_sum.hpp`](data_structure/static_rectangle_add_rectangle_sum.hpp) | [`test/static_rectangle_add_rectangle_sum.test.cpp`](test/static_rectangle_add_rectangle_sum.test.cpp) |
+| ✅ | [Dynamic Point Rectangle Affine Rectangle Sum](https://judge.yosupo.jp/problem/dynamic_point_set_rectangle_affine_rectangle_sum) (`dynamic_point_set_rectangle_affine_rectangle_sum`) | [`data_structure/kd_tree.hpp`](data_structure/kd_tree.hpp) | [`test/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp`](test/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp) |
+| ✅ | [Area of Union of Rectangles](https://judge.yosupo.jp/problem/area_of_union_of_rectangles) (`area_of_union_of_rectangles`) | [`data_structure/area_of_union_of_rectangles.hpp`](data_structure/area_of_union_of_rectangles.hpp) | [`test/area_of_union_of_rectangles.test.cpp`](test/area_of_union_of_rectangles.test.cpp) |
+| ✅ | [Persistent Queue](https://judge.yosupo.jp/problem/persistent_queue) (`persistent_queue`) | [`data_structure/persistent_queue.hpp`](data_structure/persistent_queue.hpp) | [`test/persistent_queue.test.cpp`](test/persistent_queue.test.cpp) |
+| ✅ | [Persistent Unionfind](https://judge.yosupo.jp/problem/persistent_unionfind) (`persistent_unionfind`) | [`data_structure/persistent_unionfind.hpp`](data_structure/persistent_unionfind.hpp), [`data_structure/persistent_array.hpp`](data_structure/persistent_array.hpp) | [`test/persistent_unionfind.test.cpp`](test/persistent_unionfind.test.cpp) |
 
 ## Graph
 
