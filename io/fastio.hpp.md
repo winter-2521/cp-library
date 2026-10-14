@@ -10,6 +10,9 @@ data:
     path: test/aplusb.test.cpp
     title: test/aplusb.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/area_of_union_of_rectangles.test.cpp
+    title: test/area_of_union_of_rectangles.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/associative_array.test.cpp
     title: test/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
@@ -18,6 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/double_ended_priority_queue.test.cpp
     title: test/double_ended_priority_queue.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
+    title: test/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/dynamic_sequence_range_affine_range_sum.test.cpp
     title: test/dynamic_sequence_range_affine_range_sum.test.cpp
@@ -34,17 +40,29 @@ data:
     path: test/ordered_set.test.cpp
     title: test/ordered_set.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/persistent_queue.test.cpp
+    title: test/persistent_queue.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/persistent_range_affine_range_sum.test.cpp
     title: test/persistent_range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/persistent_unionfind.test.cpp
+    title: test/persistent_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/point_add_range_sum.test.cpp
     title: test/point_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_add_rectangle_sum.test.cpp
+    title: test/point_add_rectangle_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/point_set_range_composite.test.cpp
     title: test/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/point_set_range_composite_large_array.test.cpp
     title: test/point_set_range_composite_large_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/point_set_range_frequency.test.cpp
+    title: test/point_set_range_frequency.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/point_set_range_sort_range_composite.test.cpp
     title: test/point_set_range_sort_range_composite.test.cpp
@@ -85,6 +103,12 @@ data:
     path: test/range_set_range_composite.test.cpp
     title: test/range_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/rectangle_add_point_get.test.cpp
+    title: test/rectangle_add_point_get.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/rectangle_sum.test.cpp
+    title: test/rectangle_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/segment_add_get_min.test.cpp
     title: test/segment_add_get_min.test.cpp
   - icon: ':heavy_check_mark:'
@@ -94,8 +118,26 @@ data:
     path: test/set_xor_min.test.cpp
     title: test/set_xor_min.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/static_range_count_distinct.test.cpp
+    title: test/static_range_count_distinct.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/static_range_frequency.test.cpp
+    title: test/static_range_frequency.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/static_range_inversions_query.test.cpp
+    title: test/static_range_inversions_query.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/static_range_lis_query.test.cpp
+    title: test/static_range_lis_query.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/static_range_mode_query.test.cpp
+    title: test/static_range_mode_query.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/static_range_sum.test.cpp
     title: test/static_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/static_rectangle_add_rectangle_sum.test.cpp
+    title: test/static_rectangle_add_rectangle_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/staticrmq.test.cpp
     title: test/staticrmq.test.cpp
@@ -133,6 +175,9 @@ data:
     path: test/unittest/interval_heap.test.cpp
     title: test/unittest/interval_heap.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/unittest/kd_tree.test.cpp
+    title: test/unittest/kd_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unittest/lazy_segment_tree.test.cpp
     title: test/unittest/lazy_segment_tree.test.cpp
   - icon: ':heavy_check_mark:'
@@ -148,6 +193,9 @@ data:
     path: test/unittest/ordered_set.test.cpp
     title: test/unittest/ordered_set.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/unittest/persistent.test.cpp
+    title: test/unittest/persistent.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unittest/potentialized_unionfind.test.cpp
     title: test/unittest/potentialized_unionfind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -157,6 +205,9 @@ data:
     path: test/unittest/range_parallel_unionfind.test.cpp
     title: test/unittest/range_parallel_unionfind.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/unittest/rectangle_add.test.cpp
+    title: test/unittest/rectangle_add.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unittest/segment_tree.test.cpp
     title: test/unittest/segment_tree.test.cpp
   - icon: ':heavy_check_mark:'
@@ -165,6 +216,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/unittest/sortable_segment_tree.test.cpp
     title: test/unittest/sortable_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/static_range_lis.test.cpp
+    title: test/unittest/static_range_lis.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/static_range_queries.test.cpp
+    title: test/unittest/static_range_queries.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/static_rectangle_sum.test.cpp
+    title: test/unittest/static_rectangle_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/static_rmq.test.cpp
     title: test/unittest/static_rmq.test.cpp
@@ -491,34 +551,45 @@ data:
   timestamp: '2026-10-12 10:14:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/static_range_count_distinct.test.cpp
   - test/unionfind_with_potential_non_commutative_group.test.cpp
+  - test/persistent_unionfind.test.cpp
   - test/static_range_sum.test.cpp
+  - test/static_range_inversions_query.test.cpp
   - test/double_ended_priority_queue.test.cpp
+  - test/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
   - test/many_aplusb.test.cpp
   - test/aplusb.test.cpp
   - test/point_set_range_composite_large_array.test.cpp
   - test/range_reverse_range_sum.test.cpp
   - test/segment_add_get_min.test.cpp
+  - test/point_add_rectangle_sum.test.cpp
   - test/staticrmq.test.cpp
   - test/queue_operate_all_composite.test.cpp
   - test/persistent_range_affine_range_sum.test.cpp
   - test/unittest/segment_tree_beats.test.cpp
   - test/unittest/modint.test.cpp
+  - test/unittest/static_rectangle_sum.test.cpp
   - test/unittest/wavelet_matrix.test.cpp
   - test/unittest/fenwick_tree.test.cpp
+  - test/unittest/kd_tree.test.cpp
   - test/unittest/cumulative_sum.test.cpp
   - test/unittest/foldable_queue.test.cpp
+  - test/unittest/static_range_lis.test.cpp
   - test/unittest/linear_add_min_segment_tree.test.cpp
   - test/unittest/lazy_segment_tree.test.cpp
   - test/unittest/potentialized_unionfind.test.cpp
   - test/unittest/hash_map.test.cpp
+  - test/unittest/rectangle_add.test.cpp
   - test/unittest/range_parallel_unionfind.test.cpp
   - test/unittest/ordered_set.test.cpp
   - test/unittest/fast_set.test.cpp
   - test/unittest/dynamic_sequence.test.cpp
   - test/unittest/interval_heap.test.cpp
   - test/unittest/binary_trie.test.cpp
+  - test/unittest/persistent.test.cpp
   - test/unittest/static_rmq.test.cpp
+  - test/unittest/static_range_queries.test.cpp
   - test/unittest/li_chao_tree.test.cpp
   - test/unittest/segment_tree.test.cpp
   - test/unittest/range_assign_segment_tree.test.cpp
@@ -529,19 +600,28 @@ data:
   - test/staticrmq_sparse_table.test.cpp
   - test/dynamic_sequence_range_affine_range_sum.test.cpp
   - test/range_kth_smallest.test.cpp
+  - test/point_set_range_frequency.test.cpp
+  - test/static_range_lis_query.test.cpp
   - test/range_parallel_unionfind_online.test.cpp
   - test/predecessor_problem.test.cpp
   - test/range_parallel_unionfind.test.cpp
   - test/ordered_set.test.cpp
+  - test/static_range_frequency.test.cpp
   - test/range_affine_point_get.test.cpp
   - test/point_set_range_composite.test.cpp
+  - test/persistent_queue.test.cpp
   - test/unionfind_with_potential.test.cpp
   - test/range_chmin_chmax_add_range_sum.test.cpp
   - test/associative_array.test.cpp
   - test/line_add_get_min.test.cpp
+  - test/area_of_union_of_rectangles.test.cpp
+  - test/static_range_mode_query.test.cpp
   - test/many_aplusb_128bit.test.cpp
+  - test/static_rectangle_add_rectangle_sum.test.cpp
+  - test/rectangle_sum.test.cpp
   - test/range_set_range_composite.test.cpp
   - test/point_add_range_sum.test.cpp
+  - test/rectangle_add_point_get.test.cpp
   - test/range_linear_add_range_min.test.cpp
   - test/range_affine_range_sum.test.cpp
   - test/segment_add_get_min_offline.test.cpp

@@ -4,11 +4,30 @@ data:
   - icon: ':heavy_check_mark:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/static_range_count_distinct.hpp
+    title: "\u9759\u7684\u306A\u533A\u9593\u306E\u7A2E\u985E\u6570 (Static Range Count\
+      \ Distinct)"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/static_range_lis.hpp
+    title: "\u533A\u9593 LIS (Static Range LIS Query, Seaweed \u6CD5)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/range_kth_smallest.test.cpp
     title: test/range_kth_smallest.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/static_range_count_distinct.test.cpp
+    title: test/static_range_count_distinct.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/static_range_lis_query.test.cpp
+    title: test/static_range_lis_query.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/static_range_lis.test.cpp
+    title: test/unittest/static_range_lis.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/static_range_queries.test.cpp
+    title: test/unittest/static_range_queries.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/wavelet_matrix.test.cpp
     title: test/unittest/wavelet_matrix.test.cpp
@@ -198,12 +217,18 @@ data:
   - template.hpp
   isVerificationFile: false
   path: data_structure/wavelet_matrix.hpp
-  requiredBy: []
+  requiredBy:
+  - data_structure/static_range_count_distinct.hpp
+  - data_structure/static_range_lis.hpp
   timestamp: '2026-10-12 11:35:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/static_range_count_distinct.test.cpp
   - test/unittest/wavelet_matrix.test.cpp
+  - test/unittest/static_range_lis.test.cpp
+  - test/unittest/static_range_queries.test.cpp
   - test/range_kth_smallest.test.cpp
+  - test/static_range_lis_query.test.cpp
 documentation_of: data_structure/wavelet_matrix.hpp
 layout: document
 title: "\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\u5217 (Wavelet Matrix)"

@@ -31,6 +31,10 @@ data:
     title: "\u5168\u4F53\u306E\u7A4D\u304C\u53D6\u308C\u308B\u30AD\u30E5\u30FC (Foldable\
       \ Queue / SWAG)"
   - icon: ':heavy_check_mark:'
+    path: data_structure/kd_tree.hpp
+    title: "k-d \u6728 (\u9577\u65B9\u5F62\u4F5C\u7528\u30FB\u9577\u65B9\u5F62\u7A4D\
+      )"
+  - icon: ':heavy_check_mark:'
     path: data_structure/lazy_segment_tree.hpp
     title: "\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Lazy Segment Tree)"
   - icon: ':heavy_check_mark:'
@@ -52,6 +56,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/deque_operate_all_composite.test.cpp
     title: test/deque_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
+    title: test/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/dynamic_sequence_range_affine_range_sum.test.cpp
     title: test/dynamic_sequence_range_affine_range_sum.test.cpp
@@ -91,6 +98,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/unittest/foldable_queue.test.cpp
     title: test/unittest/foldable_queue.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/kd_tree.test.cpp
+    title: test/unittest/kd_tree.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/lazy_segment_tree.test.cpp
     title: test/unittest/lazy_segment_tree.test.cpp
@@ -198,6 +208,7 @@ data:
   - data_structure/dynamic_segment_tree.hpp
   - data_structure/foldable_deque.hpp
   - data_structure/dynamic_sequence.hpp
+  - data_structure/kd_tree.hpp
   - data_structure/dynamic_lazy_segment_tree.hpp
   - data_structure/segment_tree.hpp
   - data_structure/foldable_queue.hpp
@@ -206,10 +217,12 @@ data:
   timestamp: '2026-10-12 11:35:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
   - test/point_set_range_composite_large_array.test.cpp
   - test/range_reverse_range_sum.test.cpp
   - test/queue_operate_all_composite.test.cpp
   - test/persistent_range_affine_range_sum.test.cpp
+  - test/unittest/kd_tree.test.cpp
   - test/unittest/foldable_queue.test.cpp
   - test/unittest/lazy_segment_tree.test.cpp
   - test/unittest/dynamic_sequence.test.cpp

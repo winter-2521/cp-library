@@ -10,6 +10,9 @@ data:
     path: test/deque_operate_all_composite.test.cpp
     title: test/deque_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
+    title: test/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/dynamic_sequence_range_affine_range_sum.test.cpp
     title: test/dynamic_sequence_range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -46,6 +49,9 @@ data:
     path: test/range_set_range_composite.test.cpp
     title: test/range_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/static_rectangle_add_rectangle_sum.test.cpp
+    title: test/static_rectangle_add_rectangle_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unionfind_with_potential.test.cpp
     title: test/unionfind_with_potential.test.cpp
   - icon: ':heavy_check_mark:'
@@ -58,6 +64,9 @@ data:
     path: test/unittest/foldable_queue.test.cpp
     title: test/unittest/foldable_queue.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/unittest/kd_tree.test.cpp
+    title: test/unittest/kd_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unittest/lazy_segment_tree.test.cpp
     title: test/unittest/lazy_segment_tree.test.cpp
   - icon: ':heavy_check_mark:'
@@ -66,6 +75,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/unittest/range_assign_segment_tree.test.cpp
     title: test/unittest/range_assign_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/rectangle_add.test.cpp
+    title: test/unittest/rectangle_add.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/unittest/segment_tree.test.cpp
     title: test/unittest/segment_tree.test.cpp
@@ -209,12 +221,15 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/unionfind_with_potential_non_commutative_group.test.cpp
+  - test/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
   - test/point_set_range_composite_large_array.test.cpp
   - test/queue_operate_all_composite.test.cpp
   - test/persistent_range_affine_range_sum.test.cpp
   - test/unittest/modint.test.cpp
+  - test/unittest/kd_tree.test.cpp
   - test/unittest/foldable_queue.test.cpp
   - test/unittest/lazy_segment_tree.test.cpp
+  - test/unittest/rectangle_add.test.cpp
   - test/unittest/dynamic_sequence.test.cpp
   - test/unittest/segment_tree.test.cpp
   - test/unittest/range_assign_segment_tree.test.cpp
@@ -227,6 +242,7 @@ data:
   - test/range_affine_point_get.test.cpp
   - test/point_set_range_composite.test.cpp
   - test/unionfind_with_potential.test.cpp
+  - test/static_rectangle_add_rectangle_sum.test.cpp
   - test/range_set_range_composite.test.cpp
   - test/range_affine_range_sum.test.cpp
   - test/range_affine_range_sum_large_array.test.cpp

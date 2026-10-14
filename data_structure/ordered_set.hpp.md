@@ -4,14 +4,24 @@ data:
   - icon: ':heavy_check_mark:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/dynamic_range_frequency.hpp
+    title: "\u4E00\u70B9\u66F4\u65B0\u3042\u308A\u306E\u533A\u9593\u306E\u5024\u306E\
+      \u500B\u6570 (Point Set Range Frequency)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/ordered_set.test.cpp
     title: test/ordered_set.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/point_set_range_frequency.test.cpp
+    title: test/point_set_range_frequency.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/unittest/ordered_set.test.cpp
     title: test/unittest/ordered_set.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/unittest/static_range_queries.test.cpp
+    title: test/unittest/static_range_queries.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -382,11 +392,14 @@ data:
   - template.hpp
   isVerificationFile: false
   path: data_structure/ordered_set.hpp
-  requiredBy: []
+  requiredBy:
+  - data_structure/dynamic_range_frequency.hpp
   timestamp: '2026-10-12 10:34:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/unittest/ordered_set.test.cpp
+  - test/unittest/static_range_queries.test.cpp
+  - test/point_set_range_frequency.test.cpp
   - test/ordered_set.test.cpp
 documentation_of: data_structure/ordered_set.hpp
 layout: document
