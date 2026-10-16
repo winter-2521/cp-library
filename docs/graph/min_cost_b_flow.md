@@ -10,7 +10,7 @@ documentation_of: //graph/min_cost_b_flow.hpp
 - 流量保存：$(\text{$v$ から出る流量}) - (\text{$v$ に入る流量}) = b_v$
 - 容量制約：$l_e \le f_e \le u_e$
 
-を満たす流し方 $f$ のうち $\sum c_e f_e$ が最小のものを求める。双対（ポテンシャル）も返す。**容量スケーリング法**で $O(m \log U \cdot (n + m) \log n)$（$U$ は容量・供給の最大値）。
+を満たす流し方 $f$ のうち $\sum c_e f_e$ が最小のものを求める。双対（ポテンシャル）も返す。**容量スケーリング法**で $O(m \log U \cdot (n + m) \log n)$（$U$ は容量・供給の最大値）、最後の双対の計算（Bellman-Ford）に $O(nm)$。
 
 1. 下限 $l_e$ 分を先に流したことにして、供給を調整する。
 2. $\Delta = 2^k, \dots, 1$ の順に、残余容量が $\Delta$ 以上の辺だけを見る。その段の始めに被約費用が負の辺は飽和させ、超過が $\Delta$ 以上の頂点から不足が $\Delta$ 以上の頂点へ、ポテンシャル付き Dijkstra の最短路で $\Delta$ ずつ流す。
@@ -33,7 +33,7 @@ g.potential(v);                            // 双対変数
 | `MinCostBFlow(int n)` | 頂点数 $n$ | $O(n)$ |
 | `void add_supply(int v, Cap x)` / `add_demand` | 供給・需要を足す | $O(1)$ |
 | `int add_edge(int u, int v, Cap lo, Cap hi, Cost c)` | 辺を追加して番号を返す | $O(1)$ |
-| `bool solve()` | 解く．実行不可能なら `false` | $O(m \log U (n + m) \log n)$ |
+| `bool solve()` | 解く．実行不可能なら `false` | $O(m \log U (n + m) \log n + nm)$ |
 | `__int128 cost()` | 最小費用 | $O(m)$ |
 | `Cap flow(int e)` | 辺 $e$ の流量 | $O(1)$ |
 | `Cost potential(int v)` | ポテンシャル | $O(1)$ |
