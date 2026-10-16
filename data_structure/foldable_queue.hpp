@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "../algebra/monoid.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 全体の積が取れるキュー (Sliding Window Aggregation)
 // M はモノイド (非可換でもよい)．積は「先頭から末尾の順」= op(front, ..., back)
 // 2 本のスタックで持つ．front 側は「その要素から front 側の底までの積」を積んでおく

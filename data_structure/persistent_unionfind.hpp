@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "persistent_array.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 永続 Union-Find (Persistent Union-Find)．どの版にも辺を足せて，新しい版の番号を返す (オンライン)
 // 親の配列を永続配列で持ち，経路圧縮はせずに union by size だけ行う (木の高さ O(log n))
 // par[x] < 0 なら x は根で -par[x] がその連結成分の大きさ

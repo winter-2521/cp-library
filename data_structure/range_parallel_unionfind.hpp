@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 区間並列 Union-Find
 // 「i = 0, ..., k-1 について a+i と b+i を併合する」を高速に処理する
 // 全体で O((n log n + q) α(n))

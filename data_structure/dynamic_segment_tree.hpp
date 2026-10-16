@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "../algebra/monoid.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 動的セグメント木 (添字が大きい場合の一点更新・区間積)
 // 添字は [0, n) (n は 2^62 程度まで)．はじめ全て e()
 //

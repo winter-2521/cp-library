@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "../algebra/acted_monoid.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 動的遅延セグメント木 (添字が大きい場合の区間作用・区間積)
 // 添字は [0, n) (n は 2^62 程度まで)．はじめ全ての要素が x0 (省略時 e())
 // 触った部分だけノードを作る．1 回の操作で作るノードは O(log n) 個

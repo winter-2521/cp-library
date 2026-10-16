@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 静的な区間最小値 (Range Minimum Query)
 // 構築 O(n)，クエリ O(1)．区間の最小値とその位置 (最小値が複数あれば一番左) を返す
 //

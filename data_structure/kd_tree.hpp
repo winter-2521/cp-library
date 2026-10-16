@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "../algebra/acted_monoid.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // k-d 木 (2 次元の点に対する長方形作用・長方形積・一点更新)
 // AM は作用付きモノイド (algebra/acted_monoid.hpp 参照)．積は可換であること (点の順番は決まっていないため)
 // 点をバランスよく 2 分割した木で，各ノードは点の外接長方形・積・遅延作用を持つ

@@ -4,6 +4,8 @@
 #include "fast_set.hpp"
 #include "segment_tree.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 区間代入・区間積のセグメント木 (任意のモノイド，非可換でもよい)
 // 値が等しい連続部分 (ラン) ごとにまとめて持つ．
 // ランの先頭位置を FastSet で管理し，セグメント木のランの先頭の位置に x^(ランの長さ) を置く．

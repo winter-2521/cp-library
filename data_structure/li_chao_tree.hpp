@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // Li Chao Tree (直線・線分の追加，ある x での最小値)
 // 2 種類ある:
 //   DynamicLiChaoTree<T>(xlo, xhi) : x ∈ [xlo, xhi) の整数．ノードを必要な分だけ作る (オンライン)

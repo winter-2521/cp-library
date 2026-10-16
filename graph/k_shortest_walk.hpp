@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "csr.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // s から t への短い方から K 個のウォーク (同じ頂点・辺を何度通ってもよい路) の長さ (Eppstein 法)
 // 辺の重みは非負．返り値は長さの昇順で，K 個に満たなければその分だけ
 // 1. t への最短距離 dist と，各頂点から t への最短路木を作る

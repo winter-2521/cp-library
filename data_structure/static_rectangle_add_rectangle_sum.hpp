@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "static_rectangle_sum.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 長方形加算をすべて行った後の長方形和 (Static Rectangle Add Rectangle Sum)．加算の後のクエリはオンライン
 // 長方形 [l, r) × [d, u) への w の加算を 4 隅の点 (p, q, ±w) にすると，
 //   S(X, Y) = Σ_{x<X, y<Y} A[x][y] = Σ_{p<X, q<Y} c (X - p)(Y - q)

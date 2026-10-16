@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 /*
 大きめの道具を作りたくなった時用にグラフテンプレートを作りました
 どんな機能が欲しくなるか見通せないので一旦うしさんのライブラリを参考に整備してます (欲しい機能が増えたら変わるかも)

@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "csr.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // オイラー路 (全ての辺をちょうど 1 回ずつ通る路)．Hierholzer 法，非再帰で O(n + m)
 // 返り値: {頂点の列 (m+1 個), 辺番号の列 (m 個)}．存在しなければ空の pair
 // 辺がないときは {{0}, {}} (頂点 0 から長さ 0 の路)

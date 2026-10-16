@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 永続配列 (Persistent Array)．どの版からでも一点更新でき，新しい版の番号を返す
 // 2^LOG 分木で持ち，更新は根から葉までの道のノードだけを複製する (path copying)
 // 取得・更新 O(log_{2^LOG} n)．更新ごとに O(2^LOG log_{2^LOG} n) のメモリ

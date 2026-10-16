@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 2 分トライ (非負整数の多重集合)
 // [0, 2^LOG) の整数を上位ビットから持つ．xor_min / xor_max / k 番目 / x 未満の個数を「全体に xor したもの」に対して求められる
 // ノードは削除しても消さない (個数 0 のまま残す)

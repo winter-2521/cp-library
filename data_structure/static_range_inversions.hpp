@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 静的な数列の区間転倒数 (Static Range Inversions Query)．オンライン，平方分割
 // ブロックの大きさを B，個数を nb とする．前計算:
 //   lt[R][i] = #{j : block(i) < block(j) < R, a[j] < a[i]}   (i より右，ブロック R の手前までで a[i] より小さいもの)

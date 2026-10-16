@@ -4,6 +4,8 @@
 #include "fast_set.hpp"
 #include "segment_tree.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 区間ソートができるセグメント木
 // 各位置 i に (キー k_i, 値 a_i) を持ち，一点更新・区間積・区間をキーの昇順 / 降順にソートを処理する
 // M はモノイド (非可換でもよい)．キーは [0, 2^LOG) の整数で，全て相異なること

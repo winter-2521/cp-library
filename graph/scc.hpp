@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "csr.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 強連結成分分解 (Tarjan, 非再帰)
 // build() 後: groups はトポロジカル順 (辺 u → v なら u の成分が先)，comp[v] はその番号．O(n + m)
 struct StronglyConnectedComponents {

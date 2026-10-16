@@ -1,6 +1,8 @@
 #pragma once
 #include "graph-template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 template <typename T>
 struct Pathutil{
     // 各頂点への距離を表す配列

@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 隣接リストを 1 本の配列で持つ (Compressed Sparse Row)
 // 頂点 v の隣接は elist[start[v] .. start[v+1])．vector<vector<int>> より速くメモリも少ない
 template <class E>

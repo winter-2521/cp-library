@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // Interval Heap (両端優先度付きキュー)
 // 最小値・最大値の取得を O(1)，挿入・最小値の削除・最大値の削除を O(log n) で処理する
 // 節点 k が d[2k] (区間の左端) と d[2k+1] (区間の右端) を持ち，

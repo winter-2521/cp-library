@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "../algebra/acted_monoid.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 遅延セグメント木 (区間作用・区間積)
 // AM は作用付きモノイド (algebra/acted_monoid.hpp 参照．規約は ACL の lazy_segtree と同じ)
 template <class AM>

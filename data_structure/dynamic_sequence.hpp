@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "../algebra/acted_monoid.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 列の挿入・削除・区間反転・区間作用・区間積 (Splay 木)
 // AM は作用付きモノイド (algebra/acted_monoid.hpp 参照)
 // COMMUTATIVE = false なら非可換なモノイドでも反転できる (逆順の積も持つ．少し遅い)

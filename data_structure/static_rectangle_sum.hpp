@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 静的な重み付き点の長方形和 (Rectangle Sum)．オンライン
 // 点を x でソートし，y (座標圧縮) の列を重み付きウェーブレット行列で持つ．構築 O(n log n)，クエリ O(log n)
 // X: 座標の型，W: 重みの型

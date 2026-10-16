@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 静的な数列の区間に x が何個あるか (Static Range Frequency)
 // 値ごとに出現位置を昇順に並べておき，x の位置の列で [l, r) に入るものを二分探索で数える．構築 O(n log n)，クエリ O(log n)
 template <class T>

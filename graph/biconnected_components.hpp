@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "csr.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 二重頂点連結成分分解 (関節点で切った成分)．lowlink + 辺のスタック，非再帰 DFS で O(n + m)
 // 返り値: 成分ごとの頂点の列 (関節点は複数の成分に入る．孤立点は 1 頂点の成分)
 // edge_groups を渡すと成分ごとの辺番号の列も入る

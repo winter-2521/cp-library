@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 64 分木による [0, n) の整数集合
 // 挿入・削除・存在判定・次の要素・前の要素を O(log_64 n) で処理する
 struct FastSet {

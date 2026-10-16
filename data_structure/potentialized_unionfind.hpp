@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // ポテンシャル付き Union-Find
 // 各要素 u に群 G の元 a_u を持たせ，「a_u = a_v w」という関係を追加・矛盾判定し，a_v^{-1} a_u を取得する
 // G は非可換群でもよい．加法群なら「a_u - a_v = w」という意味になる (Library Checker と同じ向き)

@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 長方形の和集合の面積 (Area of Union of Rectangles)
 // x の小さい順に走査し，y 方向をセグメント木で管理する．各ノードは
 //   cnt: このノードの区間「全体」をちょうど覆っている長方形の数 (子には伝えない)

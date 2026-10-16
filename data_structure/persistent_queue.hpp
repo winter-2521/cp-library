@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 永続キュー (Persistent Queue)．どの版にも push / pop でき，新しい版の番号を返す
 // 追加した要素を「親 = 1 つ前の末尾」とする木で持ち，版は (末尾のノード, 先頭の深さ) の組．
 // 先頭の要素 = 末尾のノードの祖先のうち深さが 先頭の深さ + 1 のもの．祖先は skew-binary の跳び先で O(log n) で求める

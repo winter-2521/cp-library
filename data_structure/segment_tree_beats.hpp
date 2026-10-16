@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // Segment Tree Beats
 // 区間 chmin・区間 chmax・区間加算・区間代入と，区間和・区間最小値・区間最大値を処理する
 // 計算量はならし O((n + q) log^2 n) (加算がなければ O((n + q) log n))

@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 整数キーのハッシュマップ (オープンアドレス法・線形探査)
 // unordered_map より大幅に速い．キーは 64 bit 以下の整数型
 template <class Key, class Val>
