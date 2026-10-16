@@ -8,7 +8,7 @@
 
 既存のライブラリ（`graph/dsu.hpp`, `graph/dijkstra.hpp`）は fastio 導入前に作ったもので、速度面の見直しはまだしていない。
 
-**進捗: 67 / 235**
+**進捗: 77 / 235**
 
 ## Sample
 
@@ -91,16 +91,16 @@
 | ✅ | [Assignment Problem](https://judge.yosupo.jp/problem/assignment) (`assignment`) | [`graph/hungarian.hpp`](graph/hungarian.hpp) | [`test/assignment.test.cpp`](test/assignment.test.cpp) |
 | ✅ | [Minimum Spanning Tree](https://judge.yosupo.jp/problem/minimum_spanning_tree) (`minimum_spanning_tree`) | [`graph/minimum_spanning_tree.hpp`](graph/minimum_spanning_tree.hpp) | [`test/minimum_spanning_tree.test.cpp`](test/minimum_spanning_tree.test.cpp) |
 | ✅ | [Directed MST](https://judge.yosupo.jp/problem/directedmst) (`directedmst`) | [`graph/directed_mst.hpp`](graph/directed_mst.hpp) | [`test/directedmst.test.cpp`](test/directedmst.test.cpp) |
-| ⬜ | [Minimum Diameter Spanning Tree](https://judge.yosupo.jp/problem/minimum_diameter_spanning_tree) (`minimum_diameter_spanning_tree`) |  |  |
-| ⬜ | [Dominator Tree](https://judge.yosupo.jp/problem/dominatortree) (`dominatortree`) |  |  |
-| ⬜ | [Maximum Independent Set](https://judge.yosupo.jp/problem/maximum_independent_set) (`maximum_independent_set`) |  |  |
-| ⬜ | [Chromatic Number](https://judge.yosupo.jp/problem/chromatic_number) (`chromatic_number`) |  |  |
-| ⬜ | [Chromatic Polynomial](https://judge.yosupo.jp/problem/chromatic_polynomial) (`chromatic_polynomial`) |  |  |
-| ⬜ | [Enumerate Triangles](https://judge.yosupo.jp/problem/enumerate_triangles) (`enumerate_triangles`) |  |  |
-| ⬜ | [Enumerate Cliques](https://judge.yosupo.jp/problem/enumerate_cliques) (`enumerate_cliques`) |  |  |
-| ⬜ | [Counting $C _ 4$'s](https://judge.yosupo.jp/problem/counting_c4) (`counting_c4`) |  |  |
-| ⬜ | [Tree Decomposition (Width 2)](https://judge.yosupo.jp/problem/tree_decomposition_width_2) (`tree_decomposition_width_2`) |  |  |
-| ⬜ | [Global Minimum Cut of Dynamic Star Augmented Graph](https://judge.yosupo.jp/problem/global_minimum_cut_of_dynamic_star_augmented_graph) (`global_minimum_cut_of_dynamic_star_augmented_graph`) |  |  |
+| ✅ | [Minimum Diameter Spanning Tree](https://judge.yosupo.jp/problem/minimum_diameter_spanning_tree) (`minimum_diameter_spanning_tree`) | [`graph/minimum_diameter_spanning_tree.hpp`](graph/minimum_diameter_spanning_tree.hpp) | [`test/minimum_diameter_spanning_tree.test.cpp`](test/minimum_diameter_spanning_tree.test.cpp) |
+| ✅ | [Dominator Tree](https://judge.yosupo.jp/problem/dominatortree) (`dominatortree`) | [`graph/dominator_tree.hpp`](graph/dominator_tree.hpp) | [`test/dominatortree.test.cpp`](test/dominatortree.test.cpp) |
+| ✅ | [Maximum Independent Set](https://judge.yosupo.jp/problem/maximum_independent_set) (`maximum_independent_set`) | [`graph/maximum_independent_set.hpp`](graph/maximum_independent_set.hpp) | [`test/maximum_independent_set.test.cpp`](test/maximum_independent_set.test.cpp) |
+| ✅ | [Chromatic Number](https://judge.yosupo.jp/problem/chromatic_number) (`chromatic_number`) | [`graph/chromatic.hpp`](graph/chromatic.hpp) | [`test/chromatic_number.test.cpp`](test/chromatic_number.test.cpp) |
+| ✅ | [Chromatic Polynomial](https://judge.yosupo.jp/problem/chromatic_polynomial) (`chromatic_polynomial`) | [`graph/chromatic.hpp`](graph/chromatic.hpp), [`math/subset_convolution.hpp`](math/subset_convolution.hpp) | [`test/chromatic_polynomial.test.cpp`](test/chromatic_polynomial.test.cpp) |
+| ✅ | [Enumerate Triangles](https://judge.yosupo.jp/problem/enumerate_triangles) (`enumerate_triangles`) | [`graph/enumerate_triangles.hpp`](graph/enumerate_triangles.hpp) | [`test/enumerate_triangles.test.cpp`](test/enumerate_triangles.test.cpp) |
+| ✅ | [Enumerate Cliques](https://judge.yosupo.jp/problem/enumerate_cliques) (`enumerate_cliques`) | [`graph/enumerate_cliques.hpp`](graph/enumerate_cliques.hpp) | [`test/enumerate_cliques.test.cpp`](test/enumerate_cliques.test.cpp) |
+| ✅ | [Counting $C _ 4$'s](https://judge.yosupo.jp/problem/counting_c4) (`counting_c4`) | [`graph/counting_c4.hpp`](graph/counting_c4.hpp) | [`test/counting_c4.test.cpp`](test/counting_c4.test.cpp) |
+| ✅ | [Tree Decomposition (Width 2)](https://judge.yosupo.jp/problem/tree_decomposition_width_2) (`tree_decomposition_width_2`) | [`graph/tree_decomposition_width_2.hpp`](graph/tree_decomposition_width_2.hpp) | [`test/tree_decomposition_width_2.test.cpp`](test/tree_decomposition_width_2.test.cpp) |
+| ✅ | [Global Minimum Cut of Dynamic Star Augmented Graph](https://judge.yosupo.jp/problem/global_minimum_cut_of_dynamic_star_augmented_graph) (`global_minimum_cut_of_dynamic_star_augmented_graph`) | [`graph/star_augmented_min_cut.hpp`](graph/star_augmented_min_cut.hpp) | [`test/global_minimum_cut_of_dynamic_star_augmented_graph.test.cpp`](test/global_minimum_cut_of_dynamic_star_augmented_graph.test.cpp) |
 | ⬜ | [Chordal Graph Recognition](https://judge.yosupo.jp/problem/chordal_graph_recognition) (`chordal_graph_recognition`) |  |  |
 | ⬜ | [Dynamic Graph Vertex Add Component Sum](https://judge.yosupo.jp/problem/dynamic_graph_vertex_add_component_sum) (`dynamic_graph_vertex_add_component_sum`) |  |  |
 | ⬜ | [Counting Eulerian Circuits](https://judge.yosupo.jp/problem/counting_eulerian_circuits) (`counting_eulerian_circuits`) |  |  |
