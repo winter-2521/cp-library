@@ -8,7 +8,7 @@
 
 既存のライブラリ（`graph/dsu.hpp`, `graph/dijkstra.hpp`）は fastio 導入前に作ったもので、速度面の見直しはまだしていない。
 
-**進捗: 77 / 235**
+**進捗: 87 / 235**
 
 ## Sample
 
@@ -101,21 +101,21 @@
 | ✅ | [Counting $C _ 4$'s](https://judge.yosupo.jp/problem/counting_c4) (`counting_c4`) | [`graph/counting_c4.hpp`](graph/counting_c4.hpp) | [`test/counting_c4.test.cpp`](test/counting_c4.test.cpp) |
 | ✅ | [Tree Decomposition (Width 2)](https://judge.yosupo.jp/problem/tree_decomposition_width_2) (`tree_decomposition_width_2`) | [`graph/tree_decomposition_width_2.hpp`](graph/tree_decomposition_width_2.hpp) | [`test/tree_decomposition_width_2.test.cpp`](test/tree_decomposition_width_2.test.cpp) |
 | ✅ | [Global Minimum Cut of Dynamic Star Augmented Graph](https://judge.yosupo.jp/problem/global_minimum_cut_of_dynamic_star_augmented_graph) (`global_minimum_cut_of_dynamic_star_augmented_graph`) | [`graph/star_augmented_min_cut.hpp`](graph/star_augmented_min_cut.hpp) | [`test/global_minimum_cut_of_dynamic_star_augmented_graph.test.cpp`](test/global_minimum_cut_of_dynamic_star_augmented_graph.test.cpp) |
-| ⬜ | [Chordal Graph Recognition](https://judge.yosupo.jp/problem/chordal_graph_recognition) (`chordal_graph_recognition`) |  |  |
-| ⬜ | [Dynamic Graph Vertex Add Component Sum](https://judge.yosupo.jp/problem/dynamic_graph_vertex_add_component_sum) (`dynamic_graph_vertex_add_component_sum`) |  |  |
-| ⬜ | [Counting Eulerian Circuits](https://judge.yosupo.jp/problem/counting_eulerian_circuits) (`counting_eulerian_circuits`) |  |  |
-| ⬜ | [Counting Spanning Trees (Undirected)](https://judge.yosupo.jp/problem/counting_spanning_tree_undirected) (`counting_spanning_tree_undirected`) |  |  |
-| ⬜ | [Counting Spanning Trees (Directed)](https://judge.yosupo.jp/problem/counting_spanning_tree_directed) (`counting_spanning_tree_directed`) |  |  |
+| ✅ | [Chordal Graph Recognition](https://judge.yosupo.jp/problem/chordal_graph_recognition) (`chordal_graph_recognition`) | [`graph/chordal_graph.hpp`](graph/chordal_graph.hpp) | [`test/chordal_graph_recognition.test.cpp`](test/chordal_graph_recognition.test.cpp) |
+| ✅ | [Dynamic Graph Vertex Add Component Sum](https://judge.yosupo.jp/problem/dynamic_graph_vertex_add_component_sum) (`dynamic_graph_vertex_add_component_sum`) | [`graph/offline_dynamic_connectivity.hpp`](graph/offline_dynamic_connectivity.hpp) | [`test/dynamic_graph_vertex_add_component_sum.test.cpp`](test/dynamic_graph_vertex_add_component_sum.test.cpp) |
+| ✅ | [Counting Eulerian Circuits](https://judge.yosupo.jp/problem/counting_eulerian_circuits) (`counting_eulerian_circuits`) | [`graph/count_eulerian_circuits.hpp`](graph/count_eulerian_circuits.hpp), [`graph/count_spanning_trees.hpp`](graph/count_spanning_trees.hpp) | [`test/counting_eulerian_circuits.test.cpp`](test/counting_eulerian_circuits.test.cpp) |
+| ✅ | [Counting Spanning Trees (Undirected)](https://judge.yosupo.jp/problem/counting_spanning_tree_undirected) (`counting_spanning_tree_undirected`) | [`graph/count_spanning_trees.hpp`](graph/count_spanning_trees.hpp), [`math/determinant.hpp`](math/determinant.hpp) | [`test/counting_spanning_tree_undirected.test.cpp`](test/counting_spanning_tree_undirected.test.cpp) |
+| ✅ | [Counting Spanning Trees (Directed)](https://judge.yosupo.jp/problem/counting_spanning_tree_directed) (`counting_spanning_tree_directed`) | [`graph/count_spanning_trees.hpp`](graph/count_spanning_trees.hpp), [`math/determinant.hpp`](math/determinant.hpp) | [`test/counting_spanning_tree_directed.test.cpp`](test/counting_spanning_tree_directed.test.cpp) |
 
 ## Tree
 
 | 状態 | 問題 | ライブラリ | verify |
 | :-: | --- | --- | --- |
-| ⬜ | [Tree Diameter](https://judge.yosupo.jp/problem/tree_diameter) (`tree_diameter`) |  |  |
-| ⬜ | [Lowest Common Ancestor](https://judge.yosupo.jp/problem/lca) (`lca`) |  |  |
-| ⬜ | [Jump on Tree](https://judge.yosupo.jp/problem/jump_on_tree) (`jump_on_tree`) |  |  |
-| ⬜ | [Frequency Table of Tree Distance](https://judge.yosupo.jp/problem/frequency_table_of_tree_distance) (`frequency_table_of_tree_distance`) |  |  |
-| ⬜ | [Rooted Tree Isomorphism Classification](https://judge.yosupo.jp/problem/rooted_tree_isomorphism_classification) (`rooted_tree_isomorphism_classification`) |  |  |
+| ✅ | [Tree Diameter](https://judge.yosupo.jp/problem/tree_diameter) (`tree_diameter`) | [`tree/tree_diameter.hpp`](tree/tree_diameter.hpp) | [`test/tree_diameter.test.cpp`](test/tree_diameter.test.cpp) |
+| ✅ | [Lowest Common Ancestor](https://judge.yosupo.jp/problem/lca) (`lca`) | [`tree/hld.hpp`](tree/hld.hpp) | [`test/lca.test.cpp`](test/lca.test.cpp) |
+| ✅ | [Jump on Tree](https://judge.yosupo.jp/problem/jump_on_tree) (`jump_on_tree`) | [`tree/hld.hpp`](tree/hld.hpp) | [`test/jump_on_tree.test.cpp`](test/jump_on_tree.test.cpp) |
+| ✅ | [Frequency Table of Tree Distance](https://judge.yosupo.jp/problem/frequency_table_of_tree_distance) (`frequency_table_of_tree_distance`) | [`tree/frequency_table_of_tree_distance.hpp`](tree/frequency_table_of_tree_distance.hpp), [`math/convolution.hpp`](math/convolution.hpp) | [`test/frequency_table_of_tree_distance.test.cpp`](test/frequency_table_of_tree_distance.test.cpp) |
+| ✅ | [Rooted Tree Isomorphism Classification](https://judge.yosupo.jp/problem/rooted_tree_isomorphism_classification) (`rooted_tree_isomorphism_classification`) | [`tree/rooted_tree_isomorphism.hpp`](tree/rooted_tree_isomorphism.hpp) | [`test/rooted_tree_isomorphism_classification.test.cpp`](test/rooted_tree_isomorphism_classification.test.cpp) |
 | ⬜ | [Tree Path Composite Sum](https://judge.yosupo.jp/problem/tree_path_composite_sum) (`tree_path_composite_sum`) |  |  |
 | ⬜ | [Vertex Add Path Sum](https://judge.yosupo.jp/problem/vertex_add_path_sum) (`vertex_add_path_sum`) |  |  |
 | ⬜ | [Vertex Set Path Composite](https://judge.yosupo.jp/problem/vertex_set_path_composite) (`vertex_set_path_composite`) |  |  |
