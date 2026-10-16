@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 法 MOD が コンパイル時定数の modint
 // MOD < 2^31 であること (素数でなくてもよい．ただし inv() は MOD と互いに素な値に対してのみ有効)
 // インターフェースは ACL (atcoder::static_modint) と揃えてある．

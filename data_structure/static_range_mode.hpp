@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 静的な数列の区間最頻値 (Static Range Mode Query)．オンライン，平方分割
 // ブロックの区間 [bi, bj] ごとに最頻値と個数を前計算しておき，端の要素は
 // 「値ごとの出現位置の列」で個数を 1 ずつ伸ばせるか確かめる．構築 O(n √n)，クエリ O(√n)

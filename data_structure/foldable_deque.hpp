@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "../algebra/monoid.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 全体の積が取れる両端キュー
 // M はモノイド (非可換でもよい)．積は「先頭から末尾の順」= op(front, ..., back)
 // 先頭側・末尾側の 2 本のスタックに累積積を積む．片方が空のときに取り出すと，もう片方を半分に分けて作り直す (ならし O(1))

@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 順序付き集合 (オンライン・値の先読み不要)
 // 各ノードが最大 B 個の値をソート済み配列で持つ AVL 木．
 // 1 ノードを 128 バイト程度にしてキャッシュ効率を上げ，ノード内は線形探索する．各操作 O(log n)

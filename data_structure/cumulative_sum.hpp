@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 1 次元累積和．区間和を O(1) で求める
 template <class T>
 struct CumulativeSum {

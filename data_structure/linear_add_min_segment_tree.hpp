@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 区間に 1 次関数 (b i + c) を足す・区間最小値 (Range Linear Add Range Min)
 // 点 (i, a_i) の下側凸包を，各ノードに「左の子の凸包と右の子の凸包をつなぐ橋 (bridge)」だけ持つ形で表す．
 // 1 次関数を足しても凸包の形 (どの点が頂点か・橋) は変わらないので，遅延で足せる．

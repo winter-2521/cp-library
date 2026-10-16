@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "static_rectangle_sum.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 長方形加算・一点取得 (Rectangle Add Point Get)．オンライン
 // 長方形 [l, r) × [d, u) に w を足すのを，4 隅に ±w の点を置くこと (2 次元の差分) に直す．
 // 点 (x, y) の値 = x' <= x かつ y' <= y の点の重みの和 (DynamicRectangleSum で数える)

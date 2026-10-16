@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // Sparse Table
 // 冪等な演算 (min, max, gcd, and, or など) の区間クエリを，構築 O(n log n)・クエリ O(1) で処理する
 // SparseTable st(a, [](int x, int y) { return min(x, y); });

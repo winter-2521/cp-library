@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "wavelet_matrix.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 区間 LIS (Static Range LIS Query)．Seaweed 法 (Tiskin)
 // 数列 a の各区間 [l, r) の最長狭義増加部分列の長さを，前計算 O(n log^2 n)・クエリ O(log n) で答える (オンライン)
 //

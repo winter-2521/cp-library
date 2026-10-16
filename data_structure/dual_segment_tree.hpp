@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "../algebra/monoid.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 双対セグメント木 (区間作用・一点取得)
 // 各位置 i に作用 F_i (はじめ e()) を持ち，区間 [l, r) の各 F_i を op(F_i, f) に更新する．
 // M はモノイドで，op(x, y) は「先に x，次に y」という時系列順の合成 (非可換でもよい)

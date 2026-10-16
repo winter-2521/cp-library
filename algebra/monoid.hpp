@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // セグメント木などに渡すモノイド
 // 形式: using S = 値の型; static S op(const S &a, const S &b); static S e();
 // op は結合的で，e は単位元．op(a, b) は「a が左 (先)，b が右 (後)」

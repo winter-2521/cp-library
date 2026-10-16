@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 struct UnionFind {
     //親を保存する配列
     vector<int> par;

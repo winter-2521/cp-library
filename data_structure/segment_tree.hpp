@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "../algebra/monoid.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // セグメント木 (一点更新・区間積)
 // M はモノイド (algebra/monoid.hpp 参照)．非可換でもよい
 template <class M>

@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "csr.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 閉路検出
 // find_cycle_directed(n, edges)   : 有向グラフの閉路を 1 つ．辺番号の列 (なければ空)
 // find_cycle_undirected(n, edges) : 無向グラフの閉路を 1 つ．{頂点の列, 辺番号の列} (なければ空)

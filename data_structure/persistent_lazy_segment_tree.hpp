@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "../algebra/acted_monoid.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 永続遅延セグメント木
 // 各バージョンを根のノード番号 (int) で表す．更新は新しいバージョンの根を返し，古いバージョンは変わらない
 // 1 回の更新で作るノードは O(log n) 個．区間積はノードを作らない

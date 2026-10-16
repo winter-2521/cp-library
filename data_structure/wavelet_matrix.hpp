@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // ウェーブレット行列 (静的な数列に対する区間 k 番目・区間の値の個数など)
 // 値は内部で座標圧縮する．構築 O(n log n)，各クエリ O(log σ) (σ は値の種類数)
 template <class T>

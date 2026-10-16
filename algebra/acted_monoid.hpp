@@ -1,6 +1,8 @@
 #pragma once
 #include "monoid.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 遅延セグメント木などに渡す「作用付きモノイド」(ACL の lazy_segtree と同じ規約)
 // 形式:
 //   using S = 値の型;   static S op(S, S);  static S e();

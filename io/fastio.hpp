@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 高速入出力
 // fin >> a >> b;  fout << a + b << '\n';  のように cin / cout と同じ感覚で使う
 // cin / cout / scanf / printf と混ぜて使ってはいけない

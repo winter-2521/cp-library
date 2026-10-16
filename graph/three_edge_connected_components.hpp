@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "csr.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 三重辺連結成分分解 (Tsin のパス吸収法，非再帰)．O(n + m)
 // 各頂点 v について DFS 木の下に伸びる「v のパス」(path[v] でつながる頂点の列) と，
 // v の成分から祖先へ出ていく辺の本数 deg[v] を持つ．子の成分の deg が 1 以下 (橋 / 2 辺カット) なら切り離し，

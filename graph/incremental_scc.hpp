@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "csr.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 辺を順に追加していく有向グラフの強連結成分 (Incremental SCC)．オフライン (辺を全部先読みする)
 // incremental_scc(n, edges) は各辺 i について「辺 0..t-1 を追加した時点で i の両端が同じ強連結成分になる最小の t」を返す
 // (ならなければ m + 1)．t > i である．辺を t の順に Union-Find でつなげば，各時点の強連結成分が分かる

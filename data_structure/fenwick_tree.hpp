@@ -1,6 +1,8 @@
 #pragma once
 #include "../template.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // Fenwick Tree (Binary Indexed Tree)
 // 一点加算・区間和を O(log n) で処理する．外部からは 0-indexed で扱う
 template <class T>

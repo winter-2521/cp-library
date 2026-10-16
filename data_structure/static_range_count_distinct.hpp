@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "wavelet_matrix.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 静的な数列の区間に含まれる値の種類数 (Static Range Count Distinct)．オンライン
 // prev[i] = i より前で a[i] と同じ値が最後に出てくる位置 (なければ -1) とすると，
 // [l, r) の種類数 = #{i ∈ [l, r) : prev[i] < l}．これをウェーブレット行列で数える

@@ -2,6 +2,8 @@
 #include "../template.hpp"
 #include "csr.hpp"
 
+// https://github.com/winter-2521/cp-library
+
 // 二重辺連結成分分解 (橋で切った連結成分)．lowlink，非再帰 DFS で O(n + m)
 // 返り値: 成分ごとの頂点の列．comp を渡すと各頂点の成分番号も入る
 // is_bridge を渡すと各辺が橋かどうかも入る
