@@ -1,24 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/linear_add_min_segment_tree.hpp
     title: "\u533A\u9593 1 \u6B21\u95A2\u6570\u52A0\u7B97\u30FB\u533A\u9593\u6700\u5C0F\
       \u5024 (Range Linear Add Range Min)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -37,31 +37,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -196,122 +197,123 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/linear_add_min_segment_tree.hpp\"\
-    \n\n// \u533A\u9593\u306B 1 \u6B21\u95A2\u6570 (b i + c) \u3092\u8DB3\u3059\u30FB\
-    \u533A\u9593\u6700\u5C0F\u5024 (Range Linear Add Range Min)\n// \u70B9 (i, a_i)\
-    \ \u306E\u4E0B\u5074\u51F8\u5305\u3092\uFF0C\u5404\u30CE\u30FC\u30C9\u306B\u300C\
-    \u5DE6\u306E\u5B50\u306E\u51F8\u5305\u3068\u53F3\u306E\u5B50\u306E\u51F8\u5305\
-    \u3092\u3064\u306A\u3050\u6A4B (bridge)\u300D\u3060\u3051\u6301\u3064\u5F62\u3067\
-    \u8868\u3059\uFF0E\n// 1 \u6B21\u95A2\u6570\u3092\u8DB3\u3057\u3066\u3082\u51F8\
-    \u5305\u306E\u5F62 (\u3069\u306E\u70B9\u304C\u9802\u70B9\u304B\u30FB\u6A4B) \u306F\
-    \u5909\u308F\u3089\u306A\u3044\u306E\u3067\uFF0C\u9045\u5EF6\u3067\u8DB3\u305B\
-    \u308B\uFF0E\n// \u6700\u5C0F\u5024\u306F\u6A4B\u306E\u50BE\u304D\u306E\u7B26\u53F7\
-    \u3092\u898B\u3066\u6839\u304B\u3089\u964D\u308A\u308C\u3070\u6C42\u307E\u308B\
-    \uFF0E\u6A4B\u306E\u518D\u8A08\u7B97\u306F\u5DE6\u53F3\u306E\u5B50\u3092\u540C\
-    \u6642\u306B\u964D\u308A\u3066 O(log n)\n// MAX = true \u306A\u3089\u533A\u9593\
-    \u6700\u5927\u5024\uFF0ET \u306F\u7B26\u53F7\u4ED8\u304D\u6574\u6570\ntemplate\
-    \ <class T = long long, bool MAX = false>\nstruct LinearAddMinSegmentTree {\n\
-    \    using W = __int128;\n    struct Node {\n        int lx, rx;    // \u6A4B\u306E\
-    \u7AEF\u70B9\u306E\u6DFB\u5B57 (\u8449\u306A\u3089 lx = rx = \u305D\u306E\u4F4D\
-    \u7F6E)\n        T ly, ry;      // \u6A4B\u306E\u7AEF\u70B9\u306E\u5024 (\u3053\
-    \u306E\u30CE\u30FC\u30C9\u306E\u9045\u5EF6\u307E\u3067\u53CD\u6620\u6E08\u307F\
-    )\n        T lb, lc;      // \u5B50\u306B\u4F1D\u3048\u3066\u3044\u306A\u3044\u9045\
-    \u5EF6 (b i + c \u3092\u8DB3\u3059)\n    };\n    int n;\n    vector<Node> d;\n\
-    \n    LinearAddMinSegmentTree(const vector<T> &a) : n(a.size()), d(4 * std::max<int>(1,\
-    \ a.size())) {\n        if (n) build(1, 0, n, a);\n    }\n\n    int size() const\
-    \ { return n; }\n\n    // i in [l, r) \u306B\u3064\u3044\u3066 a[i] += b * i +\
-    \ c\n    void add(int l, int r, T b, T c) {\n        if (MAX) b = -b, c = -c;\n\
-    \        if (l < r) add(1, 0, n, l, r, b, c);\n    }\n\n    // min(a[l], ...,\
-    \ a[r-1]) (MAX \u306A\u3089 max)\uFF0El < r \u3067\u3042\u308B\u3053\u3068\n \
-    \   T min(int l, int r) {\n        T res = query(1, 0, n, l, r);\n        return\
-    \ MAX ? -res : res;\n    }\n    T max(int l, int r) { return min(l, r); }\n  \
-    \  T all_min() { return MAX ? -node_min(1, 0, n) : node_min(1, 0, n); }\n\n  \
-    \  T get(int i) {\n        int k = 1, l = 0, r = n;\n        while (r - l > 1)\
-    \ {\n            push(k);\n            int m = (l + r) >> 1;\n            if (i\
-    \ < m) k = 2 * k, r = m;\n            else k = 2 * k + 1, l = m;\n        }\n\
-    \        return MAX ? -d[k].ly : d[k].ly;\n    }\n\n    void set(int i, T x) {\
-    \ set(1, 0, n, i, MAX ? -x : x); }\n\n  private:\n    struct P {\n        int\
-    \ x;\n        T y;\n    };\n\n    void build(int k, int l, int r, const vector<T>\
-    \ &a) {\n        d[k].lb = d[k].lc = 0;\n        if (r - l == 1) {\n         \
-    \   T v = MAX ? -a[l] : a[l];\n            d[k].lx = d[k].rx = l, d[k].ly = d[k].ry\
-    \ = v;\n            return;\n        }\n        int m = (l + r) >> 1;\n      \
-    \  build(2 * k, l, m, a), build(2 * k + 1, m, r, a);\n        pull(k, l, m, r);\n\
-    \    }\n\n    void apply(int k, T b, T c) {\n        Node &x = d[k];\n       \
-    \ x.ly += b * x.lx + c;\n        x.ry += b * x.rx + c;\n        x.lb += b, x.lc\
-    \ += c;\n    }\n\n    void push(int k) {\n        if (d[k].lb == 0 && d[k].lc\
-    \ == 0) return;\n        apply(2 * k, d[k].lb, d[k].lc);\n        apply(2 * k\
-    \ + 1, d[k].lb, d[k].lc);\n        d[k].lb = d[k].lc = 0;\n    }\n\n    // q \u306E\
-    \u53F3\u306B\u3042\u308B\u30CE\u30FC\u30C9 k ([l, r)) \u306E\u70B9\u306E\u3046\
-    \u3061\uFF0Cq \u304B\u3089\u306E\u50BE\u304D\u304C\u6700\u5C0F\u306E\u70B9 (\u4E0B\
-    \u5074\u306E\u63A5\u70B9)\n    // b, c: k \u3088\u308A\u4E0A\u3067 k \u306B\u4F1D\
-    \u308F\u3063\u3066\u3044\u306A\u3044\u9045\u5EF6\u306E\u548C\n    P tangent(P\
-    \ q, int k, int l, int r, T b, T c) const {\n        while (r - l > 1) {\n   \
-    \         const Node &x = d[k];\n            T ly = x.ly + b * x.lx + c, ry =\
-    \ x.ry + b * x.rx + c;\n            b += x.lb, c += x.lc;\n            int m =\
-    \ (l + r) >> 1;\n            // slope(q, \u53F3\u7AEF\u70B9) < slope(q, \u5DE6\
-    \u7AEF\u70B9) \u306A\u3089\u53F3\u306E\u5B50\n            if ((W)(ry - q.y) *\
-    \ (x.lx - q.x) < (W)(ly - q.y) * (x.rx - q.x)) k = 2 * k + 1, l = m;\n       \
-    \     else k = 2 * k, r = m;\n        }\n        return {d[k].lx, d[k].ly + b\
-    \ * d[k].lx + c};\n    }\n\n    // q \u306E\u5DE6\u306B\u3042\u308B\u30CE\u30FC\
-    \u30C9 k \u306E\u70B9\u306E\u3046\u3061\uFF0Cq \u3078\u306E\u50BE\u304D\u304C\u6700\
-    \u5927\u306E\u70B9 (\u4E0B\u5074\u306E\u63A5\u70B9)\n    P tangent_left(P q, int\
-    \ k, int l, int r, T b, T c) const {\n        while (r - l > 1) {\n          \
-    \  const Node &x = d[k];\n            T ly = x.ly + b * x.lx + c, ry = x.ry +\
-    \ b * x.rx + c;\n            b += x.lb, c += x.lc;\n            int m = (l + r)\
-    \ >> 1;\n            // slope(\u53F3\u7AEF\u70B9, q) >= slope(\u5DE6\u7AEF\u70B9\
-    , q) \u306A\u3089\u53F3\u306E\u5B50\n            if ((W)(q.y - ry) * (q.x - x.lx)\
-    \ >= (W)(q.y - ly) * (q.x - x.rx)) k = 2 * k + 1, l = m;\n            else k =\
-    \ 2 * k, r = m;\n        }\n        return {d[k].lx, d[k].ly + b * d[k].lx + c};\n\
-    \    }\n\n    // \u5B50\u306E\u51F8\u5305\u304B\u3089 k \u306E\u6A4B\u3092\u8A08\
-    \u7B97\u3059\u308B (k \u306E\u9045\u5EF6\u306F 0 \u3067\u3042\u308B\u3053\u3068\
-    )\n    // \u5DE6\u53F3\u306E\u5B50\u3092\u540C\u6642\u306B\u964D\u308A\u308B (Overmars-van\
-    \ Leeuwen)\uFF0E\u5DE6\u306E\u51F8\u5305\u306E\u8FBA (a1, a2) \u3068\u53F3\u306E\
-    \u51F8\u5305\u306E\u8FBA (b1, b2) \u3092\u898B\u3066\uFF0C\n    // 2 \u76F4\u7DDA\
-    \u306E\u5927\u5C0F\u3092\u5DE6\u53F3\u306E\u5883\u754C x = m - 1/2 \u3067\u6BD4\
-    \u3079\u308B\u3068\uFF0C\u3069\u3061\u3089\u304B\u306E\u534A\u5206\u304C\u6368\
-    \u3066\u3089\u308C\u308B\uFF0EO(log n)\n    void pull(int k, int l, int m, int\
-    \ r) {\n        int u = 2 * k, ul = l, ur = m, w = 2 * k + 1, wl = m, wr = r;\n\
-    \        T ub = 0, uc = 0, wb = 0, wc = 0;\n        while (ur - ul > 1 && wr -\
-    \ wl > 1) {\n            const Node &x = d[u], &y = d[w];\n            T a1y =\
-    \ x.ly + ub * x.lx + uc, a2y = x.ry + ub * x.rx + uc;\n            T b1y = y.ly\
-    \ + wb * y.lx + wc, b2y = y.ry + wb * y.rx + wc;\n            W dxa = x.rx - x.lx,\
-    \ dya = a2y - a1y, dxb = y.rx - y.lx, dyb = b2y - b1y;\n            W cmp = dya\
-    \ * dxb - dyb * dxa;  // \u50BE\u304D\u306E\u5DEE (a) - (b) \u306E\u7B26\u53F7\
-    \n            // 2 * dxa * dxb * (La(m') - Lb(m')), m' = m - 1/2\n           \
-    \ W dlt = dxb * (2 * (W)a1y * dxa + dya * (2 * m - 1 - 2 * x.lx)) - dxa * (2 *\
-    \ (W)b1y * dxb + dyb * (2 * m - 1 - 2 * y.lx));\n            bool go_u, right;\n\
-    \            if (cmp > 0) go_u = dlt >= 0, right = !go_u;   // u \u306F\u5DE6\u3078\
-    \ / w \u306F\u53F3\u3078\n            else go_u = dlt <= 0, right = go_u;    \
-    \        // u \u306F\u53F3\u3078 / w \u306F\u5DE6\u3078\n            if (go_u)\
-    \ {\n                ub += x.lb, uc += x.lc;\n                int um = (ul + ur)\
-    \ >> 1;\n                if (right) u = 2 * u + 1, ul = um;\n                else\
-    \ u = 2 * u, ur = um;\n            } else {\n                wb += y.lb, wc +=\
-    \ y.lc;\n                int wm = (wl + wr) >> 1;\n                if (right)\
-    \ w = 2 * w + 1, wl = wm;\n                else w = 2 * w, wr = wm;\n        \
-    \    }\n        }\n        P s, t;\n        if (ur - ul == 1) {\n            s\
-    \ = {d[u].lx, d[u].ly + ub * d[u].lx + uc};\n            t = tangent(s, w, wl,\
-    \ wr, wb, wc);\n        } else {\n            t = {d[w].lx, d[w].ly + wb * d[w].lx\
-    \ + wc};\n            s = tangent_left(t, u, ul, ur, ub, uc);\n        }\n   \
-    \     d[k].lx = s.x, d[k].ly = s.y, d[k].rx = t.x, d[k].ry = t.y;\n    }\n\n \
-    \   // \u30CE\u30FC\u30C9 k \u306E\u6700\u5C0F\u5024 (k \u306E\u9045\u5EF6\u307E\
-    \u3067\u53CD\u6620\u3057\u305F\u5024)\n    T node_min(int k, int l, int r) const\
-    \ {\n        T b = 0, c = 0;\n        while (r - l > 1) {\n            const Node\
-    \ &x = d[k];\n            T ly = x.ly + b * x.lx + c, ry = x.ry + b * x.rx + c;\n\
-    \            b += x.lb, c += x.lc;\n            int m = (l + r) >> 1;\n      \
-    \      if (ry < ly) k = 2 * k + 1, l = m;\n            else k = 2 * k, r = m;\n\
-    \        }\n        return d[k].ly + b * d[k].lx + c;\n    }\n\n    void add(int\
-    \ k, int l, int r, int ql, int qr, T b, T c) {\n        if (ql <= l && r <= qr)\
-    \ return apply(k, b, c);\n        push(k);\n        int m = (l + r) >> 1;\n  \
-    \      if (ql < m) add(2 * k, l, m, ql, qr, b, c);\n        if (m < qr) add(2\
-    \ * k + 1, m, r, ql, qr, b, c);\n        pull(k, l, m, r);\n    }\n\n    T query(int\
-    \ k, int l, int r, int ql, int qr) {\n        if (ql <= l && r <= qr) return node_min(k,\
-    \ l, r);\n        push(k);\n        int m = (l + r) >> 1;\n        if (qr <= m)\
-    \ return query(2 * k, l, m, ql, qr);\n        if (m <= ql) return query(2 * k\
-    \ + 1, m, r, ql, qr);\n        return std::min(query(2 * k, l, m, ql, qr), query(2\
-    \ * k + 1, m, r, ql, qr));\n    }\n\n    void set(int k, int l, int r, int i,\
-    \ T x) {\n        if (r - l == 1) {\n            d[k].ly = d[k].ry = x;\n    \
-    \        return;\n        }\n        push(k);\n        int m = (l + r) >> 1;\n\
-    \        if (i < m) set(2 * k, l, m, i, x);\n        else set(2 * k + 1, m, r,\
-    \ i, x);\n        pull(k, l, m, r);\n    }\n};\n#line 4 \"test/unittest/linear_add_min_segment_tree.test.cpp\"\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u533A\u9593\u306B 1 \u6B21\
+    \u95A2\u6570 (b i + c) \u3092\u8DB3\u3059\u30FB\u533A\u9593\u6700\u5C0F\u5024\
+    \ (Range Linear Add Range Min)\n// \u70B9 (i, a_i) \u306E\u4E0B\u5074\u51F8\u5305\
+    \u3092\uFF0C\u5404\u30CE\u30FC\u30C9\u306B\u300C\u5DE6\u306E\u5B50\u306E\u51F8\
+    \u5305\u3068\u53F3\u306E\u5B50\u306E\u51F8\u5305\u3092\u3064\u306A\u3050\u6A4B\
+    \ (bridge)\u300D\u3060\u3051\u6301\u3064\u5F62\u3067\u8868\u3059\uFF0E\n// 1 \u6B21\
+    \u95A2\u6570\u3092\u8DB3\u3057\u3066\u3082\u51F8\u5305\u306E\u5F62 (\u3069\u306E\
+    \u70B9\u304C\u9802\u70B9\u304B\u30FB\u6A4B) \u306F\u5909\u308F\u3089\u306A\u3044\
+    \u306E\u3067\uFF0C\u9045\u5EF6\u3067\u8DB3\u305B\u308B\uFF0E\n// \u6700\u5C0F\u5024\
+    \u306F\u6A4B\u306E\u50BE\u304D\u306E\u7B26\u53F7\u3092\u898B\u3066\u6839\u304B\
+    \u3089\u964D\u308A\u308C\u3070\u6C42\u307E\u308B\uFF0E\u6A4B\u306E\u518D\u8A08\
+    \u7B97\u306F\u5DE6\u53F3\u306E\u5B50\u3092\u540C\u6642\u306B\u964D\u308A\u3066\
+    \ O(log n)\n// MAX = true \u306A\u3089\u533A\u9593\u6700\u5927\u5024\uFF0ET \u306F\
+    \u7B26\u53F7\u4ED8\u304D\u6574\u6570\ntemplate <class T = long long, bool MAX\
+    \ = false>\nstruct LinearAddMinSegmentTree {\n    using W = __int128;\n    struct\
+    \ Node {\n        int lx, rx;    // \u6A4B\u306E\u7AEF\u70B9\u306E\u6DFB\u5B57\
+    \ (\u8449\u306A\u3089 lx = rx = \u305D\u306E\u4F4D\u7F6E)\n        T ly, ry; \
+    \     // \u6A4B\u306E\u7AEF\u70B9\u306E\u5024 (\u3053\u306E\u30CE\u30FC\u30C9\u306E\
+    \u9045\u5EF6\u307E\u3067\u53CD\u6620\u6E08\u307F)\n        T lb, lc;      // \u5B50\
+    \u306B\u4F1D\u3048\u3066\u3044\u306A\u3044\u9045\u5EF6 (b i + c \u3092\u8DB3\u3059\
+    )\n    };\n    int n;\n    vector<Node> d;\n\n    LinearAddMinSegmentTree(const\
+    \ vector<T> &a) : n(a.size()), d(4 * std::max<int>(1, a.size())) {\n        if\
+    \ (n) build(1, 0, n, a);\n    }\n\n    int size() const { return n; }\n\n    //\
+    \ i in [l, r) \u306B\u3064\u3044\u3066 a[i] += b * i + c\n    void add(int l,\
+    \ int r, T b, T c) {\n        if (MAX) b = -b, c = -c;\n        if (l < r) add(1,\
+    \ 0, n, l, r, b, c);\n    }\n\n    // min(a[l], ..., a[r-1]) (MAX \u306A\u3089\
+    \ max)\uFF0El < r \u3067\u3042\u308B\u3053\u3068\n    T min(int l, int r) {\n\
+    \        T res = query(1, 0, n, l, r);\n        return MAX ? -res : res;\n   \
+    \ }\n    T max(int l, int r) { return min(l, r); }\n    T all_min() { return MAX\
+    \ ? -node_min(1, 0, n) : node_min(1, 0, n); }\n\n    T get(int i) {\n        int\
+    \ k = 1, l = 0, r = n;\n        while (r - l > 1) {\n            push(k);\n  \
+    \          int m = (l + r) >> 1;\n            if (i < m) k = 2 * k, r = m;\n \
+    \           else k = 2 * k + 1, l = m;\n        }\n        return MAX ? -d[k].ly\
+    \ : d[k].ly;\n    }\n\n    void set(int i, T x) { set(1, 0, n, i, MAX ? -x : x);\
+    \ }\n\n  private:\n    struct P {\n        int x;\n        T y;\n    };\n\n  \
+    \  void build(int k, int l, int r, const vector<T> &a) {\n        d[k].lb = d[k].lc\
+    \ = 0;\n        if (r - l == 1) {\n            T v = MAX ? -a[l] : a[l];\n   \
+    \         d[k].lx = d[k].rx = l, d[k].ly = d[k].ry = v;\n            return;\n\
+    \        }\n        int m = (l + r) >> 1;\n        build(2 * k, l, m, a), build(2\
+    \ * k + 1, m, r, a);\n        pull(k, l, m, r);\n    }\n\n    void apply(int k,\
+    \ T b, T c) {\n        Node &x = d[k];\n        x.ly += b * x.lx + c;\n      \
+    \  x.ry += b * x.rx + c;\n        x.lb += b, x.lc += c;\n    }\n\n    void push(int\
+    \ k) {\n        if (d[k].lb == 0 && d[k].lc == 0) return;\n        apply(2 * k,\
+    \ d[k].lb, d[k].lc);\n        apply(2 * k + 1, d[k].lb, d[k].lc);\n        d[k].lb\
+    \ = d[k].lc = 0;\n    }\n\n    // q \u306E\u53F3\u306B\u3042\u308B\u30CE\u30FC\
+    \u30C9 k ([l, r)) \u306E\u70B9\u306E\u3046\u3061\uFF0Cq \u304B\u3089\u306E\u50BE\
+    \u304D\u304C\u6700\u5C0F\u306E\u70B9 (\u4E0B\u5074\u306E\u63A5\u70B9)\n    //\
+    \ b, c: k \u3088\u308A\u4E0A\u3067 k \u306B\u4F1D\u308F\u3063\u3066\u3044\u306A\
+    \u3044\u9045\u5EF6\u306E\u548C\n    P tangent(P q, int k, int l, int r, T b, T\
+    \ c) const {\n        while (r - l > 1) {\n            const Node &x = d[k];\n\
+    \            T ly = x.ly + b * x.lx + c, ry = x.ry + b * x.rx + c;\n         \
+    \   b += x.lb, c += x.lc;\n            int m = (l + r) >> 1;\n            // slope(q,\
+    \ \u53F3\u7AEF\u70B9) < slope(q, \u5DE6\u7AEF\u70B9) \u306A\u3089\u53F3\u306E\u5B50\
+    \n            if ((W)(ry - q.y) * (x.lx - q.x) < (W)(ly - q.y) * (x.rx - q.x))\
+    \ k = 2 * k + 1, l = m;\n            else k = 2 * k, r = m;\n        }\n     \
+    \   return {d[k].lx, d[k].ly + b * d[k].lx + c};\n    }\n\n    // q \u306E\u5DE6\
+    \u306B\u3042\u308B\u30CE\u30FC\u30C9 k \u306E\u70B9\u306E\u3046\u3061\uFF0Cq \u3078\
+    \u306E\u50BE\u304D\u304C\u6700\u5927\u306E\u70B9 (\u4E0B\u5074\u306E\u63A5\u70B9\
+    )\n    P tangent_left(P q, int k, int l, int r, T b, T c) const {\n        while\
+    \ (r - l > 1) {\n            const Node &x = d[k];\n            T ly = x.ly +\
+    \ b * x.lx + c, ry = x.ry + b * x.rx + c;\n            b += x.lb, c += x.lc;\n\
+    \            int m = (l + r) >> 1;\n            // slope(\u53F3\u7AEF\u70B9, q)\
+    \ >= slope(\u5DE6\u7AEF\u70B9, q) \u306A\u3089\u53F3\u306E\u5B50\n           \
+    \ if ((W)(q.y - ry) * (q.x - x.lx) >= (W)(q.y - ly) * (q.x - x.rx)) k = 2 * k\
+    \ + 1, l = m;\n            else k = 2 * k, r = m;\n        }\n        return {d[k].lx,\
+    \ d[k].ly + b * d[k].lx + c};\n    }\n\n    // \u5B50\u306E\u51F8\u5305\u304B\u3089\
+    \ k \u306E\u6A4B\u3092\u8A08\u7B97\u3059\u308B (k \u306E\u9045\u5EF6\u306F 0 \u3067\
+    \u3042\u308B\u3053\u3068)\n    // \u5DE6\u53F3\u306E\u5B50\u3092\u540C\u6642\u306B\
+    \u964D\u308A\u308B (Overmars-van Leeuwen)\uFF0E\u5DE6\u306E\u51F8\u5305\u306E\u8FBA\
+    \ (a1, a2) \u3068\u53F3\u306E\u51F8\u5305\u306E\u8FBA (b1, b2) \u3092\u898B\u3066\
+    \uFF0C\n    // 2 \u76F4\u7DDA\u306E\u5927\u5C0F\u3092\u5DE6\u53F3\u306E\u5883\u754C\
+    \ x = m - 1/2 \u3067\u6BD4\u3079\u308B\u3068\uFF0C\u3069\u3061\u3089\u304B\u306E\
+    \u534A\u5206\u304C\u6368\u3066\u3089\u308C\u308B\uFF0EO(log n)\n    void pull(int\
+    \ k, int l, int m, int r) {\n        int u = 2 * k, ul = l, ur = m, w = 2 * k\
+    \ + 1, wl = m, wr = r;\n        T ub = 0, uc = 0, wb = 0, wc = 0;\n        while\
+    \ (ur - ul > 1 && wr - wl > 1) {\n            const Node &x = d[u], &y = d[w];\n\
+    \            T a1y = x.ly + ub * x.lx + uc, a2y = x.ry + ub * x.rx + uc;\n   \
+    \         T b1y = y.ly + wb * y.lx + wc, b2y = y.ry + wb * y.rx + wc;\n      \
+    \      W dxa = x.rx - x.lx, dya = a2y - a1y, dxb = y.rx - y.lx, dyb = b2y - b1y;\n\
+    \            W cmp = dya * dxb - dyb * dxa;  // \u50BE\u304D\u306E\u5DEE (a) -\
+    \ (b) \u306E\u7B26\u53F7\n            // 2 * dxa * dxb * (La(m') - Lb(m')), m'\
+    \ = m - 1/2\n            W dlt = dxb * (2 * (W)a1y * dxa + dya * (2 * m - 1 -\
+    \ 2 * x.lx)) - dxa * (2 * (W)b1y * dxb + dyb * (2 * m - 1 - 2 * y.lx));\n    \
+    \        bool go_u, right;\n            if (cmp > 0) go_u = dlt >= 0, right =\
+    \ !go_u;   // u \u306F\u5DE6\u3078 / w \u306F\u53F3\u3078\n            else go_u\
+    \ = dlt <= 0, right = go_u;            // u \u306F\u53F3\u3078 / w \u306F\u5DE6\
+    \u3078\n            if (go_u) {\n                ub += x.lb, uc += x.lc;\n   \
+    \             int um = (ul + ur) >> 1;\n                if (right) u = 2 * u +\
+    \ 1, ul = um;\n                else u = 2 * u, ur = um;\n            } else {\n\
+    \                wb += y.lb, wc += y.lc;\n                int wm = (wl + wr) >>\
+    \ 1;\n                if (right) w = 2 * w + 1, wl = wm;\n                else\
+    \ w = 2 * w, wr = wm;\n            }\n        }\n        P s, t;\n        if (ur\
+    \ - ul == 1) {\n            s = {d[u].lx, d[u].ly + ub * d[u].lx + uc};\n    \
+    \        t = tangent(s, w, wl, wr, wb, wc);\n        } else {\n            t =\
+    \ {d[w].lx, d[w].ly + wb * d[w].lx + wc};\n            s = tangent_left(t, u,\
+    \ ul, ur, ub, uc);\n        }\n        d[k].lx = s.x, d[k].ly = s.y, d[k].rx =\
+    \ t.x, d[k].ry = t.y;\n    }\n\n    // \u30CE\u30FC\u30C9 k \u306E\u6700\u5C0F\
+    \u5024 (k \u306E\u9045\u5EF6\u307E\u3067\u53CD\u6620\u3057\u305F\u5024)\n    T\
+    \ node_min(int k, int l, int r) const {\n        T b = 0, c = 0;\n        while\
+    \ (r - l > 1) {\n            const Node &x = d[k];\n            T ly = x.ly +\
+    \ b * x.lx + c, ry = x.ry + b * x.rx + c;\n            b += x.lb, c += x.lc;\n\
+    \            int m = (l + r) >> 1;\n            if (ry < ly) k = 2 * k + 1, l\
+    \ = m;\n            else k = 2 * k, r = m;\n        }\n        return d[k].ly\
+    \ + b * d[k].lx + c;\n    }\n\n    void add(int k, int l, int r, int ql, int qr,\
+    \ T b, T c) {\n        if (ql <= l && r <= qr) return apply(k, b, c);\n      \
+    \  push(k);\n        int m = (l + r) >> 1;\n        if (ql < m) add(2 * k, l,\
+    \ m, ql, qr, b, c);\n        if (m < qr) add(2 * k + 1, m, r, ql, qr, b, c);\n\
+    \        pull(k, l, m, r);\n    }\n\n    T query(int k, int l, int r, int ql,\
+    \ int qr) {\n        if (ql <= l && r <= qr) return node_min(k, l, r);\n     \
+    \   push(k);\n        int m = (l + r) >> 1;\n        if (qr <= m) return query(2\
+    \ * k, l, m, ql, qr);\n        if (m <= ql) return query(2 * k + 1, m, r, ql,\
+    \ qr);\n        return std::min(query(2 * k, l, m, ql, qr), query(2 * k + 1, m,\
+    \ r, ql, qr));\n    }\n\n    void set(int k, int l, int r, int i, T x) {\n   \
+    \     if (r - l == 1) {\n            d[k].ly = d[k].ry = x;\n            return;\n\
+    \        }\n        push(k);\n        int m = (l + r) >> 1;\n        if (i < m)\
+    \ set(2 * k, l, m, i, x);\n        else set(2 * k + 1, m, r, i, x);\n        pull(k,\
+    \ l, m, r);\n    }\n};\n#line 4 \"test/unittest/linear_add_min_segment_tree.test.cpp\"\
     \n\n// LinearAddMinSegmentTree \u3092\u611A\u76F4\u3068\u7167\u5408\u3059\u308B\
     \ (\u5024\u306E\u5E45\u3092\u5C0F\u3055\u304F\u3057\u3066\u5171\u7DDA\u306A\u70B9\
     \u3092\u591A\u304F\u3059\u308B)\n\nint main() {\n    mt19937_64 rng(1);\n    for\
@@ -367,8 +369,8 @@ data:
   isVerificationFile: true
   path: test/unittest/linear_add_min_segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2026-10-14 23:17:41+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/unittest/linear_add_min_segment_tree.test.cpp
 layout: document

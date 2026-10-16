@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
     title: "\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -32,14 +32,14 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"graph/graph-template.hpp\"\n\n/*\n\u5927\u304D\u3081\u306E\u9053\u5177\u3092\
-    \u4F5C\u308A\u305F\u304F\u306A\u3063\u305F\u6642\u7528\u306B\u30B0\u30E9\u30D5\
-    \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\u3092\u4F5C\u308A\u307E\u3057\u305F\n\u3069\
-    \u3093\u306A\u6A5F\u80FD\u304C\u6B32\u3057\u304F\u306A\u308B\u304B\u898B\u901A\
-    \u305B\u306A\u3044\u306E\u3067\u4E00\u65E6\u3046\u3057\u3055\u3093\u306E\u30E9\
-    \u30A4\u30D6\u30E9\u30EA\u3092\u53C2\u8003\u306B\u6574\u5099\u3057\u3066\u307E\
-    \u3059 (\u6B32\u3057\u3044\u6A5F\u80FD\u304C\u5897\u3048\u305F\u3089\u5909\u308F\
-    \u308B\u304B\u3082)\nhttps://ei1333.github.io/library/graph/graph-template.hpp\n\
+    \ 3 \"graph/graph-template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n/*\n\u5927\u304D\u3081\u306E\u9053\u5177\u3092\u4F5C\u308A\u305F\u304F\u306A\
+    \u3063\u305F\u6642\u7528\u306B\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
+    \u30C8\u3092\u4F5C\u308A\u307E\u3057\u305F\n\u3069\u3093\u306A\u6A5F\u80FD\u304C\
+    \u6B32\u3057\u304F\u306A\u308B\u304B\u898B\u901A\u305B\u306A\u3044\u306E\u3067\
+    \u4E00\u65E6\u3046\u3057\u3055\u3093\u306E\u30E9\u30A4\u30D6\u30E9\u30EA\u3092\
+    \u53C2\u8003\u306B\u6574\u5099\u3057\u3066\u307E\u3059 (\u6B32\u3057\u3044\u6A5F\
+    \u80FD\u304C\u5897\u3048\u305F\u3089\u5909\u308F\u308B\u304B\u3082)\nhttps://ei1333.github.io/library/graph/graph-template.hpp\n\
     */\n\ntemplate <typename T = int>\nstruct Edge {\n    // \u8FBA\u306Efrom , to\n\
     \    int from, to;\n\n    // \u91CD\u307F\u4ED8\u304D\u30B0\u30E9\u30D5\u7528\u30B3\
     \u30B9\u30C8\n    T cost;\n\n    // \u6A4B\u306E\u5217\u6319\u7B49\u304C\u5FC5\
@@ -59,39 +59,39 @@ data:
     \u3089\u751F\u3048\u3066\u308B\u8FBA\u306E\u96C6\u5408\u3092\u8FD4\u3059\n   \
     \ inline vector<Edge<T> > &operator[](const int &k) { return g[k]; }\n    inline\
     \ const vector<Edge<T> > &operator[](const int &k) const { return g[k]; }\n};\n\
-    #line 3 \"graph/dijkstra.hpp\"\n\ntemplate <typename T>\nstruct Pathutil{\n  \
-    \  // \u5404\u9802\u70B9\u3078\u306E\u8DDD\u96E2\u3092\u8868\u3059\u914D\u5217\
-    \n    vector<T> dist;\n\n    // \u3069\u3053\u304B\u3089\u304D\u305F\u304B\u3092\
-    \u8868\u3059\u914D\u5217\n    vector<int> prev;\n\n    // \u6700\u77ED\u7D4C\u8DEF\
-    \u3092\u30D1\u30B9\u3067\u8FD4\u3059\u914D\u5217\n    vector<int> path;\n};\n\n\
-    // \u30B0\u30E9\u30D5\u306F\u5168\u3066 0-index \u3067\u6271\u3063\u3066\u3044\
-    \u308B\ntemplate <typename T = long long>\nPathutil<T> Dijikstra(const Graph<T>\
-    \ &G, int from, int to = 0){\n\n    // \u6BD4\u8F03\u7528\u306B\u6700\u5927\u5024\
-    \u3092\u5B9A\u6570\u3067\u5B9A\u7FA9\n    const T INF = numeric_limits<T>::max();\n\
-    \    // \u9802\u70B9\u6570\n    int n = G.size();\n\n    // \u8DDD\u96E2\u3092\
-    \u683C\u7D0D\u3059\u308Bvector\n    vector<T> distance;\n\n    // \u30D1\u30B9\
-    \u306E\u5FA9\u5143\u3092\u884C\u3046\u305F\u3081\u306B\u3069\u3053\u304B\u3089\
-    \u9077\u79FB\u3057\u305F\u304B\u3092\u30E1\u30E2\n    vector<int> prev;\n\n  \
-    \  using P = pair<T,int>;\n\n    distance.resize(n,INF);\n    prev.resize(n,-1);\n\
-    \n    priority_queue<P,vector<P>,greater<P>> pq;\n    distance[from] = 0;\n  \
-    \  pq.emplace(distance[from], from);\n\n    while(!pq.empty()) {\n        P p\
-    \ = pq.top();\n        pq.pop();\n        int v = p.second;\n\n        // \u4ECA\
-    \u898B\u3066\u3044\u308B\u9802\u70B9\u306E\u8DDD\u96E2\u304C\u6700\u65B0\u306E\
-    \u5024\u3067\u306A\u3051\u308C\u3070\u98DB\u3070\u3059 (\u9AD8\u901F\u5316\u7528\
-    )\n        if(distance[v] < p.first) continue;\n\n        for(auto e : G[v]) {\n\
-    \            // \u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u306F\u8CA0\u8FBA\u304C\u3042\
-    \u308B\u3068\u58CA\u308C\u308B\uFF0E\n            // \u6B63\u78BA\u306B\u306F\u3053\
-    \u306E\u30A2\u30EB\u30B4\u30EA\u30BA\u30E0\u306F\u8CA0\u306E\u9589\u8DEF\u304C\
-    \u3042\u308B\u3068\u304D\u505C\u6B62\u3057\u306A\u3044\n            // \u53C2\u8003\
-    \ -> https://theory-and-me.hatenablog.com/entry/2019/09/08/182442\n          \
-    \  assert(e.cost >= 0);\n            if(distance[e.to] > distance[v] + e.cost)\
-    \ {\n                distance[e.to] = distance[v] + e.cost;\n                //\
-    \ v \u3092\u901A\u3063\u3066 e.to \u306B\u304D\u305F\n                prev[e.to]\
-    \ = v;\n                pq.emplace(distance[e.to], e.to);\n            }\n   \
-    \     }\n    }\n\n    // \u5230\u9054\u4E0D\u53EF\u80FD\u306A\u9802\u70B9\u3078\
-    \u306E\u8DDD\u96E2\u3092 -1 \u306B\u3059\u308B\uFF0E(\u7AF6\u30D7\u30ED\u3067\u306F\
-    \u5230\u9054\u4E0D\u53EF\u80FD\u306A\u3089\u3000-1\u3000\u3092\u51FA\u529B\u3059\
-    \u308B\u3053\u3068\u304C\u901A\u4F8B\uFF0E)\n    for (T &costs : distance)if(costs\
+    #line 3 \"graph/dijkstra.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \ntemplate <typename T>\nstruct Pathutil{\n    // \u5404\u9802\u70B9\u3078\u306E\
+    \u8DDD\u96E2\u3092\u8868\u3059\u914D\u5217\n    vector<T> dist;\n\n    // \u3069\
+    \u3053\u304B\u3089\u304D\u305F\u304B\u3092\u8868\u3059\u914D\u5217\n    vector<int>\
+    \ prev;\n\n    // \u6700\u77ED\u7D4C\u8DEF\u3092\u30D1\u30B9\u3067\u8FD4\u3059\
+    \u914D\u5217\n    vector<int> path;\n};\n\n// \u30B0\u30E9\u30D5\u306F\u5168\u3066\
+    \ 0-index \u3067\u6271\u3063\u3066\u3044\u308B\ntemplate <typename T = long long>\n\
+    Pathutil<T> Dijikstra(const Graph<T> &G, int from, int to = 0){\n\n    // \u6BD4\
+    \u8F03\u7528\u306B\u6700\u5927\u5024\u3092\u5B9A\u6570\u3067\u5B9A\u7FA9\n   \
+    \ const T INF = numeric_limits<T>::max();\n    // \u9802\u70B9\u6570\n    int\
+    \ n = G.size();\n\n    // \u8DDD\u96E2\u3092\u683C\u7D0D\u3059\u308Bvector\n \
+    \   vector<T> distance;\n\n    // \u30D1\u30B9\u306E\u5FA9\u5143\u3092\u884C\u3046\
+    \u305F\u3081\u306B\u3069\u3053\u304B\u3089\u9077\u79FB\u3057\u305F\u304B\u3092\
+    \u30E1\u30E2\n    vector<int> prev;\n\n    using P = pair<T,int>;\n\n    distance.resize(n,INF);\n\
+    \    prev.resize(n,-1);\n\n    priority_queue<P,vector<P>,greater<P>> pq;\n  \
+    \  distance[from] = 0;\n    pq.emplace(distance[from], from);\n\n    while(!pq.empty())\
+    \ {\n        P p = pq.top();\n        pq.pop();\n        int v = p.second;\n\n\
+    \        // \u4ECA\u898B\u3066\u3044\u308B\u9802\u70B9\u306E\u8DDD\u96E2\u304C\
+    \u6700\u65B0\u306E\u5024\u3067\u306A\u3051\u308C\u3070\u98DB\u3070\u3059 (\u9AD8\
+    \u901F\u5316\u7528)\n        if(distance[v] < p.first) continue;\n\n        for(auto\
+    \ e : G[v]) {\n            // \u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u306F\u8CA0\
+    \u8FBA\u304C\u3042\u308B\u3068\u58CA\u308C\u308B\uFF0E\n            // \u6B63\u78BA\
+    \u306B\u306F\u3053\u306E\u30A2\u30EB\u30B4\u30EA\u30BA\u30E0\u306F\u8CA0\u306E\
+    \u9589\u8DEF\u304C\u3042\u308B\u3068\u304D\u505C\u6B62\u3057\u306A\u3044\n   \
+    \         // \u53C2\u8003 -> https://theory-and-me.hatenablog.com/entry/2019/09/08/182442\n\
+    \            assert(e.cost >= 0);\n            if(distance[e.to] > distance[v]\
+    \ + e.cost) {\n                distance[e.to] = distance[v] + e.cost;\n      \
+    \          // v \u3092\u901A\u3063\u3066 e.to \u306B\u304D\u305F\n           \
+    \     prev[e.to] = v;\n                pq.emplace(distance[e.to], e.to);\n   \
+    \         }\n        }\n    }\n\n    // \u5230\u9054\u4E0D\u53EF\u80FD\u306A\u9802\
+    \u70B9\u3078\u306E\u8DDD\u96E2\u3092 -1 \u306B\u3059\u308B\uFF0E(\u7AF6\u30D7\u30ED\
+    \u3067\u306F\u5230\u9054\u4E0D\u53EF\u80FD\u306A\u3089\u3000-1\u3000\u3092\u51FA\
+    \u529B\u3059\u308B\u3053\u3068\u304C\u901A\u4F8B\uFF0E)\n    for (T &costs : distance)if(costs\
     \ == INF) costs = -1;\n\n    // to \u306B\u5230\u9054\u3067\u304D\u306A\u3044\u3068\
     \u304D\u306F path \u3092\u7A7A\u306B\u3059\u308B\n    vector<int> path;\n    if\
     \ (distance[to] != -1) for (int cur = to; cur != -1; cur = prev[cur]) {\n    \
@@ -121,7 +121,7 @@ data:
   isVerificationFile: true
   path: test/dijkstra.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 09:25:03+09:00'
+  timestamp: '2026-10-17 01:04:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dijkstra.test.cpp

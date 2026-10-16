@@ -1,38 +1,45 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/biconnected_components.hpp
     title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\u89E3 (Biconnected\
       \ Components)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/complement_graph_components.hpp
     title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/cycle_detection.hpp
     title: "\u9589\u8DEF\u691C\u51FA (Cycle Detection)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/eulerian_trail.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u8DEF (Eulerian Trail)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: graph/general_matching.hpp
+    title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
+      \u30B0 (Edmonds \u306E\u82B1\u30A2\u30EB\u30B4\u30EA\u30BA\u30E0)"
+  - icon: ':x:'
     path: graph/incremental_scc.hpp
     title: "\u8FBA\u306E\u8FFD\u52A0\u3068\u5F37\u9023\u7D50\u6210\u5206 (Incremental\
       \ SCC)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/k_shortest_walk.hpp
     title: "K \u6700\u77ED\u8DEF (K-Shortest Walk, Eppstein)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/scc.hpp
     title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3 (SCC)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: graph/st_numbering.hpp
+    title: "st \u756A\u53F7\u4ED8\u3051 (st-Numbering)"
+  - icon: ':x:'
     path: graph/three_edge_connected_components.hpp
     title: "\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 (Three-Edge-Connected\
       \ Components)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/two_edge_connected_components.hpp
     title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 (Two-Edge-Connected\
       \ Components)"
@@ -49,35 +56,48 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/cycle_detection_undirected.test.cpp
     title: test/cycle_detection_undirected.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/eulerian_trail_directed.test.cpp
     title: test/eulerian_trail_directed.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: test/eulerian_trail_undirected.test.cpp
+    title: test/eulerian_trail_undirected.test.cpp
+  - icon: ':x:'
+    path: test/general_matching.test.cpp
+    title: test/general_matching.test.cpp
+  - icon: ':x:'
     path: test/incremental_scc.test.cpp
     title: test/incremental_scc.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/k_shortest_walk.test.cpp
     title: test/k_shortest_walk.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/scc.test.cpp
     title: test/scc.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: test/st_numbering.test.cpp
+    title: test/st_numbering.test.cpp
+  - icon: ':x:'
     path: test/three_edge_connected_components.test.cpp
     title: test/three_edge_connected_components.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/two_edge_connected_components.test.cpp
     title: test/two_edge_connected_components.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/graph_components.test.cpp
     title: test/unittest/graph_components.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: test/unittest/graph_optimization.test.cpp
+    title: test/unittest/graph_optimization.test.cpp
+  - icon: ':x:'
     path: test/unittest/incremental_scc_k_shortest.test.cpp
     title: test/unittest/incremental_scc_k_shortest.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -89,20 +109,9 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"graph/csr.hpp\"\n\n// \u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\
-    \u914D\u5217\u3067\u6301\u3064 (Compressed Sparse Row)\n// \u9802\u70B9 v \u306E\
-    \u96A3\u63A5\u306F elist[start[v] .. start[v+1])\uFF0Evector<vector<int>> \u3088\
-    \u308A\u901F\u304F\u30E1\u30E2\u30EA\u3082\u5C11\u306A\u3044\ntemplate <class\
-    \ E>\nstruct CSR {\n    vector<int> start;\n    vector<E> elist;\n    CSR() =\
-    \ default;\n    // edges[i] = (from, \u4E2D\u8EAB)\n    CSR(int n, const vector<pair<int,\
-    \ E>> &edges) : start(n + 1, 0), elist(edges.size()) {\n        for (auto &e :\
-    \ edges) start[e.first + 1]++;\n        for (int i = 1; i <= n; i++) start[i]\
-    \ += start[i - 1];\n        vector<int> pos(start.begin(), start.end() - 1);\n\
-    \        for (auto &e : edges) elist[pos[e.first]++] = e.second;\n    }\n    int\
-    \ size() const { return (int)start.size() - 1; }\n};\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n\n// \u96A3\u63A5\u30EA\u30B9\
-    \u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\u3064 (Compressed Sparse Row)\n\
-    // \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v] .. start[v+1])\uFF0E\
+    \ 3 \"graph/csr.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u96A3\
+    \u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\u3064 (Compressed\
+    \ Sparse Row)\n// \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v] .. start[v+1])\uFF0E\
     vector<vector<int>> \u3088\u308A\u901F\u304F\u30E1\u30E2\u30EA\u3082\u5C11\u306A\
     \u3044\ntemplate <class E>\nstruct CSR {\n    vector<int> start;\n    vector<E>\
     \ elist;\n    CSR() = default;\n    // edges[i] = (from, \u4E2D\u8EAB)\n    CSR(int\
@@ -111,6 +120,18 @@ data:
     \ 1; i <= n; i++) start[i] += start[i - 1];\n        vector<int> pos(start.begin(),\
     \ start.end() - 1);\n        for (auto &e : edges) elist[pos[e.first]++] = e.second;\n\
     \    }\n    int size() const { return (int)start.size() - 1; }\n};\n"
+  code: "#pragma once\n#include \"../template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\
+    \u3064 (Compressed Sparse Row)\n// \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v]\
+    \ .. start[v+1])\uFF0Evector<vector<int>> \u3088\u308A\u901F\u304F\u30E1\u30E2\
+    \u30EA\u3082\u5C11\u306A\u3044\ntemplate <class E>\nstruct CSR {\n    vector<int>\
+    \ start;\n    vector<E> elist;\n    CSR() = default;\n    // edges[i] = (from,\
+    \ \u4E2D\u8EAB)\n    CSR(int n, const vector<pair<int, E>> &edges) : start(n +\
+    \ 1, 0), elist(edges.size()) {\n        for (auto &e : edges) start[e.first +\
+    \ 1]++;\n        for (int i = 1; i <= n; i++) start[i] += start[i - 1];\n    \
+    \    vector<int> pos(start.begin(), start.end() - 1);\n        for (auto &e :\
+    \ edges) elist[pos[e.first]++] = e.second;\n    }\n    int size() const { return\
+    \ (int)start.size() - 1; }\n};\n"
   dependsOn:
   - template.hpp
   isVerificationFile: false
@@ -120,22 +141,28 @@ data:
   - graph/k_shortest_walk.hpp
   - graph/eulerian_trail.hpp
   - graph/scc.hpp
+  - graph/general_matching.hpp
   - graph/incremental_scc.hpp
   - graph/two_edge_connected_components.hpp
   - graph/three_edge_connected_components.hpp
   - graph/biconnected_components.hpp
   - graph/complement_graph_components.hpp
-  timestamp: '2026-10-15 00:32:43+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  - graph/st_numbering.hpp
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/cycle_detection_undirected.test.cpp
   - test/three_edge_connected_components.test.cpp
   - test/biconnected_components.test.cpp
   - test/two_edge_connected_components.test.cpp
+  - test/st_numbering.test.cpp
+  - test/eulerian_trail_undirected.test.cpp
+  - test/unittest/graph_optimization.test.cpp
   - test/unittest/incremental_scc_k_shortest.test.cpp
   - test/unittest/graph_components.test.cpp
   - test/incremental_scc.test.cpp
   - test/connected_components_of_complement_graph.test.cpp
+  - test/general_matching.test.cpp
   - test/cycle_detection.test.cpp
   - test/scc.test.cpp
   - test/k_shortest_walk.test.cpp

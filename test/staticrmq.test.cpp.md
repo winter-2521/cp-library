@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/static_rmq.hpp
     title: "\u9759\u7684 RMQ (Static Range Minimum Query)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/staticrmq
@@ -35,31 +35,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -194,64 +195,65 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/static_rmq.hpp\"\
-    \n\n// \u9759\u7684\u306A\u533A\u9593\u6700\u5C0F\u5024 (Range Minimum Query)\n\
-    // \u69CB\u7BC9 O(n)\uFF0C\u30AF\u30A8\u30EA O(1)\uFF0E\u533A\u9593\u306E\u6700\
-    \u5C0F\u5024\u3068\u305D\u306E\u4F4D\u7F6E (\u6700\u5C0F\u5024\u304C\u8907\u6570\
-    \u3042\u308C\u3070\u4E00\u756A\u5DE6) \u3092\u8FD4\u3059\n//\n// 64 \u8981\u7D20\
-    \u305A\u3064\u306E\u30D6\u30ED\u30C3\u30AF\u306B\u5206\u3051\uFF0C\n// - \u30D6\
-    \u30ED\u30C3\u30AF\u5185: \u5404 i \u306B\u3064\u3044\u3066\u300C\u30D6\u30ED\u30C3\
-    \u30AF\u306E\u5148\u982D\u304B\u3089 i \u307E\u3067\u306E\u5358\u8ABF\u30B9\u30BF\
-    \u30C3\u30AF\u300D\u3092\u30D3\u30C3\u30C8\u30DE\u30B9\u30AF\u3067\u6301\u3064\
-    \n// - \u30D6\u30ED\u30C3\u30AF\u9593: \u30D6\u30ED\u30C3\u30AF\u3054\u3068\u306E\
-    \u6700\u5C0F\u5024\u306B\u5BFE\u3059\u308B Sparse Table\n// \u3092\u4F7F\u3046\
-    \uFF0ESparse Table \u3092\u76F4\u63A5\u4F5C\u308B\u3088\u308A\u4F7F\u3046\u30E1\
-    \u30E2\u30EA\u304C\u5C11\u306A\u304F\uFF0C\u30AD\u30E3\u30C3\u30B7\u30E5\u306B\
-    \u4E57\u308A\u3084\u3059\u3044\ntemplate <class T, class Compare = less<T>>\n\
-    struct StaticRMQ {\n    static constexpr int B = 64;\n    int n, nb;\n    vector<T>\
-    \ a;\n    Compare comp;\n    // mask[i] \u306E bit j: \u30D6\u30ED\u30C3\u30AF\
-    \u5148\u982D + j \u304C a[\u30D6\u30ED\u30C3\u30AF\u5148\u982D + j .. i] \u306E\
-    \u6700\u5C0F\u5024\u306E\u4F4D\u7F6E (\u5358\u8ABF\u30B9\u30BF\u30C3\u30AF\u306B\
-    \u6B8B\u3063\u3066\u3044\u308B)\n    vector<uint64_t> mask;\n    // \u30D6\u30ED\
-    \u30C3\u30AF\u9593 Sparse Table (\u5024\u3067\u306F\u306A\u304F\u4F4D\u7F6E\u3092\
-    \u6301\u3064)\n    vector<int> table;\n    int lg;\n\n    StaticRMQ(const vector<T>\
-    \ &v, Compare comp = Compare()) : n(v.size()), a(v), comp(comp), mask(v.size())\
-    \ {\n        nb = (n + B - 1) / B;\n        // \u30D6\u30ED\u30C3\u30AF\u5185\u306E\
-    \u5358\u8ABF\u30B9\u30BF\u30C3\u30AF\n        for (int s = 0; s < n; s += B) {\n\
-    \            int e = std::min(n, s + B);\n            uint64_t st = 0;\n     \
-    \       for (int i = s; i < e; i++) {\n                // a[i] \u3088\u308A\u771F\
-    \u306B\u5927\u304D\u3044\u8981\u7D20\u3092\u30B9\u30BF\u30C3\u30AF\u304B\u3089\
-    \u53D6\u308A\u9664\u304F (\u7B49\u3057\u3044\u8981\u7D20\u306F\u5DE6\u3092\u6B8B\
-    \u3059)\n                while (st) {\n                    int top = s + 63 -\
-    \ __builtin_clzll(st);\n                    if (comp(a[i], a[top])) st ^= 1ULL\
-    \ << (top - s);\n                    else break;\n                }\n        \
-    \        st |= 1ULL << (i - s);\n                mask[i] = st;\n            }\n\
-    \        }\n        // \u30D6\u30ED\u30C3\u30AF\u9593 Sparse Table\n        lg\
-    \ = 1;\n        while ((1 << lg) <= nb) lg++;\n        table.resize((size_t)lg\
-    \ * std::max(nb, 1));\n        for (int b = 0; b < nb; b++) table[b] = b * B +\
-    \ __builtin_ctzll(mask[std::min(n, (b + 1) * B) - 1]);\n        for (int k = 1;\
-    \ k < lg; k++) {\n            const int *src = table.data() + (size_t)(k - 1)\
-    \ * nb;\n            int *dst = table.data() + (size_t)k * nb;\n            int\
-    \ half = 1 << (k - 1);\n            for (int i = 0; i + (1 << k) <= nb; i++) dst[i]\
-    \ = better(src[i], src[i + half]);\n        }\n    }\n\n    // \u4F4D\u7F6E i,\
-    \ j \u306E\u3046\u3061\u5024\u304C\u5C0F\u3055\u3044\u65B9 (\u540C\u3058\u306A\
-    \u3089\u5DE6)\n    int better(int i, int j) const { return comp(a[j], a[i]) ?\
-    \ j : i; }\n\n    // \u540C\u3058\u30D6\u30ED\u30C3\u30AF\u5185\u306E [l, r] (\u9589\
-    \u533A\u9593) \u306E\u6700\u5C0F\u5024\u306E\u4F4D\u7F6E\n    int in_block(int\
-    \ l, int r) const {\n        return l + __builtin_ctzll(mask[r] >> (l & (B - 1)));\n\
-    \    }\n\n    // [l, r) \u306E\u6700\u5C0F\u5024\u306E\u4F4D\u7F6E (\u6700\u5C0F\
-    \u5024\u304C\u8907\u6570\u3042\u308C\u3070\u4E00\u756A\u5DE6)\uFF0El < r \u3067\
-    \u3042\u308B\u3053\u3068\n    int argmin(int l, int r) const {\n        r--;\n\
-    \        int bl = l / B, br = r / B;\n        if (bl == br) return in_block(l,\
-    \ r);\n        int res = in_block(l, bl * B + B - 1);\n        if (bl + 1 < br)\
-    \ {\n            int k = 31 - __builtin_clz(br - bl - 1);\n            int x =\
-    \ better(table[(size_t)k * nb + bl + 1], table[(size_t)k * nb + br - (1 << k)]);\n\
-    \            res = better(res, x);\n        }\n        return better(res, in_block(br\
-    \ * B, r));\n    }\n\n    // [l, r) \u306E\u6700\u5C0F\u5024\uFF0El < r \u3067\
-    \u3042\u308B\u3053\u3068\n    T prod(int l, int r) const { return a[argmin(l,\
-    \ r)]; }\n};\n#line 4 \"test/staticrmq.test.cpp\"\n\nint main() {\n    int n,\
-    \ q;\n    fin >> n >> q;\n    vector<int> a(n);\n    fin >> a;\n    StaticRMQ<int>\
-    \ rmq(a);\n    while (q--) {\n        int l, r;\n        fin >> l >> r;\n    \
-    \    fout << rmq.prod(l, r) << '\\n';\n    }\n    return 0;\n}\n"
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u9759\u7684\u306A\u533A\
+    \u9593\u6700\u5C0F\u5024 (Range Minimum Query)\n// \u69CB\u7BC9 O(n)\uFF0C\u30AF\
+    \u30A8\u30EA O(1)\uFF0E\u533A\u9593\u306E\u6700\u5C0F\u5024\u3068\u305D\u306E\u4F4D\
+    \u7F6E (\u6700\u5C0F\u5024\u304C\u8907\u6570\u3042\u308C\u3070\u4E00\u756A\u5DE6\
+    ) \u3092\u8FD4\u3059\n//\n// 64 \u8981\u7D20\u305A\u3064\u306E\u30D6\u30ED\u30C3\
+    \u30AF\u306B\u5206\u3051\uFF0C\n// - \u30D6\u30ED\u30C3\u30AF\u5185: \u5404 i\
+    \ \u306B\u3064\u3044\u3066\u300C\u30D6\u30ED\u30C3\u30AF\u306E\u5148\u982D\u304B\
+    \u3089 i \u307E\u3067\u306E\u5358\u8ABF\u30B9\u30BF\u30C3\u30AF\u300D\u3092\u30D3\
+    \u30C3\u30C8\u30DE\u30B9\u30AF\u3067\u6301\u3064\n// - \u30D6\u30ED\u30C3\u30AF\
+    \u9593: \u30D6\u30ED\u30C3\u30AF\u3054\u3068\u306E\u6700\u5C0F\u5024\u306B\u5BFE\
+    \u3059\u308B Sparse Table\n// \u3092\u4F7F\u3046\uFF0ESparse Table \u3092\u76F4\
+    \u63A5\u4F5C\u308B\u3088\u308A\u4F7F\u3046\u30E1\u30E2\u30EA\u304C\u5C11\u306A\
+    \u304F\uFF0C\u30AD\u30E3\u30C3\u30B7\u30E5\u306B\u4E57\u308A\u3084\u3059\u3044\
+    \ntemplate <class T, class Compare = less<T>>\nstruct StaticRMQ {\n    static\
+    \ constexpr int B = 64;\n    int n, nb;\n    vector<T> a;\n    Compare comp;\n\
+    \    // mask[i] \u306E bit j: \u30D6\u30ED\u30C3\u30AF\u5148\u982D + j \u304C\
+    \ a[\u30D6\u30ED\u30C3\u30AF\u5148\u982D + j .. i] \u306E\u6700\u5C0F\u5024\u306E\
+    \u4F4D\u7F6E (\u5358\u8ABF\u30B9\u30BF\u30C3\u30AF\u306B\u6B8B\u3063\u3066\u3044\
+    \u308B)\n    vector<uint64_t> mask;\n    // \u30D6\u30ED\u30C3\u30AF\u9593 Sparse\
+    \ Table (\u5024\u3067\u306F\u306A\u304F\u4F4D\u7F6E\u3092\u6301\u3064)\n    vector<int>\
+    \ table;\n    int lg;\n\n    StaticRMQ(const vector<T> &v, Compare comp = Compare())\
+    \ : n(v.size()), a(v), comp(comp), mask(v.size()) {\n        nb = (n + B - 1)\
+    \ / B;\n        // \u30D6\u30ED\u30C3\u30AF\u5185\u306E\u5358\u8ABF\u30B9\u30BF\
+    \u30C3\u30AF\n        for (int s = 0; s < n; s += B) {\n            int e = std::min(n,\
+    \ s + B);\n            uint64_t st = 0;\n            for (int i = s; i < e; i++)\
+    \ {\n                // a[i] \u3088\u308A\u771F\u306B\u5927\u304D\u3044\u8981\u7D20\
+    \u3092\u30B9\u30BF\u30C3\u30AF\u304B\u3089\u53D6\u308A\u9664\u304F (\u7B49\u3057\
+    \u3044\u8981\u7D20\u306F\u5DE6\u3092\u6B8B\u3059)\n                while (st)\
+    \ {\n                    int top = s + 63 - __builtin_clzll(st);\n           \
+    \         if (comp(a[i], a[top])) st ^= 1ULL << (top - s);\n                 \
+    \   else break;\n                }\n                st |= 1ULL << (i - s);\n \
+    \               mask[i] = st;\n            }\n        }\n        // \u30D6\u30ED\
+    \u30C3\u30AF\u9593 Sparse Table\n        lg = 1;\n        while ((1 << lg) <=\
+    \ nb) lg++;\n        table.resize((size_t)lg * std::max(nb, 1));\n        for\
+    \ (int b = 0; b < nb; b++) table[b] = b * B + __builtin_ctzll(mask[std::min(n,\
+    \ (b + 1) * B) - 1]);\n        for (int k = 1; k < lg; k++) {\n            const\
+    \ int *src = table.data() + (size_t)(k - 1) * nb;\n            int *dst = table.data()\
+    \ + (size_t)k * nb;\n            int half = 1 << (k - 1);\n            for (int\
+    \ i = 0; i + (1 << k) <= nb; i++) dst[i] = better(src[i], src[i + half]);\n  \
+    \      }\n    }\n\n    // \u4F4D\u7F6E i, j \u306E\u3046\u3061\u5024\u304C\u5C0F\
+    \u3055\u3044\u65B9 (\u540C\u3058\u306A\u3089\u5DE6)\n    int better(int i, int\
+    \ j) const { return comp(a[j], a[i]) ? j : i; }\n\n    // \u540C\u3058\u30D6\u30ED\
+    \u30C3\u30AF\u5185\u306E [l, r] (\u9589\u533A\u9593) \u306E\u6700\u5C0F\u5024\u306E\
+    \u4F4D\u7F6E\n    int in_block(int l, int r) const {\n        return l + __builtin_ctzll(mask[r]\
+    \ >> (l & (B - 1)));\n    }\n\n    // [l, r) \u306E\u6700\u5C0F\u5024\u306E\u4F4D\
+    \u7F6E (\u6700\u5C0F\u5024\u304C\u8907\u6570\u3042\u308C\u3070\u4E00\u756A\u5DE6\
+    )\uFF0El < r \u3067\u3042\u308B\u3053\u3068\n    int argmin(int l, int r) const\
+    \ {\n        r--;\n        int bl = l / B, br = r / B;\n        if (bl == br)\
+    \ return in_block(l, r);\n        int res = in_block(l, bl * B + B - 1);\n   \
+    \     if (bl + 1 < br) {\n            int k = 31 - __builtin_clz(br - bl - 1);\n\
+    \            int x = better(table[(size_t)k * nb + bl + 1], table[(size_t)k *\
+    \ nb + br - (1 << k)]);\n            res = better(res, x);\n        }\n      \
+    \  return better(res, in_block(br * B, r));\n    }\n\n    // [l, r) \u306E\u6700\
+    \u5C0F\u5024\uFF0El < r \u3067\u3042\u308B\u3053\u3068\n    T prod(int l, int\
+    \ r) const { return a[argmin(l, r)]; }\n};\n#line 4 \"test/staticrmq.test.cpp\"\
+    \n\nint main() {\n    int n, q;\n    fin >> n >> q;\n    vector<int> a(n);\n \
+    \   fin >> a;\n    StaticRMQ<int> rmq(a);\n    while (q--) {\n        int l, r;\n\
+    \        fin >> l >> r;\n        fout << rmq.prod(l, r) << '\\n';\n    }\n   \
+    \ return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include \"\
     ../io/fastio.hpp\"\n#include \"../data_structure/static_rmq.hpp\"\n\nint main()\
     \ {\n    int n, q;\n    fin >> n >> q;\n    vector<int> a(n);\n    fin >> a;\n\
@@ -266,8 +268,8 @@ data:
   isVerificationFile: true
   path: test/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 10:14:40+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/staticrmq.test.cpp
 layout: document

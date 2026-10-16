@@ -1,22 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/point_add_range_sum.test.cpp
     title: test/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/fenwick_tree.test.cpp
     title: test/unittest/fenwick_tree.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -28,81 +29,83 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"data_structure/fenwick_tree.hpp\"\n\n// Fenwick Tree (Binary Indexed Tree)\n\
-    // \u4E00\u70B9\u52A0\u7B97\u30FB\u533A\u9593\u548C\u3092 O(log n) \u3067\u51E6\
-    \u7406\u3059\u308B\uFF0E\u5916\u90E8\u304B\u3089\u306F 0-indexed \u3067\u6271\u3046\
-    \ntemplate <class T>\nstruct FenwickTree {\n    int n;\n    // d[i] (1-indexed)\
-    \ \u306F\u533A\u9593 (i - lowbit(i), i] \u306E\u548C\n    vector<T> d;\n\n   \
-    \ FenwickTree(int n = 0) : n(n), d(n + 1, T(0)) {}\n\n    // \u914D\u5217 a \u3067\
-    \ O(n) \u521D\u671F\u5316\n    FenwickTree(const vector<T> &a) : n(a.size()),\
-    \ d(a.size() + 1, T(0)) {\n        for (int i = 0; i < n; i++) d[i + 1] = a[i];\n\
-    \        for (int i = 1; i <= n; i++) {\n            int j = i + (i & -i);\n \
-    \           if (j <= n) d[j] += d[i];\n        }\n    }\n\n    int size() const\
-    \ { return n; }\n\n    // a[i] += x\n    void add(int i, T x) {\n        for (i++;\
-    \ i <= n; i += i & -i) d[i] += x;\n    }\n\n    // a[0] + ... + a[r-1]\n    T\
-    \ sum(int r) const {\n        T s = T(0);\n        for (; r > 0; r &= r - 1) s\
-    \ += d[r];\n        return s;\n    }\n\n    // a[l] + ... + a[r-1]\n    // sum(r)\
-    \ - sum(l) \u3092\uFF0Cl \u3068 r \u306E\u5171\u901A\u306E\u7956\u5148\u307E\u3067\
-    \u964D\u308A\u305F\u3068\u3053\u308D\u3067\u6253\u3061\u5207\u3063\u3066\u8A08\
-    \u7B97\u3059\u308B\n    T sum(int l, int r) const {\n        T s = T(0);\n   \
-    \     while (l < r) s += d[r], r &= r - 1;\n        while (r < l) s -= d[l], l\
-    \ &= l - 1;\n        return s;\n    }\n\n    // a[i]\n    T get(int i) const {\
-    \ return sum(i, i + 1); }\n\n    // a[i] = x\n    void set(int i, T x) { add(i,\
-    \ x - get(i)); }\n\n    // a[0] + ... + a[i] >= w \u3068\u306A\u308B\u6700\u5C0F\
-    \u306E i \u3092\u8FD4\u3059 (\u5B58\u5728\u3057\u306A\u3051\u308C\u3070 n)\n \
-    \   // \u5168\u8981\u7D20\u304C\u975E\u8CA0\u3067\u3042\u308B\u3053\u3068\n  \
-    \  int lower_bound(T w) const {\n        if (w <= T(0)) return 0;\n        int\
-    \ x = 0;\n        int k = 1;\n        while (k * 2 <= n) k *= 2;\n        for\
-    \ (; k > 0; k >>= 1) {\n            if (x + k <= n && d[x + k] < w) {\n      \
-    \          x += k;\n                w -= d[x];\n            }\n        }\n   \
-    \     return x;\n    }\n\n    // a[0] + ... + a[i] > w \u3068\u306A\u308B\u6700\
-    \u5C0F\u306E i \u3092\u8FD4\u3059 (\u5B58\u5728\u3057\u306A\u3051\u308C\u3070\
-    \ n)\n    // \u5168\u8981\u7D20\u304C\u975E\u8CA0\u3067\u3042\u308B\u3053\u3068\
-    \n    int upper_bound(T w) const {\n        int x = 0;\n        int k = 1;\n \
-    \       while (k * 2 <= n) k *= 2;\n        for (; k > 0; k >>= 1) {\n       \
-    \     if (x + k <= n && !(w < d[x + k])) {\n                x += k;\n        \
-    \        w -= d[x];\n            }\n        }\n        return x;\n    }\n};\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n\n// Fenwick Tree (Binary Indexed\
-    \ Tree)\n// \u4E00\u70B9\u52A0\u7B97\u30FB\u533A\u9593\u548C\u3092 O(log n) \u3067\
-    \u51E6\u7406\u3059\u308B\uFF0E\u5916\u90E8\u304B\u3089\u306F 0-indexed \u3067\u6271\
-    \u3046\ntemplate <class T>\nstruct FenwickTree {\n    int n;\n    // d[i] (1-indexed)\
-    \ \u306F\u533A\u9593 (i - lowbit(i), i] \u306E\u548C\n    vector<T> d;\n\n   \
-    \ FenwickTree(int n = 0) : n(n), d(n + 1, T(0)) {}\n\n    // \u914D\u5217 a \u3067\
-    \ O(n) \u521D\u671F\u5316\n    FenwickTree(const vector<T> &a) : n(a.size()),\
-    \ d(a.size() + 1, T(0)) {\n        for (int i = 0; i < n; i++) d[i + 1] = a[i];\n\
-    \        for (int i = 1; i <= n; i++) {\n            int j = i + (i & -i);\n \
-    \           if (j <= n) d[j] += d[i];\n        }\n    }\n\n    int size() const\
-    \ { return n; }\n\n    // a[i] += x\n    void add(int i, T x) {\n        for (i++;\
-    \ i <= n; i += i & -i) d[i] += x;\n    }\n\n    // a[0] + ... + a[r-1]\n    T\
-    \ sum(int r) const {\n        T s = T(0);\n        for (; r > 0; r &= r - 1) s\
-    \ += d[r];\n        return s;\n    }\n\n    // a[l] + ... + a[r-1]\n    // sum(r)\
-    \ - sum(l) \u3092\uFF0Cl \u3068 r \u306E\u5171\u901A\u306E\u7956\u5148\u307E\u3067\
-    \u964D\u308A\u305F\u3068\u3053\u308D\u3067\u6253\u3061\u5207\u3063\u3066\u8A08\
-    \u7B97\u3059\u308B\n    T sum(int l, int r) const {\n        T s = T(0);\n   \
-    \     while (l < r) s += d[r], r &= r - 1;\n        while (r < l) s -= d[l], l\
-    \ &= l - 1;\n        return s;\n    }\n\n    // a[i]\n    T get(int i) const {\
-    \ return sum(i, i + 1); }\n\n    // a[i] = x\n    void set(int i, T x) { add(i,\
-    \ x - get(i)); }\n\n    // a[0] + ... + a[i] >= w \u3068\u306A\u308B\u6700\u5C0F\
-    \u306E i \u3092\u8FD4\u3059 (\u5B58\u5728\u3057\u306A\u3051\u308C\u3070 n)\n \
-    \   // \u5168\u8981\u7D20\u304C\u975E\u8CA0\u3067\u3042\u308B\u3053\u3068\n  \
-    \  int lower_bound(T w) const {\n        if (w <= T(0)) return 0;\n        int\
-    \ x = 0;\n        int k = 1;\n        while (k * 2 <= n) k *= 2;\n        for\
-    \ (; k > 0; k >>= 1) {\n            if (x + k <= n && d[x + k] < w) {\n      \
-    \          x += k;\n                w -= d[x];\n            }\n        }\n   \
-    \     return x;\n    }\n\n    // a[0] + ... + a[i] > w \u3068\u306A\u308B\u6700\
-    \u5C0F\u306E i \u3092\u8FD4\u3059 (\u5B58\u5728\u3057\u306A\u3051\u308C\u3070\
-    \ n)\n    // \u5168\u8981\u7D20\u304C\u975E\u8CA0\u3067\u3042\u308B\u3053\u3068\
-    \n    int upper_bound(T w) const {\n        int x = 0;\n        int k = 1;\n \
-    \       while (k * 2 <= n) k *= 2;\n        for (; k > 0; k >>= 1) {\n       \
-    \     if (x + k <= n && !(w < d[x + k])) {\n                x += k;\n        \
-    \        w -= d[x];\n            }\n        }\n        return x;\n    }\n};\n"
+    \ 3 \"data_structure/fenwick_tree.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// Fenwick Tree (Binary Indexed Tree)\n// \u4E00\u70B9\u52A0\u7B97\u30FB\u533A\
+    \u9593\u548C\u3092 O(log n) \u3067\u51E6\u7406\u3059\u308B\uFF0E\u5916\u90E8\u304B\
+    \u3089\u306F 0-indexed \u3067\u6271\u3046\ntemplate <class T>\nstruct FenwickTree\
+    \ {\n    int n;\n    // d[i] (1-indexed) \u306F\u533A\u9593 (i - lowbit(i), i]\
+    \ \u306E\u548C\n    vector<T> d;\n\n    FenwickTree(int n = 0) : n(n), d(n + 1,\
+    \ T(0)) {}\n\n    // \u914D\u5217 a \u3067 O(n) \u521D\u671F\u5316\n    FenwickTree(const\
+    \ vector<T> &a) : n(a.size()), d(a.size() + 1, T(0)) {\n        for (int i = 0;\
+    \ i < n; i++) d[i + 1] = a[i];\n        for (int i = 1; i <= n; i++) {\n     \
+    \       int j = i + (i & -i);\n            if (j <= n) d[j] += d[i];\n       \
+    \ }\n    }\n\n    int size() const { return n; }\n\n    // a[i] += x\n    void\
+    \ add(int i, T x) {\n        for (i++; i <= n; i += i & -i) d[i] += x;\n    }\n\
+    \n    // a[0] + ... + a[r-1]\n    T sum(int r) const {\n        T s = T(0);\n\
+    \        for (; r > 0; r &= r - 1) s += d[r];\n        return s;\n    }\n\n  \
+    \  // a[l] + ... + a[r-1]\n    // sum(r) - sum(l) \u3092\uFF0Cl \u3068 r \u306E\
+    \u5171\u901A\u306E\u7956\u5148\u307E\u3067\u964D\u308A\u305F\u3068\u3053\u308D\
+    \u3067\u6253\u3061\u5207\u3063\u3066\u8A08\u7B97\u3059\u308B\n    T sum(int l,\
+    \ int r) const {\n        T s = T(0);\n        while (l < r) s += d[r], r &= r\
+    \ - 1;\n        while (r < l) s -= d[l], l &= l - 1;\n        return s;\n    }\n\
+    \n    // a[i]\n    T get(int i) const { return sum(i, i + 1); }\n\n    // a[i]\
+    \ = x\n    void set(int i, T x) { add(i, x - get(i)); }\n\n    // a[0] + ... +\
+    \ a[i] >= w \u3068\u306A\u308B\u6700\u5C0F\u306E i \u3092\u8FD4\u3059 (\u5B58\u5728\
+    \u3057\u306A\u3051\u308C\u3070 n)\n    // \u5168\u8981\u7D20\u304C\u975E\u8CA0\
+    \u3067\u3042\u308B\u3053\u3068\n    int lower_bound(T w) const {\n        if (w\
+    \ <= T(0)) return 0;\n        int x = 0;\n        int k = 1;\n        while (k\
+    \ * 2 <= n) k *= 2;\n        for (; k > 0; k >>= 1) {\n            if (x + k <=\
+    \ n && d[x + k] < w) {\n                x += k;\n                w -= d[x];\n\
+    \            }\n        }\n        return x;\n    }\n\n    // a[0] + ... + a[i]\
+    \ > w \u3068\u306A\u308B\u6700\u5C0F\u306E i \u3092\u8FD4\u3059 (\u5B58\u5728\u3057\
+    \u306A\u3051\u308C\u3070 n)\n    // \u5168\u8981\u7D20\u304C\u975E\u8CA0\u3067\
+    \u3042\u308B\u3053\u3068\n    int upper_bound(T w) const {\n        int x = 0;\n\
+    \        int k = 1;\n        while (k * 2 <= n) k *= 2;\n        for (; k > 0;\
+    \ k >>= 1) {\n            if (x + k <= n && !(w < d[x + k])) {\n             \
+    \   x += k;\n                w -= d[x];\n            }\n        }\n        return\
+    \ x;\n    }\n};\n"
+  code: "#pragma once\n#include \"../template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// Fenwick Tree (Binary Indexed Tree)\n// \u4E00\u70B9\u52A0\u7B97\u30FB\u533A\
+    \u9593\u548C\u3092 O(log n) \u3067\u51E6\u7406\u3059\u308B\uFF0E\u5916\u90E8\u304B\
+    \u3089\u306F 0-indexed \u3067\u6271\u3046\ntemplate <class T>\nstruct FenwickTree\
+    \ {\n    int n;\n    // d[i] (1-indexed) \u306F\u533A\u9593 (i - lowbit(i), i]\
+    \ \u306E\u548C\n    vector<T> d;\n\n    FenwickTree(int n = 0) : n(n), d(n + 1,\
+    \ T(0)) {}\n\n    // \u914D\u5217 a \u3067 O(n) \u521D\u671F\u5316\n    FenwickTree(const\
+    \ vector<T> &a) : n(a.size()), d(a.size() + 1, T(0)) {\n        for (int i = 0;\
+    \ i < n; i++) d[i + 1] = a[i];\n        for (int i = 1; i <= n; i++) {\n     \
+    \       int j = i + (i & -i);\n            if (j <= n) d[j] += d[i];\n       \
+    \ }\n    }\n\n    int size() const { return n; }\n\n    // a[i] += x\n    void\
+    \ add(int i, T x) {\n        for (i++; i <= n; i += i & -i) d[i] += x;\n    }\n\
+    \n    // a[0] + ... + a[r-1]\n    T sum(int r) const {\n        T s = T(0);\n\
+    \        for (; r > 0; r &= r - 1) s += d[r];\n        return s;\n    }\n\n  \
+    \  // a[l] + ... + a[r-1]\n    // sum(r) - sum(l) \u3092\uFF0Cl \u3068 r \u306E\
+    \u5171\u901A\u306E\u7956\u5148\u307E\u3067\u964D\u308A\u305F\u3068\u3053\u308D\
+    \u3067\u6253\u3061\u5207\u3063\u3066\u8A08\u7B97\u3059\u308B\n    T sum(int l,\
+    \ int r) const {\n        T s = T(0);\n        while (l < r) s += d[r], r &= r\
+    \ - 1;\n        while (r < l) s -= d[l], l &= l - 1;\n        return s;\n    }\n\
+    \n    // a[i]\n    T get(int i) const { return sum(i, i + 1); }\n\n    // a[i]\
+    \ = x\n    void set(int i, T x) { add(i, x - get(i)); }\n\n    // a[0] + ... +\
+    \ a[i] >= w \u3068\u306A\u308B\u6700\u5C0F\u306E i \u3092\u8FD4\u3059 (\u5B58\u5728\
+    \u3057\u306A\u3051\u308C\u3070 n)\n    // \u5168\u8981\u7D20\u304C\u975E\u8CA0\
+    \u3067\u3042\u308B\u3053\u3068\n    int lower_bound(T w) const {\n        if (w\
+    \ <= T(0)) return 0;\n        int x = 0;\n        int k = 1;\n        while (k\
+    \ * 2 <= n) k *= 2;\n        for (; k > 0; k >>= 1) {\n            if (x + k <=\
+    \ n && d[x + k] < w) {\n                x += k;\n                w -= d[x];\n\
+    \            }\n        }\n        return x;\n    }\n\n    // a[0] + ... + a[i]\
+    \ > w \u3068\u306A\u308B\u6700\u5C0F\u306E i \u3092\u8FD4\u3059 (\u5B58\u5728\u3057\
+    \u306A\u3051\u308C\u3070 n)\n    // \u5168\u8981\u7D20\u304C\u975E\u8CA0\u3067\
+    \u3042\u308B\u3053\u3068\n    int upper_bound(T w) const {\n        int x = 0;\n\
+    \        int k = 1;\n        while (k * 2 <= n) k *= 2;\n        for (; k > 0;\
+    \ k >>= 1) {\n            if (x + k <= n && !(w < d[x + k])) {\n             \
+    \   x += k;\n                w -= d[x];\n            }\n        }\n        return\
+    \ x;\n    }\n};\n"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: data_structure/fenwick_tree.hpp
   requiredBy: []
-  timestamp: '2026-10-12 10:14:40+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/unittest/fenwick_tree.test.cpp
   - test/point_add_range_sum.test.cpp

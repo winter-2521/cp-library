@@ -1,22 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/static_range_mode_query.test.cpp
     title: test/static_range_mode_query.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/static_range_queries.test.cpp
     title: test/unittest/static_range_queries.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -28,34 +29,34 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"data_structure/static_range_mode.hpp\"\n\n// \u9759\u7684\u306A\u6570\u5217\
-    \u306E\u533A\u9593\u6700\u983B\u5024 (Static Range Mode Query)\uFF0E\u30AA\u30F3\
-    \u30E9\u30A4\u30F3\uFF0C\u5E73\u65B9\u5206\u5272\n// \u30D6\u30ED\u30C3\u30AF\u306E\
-    \u533A\u9593 [bi, bj] \u3054\u3068\u306B\u6700\u983B\u5024\u3068\u500B\u6570\u3092\
-    \u524D\u8A08\u7B97\u3057\u3066\u304A\u304D\uFF0C\u7AEF\u306E\u8981\u7D20\u306F\
-    \n// \u300C\u5024\u3054\u3068\u306E\u51FA\u73FE\u4F4D\u7F6E\u306E\u5217\u300D\u3067\
-    \u500B\u6570\u3092 1 \u305A\u3064\u4F38\u3070\u305B\u308B\u304B\u78BA\u304B\u3081\
-    \u308B\uFF0E\u69CB\u7BC9 O(n \u221An)\uFF0C\u30AF\u30A8\u30EA O(\u221An)\ntemplate\
-    \ <class T>\nstruct StaticRangeMode {\n    int n, B, nb;\n    vector<T> vals;\
-    \              // \u5EA7\u6A19\u5727\u7E2E\u5F8C\u306E\u5024 \u2192 \u5143\u306E\
-    \u5024\n    vector<int> c;               // \u5727\u7E2E\u5F8C\u306E\u5024\n \
-    \   vector<int> rank_in;         // i \u304C pos[c[i]] \u306E\u4F55\u756A\u76EE\
-    \u304B\n    vector<vector<int>> pos;     // \u5024\u3054\u3068\u306E\u51FA\u73FE\
-    \u4F4D\u7F6E\n    vector<int> mode_val, mode_cnt;  // \u30D6\u30ED\u30C3\u30AF\
-    \u533A\u9593 [bi, bj] \u306E\u6700\u983B\u5024\u30FB\u500B\u6570 (bi * nb + bj)\n\
-    \n    StaticRangeMode(const vector<T> &a) : n(a.size()) {\n        vals = a;\n\
-    \        sort(vals.begin(), vals.end());\n        vals.erase(unique(vals.begin(),\
-    \ vals.end()), vals.end());\n        int m = vals.size();\n        c.resize(n),\
-    \ rank_in.resize(n), pos.assign(m, {});\n        for (int i = 0; i < n; i++) {\n\
-    \            c[i] = lower_bound(vals.begin(), vals.end(), a[i]) - vals.begin();\n\
-    \            rank_in[i] = pos[c[i]].size();\n            pos[c[i]].push_back(i);\n\
-    \        }\n        B = std::max(1, (int)sqrt(n));\n        nb = (n + B - 1) /\
-    \ B;\n        mode_val.assign(nb * nb, -1), mode_cnt.assign(nb * nb, 0);\n   \
-    \     vector<int> cnt(m, 0);\n        for (int bi = 0; bi < nb; bi++) {\n    \
-    \        int best = -1, bc = 0;\n            for (int bj = bi; bj < nb; bj++)\
-    \ {\n                for (int i = bj * B; i < std::min(n, (bj + 1) * B); i++)\
-    \ {\n                    if (++cnt[c[i]] > bc) bc = cnt[c[i]], best = c[i];\n\
-    \                }\n                mode_val[bi * nb + bj] = best, mode_cnt[bi\
+    \ 3 \"data_structure/static_range_mode.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u9759\u7684\u306A\u6570\u5217\u306E\u533A\u9593\u6700\u983B\u5024 (Static\
+    \ Range Mode Query)\uFF0E\u30AA\u30F3\u30E9\u30A4\u30F3\uFF0C\u5E73\u65B9\u5206\
+    \u5272\n// \u30D6\u30ED\u30C3\u30AF\u306E\u533A\u9593 [bi, bj] \u3054\u3068\u306B\
+    \u6700\u983B\u5024\u3068\u500B\u6570\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\
+    \u304D\uFF0C\u7AEF\u306E\u8981\u7D20\u306F\n// \u300C\u5024\u3054\u3068\u306E\u51FA\
+    \u73FE\u4F4D\u7F6E\u306E\u5217\u300D\u3067\u500B\u6570\u3092 1 \u305A\u3064\u4F38\
+    \u3070\u305B\u308B\u304B\u78BA\u304B\u3081\u308B\uFF0E\u69CB\u7BC9 O(n \u221A\
+    n)\uFF0C\u30AF\u30A8\u30EA O(\u221An)\ntemplate <class T>\nstruct StaticRangeMode\
+    \ {\n    int n, B, nb;\n    vector<T> vals;              // \u5EA7\u6A19\u5727\
+    \u7E2E\u5F8C\u306E\u5024 \u2192 \u5143\u306E\u5024\n    vector<int> c;       \
+    \        // \u5727\u7E2E\u5F8C\u306E\u5024\n    vector<int> rank_in;         //\
+    \ i \u304C pos[c[i]] \u306E\u4F55\u756A\u76EE\u304B\n    vector<vector<int>> pos;\
+    \     // \u5024\u3054\u3068\u306E\u51FA\u73FE\u4F4D\u7F6E\n    vector<int> mode_val,\
+    \ mode_cnt;  // \u30D6\u30ED\u30C3\u30AF\u533A\u9593 [bi, bj] \u306E\u6700\u983B\
+    \u5024\u30FB\u500B\u6570 (bi * nb + bj)\n\n    StaticRangeMode(const vector<T>\
+    \ &a) : n(a.size()) {\n        vals = a;\n        sort(vals.begin(), vals.end());\n\
+    \        vals.erase(unique(vals.begin(), vals.end()), vals.end());\n        int\
+    \ m = vals.size();\n        c.resize(n), rank_in.resize(n), pos.assign(m, {});\n\
+    \        for (int i = 0; i < n; i++) {\n            c[i] = lower_bound(vals.begin(),\
+    \ vals.end(), a[i]) - vals.begin();\n            rank_in[i] = pos[c[i]].size();\n\
+    \            pos[c[i]].push_back(i);\n        }\n        B = std::max(1, (int)sqrt(n));\n\
+    \        nb = (n + B - 1) / B;\n        mode_val.assign(nb * nb, -1), mode_cnt.assign(nb\
+    \ * nb, 0);\n        vector<int> cnt(m, 0);\n        for (int bi = 0; bi < nb;\
+    \ bi++) {\n            int best = -1, bc = 0;\n            for (int bj = bi; bj\
+    \ < nb; bj++) {\n                for (int i = bj * B; i < std::min(n, (bj + 1)\
+    \ * B); i++) {\n                    if (++cnt[c[i]] > bc) bc = cnt[c[i]], best\
+    \ = c[i];\n                }\n                mode_val[bi * nb + bj] = best, mode_cnt[bi\
     \ * nb + bj] = bc;\n            }\n            for (int i = bi * B; i < n; i++)\
     \ cnt[c[i]]--;\n        }\n    }\n\n    // a[l..r) \u306E\u6700\u983B\u5024\u3068\
     \u305D\u306E\u500B\u6570 (l < r)\uFF0E\u6700\u983B\u5024\u304C\u8907\u6570\u3042\
@@ -74,34 +75,34 @@ data:
     \ k = rank_in[i];\n            const auto &p = pos[v];\n            while (k -\
     \ bc >= 0 && p[k - bc] >= l) bc++, best = v;\n        }\n        return {vals[best],\
     \ bc};\n    }\n};\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n\n// \u9759\u7684\u306A\u6570\
-    \u5217\u306E\u533A\u9593\u6700\u983B\u5024 (Static Range Mode Query)\uFF0E\u30AA\
-    \u30F3\u30E9\u30A4\u30F3\uFF0C\u5E73\u65B9\u5206\u5272\n// \u30D6\u30ED\u30C3\u30AF\
-    \u306E\u533A\u9593 [bi, bj] \u3054\u3068\u306B\u6700\u983B\u5024\u3068\u500B\u6570\
-    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304D\uFF0C\u7AEF\u306E\u8981\u7D20\
-    \u306F\n// \u300C\u5024\u3054\u3068\u306E\u51FA\u73FE\u4F4D\u7F6E\u306E\u5217\u300D\
-    \u3067\u500B\u6570\u3092 1 \u305A\u3064\u4F38\u3070\u305B\u308B\u304B\u78BA\u304B\
-    \u3081\u308B\uFF0E\u69CB\u7BC9 O(n \u221An)\uFF0C\u30AF\u30A8\u30EA O(\u221An)\n\
-    template <class T>\nstruct StaticRangeMode {\n    int n, B, nb;\n    vector<T>\
-    \ vals;              // \u5EA7\u6A19\u5727\u7E2E\u5F8C\u306E\u5024 \u2192 \u5143\
-    \u306E\u5024\n    vector<int> c;               // \u5727\u7E2E\u5F8C\u306E\u5024\
-    \n    vector<int> rank_in;         // i \u304C pos[c[i]] \u306E\u4F55\u756A\u76EE\
-    \u304B\n    vector<vector<int>> pos;     // \u5024\u3054\u3068\u306E\u51FA\u73FE\
-    \u4F4D\u7F6E\n    vector<int> mode_val, mode_cnt;  // \u30D6\u30ED\u30C3\u30AF\
-    \u533A\u9593 [bi, bj] \u306E\u6700\u983B\u5024\u30FB\u500B\u6570 (bi * nb + bj)\n\
-    \n    StaticRangeMode(const vector<T> &a) : n(a.size()) {\n        vals = a;\n\
-    \        sort(vals.begin(), vals.end());\n        vals.erase(unique(vals.begin(),\
-    \ vals.end()), vals.end());\n        int m = vals.size();\n        c.resize(n),\
-    \ rank_in.resize(n), pos.assign(m, {});\n        for (int i = 0; i < n; i++) {\n\
-    \            c[i] = lower_bound(vals.begin(), vals.end(), a[i]) - vals.begin();\n\
-    \            rank_in[i] = pos[c[i]].size();\n            pos[c[i]].push_back(i);\n\
-    \        }\n        B = std::max(1, (int)sqrt(n));\n        nb = (n + B - 1) /\
-    \ B;\n        mode_val.assign(nb * nb, -1), mode_cnt.assign(nb * nb, 0);\n   \
-    \     vector<int> cnt(m, 0);\n        for (int bi = 0; bi < nb; bi++) {\n    \
-    \        int best = -1, bc = 0;\n            for (int bj = bi; bj < nb; bj++)\
-    \ {\n                for (int i = bj * B; i < std::min(n, (bj + 1) * B); i++)\
-    \ {\n                    if (++cnt[c[i]] > bc) bc = cnt[c[i]], best = c[i];\n\
-    \                }\n                mode_val[bi * nb + bj] = best, mode_cnt[bi\
+  code: "#pragma once\n#include \"../template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u9759\u7684\u306A\u6570\u5217\u306E\u533A\u9593\u6700\u983B\u5024 (Static\
+    \ Range Mode Query)\uFF0E\u30AA\u30F3\u30E9\u30A4\u30F3\uFF0C\u5E73\u65B9\u5206\
+    \u5272\n// \u30D6\u30ED\u30C3\u30AF\u306E\u533A\u9593 [bi, bj] \u3054\u3068\u306B\
+    \u6700\u983B\u5024\u3068\u500B\u6570\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\
+    \u304D\uFF0C\u7AEF\u306E\u8981\u7D20\u306F\n// \u300C\u5024\u3054\u3068\u306E\u51FA\
+    \u73FE\u4F4D\u7F6E\u306E\u5217\u300D\u3067\u500B\u6570\u3092 1 \u305A\u3064\u4F38\
+    \u3070\u305B\u308B\u304B\u78BA\u304B\u3081\u308B\uFF0E\u69CB\u7BC9 O(n \u221A\
+    n)\uFF0C\u30AF\u30A8\u30EA O(\u221An)\ntemplate <class T>\nstruct StaticRangeMode\
+    \ {\n    int n, B, nb;\n    vector<T> vals;              // \u5EA7\u6A19\u5727\
+    \u7E2E\u5F8C\u306E\u5024 \u2192 \u5143\u306E\u5024\n    vector<int> c;       \
+    \        // \u5727\u7E2E\u5F8C\u306E\u5024\n    vector<int> rank_in;         //\
+    \ i \u304C pos[c[i]] \u306E\u4F55\u756A\u76EE\u304B\n    vector<vector<int>> pos;\
+    \     // \u5024\u3054\u3068\u306E\u51FA\u73FE\u4F4D\u7F6E\n    vector<int> mode_val,\
+    \ mode_cnt;  // \u30D6\u30ED\u30C3\u30AF\u533A\u9593 [bi, bj] \u306E\u6700\u983B\
+    \u5024\u30FB\u500B\u6570 (bi * nb + bj)\n\n    StaticRangeMode(const vector<T>\
+    \ &a) : n(a.size()) {\n        vals = a;\n        sort(vals.begin(), vals.end());\n\
+    \        vals.erase(unique(vals.begin(), vals.end()), vals.end());\n        int\
+    \ m = vals.size();\n        c.resize(n), rank_in.resize(n), pos.assign(m, {});\n\
+    \        for (int i = 0; i < n; i++) {\n            c[i] = lower_bound(vals.begin(),\
+    \ vals.end(), a[i]) - vals.begin();\n            rank_in[i] = pos[c[i]].size();\n\
+    \            pos[c[i]].push_back(i);\n        }\n        B = std::max(1, (int)sqrt(n));\n\
+    \        nb = (n + B - 1) / B;\n        mode_val.assign(nb * nb, -1), mode_cnt.assign(nb\
+    \ * nb, 0);\n        vector<int> cnt(m, 0);\n        for (int bi = 0; bi < nb;\
+    \ bi++) {\n            int best = -1, bc = 0;\n            for (int bj = bi; bj\
+    \ < nb; bj++) {\n                for (int i = bj * B; i < std::min(n, (bj + 1)\
+    \ * B); i++) {\n                    if (++cnt[c[i]] > bc) bc = cnt[c[i]], best\
+    \ = c[i];\n                }\n                mode_val[bi * nb + bj] = best, mode_cnt[bi\
     \ * nb + bj] = bc;\n            }\n            for (int i = bi * B; i < n; i++)\
     \ cnt[c[i]]--;\n        }\n    }\n\n    // a[l..r) \u306E\u6700\u983B\u5024\u3068\
     \u305D\u306E\u500B\u6570 (l < r)\uFF0E\u6700\u983B\u5024\u304C\u8907\u6570\u3042\
@@ -125,8 +126,8 @@ data:
   isVerificationFile: false
   path: data_structure/static_range_mode.hpp
   requiredBy: []
-  timestamp: '2026-10-14 23:42:23+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/unittest/static_range_queries.test.cpp
   - test/static_range_mode_query.test.cpp

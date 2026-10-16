@@ -1,22 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/static_range_frequency.test.cpp
     title: test/static_range_frequency.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/static_range_queries.test.cpp
     title: test/unittest/static_range_queries.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -28,53 +29,53 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"data_structure/static_range_frequency.hpp\"\n\n// \u9759\u7684\u306A\u6570\
-    \u5217\u306E\u533A\u9593\u306B x \u304C\u4F55\u500B\u3042\u308B\u304B (Static\
-    \ Range Frequency)\n// \u5024\u3054\u3068\u306B\u51FA\u73FE\u4F4D\u7F6E\u3092\u6607\
-    \u9806\u306B\u4E26\u3079\u3066\u304A\u304D\uFF0Cx \u306E\u4F4D\u7F6E\u306E\u5217\
-    \u3067 [l, r) \u306B\u5165\u308B\u3082\u306E\u3092\u4E8C\u5206\u63A2\u7D22\u3067\
-    \u6570\u3048\u308B\uFF0E\u69CB\u7BC9 O(n log n)\uFF0C\u30AF\u30A8\u30EA O(log\
-    \ n)\ntemplate <class T>\nstruct StaticRangeFrequency {\n    int n;\n    vector<T>\
-    \ vals;     // \u5024\u306E\u7A2E\u985E (\u6607\u9806)\n    vector<int> start;\
-    \  // \u5024 vals[k] \u306E\u51FA\u73FE\u4F4D\u7F6E\u306F pos[start[k] .. start[k+1])\n\
-    \    vector<int> pos;\n\n    StaticRangeFrequency(const vector<T> &a) : n(a.size())\
-    \ {\n        vector<int> ord(n);\n        iota(ord.begin(), ord.end(), 0);\n \
-    \       stable_sort(ord.begin(), ord.end(), [&](int i, int j) { return a[i] <\
-    \ a[j]; });\n        pos = ord;\n        for (int k = 0; k < n; k++) {\n     \
-    \       if (k == 0 || vals.back() < a[ord[k]]) vals.push_back(a[ord[k]]), start.push_back(k);\n\
-    \        }\n        start.push_back(n);\n    }\n\n    // a[l..r) \u306E\u4E2D\u306E\
-    \ x \u306E\u500B\u6570\n    int count(int l, int r, const T &x) const {\n    \
-    \    int k = lower_bound(vals.begin(), vals.end(), x) - vals.begin();\n      \
-    \  if (k == (int)vals.size() || x < vals[k]) return 0;\n        auto b = pos.begin()\
-    \ + start[k], e = pos.begin() + start[k + 1];\n        return lower_bound(b, e,\
-    \ r) - lower_bound(b, e, l);\n    }\n};\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n\n// \u9759\u7684\u306A\u6570\
-    \u5217\u306E\u533A\u9593\u306B x \u304C\u4F55\u500B\u3042\u308B\u304B (Static\
-    \ Range Frequency)\n// \u5024\u3054\u3068\u306B\u51FA\u73FE\u4F4D\u7F6E\u3092\u6607\
-    \u9806\u306B\u4E26\u3079\u3066\u304A\u304D\uFF0Cx \u306E\u4F4D\u7F6E\u306E\u5217\
-    \u3067 [l, r) \u306B\u5165\u308B\u3082\u306E\u3092\u4E8C\u5206\u63A2\u7D22\u3067\
-    \u6570\u3048\u308B\uFF0E\u69CB\u7BC9 O(n log n)\uFF0C\u30AF\u30A8\u30EA O(log\
-    \ n)\ntemplate <class T>\nstruct StaticRangeFrequency {\n    int n;\n    vector<T>\
-    \ vals;     // \u5024\u306E\u7A2E\u985E (\u6607\u9806)\n    vector<int> start;\
-    \  // \u5024 vals[k] \u306E\u51FA\u73FE\u4F4D\u7F6E\u306F pos[start[k] .. start[k+1])\n\
-    \    vector<int> pos;\n\n    StaticRangeFrequency(const vector<T> &a) : n(a.size())\
-    \ {\n        vector<int> ord(n);\n        iota(ord.begin(), ord.end(), 0);\n \
-    \       stable_sort(ord.begin(), ord.end(), [&](int i, int j) { return a[i] <\
-    \ a[j]; });\n        pos = ord;\n        for (int k = 0; k < n; k++) {\n     \
-    \       if (k == 0 || vals.back() < a[ord[k]]) vals.push_back(a[ord[k]]), start.push_back(k);\n\
-    \        }\n        start.push_back(n);\n    }\n\n    // a[l..r) \u306E\u4E2D\u306E\
-    \ x \u306E\u500B\u6570\n    int count(int l, int r, const T &x) const {\n    \
-    \    int k = lower_bound(vals.begin(), vals.end(), x) - vals.begin();\n      \
-    \  if (k == (int)vals.size() || x < vals[k]) return 0;\n        auto b = pos.begin()\
-    \ + start[k], e = pos.begin() + start[k + 1];\n        return lower_bound(b, e,\
-    \ r) - lower_bound(b, e, l);\n    }\n};\n"
+    \ 3 \"data_structure/static_range_frequency.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u9759\u7684\u306A\u6570\u5217\u306E\u533A\u9593\u306B x \u304C\u4F55\u500B\
+    \u3042\u308B\u304B (Static Range Frequency)\n// \u5024\u3054\u3068\u306B\u51FA\
+    \u73FE\u4F4D\u7F6E\u3092\u6607\u9806\u306B\u4E26\u3079\u3066\u304A\u304D\uFF0C\
+    x \u306E\u4F4D\u7F6E\u306E\u5217\u3067 [l, r) \u306B\u5165\u308B\u3082\u306E\u3092\
+    \u4E8C\u5206\u63A2\u7D22\u3067\u6570\u3048\u308B\uFF0E\u69CB\u7BC9 O(n log n)\uFF0C\
+    \u30AF\u30A8\u30EA O(log n)\ntemplate <class T>\nstruct StaticRangeFrequency {\n\
+    \    int n;\n    vector<T> vals;     // \u5024\u306E\u7A2E\u985E (\u6607\u9806\
+    )\n    vector<int> start;  // \u5024 vals[k] \u306E\u51FA\u73FE\u4F4D\u7F6E\u306F\
+    \ pos[start[k] .. start[k+1])\n    vector<int> pos;\n\n    StaticRangeFrequency(const\
+    \ vector<T> &a) : n(a.size()) {\n        vector<int> ord(n);\n        iota(ord.begin(),\
+    \ ord.end(), 0);\n        stable_sort(ord.begin(), ord.end(), [&](int i, int j)\
+    \ { return a[i] < a[j]; });\n        pos = ord;\n        for (int k = 0; k < n;\
+    \ k++) {\n            if (k == 0 || vals.back() < a[ord[k]]) vals.push_back(a[ord[k]]),\
+    \ start.push_back(k);\n        }\n        start.push_back(n);\n    }\n\n    //\
+    \ a[l..r) \u306E\u4E2D\u306E x \u306E\u500B\u6570\n    int count(int l, int r,\
+    \ const T &x) const {\n        int k = lower_bound(vals.begin(), vals.end(), x)\
+    \ - vals.begin();\n        if (k == (int)vals.size() || x < vals[k]) return 0;\n\
+    \        auto b = pos.begin() + start[k], e = pos.begin() + start[k + 1];\n  \
+    \      return lower_bound(b, e, r) - lower_bound(b, e, l);\n    }\n};\n"
+  code: "#pragma once\n#include \"../template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u9759\u7684\u306A\u6570\u5217\u306E\u533A\u9593\u306B x \u304C\u4F55\u500B\
+    \u3042\u308B\u304B (Static Range Frequency)\n// \u5024\u3054\u3068\u306B\u51FA\
+    \u73FE\u4F4D\u7F6E\u3092\u6607\u9806\u306B\u4E26\u3079\u3066\u304A\u304D\uFF0C\
+    x \u306E\u4F4D\u7F6E\u306E\u5217\u3067 [l, r) \u306B\u5165\u308B\u3082\u306E\u3092\
+    \u4E8C\u5206\u63A2\u7D22\u3067\u6570\u3048\u308B\uFF0E\u69CB\u7BC9 O(n log n)\uFF0C\
+    \u30AF\u30A8\u30EA O(log n)\ntemplate <class T>\nstruct StaticRangeFrequency {\n\
+    \    int n;\n    vector<T> vals;     // \u5024\u306E\u7A2E\u985E (\u6607\u9806\
+    )\n    vector<int> start;  // \u5024 vals[k] \u306E\u51FA\u73FE\u4F4D\u7F6E\u306F\
+    \ pos[start[k] .. start[k+1])\n    vector<int> pos;\n\n    StaticRangeFrequency(const\
+    \ vector<T> &a) : n(a.size()) {\n        vector<int> ord(n);\n        iota(ord.begin(),\
+    \ ord.end(), 0);\n        stable_sort(ord.begin(), ord.end(), [&](int i, int j)\
+    \ { return a[i] < a[j]; });\n        pos = ord;\n        for (int k = 0; k < n;\
+    \ k++) {\n            if (k == 0 || vals.back() < a[ord[k]]) vals.push_back(a[ord[k]]),\
+    \ start.push_back(k);\n        }\n        start.push_back(n);\n    }\n\n    //\
+    \ a[l..r) \u306E\u4E2D\u306E x \u306E\u500B\u6570\n    int count(int l, int r,\
+    \ const T &x) const {\n        int k = lower_bound(vals.begin(), vals.end(), x)\
+    \ - vals.begin();\n        if (k == (int)vals.size() || x < vals[k]) return 0;\n\
+    \        auto b = pos.begin() + start[k], e = pos.begin() + start[k + 1];\n  \
+    \      return lower_bound(b, e, r) - lower_bound(b, e, l);\n    }\n};\n"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: data_structure/static_range_frequency.hpp
   requiredBy: []
-  timestamp: '2026-10-14 23:42:23+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/unittest/static_range_queries.test.cpp
   - test/static_range_frequency.test.cpp

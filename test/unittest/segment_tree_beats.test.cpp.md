@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/segment_tree_beats.hpp
     title: Segment Tree Beats
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -36,31 +36,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -195,113 +196,113 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/segment_tree_beats.hpp\"\
-    \n\n// Segment Tree Beats\n// \u533A\u9593 chmin\u30FB\u533A\u9593 chmax\u30FB\
-    \u533A\u9593\u52A0\u7B97\u30FB\u533A\u9593\u4EE3\u5165\u3068\uFF0C\u533A\u9593\
-    \u548C\u30FB\u533A\u9593\u6700\u5C0F\u5024\u30FB\u533A\u9593\u6700\u5927\u5024\
-    \u3092\u51E6\u7406\u3059\u308B\n// \u8A08\u7B97\u91CF\u306F\u306A\u3089\u3057\
-    \ O((n + q) log^2 n) (\u52A0\u7B97\u304C\u306A\u3051\u308C\u3070 O((n + q) log\
-    \ n))\ntemplate <class T = long long>\nstruct SegmentTreeBeats {\n    static constexpr\
-    \ T INF = numeric_limits<T>::max();\n    static constexpr T NINF = numeric_limits<T>::lowest();\n\
-    \    int n, sz;\n    // mx1 / mx2: \u6700\u5927\u5024\u3068 2 \u756A\u76EE\u306E\
-    \u6700\u5927\u5024 (\u306A\u3051\u308C\u3070 NINF)\uFF0Cmxc: \u6700\u5927\u5024\
-    \u306E\u500B\u6570\uFF0Emin \u3082\u540C\u69D8\n    vector<T> mx1, mx2, mn1, mn2,\
-    \ sm, lz;\n    vector<int> mxc, mnc, len;\n\n    SegmentTreeBeats(int n = 0) :\
-    \ SegmentTreeBeats(vector<T>(n, T(0))) {}\n\n    SegmentTreeBeats(const vector<T>\
-    \ &a) : n(a.size()) {\n        sz = 1;\n        while (sz < n) sz <<= 1;\n   \
-    \     mx1.assign(2 * sz, NINF), mx2.assign(2 * sz, NINF), mn1.assign(2 * sz, INF),\
-    \ mn2.assign(2 * sz, INF);\n        sm.assign(2 * sz, T(0)), lz.assign(2 * sz,\
-    \ T(0));\n        mxc.assign(2 * sz, 0), mnc.assign(2 * sz, 0), len.assign(2 *\
-    \ sz, 0);\n        for (int i = 0; i < n; i++) {\n            int k = sz + i;\n\
-    \            mx1[k] = mn1[k] = sm[k] = a[i];\n            mxc[k] = mnc[k] = len[k]\
-    \ = 1;\n        }\n        for (int k = sz - 1; k >= 1; k--) {\n            len[k]\
-    \ = len[2 * k] + len[2 * k + 1];\n            update(k);\n        }\n    }\n\n\
-    \    int size() const { return n; }\n\n    // i in [l, r) \u306B\u3064\u3044\u3066\
-    \ a[i] = min(a[i], x)\n    void chmin(int l, int r, T x) { chmin(l, r, x, 1, 0,\
-    \ sz); }\n    // i in [l, r) \u306B\u3064\u3044\u3066 a[i] = max(a[i], x)\n  \
-    \  void chmax(int l, int r, T x) { chmax(l, r, x, 1, 0, sz); }\n    // i in [l,\
-    \ r) \u306B\u3064\u3044\u3066 a[i] += x\n    void add(int l, int r, T x) { add(l,\
-    \ r, x, 1, 0, sz); }\n    // i in [l, r) \u306B\u3064\u3044\u3066 a[i] = x\n \
-    \   void assign(int l, int r, T x) {\n        chmin(l, r, x);\n        chmax(l,\
-    \ r, x);\n    }\n\n    // a[l] + ... + a[r-1]\n    T sum(int l, int r) { return\
-    \ sum(l, r, 1, 0, sz); }\n    // min(a[l], ..., a[r-1])\uFF0El == r \u306A\u3089\
-    \ INF\n    T min(int l, int r) { return get_min(l, r, 1, 0, sz); }\n    // max(a[l],\
-    \ ..., a[r-1])\uFF0El == r \u306A\u3089 NINF\n    T max(int l, int r) { return\
-    \ get_max(l, r, 1, 0, sz); }\n    T get(int i) { return sum(i, i + 1); }\n\n \
-    \ private:\n    void update(int k) {\n        int a = 2 * k, b = 2 * k + 1;\n\
-    \        sm[k] = sm[a] + sm[b];\n        if (mx1[a] > mx1[b]) mx1[k] = mx1[a],\
-    \ mxc[k] = mxc[a], mx2[k] = std::max(mx2[a], mx1[b]);\n        else if (mx1[a]\
-    \ < mx1[b]) mx1[k] = mx1[b], mxc[k] = mxc[b], mx2[k] = std::max(mx1[a], mx2[b]);\n\
-    \        else mx1[k] = mx1[a], mxc[k] = mxc[a] + mxc[b], mx2[k] = std::max(mx2[a],\
-    \ mx2[b]);\n        if (mn1[a] < mn1[b]) mn1[k] = mn1[a], mnc[k] = mnc[a], mn2[k]\
-    \ = std::min(mn2[a], mn1[b]);\n        else if (mn1[a] > mn1[b]) mn1[k] = mn1[b],\
-    \ mnc[k] = mnc[b], mn2[k] = std::min(mn1[a], mn2[b]);\n        else mn1[k] = mn1[a],\
-    \ mnc[k] = mnc[a] + mnc[b], mn2[k] = std::min(mn2[a], mn2[b]);\n    }\n    //\
-    \ \u6700\u5927\u5024\u3092 x \u306B\u3059\u308B (mx2 < x < mx1)\n    void node_chmin(int\
-    \ k, T x) {\n        sm[k] += (x - mx1[k]) * mxc[k];\n        if (mx1[k] == mn1[k])\
-    \ mx1[k] = mn1[k] = x;\n        else if (mx1[k] == mn2[k]) mx1[k] = mn2[k] = x;\n\
-    \        else mx1[k] = x;\n    }\n    // \u6700\u5C0F\u5024\u3092 x \u306B\u3059\
-    \u308B (mn1 < x < mn2)\n    void node_chmax(int k, T x) {\n        sm[k] += (x\
-    \ - mn1[k]) * mnc[k];\n        if (mx1[k] == mn1[k]) mx1[k] = mn1[k] = x;\n  \
-    \      else if (mx2[k] == mn1[k]) mn1[k] = mx2[k] = x;\n        else mn1[k] =\
-    \ x;\n    }\n    void node_add(int k, T x) {\n        if (len[k] == 0) return;\n\
-    \        mx1[k] += x, mn1[k] += x;\n        if (mx2[k] != NINF) mx2[k] += x;\n\
-    \        if (mn2[k] != INF) mn2[k] += x;\n        sm[k] += x * len[k];\n     \
-    \   lz[k] += x;\n    }\n    void push(int k) {\n        int a = 2 * k, b = 2 *\
-    \ k + 1;\n        if (lz[k] != 0) {\n            node_add(a, lz[k]), node_add(b,\
-    \ lz[k]);\n            lz[k] = 0;\n        }\n        if (mx1[a] > mx1[k]) node_chmin(a,\
-    \ mx1[k]);\n        if (mx1[b] > mx1[k]) node_chmin(b, mx1[k]);\n        if (mn1[a]\
-    \ < mn1[k]) node_chmax(a, mn1[k]);\n        if (mn1[b] < mn1[k]) node_chmax(b,\
-    \ mn1[k]);\n    }\n\n    void chmin(int l, int r, T x, int k, int lo, int hi)\
-    \ {\n        if (r <= lo || hi <= l || mx1[k] <= x) return;\n        if (l <=\
-    \ lo && hi <= r && mx2[k] < x) {\n            node_chmin(k, x);\n            return;\n\
-    \        }\n        push(k);\n        int mid = (lo + hi) >> 1;\n        chmin(l,\
-    \ r, x, 2 * k, lo, mid);\n        chmin(l, r, x, 2 * k + 1, mid, hi);\n      \
-    \  update(k);\n    }\n    void chmax(int l, int r, T x, int k, int lo, int hi)\
-    \ {\n        if (r <= lo || hi <= l || mn1[k] >= x) return;\n        if (l <=\
-    \ lo && hi <= r && mn2[k] > x) {\n            node_chmax(k, x);\n            return;\n\
-    \        }\n        push(k);\n        int mid = (lo + hi) >> 1;\n        chmax(l,\
-    \ r, x, 2 * k, lo, mid);\n        chmax(l, r, x, 2 * k + 1, mid, hi);\n      \
-    \  update(k);\n    }\n    void add(int l, int r, T x, int k, int lo, int hi) {\n\
-    \        if (r <= lo || hi <= l) return;\n        if (l <= lo && hi <= r) {\n\
-    \            node_add(k, x);\n            return;\n        }\n        push(k);\n\
-    \        int mid = (lo + hi) >> 1;\n        add(l, r, x, 2 * k, lo, mid);\n  \
-    \      add(l, r, x, 2 * k + 1, mid, hi);\n        update(k);\n    }\n    T sum(int\
-    \ l, int r, int k, int lo, int hi) {\n        if (r <= lo || hi <= l) return T(0);\n\
-    \        if (l <= lo && hi <= r) return sm[k];\n        push(k);\n        int\
-    \ mid = (lo + hi) >> 1;\n        return sum(l, r, 2 * k, lo, mid) + sum(l, r,\
-    \ 2 * k + 1, mid, hi);\n    }\n    T get_min(int l, int r, int k, int lo, int\
-    \ hi) {\n        if (r <= lo || hi <= l) return INF;\n        if (l <= lo && hi\
-    \ <= r) return mn1[k];\n        push(k);\n        int mid = (lo + hi) >> 1;\n\
-    \        return std::min(get_min(l, r, 2 * k, lo, mid), get_min(l, r, 2 * k +\
-    \ 1, mid, hi));\n    }\n    T get_max(int l, int r, int k, int lo, int hi) {\n\
-    \        if (r <= lo || hi <= l) return NINF;\n        if (l <= lo && hi <= r)\
-    \ return mx1[k];\n        push(k);\n        int mid = (lo + hi) >> 1;\n      \
-    \  return std::max(get_max(l, r, 2 * k, lo, mid), get_max(l, r, 2 * k + 1, mid,\
-    \ hi));\n    }\n};\n#line 4 \"test/unittest/segment_tree_beats.test.cpp\"\n\n\
-    // SegmentTreeBeats \u3092\u611A\u76F4\u3068\u7167\u5408\u3059\u308B\n\nint main()\
-    \ {\n    mt19937_64 rng(51);\n    for (int n : {1, 2, 3, 5, 8, 13, 64, 100}) {\n\
-    \        for (long long range : {3LL, 1000000000000LL}) {\n            vector<long\
-    \ long> a(n);\n            for (auto &x : a) x = (long long)(rng() % (2 * range\
-    \ + 1)) - range;\n            SegmentTreeBeats<long long> seg(a);\n          \
-    \  for (int it = 0; it < 3000; it++) {\n                int t = rng() % 7;\n \
-    \               int l = rng() % (n + 1), r = rng() % (n + 1);\n              \
-    \  if (l > r) swap(l, r);\n                long long x = (long long)(rng() % (2\
-    \ * range + 1)) - range;\n                if (t == 0) {\n                    seg.chmin(l,\
-    \ r, x);\n                    for (int i = l; i < r; i++) a[i] = min(a[i], x);\n\
-    \                } else if (t == 1) {\n                    seg.chmax(l, r, x);\n\
-    \                    for (int i = l; i < r; i++) a[i] = max(a[i], x);\n      \
-    \          } else if (t == 2) {\n                    x = (long long)(rng() % 7)\
-    \ - 3;\n                    seg.add(l, r, x);\n                    for (int i\
-    \ = l; i < r; i++) a[i] += x;\n                } else if (t == 3) {\n        \
-    \            seg.assign(l, r, x);\n                    for (int i = l; i < r;\
-    \ i++) a[i] = x;\n                } else {\n                    long long s =\
-    \ 0, mn = LLONG_MAX, mx = LLONG_MIN;\n                    for (int i = l; i <\
-    \ r; i++) s += a[i], mn = min(mn, a[i]), mx = max(mx, a[i]);\n               \
-    \     assert(seg.sum(l, r) == s && seg.min(l, r) == mn && seg.max(l, r) == mx);\n\
-    \                    int p = rng() % n;\n                    assert(seg.get(p)\
-    \ == a[p]);\n                }\n            }\n        }\n    }\n    long long\
-    \ a_, b_;\n    fin >> a_ >> b_;\n    fout << a_ + b_ << '\\n';\n    return 0;\n\
-    }\n"
+    \n\n// https://github.com/winter-2521/cp-library\n\n// Segment Tree Beats\n//\
+    \ \u533A\u9593 chmin\u30FB\u533A\u9593 chmax\u30FB\u533A\u9593\u52A0\u7B97\u30FB\
+    \u533A\u9593\u4EE3\u5165\u3068\uFF0C\u533A\u9593\u548C\u30FB\u533A\u9593\u6700\
+    \u5C0F\u5024\u30FB\u533A\u9593\u6700\u5927\u5024\u3092\u51E6\u7406\u3059\u308B\
+    \n// \u8A08\u7B97\u91CF\u306F\u306A\u3089\u3057 O((n + q) log^2 n) (\u52A0\u7B97\
+    \u304C\u306A\u3051\u308C\u3070 O((n + q) log n))\ntemplate <class T = long long>\n\
+    struct SegmentTreeBeats {\n    static constexpr T INF = numeric_limits<T>::max();\n\
+    \    static constexpr T NINF = numeric_limits<T>::lowest();\n    int n, sz;\n\
+    \    // mx1 / mx2: \u6700\u5927\u5024\u3068 2 \u756A\u76EE\u306E\u6700\u5927\u5024\
+    \ (\u306A\u3051\u308C\u3070 NINF)\uFF0Cmxc: \u6700\u5927\u5024\u306E\u500B\u6570\
+    \uFF0Emin \u3082\u540C\u69D8\n    vector<T> mx1, mx2, mn1, mn2, sm, lz;\n    vector<int>\
+    \ mxc, mnc, len;\n\n    SegmentTreeBeats(int n = 0) : SegmentTreeBeats(vector<T>(n,\
+    \ T(0))) {}\n\n    SegmentTreeBeats(const vector<T> &a) : n(a.size()) {\n    \
+    \    sz = 1;\n        while (sz < n) sz <<= 1;\n        mx1.assign(2 * sz, NINF),\
+    \ mx2.assign(2 * sz, NINF), mn1.assign(2 * sz, INF), mn2.assign(2 * sz, INF);\n\
+    \        sm.assign(2 * sz, T(0)), lz.assign(2 * sz, T(0));\n        mxc.assign(2\
+    \ * sz, 0), mnc.assign(2 * sz, 0), len.assign(2 * sz, 0);\n        for (int i\
+    \ = 0; i < n; i++) {\n            int k = sz + i;\n            mx1[k] = mn1[k]\
+    \ = sm[k] = a[i];\n            mxc[k] = mnc[k] = len[k] = 1;\n        }\n    \
+    \    for (int k = sz - 1; k >= 1; k--) {\n            len[k] = len[2 * k] + len[2\
+    \ * k + 1];\n            update(k);\n        }\n    }\n\n    int size() const\
+    \ { return n; }\n\n    // i in [l, r) \u306B\u3064\u3044\u3066 a[i] = min(a[i],\
+    \ x)\n    void chmin(int l, int r, T x) { chmin(l, r, x, 1, 0, sz); }\n    //\
+    \ i in [l, r) \u306B\u3064\u3044\u3066 a[i] = max(a[i], x)\n    void chmax(int\
+    \ l, int r, T x) { chmax(l, r, x, 1, 0, sz); }\n    // i in [l, r) \u306B\u3064\
+    \u3044\u3066 a[i] += x\n    void add(int l, int r, T x) { add(l, r, x, 1, 0, sz);\
+    \ }\n    // i in [l, r) \u306B\u3064\u3044\u3066 a[i] = x\n    void assign(int\
+    \ l, int r, T x) {\n        chmin(l, r, x);\n        chmax(l, r, x);\n    }\n\n\
+    \    // a[l] + ... + a[r-1]\n    T sum(int l, int r) { return sum(l, r, 1, 0,\
+    \ sz); }\n    // min(a[l], ..., a[r-1])\uFF0El == r \u306A\u3089 INF\n    T min(int\
+    \ l, int r) { return get_min(l, r, 1, 0, sz); }\n    // max(a[l], ..., a[r-1])\uFF0E\
+    l == r \u306A\u3089 NINF\n    T max(int l, int r) { return get_max(l, r, 1, 0,\
+    \ sz); }\n    T get(int i) { return sum(i, i + 1); }\n\n  private:\n    void update(int\
+    \ k) {\n        int a = 2 * k, b = 2 * k + 1;\n        sm[k] = sm[a] + sm[b];\n\
+    \        if (mx1[a] > mx1[b]) mx1[k] = mx1[a], mxc[k] = mxc[a], mx2[k] = std::max(mx2[a],\
+    \ mx1[b]);\n        else if (mx1[a] < mx1[b]) mx1[k] = mx1[b], mxc[k] = mxc[b],\
+    \ mx2[k] = std::max(mx1[a], mx2[b]);\n        else mx1[k] = mx1[a], mxc[k] = mxc[a]\
+    \ + mxc[b], mx2[k] = std::max(mx2[a], mx2[b]);\n        if (mn1[a] < mn1[b]) mn1[k]\
+    \ = mn1[a], mnc[k] = mnc[a], mn2[k] = std::min(mn2[a], mn1[b]);\n        else\
+    \ if (mn1[a] > mn1[b]) mn1[k] = mn1[b], mnc[k] = mnc[b], mn2[k] = std::min(mn1[a],\
+    \ mn2[b]);\n        else mn1[k] = mn1[a], mnc[k] = mnc[a] + mnc[b], mn2[k] = std::min(mn2[a],\
+    \ mn2[b]);\n    }\n    // \u6700\u5927\u5024\u3092 x \u306B\u3059\u308B (mx2 <\
+    \ x < mx1)\n    void node_chmin(int k, T x) {\n        sm[k] += (x - mx1[k]) *\
+    \ mxc[k];\n        if (mx1[k] == mn1[k]) mx1[k] = mn1[k] = x;\n        else if\
+    \ (mx1[k] == mn2[k]) mx1[k] = mn2[k] = x;\n        else mx1[k] = x;\n    }\n \
+    \   // \u6700\u5C0F\u5024\u3092 x \u306B\u3059\u308B (mn1 < x < mn2)\n    void\
+    \ node_chmax(int k, T x) {\n        sm[k] += (x - mn1[k]) * mnc[k];\n        if\
+    \ (mx1[k] == mn1[k]) mx1[k] = mn1[k] = x;\n        else if (mx2[k] == mn1[k])\
+    \ mn1[k] = mx2[k] = x;\n        else mn1[k] = x;\n    }\n    void node_add(int\
+    \ k, T x) {\n        if (len[k] == 0) return;\n        mx1[k] += x, mn1[k] +=\
+    \ x;\n        if (mx2[k] != NINF) mx2[k] += x;\n        if (mn2[k] != INF) mn2[k]\
+    \ += x;\n        sm[k] += x * len[k];\n        lz[k] += x;\n    }\n    void push(int\
+    \ k) {\n        int a = 2 * k, b = 2 * k + 1;\n        if (lz[k] != 0) {\n   \
+    \         node_add(a, lz[k]), node_add(b, lz[k]);\n            lz[k] = 0;\n  \
+    \      }\n        if (mx1[a] > mx1[k]) node_chmin(a, mx1[k]);\n        if (mx1[b]\
+    \ > mx1[k]) node_chmin(b, mx1[k]);\n        if (mn1[a] < mn1[k]) node_chmax(a,\
+    \ mn1[k]);\n        if (mn1[b] < mn1[k]) node_chmax(b, mn1[k]);\n    }\n\n   \
+    \ void chmin(int l, int r, T x, int k, int lo, int hi) {\n        if (r <= lo\
+    \ || hi <= l || mx1[k] <= x) return;\n        if (l <= lo && hi <= r && mx2[k]\
+    \ < x) {\n            node_chmin(k, x);\n            return;\n        }\n    \
+    \    push(k);\n        int mid = (lo + hi) >> 1;\n        chmin(l, r, x, 2 * k,\
+    \ lo, mid);\n        chmin(l, r, x, 2 * k + 1, mid, hi);\n        update(k);\n\
+    \    }\n    void chmax(int l, int r, T x, int k, int lo, int hi) {\n        if\
+    \ (r <= lo || hi <= l || mn1[k] >= x) return;\n        if (l <= lo && hi <= r\
+    \ && mn2[k] > x) {\n            node_chmax(k, x);\n            return;\n     \
+    \   }\n        push(k);\n        int mid = (lo + hi) >> 1;\n        chmax(l, r,\
+    \ x, 2 * k, lo, mid);\n        chmax(l, r, x, 2 * k + 1, mid, hi);\n        update(k);\n\
+    \    }\n    void add(int l, int r, T x, int k, int lo, int hi) {\n        if (r\
+    \ <= lo || hi <= l) return;\n        if (l <= lo && hi <= r) {\n            node_add(k,\
+    \ x);\n            return;\n        }\n        push(k);\n        int mid = (lo\
+    \ + hi) >> 1;\n        add(l, r, x, 2 * k, lo, mid);\n        add(l, r, x, 2 *\
+    \ k + 1, mid, hi);\n        update(k);\n    }\n    T sum(int l, int r, int k,\
+    \ int lo, int hi) {\n        if (r <= lo || hi <= l) return T(0);\n        if\
+    \ (l <= lo && hi <= r) return sm[k];\n        push(k);\n        int mid = (lo\
+    \ + hi) >> 1;\n        return sum(l, r, 2 * k, lo, mid) + sum(l, r, 2 * k + 1,\
+    \ mid, hi);\n    }\n    T get_min(int l, int r, int k, int lo, int hi) {\n   \
+    \     if (r <= lo || hi <= l) return INF;\n        if (l <= lo && hi <= r) return\
+    \ mn1[k];\n        push(k);\n        int mid = (lo + hi) >> 1;\n        return\
+    \ std::min(get_min(l, r, 2 * k, lo, mid), get_min(l, r, 2 * k + 1, mid, hi));\n\
+    \    }\n    T get_max(int l, int r, int k, int lo, int hi) {\n        if (r <=\
+    \ lo || hi <= l) return NINF;\n        if (l <= lo && hi <= r) return mx1[k];\n\
+    \        push(k);\n        int mid = (lo + hi) >> 1;\n        return std::max(get_max(l,\
+    \ r, 2 * k, lo, mid), get_max(l, r, 2 * k + 1, mid, hi));\n    }\n};\n#line 4\
+    \ \"test/unittest/segment_tree_beats.test.cpp\"\n\n// SegmentTreeBeats \u3092\u611A\
+    \u76F4\u3068\u7167\u5408\u3059\u308B\n\nint main() {\n    mt19937_64 rng(51);\n\
+    \    for (int n : {1, 2, 3, 5, 8, 13, 64, 100}) {\n        for (long long range\
+    \ : {3LL, 1000000000000LL}) {\n            vector<long long> a(n);\n         \
+    \   for (auto &x : a) x = (long long)(rng() % (2 * range + 1)) - range;\n    \
+    \        SegmentTreeBeats<long long> seg(a);\n            for (int it = 0; it\
+    \ < 3000; it++) {\n                int t = rng() % 7;\n                int l =\
+    \ rng() % (n + 1), r = rng() % (n + 1);\n                if (l > r) swap(l, r);\n\
+    \                long long x = (long long)(rng() % (2 * range + 1)) - range;\n\
+    \                if (t == 0) {\n                    seg.chmin(l, r, x);\n    \
+    \                for (int i = l; i < r; i++) a[i] = min(a[i], x);\n          \
+    \      } else if (t == 1) {\n                    seg.chmax(l, r, x);\n       \
+    \             for (int i = l; i < r; i++) a[i] = max(a[i], x);\n             \
+    \   } else if (t == 2) {\n                    x = (long long)(rng() % 7) - 3;\n\
+    \                    seg.add(l, r, x);\n                    for (int i = l; i\
+    \ < r; i++) a[i] += x;\n                } else if (t == 3) {\n               \
+    \     seg.assign(l, r, x);\n                    for (int i = l; i < r; i++) a[i]\
+    \ = x;\n                } else {\n                    long long s = 0, mn = LLONG_MAX,\
+    \ mx = LLONG_MIN;\n                    for (int i = l; i < r; i++) s += a[i],\
+    \ mn = min(mn, a[i]), mx = max(mx, a[i]);\n                    assert(seg.sum(l,\
+    \ r) == s && seg.min(l, r) == mn && seg.max(l, r) == mx);\n                  \
+    \  int p = rng() % n;\n                    assert(seg.get(p) == a[p]);\n     \
+    \           }\n            }\n        }\n    }\n    long long a_, b_;\n    fin\
+    \ >> a_ >> b_;\n    fout << a_ + b_ << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"../../io/fastio.hpp\"\
     \n#include \"../../data_structure/segment_tree_beats.hpp\"\n\n// SegmentTreeBeats\
     \ \u3092\u611A\u76F4\u3068\u7167\u5408\u3059\u308B\n\nint main() {\n    mt19937_64\
@@ -335,8 +336,8 @@ data:
   isVerificationFile: true
   path: test/unittest/segment_tree_beats.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 11:35:48+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/unittest/segment_tree_beats.test.cpp
 layout: document

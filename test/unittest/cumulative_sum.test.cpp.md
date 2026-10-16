@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/cumulative_sum.hpp
     title: "\u7D2F\u7A4D\u548C (Cumulative Sum)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -36,31 +36,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -195,47 +196,47 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/cumulative_sum.hpp\"\
-    \n\n// 1 \u6B21\u5143\u7D2F\u7A4D\u548C\uFF0E\u533A\u9593\u548C\u3092 O(1) \u3067\
-    \u6C42\u3081\u308B\ntemplate <class T>\nstruct CumulativeSum {\n    // s[i] =\
-    \ a[0] + ... + a[i-1]\n    vector<T> s;\n\n    CumulativeSum() : s(1, T(0)) {}\n\
-    \n    template <class U>\n    CumulativeSum(const vector<U> &a) : s(a.size() +\
-    \ 1) {\n        s[0] = T(0);\n        for (size_t i = 0; i < a.size(); i++) s[i\
-    \ + 1] = s[i] + T(a[i]);\n    }\n\n    int size() const { return int(s.size())\
-    \ - 1; }\n\n    // \u672B\u5C3E\u306B x \u3092\u8FFD\u52A0\n    void push_back(const\
-    \ T &x) { s.push_back(s.back() + x); }\n\n    // a[0] + ... + a[r-1]\n    T prefix(int\
-    \ r) const { return s[r]; }\n\n    // a[l] + ... + a[r-1]\n    T sum(int l, int\
-    \ r) const { return s[r] - s[l]; }\n};\n\n// 2 \u6B21\u5143\u7D2F\u7A4D\u548C\uFF0E\
-    \u9577\u65B9\u5F62\u9818\u57DF\u306E\u548C\u3092 O(1) \u3067\u6C42\u3081\u308B\
-    \ntemplate <class T>\nstruct CumulativeSum2D {\n    int h, w;\n    // s[(i * (w\
-    \ + 1)) + j] = \u5DE6\u4E0A [0, i) x [0, j) \u306E\u548C\n    vector<T> s;\n\n\
-    \    template <class U>\n    CumulativeSum2D(const vector<vector<U>> &a) : h(a.size()),\
-    \ w(a.empty() ? 0 : a[0].size()), s((h + 1) * (w + 1), T(0)) {\n        for (int\
-    \ i = 0; i < h; i++) {\n            T row = T(0);\n            for (int j = 0;\
-    \ j < w; j++) {\n                row += T(a[i][j]);\n                s[(i + 1)\
-    \ * (w + 1) + j + 1] = s[i * (w + 1) + j + 1] + row;\n            }\n        }\n\
-    \    }\n\n    // \u884C [x1, x2) x \u5217 [y1, y2) \u306E\u548C\n    T sum(int\
-    \ x1, int y1, int x2, int y2) const {\n        return s[x2 * (w + 1) + y2] - s[x1\
-    \ * (w + 1) + y2] - s[x2 * (w + 1) + y1] + s[x1 * (w + 1) + y1];\n    }\n};\n\
-    #line 4 \"test/unittest/cumulative_sum.test.cpp\"\n\n// 1 \u6B21\u5143\u30FB2\
-    \ \u6B21\u5143\u7D2F\u7A4D\u548C\u3092\u611A\u76F4\u3068\u7167\u5408\u3059\u308B\
-    \n\nint main() {\n    mt19937_64 rng(5);\n    vector<int> a(50);\n    for (auto\
-    \ &x : a) x = (int)(rng() % 2000000001) - 1000000000;\n    CumulativeSum<long\
-    \ long> cs(a);\n    for (int i = 0; i < 20; i++) {\n        int x = rng() % 100;\n\
-    \        a.push_back(x);\n        cs.push_back(x);\n    }\n    assert(cs.size()\
-    \ == (int)a.size());\n    for (int l = 0; l <= (int)a.size(); l++) {\n       \
-    \ for (int r = l; r <= (int)a.size(); r++) {\n            long long s = 0;\n \
-    \           for (int i = l; i < r; i++) s += a[i];\n            assert(cs.sum(l,\
-    \ r) == s);\n        }\n        long long s = 0;\n        for (int i = 0; i <\
-    \ l; i++) s += a[i];\n        assert(cs.prefix(l) == s);\n    }\n    for (auto\
-    \ [h, w] : vector<pair<int, int>>{{0, 0}, {1, 1}, {1, 7}, {6, 1}, {13, 17}}) {\n\
-    \        vector<vector<int>> g(h, vector<int>(w));\n        for (auto &row : g)\
-    \ for (auto &x : row) x = (int)(rng() % 21) - 10;\n        CumulativeSum2D<long\
-    \ long> c2(g);\n        for (int x1 = 0; x1 <= h; x1++) for (int x2 = x1; x2 <=\
-    \ h; x2++) for (int y1 = 0; y1 <= w; y1++) for (int y2 = y1; y2 <= w; y2++) {\n\
-    \            long long s = 0;\n            for (int i = x1; i < x2; i++) for (int\
-    \ j = y1; j < y2; j++) s += g[i][j];\n            assert(c2.sum(x1, y1, x2, y2)\
-    \ == s);\n        }\n    }\n    long long a_, b_;\n    fin >> a_ >> b_;\n    fout\
-    \ << a_ + b_ << '\\n';\n    return 0;\n}\n"
+    \n\n// https://github.com/winter-2521/cp-library\n\n// 1 \u6B21\u5143\u7D2F\u7A4D\
+    \u548C\uFF0E\u533A\u9593\u548C\u3092 O(1) \u3067\u6C42\u3081\u308B\ntemplate <class\
+    \ T>\nstruct CumulativeSum {\n    // s[i] = a[0] + ... + a[i-1]\n    vector<T>\
+    \ s;\n\n    CumulativeSum() : s(1, T(0)) {}\n\n    template <class U>\n    CumulativeSum(const\
+    \ vector<U> &a) : s(a.size() + 1) {\n        s[0] = T(0);\n        for (size_t\
+    \ i = 0; i < a.size(); i++) s[i + 1] = s[i] + T(a[i]);\n    }\n\n    int size()\
+    \ const { return int(s.size()) - 1; }\n\n    // \u672B\u5C3E\u306B x \u3092\u8FFD\
+    \u52A0\n    void push_back(const T &x) { s.push_back(s.back() + x); }\n\n    //\
+    \ a[0] + ... + a[r-1]\n    T prefix(int r) const { return s[r]; }\n\n    // a[l]\
+    \ + ... + a[r-1]\n    T sum(int l, int r) const { return s[r] - s[l]; }\n};\n\n\
+    // 2 \u6B21\u5143\u7D2F\u7A4D\u548C\uFF0E\u9577\u65B9\u5F62\u9818\u57DF\u306E\u548C\
+    \u3092 O(1) \u3067\u6C42\u3081\u308B\ntemplate <class T>\nstruct CumulativeSum2D\
+    \ {\n    int h, w;\n    // s[(i * (w + 1)) + j] = \u5DE6\u4E0A [0, i) x [0, j)\
+    \ \u306E\u548C\n    vector<T> s;\n\n    template <class U>\n    CumulativeSum2D(const\
+    \ vector<vector<U>> &a) : h(a.size()), w(a.empty() ? 0 : a[0].size()), s((h +\
+    \ 1) * (w + 1), T(0)) {\n        for (int i = 0; i < h; i++) {\n            T\
+    \ row = T(0);\n            for (int j = 0; j < w; j++) {\n                row\
+    \ += T(a[i][j]);\n                s[(i + 1) * (w + 1) + j + 1] = s[i * (w + 1)\
+    \ + j + 1] + row;\n            }\n        }\n    }\n\n    // \u884C [x1, x2) x\
+    \ \u5217 [y1, y2) \u306E\u548C\n    T sum(int x1, int y1, int x2, int y2) const\
+    \ {\n        return s[x2 * (w + 1) + y2] - s[x1 * (w + 1) + y2] - s[x2 * (w +\
+    \ 1) + y1] + s[x1 * (w + 1) + y1];\n    }\n};\n#line 4 \"test/unittest/cumulative_sum.test.cpp\"\
+    \n\n// 1 \u6B21\u5143\u30FB2 \u6B21\u5143\u7D2F\u7A4D\u548C\u3092\u611A\u76F4\u3068\
+    \u7167\u5408\u3059\u308B\n\nint main() {\n    mt19937_64 rng(5);\n    vector<int>\
+    \ a(50);\n    for (auto &x : a) x = (int)(rng() % 2000000001) - 1000000000;\n\
+    \    CumulativeSum<long long> cs(a);\n    for (int i = 0; i < 20; i++) {\n   \
+    \     int x = rng() % 100;\n        a.push_back(x);\n        cs.push_back(x);\n\
+    \    }\n    assert(cs.size() == (int)a.size());\n    for (int l = 0; l <= (int)a.size();\
+    \ l++) {\n        for (int r = l; r <= (int)a.size(); r++) {\n            long\
+    \ long s = 0;\n            for (int i = l; i < r; i++) s += a[i];\n          \
+    \  assert(cs.sum(l, r) == s);\n        }\n        long long s = 0;\n        for\
+    \ (int i = 0; i < l; i++) s += a[i];\n        assert(cs.prefix(l) == s);\n   \
+    \ }\n    for (auto [h, w] : vector<pair<int, int>>{{0, 0}, {1, 1}, {1, 7}, {6,\
+    \ 1}, {13, 17}}) {\n        vector<vector<int>> g(h, vector<int>(w));\n      \
+    \  for (auto &row : g) for (auto &x : row) x = (int)(rng() % 21) - 10;\n     \
+    \   CumulativeSum2D<long long> c2(g);\n        for (int x1 = 0; x1 <= h; x1++)\
+    \ for (int x2 = x1; x2 <= h; x2++) for (int y1 = 0; y1 <= w; y1++) for (int y2\
+    \ = y1; y2 <= w; y2++) {\n            long long s = 0;\n            for (int i\
+    \ = x1; i < x2; i++) for (int j = y1; j < y2; j++) s += g[i][j];\n           \
+    \ assert(c2.sum(x1, y1, x2, y2) == s);\n        }\n    }\n    long long a_, b_;\n\
+    \    fin >> a_ >> b_;\n    fout << a_ + b_ << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"../../io/fastio.hpp\"\
     \n#include \"../../data_structure/cumulative_sum.hpp\"\n\n// 1 \u6B21\u5143\u30FB\
     2 \u6B21\u5143\u7D2F\u7A4D\u548C\u3092\u611A\u76F4\u3068\u7167\u5408\u3059\u308B\
@@ -265,8 +266,8 @@ data:
   isVerificationFile: true
   path: test/unittest/cumulative_sum.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 10:14:40+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/unittest/cumulative_sum.test.cpp
 layout: document

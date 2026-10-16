@@ -1,27 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/dynamic_range_frequency.hpp
     title: "\u4E00\u70B9\u66F4\u65B0\u3042\u308A\u306E\u533A\u9593\u306E\u5024\u306E\
       \u500B\u6570 (Point Set Range Frequency)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/ordered_set.hpp
     title: "\u9806\u5E8F\u4ED8\u304D\u96C6\u5408 (Ordered Set)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_range_frequency
@@ -40,31 +40,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -210,84 +211,84 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/ordered_set.hpp\"\
-    \n\n// \u9806\u5E8F\u4ED8\u304D\u96C6\u5408 (\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\
-    \u5024\u306E\u5148\u8AAD\u307F\u4E0D\u8981)\n// \u5404\u30CE\u30FC\u30C9\u304C\
-    \u6700\u5927 B \u500B\u306E\u5024\u3092\u30BD\u30FC\u30C8\u6E08\u307F\u914D\u5217\
-    \u3067\u6301\u3064 AVL \u6728\uFF0E\n// 1 \u30CE\u30FC\u30C9\u3092 128 \u30D0\u30A4\
-    \u30C8\u7A0B\u5EA6\u306B\u3057\u3066\u30AD\u30E3\u30C3\u30B7\u30E5\u52B9\u7387\
-    \u3092\u4E0A\u3052\uFF0C\u30CE\u30FC\u30C9\u5185\u306F\u7DDA\u5F62\u63A2\u7D22\
-    \u3059\u308B\uFF0E\u5404\u64CD\u4F5C O(log n)\n//\n// \u5B58\u5728\u3057\u306A\
-    \u3044\u5834\u5408\u306E\u623B\u308A\u5024\u306F def (\u7701\u7565\u6642 -1)\n\
-    template <class T, int B = std::max(4, int(112 / sizeof(T)))>\nstruct OrderedSet\
-    \ {\n    struct Node {\n        T data[B];\n        int left, right, total;  //\
-    \ total: \u90E8\u5206\u6728\u306E\u8981\u7D20\u6570\n        short height, size;\n\
-    \    };\n\n    vector<Node> t;\n    vector<int> free_list;\n    int root = 0;\n\
-    \n    OrderedSet() { t.push_back(Node{}); }  // t[0] \u306F\u756A\u5175 (height\
-    \ = total = 0)\n\n    // \u521D\u671F\u8981\u7D20 a (\u9806\u4E0D\u540C\u30FB\u91CD\
-    \u8907\u53EF) \u3067 O(n log n) \u69CB\u7BC9 (\u30BD\u30FC\u30C8\u6E08\u307F\u306A\
-    \u3089 O(n))\n    OrderedSet(vector<T> a) : OrderedSet() {\n        if (!is_sorted(a.begin(),\
-    \ a.end())) sort(a.begin(), a.end());\n        a.erase(unique(a.begin(), a.end()),\
-    \ a.end());\n        int n = a.size();\n        if (n == 0) return;\n        //\
-    \ \u5F8C\u304B\u3089\u633F\u5165\u3067\u304D\u308B\u3088\u3046\u5C11\u3057\u4F59\
-    \u88D5\u3092\u6B8B\u3057\u3066\u8A70\u3081\u308B\n        int bs = std::max(1,\
-    \ B * 6 / 7);\n        int m = (n + bs - 1) / bs;\n        t.reserve(m + 1);\n\
-    \        vector<int> ids(m);\n        for (int i = 0; i < m; i++) {\n        \
-    \    int v = ids[i] = new_node();\n            int l = i * bs, r = std::min(n,\
-    \ l + bs);\n            for (int j = l; j < r; j++) t[v].data[j - l] = a[j];\n\
-    \            t[v].size = r - l;\n        }\n        root = build(ids, 0, m);\n\
-    \    }\n\n    int size() const { return t[root].total; }\n    bool empty() const\
-    \ { return root == 0; }\n\n    // x \u3092\u633F\u5165\u3059\u308B\uFF0E\u633F\
-    \u5165\u3057\u305F\u3089 true\uFF0C\u65E2\u306B\u3042\u308C\u3070 false\n    bool\
-    \ insert(const T &x) {\n        done = false;\n        root = insert(root, x);\n\
-    \        return done;\n    }\n\n    // x \u3092\u524A\u9664\u3059\u308B\uFF0E\u524A\
-    \u9664\u3057\u305F\u3089 true\uFF0C\u306A\u3051\u308C\u3070 false\n    bool erase(const\
-    \ T &x) {\n        done = false;\n        root = erase(root, x);\n        return\
-    \ done;\n    }\n\n    bool contains(const T &x) const {\n        for (int v =\
-    \ root; v;) {\n            const Node &nd = t[v];\n            if (x < nd.data[0])\
-    \ v = nd.left;\n            else if (nd.data[nd.size - 1] < x) v = nd.right;\n\
-    \            else {\n                for (int i = 0; i < nd.size; i++) if (!(nd.data[i]\
-    \ < x)) return !(x < nd.data[i]);\n                return false;\n           \
-    \ }\n        }\n        return false;\n    }\n    size_t count(const T &x) const\
-    \ { return contains(x); }\n\n    // \u5C0F\u3055\u3044\u65B9\u304B\u3089 k \u756A\
-    \u76EE (0-indexed) \u306E\u8981\u7D20\uFF0Ek >= size() \u306A\u3089 def\n    T\
-    \ kth(int k, T def = T(-1)) const {\n        if (k < 0 || k >= size()) return\
-    \ def;\n        for (int v = root;;) {\n            const Node &nd = t[v];\n \
-    \           int ls = t[nd.left].total;\n            if (k < ls) v = nd.left;\n\
-    \            else if (k < ls + nd.size) return nd.data[k - ls];\n            else\
-    \ k -= ls + nd.size, v = nd.right;\n        }\n    }\n\n    // x \u672A\u6E80\u306E\
-    \u8981\u7D20\u306E\u500B\u6570\n    int count_lt(const T &x) const {\n       \
-    \ int res = 0;\n        for (int v = root; v;) {\n            const Node &nd =\
-    \ t[v];\n            if (!(nd.data[0] < x)) v = nd.left;\n            else if\
-    \ (nd.data[nd.size - 1] < x) res += nd.total - t[nd.right].total, v = nd.right;\n\
-    \            else {\n                int i = 0;\n                while (nd.data[i]\
-    \ < x) i++;\n                return res + t[nd.left].total + i;\n            }\n\
-    \        }\n        return res;\n    }\n\n    // x \u4EE5\u4E0B\u306E\u8981\u7D20\
-    \u306E\u500B\u6570\n    int count_le(const T &x) const {\n        int res = 0;\n\
-    \        for (int v = root; v;) {\n            const Node &nd = t[v];\n      \
-    \      if (x < nd.data[0]) v = nd.left;\n            else if (!(x < nd.data[nd.size\
-    \ - 1])) res += nd.total - t[nd.right].total, v = nd.right;\n            else\
-    \ {\n                int i = 0;\n                while (!(x < nd.data[i])) i++;\n\
-    \                return res + t[nd.left].total + i;\n            }\n        }\n\
-    \        return res;\n    }\n\n    // [lo, hi) \u306B\u542B\u307E\u308C\u308B\u8981\
-    \u7D20\u306E\u500B\u6570\n    int count_range(const T &lo, const T &hi) const\
-    \ { return lo < hi ? count_lt(hi) - count_lt(lo) : 0; }\n\n    // x \u672A\u6E80\
-    \u306E\u6700\u5927\u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T max_lt(const\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u9806\u5E8F\u4ED8\u304D\
+    \u96C6\u5408 (\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u5024\u306E\u5148\u8AAD\u307F\
+    \u4E0D\u8981)\n// \u5404\u30CE\u30FC\u30C9\u304C\u6700\u5927 B \u500B\u306E\u5024\
+    \u3092\u30BD\u30FC\u30C8\u6E08\u307F\u914D\u5217\u3067\u6301\u3064 AVL \u6728\uFF0E\
+    \n// 1 \u30CE\u30FC\u30C9\u3092 128 \u30D0\u30A4\u30C8\u7A0B\u5EA6\u306B\u3057\
+    \u3066\u30AD\u30E3\u30C3\u30B7\u30E5\u52B9\u7387\u3092\u4E0A\u3052\uFF0C\u30CE\
+    \u30FC\u30C9\u5185\u306F\u7DDA\u5F62\u63A2\u7D22\u3059\u308B\uFF0E\u5404\u64CD\
+    \u4F5C O(log n)\n//\n// \u5B58\u5728\u3057\u306A\u3044\u5834\u5408\u306E\u623B\
+    \u308A\u5024\u306F def (\u7701\u7565\u6642 -1)\ntemplate <class T, int B = std::max(4,\
+    \ int(112 / sizeof(T)))>\nstruct OrderedSet {\n    struct Node {\n        T data[B];\n\
+    \        int left, right, total;  // total: \u90E8\u5206\u6728\u306E\u8981\u7D20\
+    \u6570\n        short height, size;\n    };\n\n    vector<Node> t;\n    vector<int>\
+    \ free_list;\n    int root = 0;\n\n    OrderedSet() { t.push_back(Node{}); } \
+    \ // t[0] \u306F\u756A\u5175 (height = total = 0)\n\n    // \u521D\u671F\u8981\
+    \u7D20 a (\u9806\u4E0D\u540C\u30FB\u91CD\u8907\u53EF) \u3067 O(n log n) \u69CB\
+    \u7BC9 (\u30BD\u30FC\u30C8\u6E08\u307F\u306A\u3089 O(n))\n    OrderedSet(vector<T>\
+    \ a) : OrderedSet() {\n        if (!is_sorted(a.begin(), a.end())) sort(a.begin(),\
+    \ a.end());\n        a.erase(unique(a.begin(), a.end()), a.end());\n        int\
+    \ n = a.size();\n        if (n == 0) return;\n        // \u5F8C\u304B\u3089\u633F\
+    \u5165\u3067\u304D\u308B\u3088\u3046\u5C11\u3057\u4F59\u88D5\u3092\u6B8B\u3057\
+    \u3066\u8A70\u3081\u308B\n        int bs = std::max(1, B * 6 / 7);\n        int\
+    \ m = (n + bs - 1) / bs;\n        t.reserve(m + 1);\n        vector<int> ids(m);\n\
+    \        for (int i = 0; i < m; i++) {\n            int v = ids[i] = new_node();\n\
+    \            int l = i * bs, r = std::min(n, l + bs);\n            for (int j\
+    \ = l; j < r; j++) t[v].data[j - l] = a[j];\n            t[v].size = r - l;\n\
+    \        }\n        root = build(ids, 0, m);\n    }\n\n    int size() const {\
+    \ return t[root].total; }\n    bool empty() const { return root == 0; }\n\n  \
+    \  // x \u3092\u633F\u5165\u3059\u308B\uFF0E\u633F\u5165\u3057\u305F\u3089 true\uFF0C\
+    \u65E2\u306B\u3042\u308C\u3070 false\n    bool insert(const T &x) {\n        done\
+    \ = false;\n        root = insert(root, x);\n        return done;\n    }\n\n \
+    \   // x \u3092\u524A\u9664\u3059\u308B\uFF0E\u524A\u9664\u3057\u305F\u3089 true\uFF0C\
+    \u306A\u3051\u308C\u3070 false\n    bool erase(const T &x) {\n        done = false;\n\
+    \        root = erase(root, x);\n        return done;\n    }\n\n    bool contains(const\
+    \ T &x) const {\n        for (int v = root; v;) {\n            const Node &nd\
+    \ = t[v];\n            if (x < nd.data[0]) v = nd.left;\n            else if (nd.data[nd.size\
+    \ - 1] < x) v = nd.right;\n            else {\n                for (int i = 0;\
+    \ i < nd.size; i++) if (!(nd.data[i] < x)) return !(x < nd.data[i]);\n       \
+    \         return false;\n            }\n        }\n        return false;\n   \
+    \ }\n    size_t count(const T &x) const { return contains(x); }\n\n    // \u5C0F\
+    \u3055\u3044\u65B9\u304B\u3089 k \u756A\u76EE (0-indexed) \u306E\u8981\u7D20\uFF0E\
+    k >= size() \u306A\u3089 def\n    T kth(int k, T def = T(-1)) const {\n      \
+    \  if (k < 0 || k >= size()) return def;\n        for (int v = root;;) {\n   \
+    \         const Node &nd = t[v];\n            int ls = t[nd.left].total;\n   \
+    \         if (k < ls) v = nd.left;\n            else if (k < ls + nd.size) return\
+    \ nd.data[k - ls];\n            else k -= ls + nd.size, v = nd.right;\n      \
+    \  }\n    }\n\n    // x \u672A\u6E80\u306E\u8981\u7D20\u306E\u500B\u6570\n   \
+    \ int count_lt(const T &x) const {\n        int res = 0;\n        for (int v =\
+    \ root; v;) {\n            const Node &nd = t[v];\n            if (!(nd.data[0]\
+    \ < x)) v = nd.left;\n            else if (nd.data[nd.size - 1] < x) res += nd.total\
+    \ - t[nd.right].total, v = nd.right;\n            else {\n                int\
+    \ i = 0;\n                while (nd.data[i] < x) i++;\n                return\
+    \ res + t[nd.left].total + i;\n            }\n        }\n        return res;\n\
+    \    }\n\n    // x \u4EE5\u4E0B\u306E\u8981\u7D20\u306E\u500B\u6570\n    int count_le(const\
+    \ T &x) const {\n        int res = 0;\n        for (int v = root; v;) {\n    \
+    \        const Node &nd = t[v];\n            if (x < nd.data[0]) v = nd.left;\n\
+    \            else if (!(x < nd.data[nd.size - 1])) res += nd.total - t[nd.right].total,\
+    \ v = nd.right;\n            else {\n                int i = 0;\n            \
+    \    while (!(x < nd.data[i])) i++;\n                return res + t[nd.left].total\
+    \ + i;\n            }\n        }\n        return res;\n    }\n\n    // [lo, hi)\
+    \ \u306B\u542B\u307E\u308C\u308B\u8981\u7D20\u306E\u500B\u6570\n    int count_range(const\
+    \ T &lo, const T &hi) const { return lo < hi ? count_lt(hi) - count_lt(lo) : 0;\
+    \ }\n\n    // x \u672A\u6E80\u306E\u6700\u5927\u306E\u8981\u7D20 (\u306A\u3051\
+    \u308C\u3070 def)\n    T max_lt(const T &x, T def = T(-1)) const {\n        for\
+    \ (int v = root; v;) {\n            const Node &nd = t[v];\n            if (!(nd.data[0]\
+    \ < x)) v = nd.left;\n            else if (nd.data[nd.size - 1] < x) def = nd.data[nd.size\
+    \ - 1], v = nd.right;\n            else {\n                int i = 1;\n      \
+    \          while (nd.data[i] < x) i++;\n                return nd.data[i - 1];\n\
+    \            }\n        }\n        return def;\n    }\n\n    // x \u4EE5\u4E0B\
+    \u306E\u6700\u5927\u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T max_le(const\
     \ T &x, T def = T(-1)) const {\n        for (int v = root; v;) {\n           \
-    \ const Node &nd = t[v];\n            if (!(nd.data[0] < x)) v = nd.left;\n  \
-    \          else if (nd.data[nd.size - 1] < x) def = nd.data[nd.size - 1], v =\
+    \ const Node &nd = t[v];\n            if (x < nd.data[0]) v = nd.left;\n     \
+    \       else if (!(x < nd.data[nd.size - 1])) def = nd.data[nd.size - 1], v =\
     \ nd.right;\n            else {\n                int i = 1;\n                while\
-    \ (nd.data[i] < x) i++;\n                return nd.data[i - 1];\n            }\n\
-    \        }\n        return def;\n    }\n\n    // x \u4EE5\u4E0B\u306E\u6700\u5927\
-    \u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T max_le(const T &x, T\
-    \ def = T(-1)) const {\n        for (int v = root; v;) {\n            const Node\
-    \ &nd = t[v];\n            if (x < nd.data[0]) v = nd.left;\n            else\
-    \ if (!(x < nd.data[nd.size - 1])) def = nd.data[nd.size - 1], v = nd.right;\n\
-    \            else {\n                int i = 1;\n                while (!(x <\
-    \ nd.data[i])) i++;\n                return nd.data[i - 1];\n            }\n \
-    \       }\n        return def;\n    }\n\n    // x \u4EE5\u4E0A\u306E\u6700\u5C0F\
-    \u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T min_ge(const T &x, T\
-    \ def = T(-1)) const {\n        for (int v = root; v;) {\n            const Node\
-    \ &nd = t[v];\n            if (!(nd.data[0] < x)) def = nd.data[0], v = nd.left;\n\
+    \ (!(x < nd.data[i])) i++;\n                return nd.data[i - 1];\n         \
+    \   }\n        }\n        return def;\n    }\n\n    // x \u4EE5\u4E0A\u306E\u6700\
+    \u5C0F\u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T min_ge(const T\
+    \ &x, T def = T(-1)) const {\n        for (int v = root; v;) {\n            const\
+    \ Node &nd = t[v];\n            if (!(nd.data[0] < x)) def = nd.data[0], v = nd.left;\n\
     \            else if (nd.data[nd.size - 1] < x) v = nd.right;\n            else\
     \ {\n                int i = 1;\n                while (nd.data[i] < x) i++;\n\
     \                return nd.data[i];\n            }\n        }\n        return\
@@ -385,27 +386,28 @@ data:
     \                t[u].left = t[v].left, t[u].right = r;\n                update(u);\n\
     \                return balance(u);\n            }\n        }\n        update(v);\n\
     \        return balance(v);\n    }\n};\n#line 4 \"data_structure/dynamic_range_frequency.hpp\"\
-    \n\n// \u4E00\u70B9\u66F4\u65B0\u304C\u3067\u304D\u308B\u533A\u9593\u306E\u5024\
-    \u306E\u500B\u6570 (Point Set Range Frequency)\uFF0E\u30AA\u30F3\u30E9\u30A4\u30F3\
-    \n// (\u5024, \u4F4D\u7F6E) \u306E\u7D44\u3092\u9806\u5E8F\u4ED8\u304D\u96C6\u5408\
-    \u306B\u5165\u308C\u3066\u304A\u304D\uFF0C(x, l) \u4EE5\u4E0A (x, r) \u672A\u6E80\
-    \u306E\u500B\u6570\u3092\u6570\u3048\u308B\n// \u66F4\u65B0\u30FB\u30AF\u30A8\u30EA\
-    \ O(log n)\ntemplate <class T>\nstruct DynamicRangeFrequency {\n    int n;\n \
-    \   vector<T> a;\n    OrderedSet<pair<T, int>> st;\n\n    DynamicRangeFrequency(const\
-    \ vector<T> &a_) : n(a_.size()), a(a_) {\n        vector<pair<T, int>> v(n);\n\
-    \        for (int i = 0; i < n; i++) v[i] = {a[i], i};\n        sort(v.begin(),\
-    \ v.end());\n        st = OrderedSet<pair<T, int>>(v);\n    }\n\n    T get(int\
-    \ i) const { return a[i]; }\n\n    // a[i] = x\n    void set(int i, const T &x)\
-    \ {\n        st.erase({a[i], i});\n        a[i] = x;\n        st.insert({a[i],\
-    \ i});\n    }\n\n    // a[l..r) \u306E\u4E2D\u306E x \u306E\u500B\u6570\n    int\
-    \ count(int l, int r, const T &x) const { return l < r ? st.count_range({x, l},\
-    \ {x, r}) : 0; }\n};\n#line 4 \"test/point_set_range_frequency.test.cpp\"\n\n\
-    int main() {\n    int n, q;\n    fin >> n >> q;\n    vector<int> a(n);\n    fin\
-    \ >> a;\n    DynamicRangeFrequency<int> f(a);\n    while (q--) {\n        int\
-    \ t;\n        fin >> t;\n        if (t == 0) {\n            int k, v;\n      \
-    \      fin >> k >> v;\n            f.set(k, v);\n        } else {\n          \
-    \  int l, r, x;\n            fin >> l >> r >> x;\n            fout << f.count(l,\
-    \ r, x) << '\\n';\n        }\n    }\n    return 0;\n}\n"
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u4E00\u70B9\u66F4\u65B0\
+    \u304C\u3067\u304D\u308B\u533A\u9593\u306E\u5024\u306E\u500B\u6570 (Point Set\
+    \ Range Frequency)\uFF0E\u30AA\u30F3\u30E9\u30A4\u30F3\n// (\u5024, \u4F4D\u7F6E\
+    ) \u306E\u7D44\u3092\u9806\u5E8F\u4ED8\u304D\u96C6\u5408\u306B\u5165\u308C\u3066\
+    \u304A\u304D\uFF0C(x, l) \u4EE5\u4E0A (x, r) \u672A\u6E80\u306E\u500B\u6570\u3092\
+    \u6570\u3048\u308B\n// \u66F4\u65B0\u30FB\u30AF\u30A8\u30EA O(log n)\ntemplate\
+    \ <class T>\nstruct DynamicRangeFrequency {\n    int n;\n    vector<T> a;\n  \
+    \  OrderedSet<pair<T, int>> st;\n\n    DynamicRangeFrequency(const vector<T> &a_)\
+    \ : n(a_.size()), a(a_) {\n        vector<pair<T, int>> v(n);\n        for (int\
+    \ i = 0; i < n; i++) v[i] = {a[i], i};\n        sort(v.begin(), v.end());\n  \
+    \      st = OrderedSet<pair<T, int>>(v);\n    }\n\n    T get(int i) const { return\
+    \ a[i]; }\n\n    // a[i] = x\n    void set(int i, const T &x) {\n        st.erase({a[i],\
+    \ i});\n        a[i] = x;\n        st.insert({a[i], i});\n    }\n\n    // a[l..r)\
+    \ \u306E\u4E2D\u306E x \u306E\u500B\u6570\n    int count(int l, int r, const T\
+    \ &x) const { return l < r ? st.count_range({x, l}, {x, r}) : 0; }\n};\n#line\
+    \ 4 \"test/point_set_range_frequency.test.cpp\"\n\nint main() {\n    int n, q;\n\
+    \    fin >> n >> q;\n    vector<int> a(n);\n    fin >> a;\n    DynamicRangeFrequency<int>\
+    \ f(a);\n    while (q--) {\n        int t;\n        fin >> t;\n        if (t ==\
+    \ 0) {\n            int k, v;\n            fin >> k >> v;\n            f.set(k,\
+    \ v);\n        } else {\n            int l, r, x;\n            fin >> l >> r >>\
+    \ x;\n            fout << f.count(l, r, x) << '\\n';\n        }\n    }\n    return\
+    \ 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_frequency\"\
     \n#include \"../io/fastio.hpp\"\n#include \"../data_structure/dynamic_range_frequency.hpp\"\
     \n\nint main() {\n    int n, q;\n    fin >> n >> q;\n    vector<int> a(n);\n \
@@ -423,8 +425,8 @@ data:
   isVerificationFile: true
   path: test/point_set_range_frequency.test.cpp
   requiredBy: []
-  timestamp: '2026-10-14 23:42:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/point_set_range_frequency.test.cpp
 layout: document

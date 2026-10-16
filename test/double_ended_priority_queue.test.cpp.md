@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/interval_heap.hpp
     title: "Interval Heap (\u4E21\u7AEF\u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -37,31 +37,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -196,77 +197,77 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/interval_heap.hpp\"\
-    \n\n// Interval Heap (\u4E21\u7AEF\u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC\
-    )\n// \u6700\u5C0F\u5024\u30FB\u6700\u5927\u5024\u306E\u53D6\u5F97\u3092 O(1)\uFF0C\
-    \u633F\u5165\u30FB\u6700\u5C0F\u5024\u306E\u524A\u9664\u30FB\u6700\u5927\u5024\
-    \u306E\u524A\u9664\u3092 O(log n) \u3067\u51E6\u7406\u3059\u308B\n// \u7BC0\u70B9\
-    \ k \u304C d[2k] (\u533A\u9593\u306E\u5DE6\u7AEF) \u3068 d[2k+1] (\u533A\u9593\
-    \u306E\u53F3\u7AEF) \u3092\u6301\u3061\uFF0C\n// \u5DE6\u7AEF\u3060\u3051\u3092\
-    \u898B\u308B\u3068 min-heap\uFF0C\u53F3\u7AEF\u3060\u3051\u3092\u898B\u308B\u3068\
-    \ max-heap \u306B\u306A\u3063\u3066\u3044\u308B\ntemplate <class T, class Compare\
-    \ = less<T>>\nstruct IntervalHeap {\n    vector<T> d;\n    Compare comp;\n\n \
-    \   IntervalHeap(Compare comp = Compare()) : comp(comp) {}\n\n    IntervalHeap(const\
-    \ vector<T> &a, Compare comp = Compare()) : comp(comp) {\n        d.reserve(a.size());\n\
-    \        for (const T &x : a) push(x);\n    }\n\n    int size() const { return\
-    \ d.size(); }\n    bool empty() const { return d.empty(); }\n    void reserve(int\
-    \ n) { d.reserve(n); }\n    void clear() { d.clear(); }\n\n    const T &min()\
-    \ const { return d[0]; }\n    const T &max() const { return d.size() == 1 ? d[0]\
-    \ : d[1]; }\n\n    void push(const T &x) {\n        int i = d.size();\n      \
-    \  d.push_back(x);\n        if (i & 1) {\n            // \u7BC0\u70B9 i/2 \u306E\
-    \u53F3\u7AEF\u306B\u5165\u3063\u305F\n            if (comp(d[i], d[i - 1])) {\n\
-    \                swap(d[i], d[i - 1]);\n                up_min(i - 1);\n     \
-    \       } else {\n                up_max(i);\n            }\n        } else {\n\
-    \            // \u65B0\u3057\u3044\u7BC0\u70B9\u304C\u3067\u304D\u305F (\u8981\
-    \u7D20 1 \u500B\u306A\u306E\u3067\u5DE6\u7AEF\u304B\u3064\u53F3\u7AEF)\n     \
-    \       if (i == 0) return;\n            int p = (((i >> 1) - 1) >> 1) << 1;\n\
-    \            if (comp(d[i], d[p])) up_min(i);\n            else if (comp(d[p +\
-    \ 1], d[i])) up_max(i);\n        }\n    }\n\n    T pop_min() {\n        T res\
-    \ = std::move(d[0]);\n        T last = std::move(d.back());\n        d.pop_back();\n\
-    \        if (!d.empty()) {\n            d[0] = std::move(last);\n            down_min();\n\
-    \        }\n        return res;\n    }\n\n    T pop_max() {\n        if (d.size()\
-    \ <= 2) {\n            T res = std::move(d.back());\n            d.pop_back();\n\
-    \            return res;\n        }\n        T res = std::move(d[1]);\n      \
-    \  T last = std::move(d.back());\n        d.pop_back();\n        d[1] = std::move(last);\n\
-    \        down_max();\n        return res;\n    }\n\n  private:\n    // \u4F4D\u7F6E\
-    \ i (\u5DE6\u7AEF) \u306E\u8981\u7D20\u3092 min-heap \u3068\u3057\u3066\u4E0A\u3052\
-    \u308B\n    void up_min(int i) {\n        T x = std::move(d[i]);\n        int\
-    \ k = i >> 1;\n        while (k > 0) {\n            int p = (k - 1) >> 1;\n  \
-    \          if (!comp(x, d[p << 1])) break;\n            d[k << 1] = std::move(d[p\
-    \ << 1]);\n            k = p;\n        }\n        d[k << 1] = std::move(x);\n\
-    \    }\n\n    // \u4F4D\u7F6E i (\u53F3\u7AEF\uFF0E\u8981\u7D20 1 \u500B\u306E\
-    \u7BC0\u70B9\u306A\u3089\u5DE6\u7AEF) \u306E\u8981\u7D20\u3092 max-heap \u3068\
-    \u3057\u3066\u4E0A\u3052\u308B\n    void up_max(int i) {\n        T x = std::move(d[i]);\n\
-    \        int k = i >> 1;\n        int pos = i;\n        while (k > 0) {\n    \
-    \        int p = (k - 1) >> 1;\n            if (!comp(d[p << 1 | 1], x)) break;\n\
-    \            d[pos] = std::move(d[p << 1 | 1]);\n            pos = p << 1 | 1;\n\
-    \            k = p;\n        }\n        d[pos] = std::move(x);\n    }\n\n    void\
-    \ down_min() {\n        int n = d.size();\n        int k = 0;\n        while (true)\
-    \ {\n            int lo = k << 1;\n            if (lo + 1 < n && comp(d[lo + 1],\
-    \ d[lo])) swap(d[lo], d[lo + 1]);\n            int c = (k << 1) + 1;\n       \
-    \     if ((c << 1) >= n) break;\n            if (((c + 1) << 1) < n && comp(d[(c\
-    \ + 1) << 1], d[c << 1])) c++;\n            if (!comp(d[c << 1], d[lo])) break;\n\
-    \            swap(d[c << 1], d[lo]);\n            k = c;\n        }\n        //\
-    \ \u6700\u5F8C\u306B\u79FB\u3063\u305F\u7BC0\u70B9\u306E\u533A\u9593\u306E\u5411\
-    \u304D\u3092\u76F4\u3059\n        int lo = k << 1;\n        if (lo + 1 < n &&\
-    \ comp(d[lo + 1], d[lo])) swap(d[lo], d[lo + 1]);\n    }\n\n    void down_max()\
-    \ {\n        int n = d.size();\n        int k = 0;\n        while (true) {\n \
-    \           int hi = k << 1 | 1;\n            if (hi < n && comp(d[hi], d[hi -\
-    \ 1])) swap(d[hi], d[hi - 1]);\n            int c = (k << 1) + 1;\n          \
-    \  if ((c << 1) >= n) break;\n            // \u5B50\u306E\u53F3\u7AEF (\u8981\u7D20\
-    \ 1 \u500B\u306E\u7BC0\u70B9\u306A\u3089\u5DE6\u7AEF)\n            int hc = std::min((c\
-    \ << 1) | 1, n - 1);\n            if (((c + 1) << 1) < n) {\n                int\
-    \ hc2 = std::min(((c + 1) << 1) | 1, n - 1);\n                if (comp(d[hc],\
-    \ d[hc2])) hc = hc2, c++;\n            }\n            if (!comp(d[hi], d[hc]))\
-    \ break;\n            swap(d[hc], d[hi]);\n            k = c;\n        }\n   \
-    \     int hi = k << 1 | 1;\n        if (hi < n && comp(d[hi], d[hi - 1])) swap(d[hi],\
-    \ d[hi - 1]);\n    }\n};\n#line 4 \"test/double_ended_priority_queue.test.cpp\"\
-    \n\nint main() {\n    int n, q;\n    fin >> n >> q;\n    vector<int> s(n);\n \
-    \   fin >> s;\n    IntervalHeap<int> hp;\n    hp.reserve(n + q);\n    for (int\
-    \ v : s) hp.push(v);\n    while (q--) {\n        int t;\n        fin >> t;\n \
-    \       if (t == 0) {\n            int x;\n            fin >> x;\n           \
-    \ hp.push(x);\n        } else if (t == 1) {\n            fout << hp.pop_min()\
-    \ << '\\n';\n        } else {\n            fout << hp.pop_max() << '\\n';\n  \
-    \      }\n    }\n    return 0;\n}\n"
+    \n\n// https://github.com/winter-2521/cp-library\n\n// Interval Heap (\u4E21\u7AEF\
+    \u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC)\n// \u6700\u5C0F\u5024\u30FB\
+    \u6700\u5927\u5024\u306E\u53D6\u5F97\u3092 O(1)\uFF0C\u633F\u5165\u30FB\u6700\u5C0F\
+    \u5024\u306E\u524A\u9664\u30FB\u6700\u5927\u5024\u306E\u524A\u9664\u3092 O(log\
+    \ n) \u3067\u51E6\u7406\u3059\u308B\n// \u7BC0\u70B9 k \u304C d[2k] (\u533A\u9593\
+    \u306E\u5DE6\u7AEF) \u3068 d[2k+1] (\u533A\u9593\u306E\u53F3\u7AEF) \u3092\u6301\
+    \u3061\uFF0C\n// \u5DE6\u7AEF\u3060\u3051\u3092\u898B\u308B\u3068 min-heap\uFF0C\
+    \u53F3\u7AEF\u3060\u3051\u3092\u898B\u308B\u3068 max-heap \u306B\u306A\u3063\u3066\
+    \u3044\u308B\ntemplate <class T, class Compare = less<T>>\nstruct IntervalHeap\
+    \ {\n    vector<T> d;\n    Compare comp;\n\n    IntervalHeap(Compare comp = Compare())\
+    \ : comp(comp) {}\n\n    IntervalHeap(const vector<T> &a, Compare comp = Compare())\
+    \ : comp(comp) {\n        d.reserve(a.size());\n        for (const T &x : a) push(x);\n\
+    \    }\n\n    int size() const { return d.size(); }\n    bool empty() const {\
+    \ return d.empty(); }\n    void reserve(int n) { d.reserve(n); }\n    void clear()\
+    \ { d.clear(); }\n\n    const T &min() const { return d[0]; }\n    const T &max()\
+    \ const { return d.size() == 1 ? d[0] : d[1]; }\n\n    void push(const T &x) {\n\
+    \        int i = d.size();\n        d.push_back(x);\n        if (i & 1) {\n  \
+    \          // \u7BC0\u70B9 i/2 \u306E\u53F3\u7AEF\u306B\u5165\u3063\u305F\n  \
+    \          if (comp(d[i], d[i - 1])) {\n                swap(d[i], d[i - 1]);\n\
+    \                up_min(i - 1);\n            } else {\n                up_max(i);\n\
+    \            }\n        } else {\n            // \u65B0\u3057\u3044\u7BC0\u70B9\
+    \u304C\u3067\u304D\u305F (\u8981\u7D20 1 \u500B\u306A\u306E\u3067\u5DE6\u7AEF\u304B\
+    \u3064\u53F3\u7AEF)\n            if (i == 0) return;\n            int p = (((i\
+    \ >> 1) - 1) >> 1) << 1;\n            if (comp(d[i], d[p])) up_min(i);\n     \
+    \       else if (comp(d[p + 1], d[i])) up_max(i);\n        }\n    }\n\n    T pop_min()\
+    \ {\n        T res = std::move(d[0]);\n        T last = std::move(d.back());\n\
+    \        d.pop_back();\n        if (!d.empty()) {\n            d[0] = std::move(last);\n\
+    \            down_min();\n        }\n        return res;\n    }\n\n    T pop_max()\
+    \ {\n        if (d.size() <= 2) {\n            T res = std::move(d.back());\n\
+    \            d.pop_back();\n            return res;\n        }\n        T res\
+    \ = std::move(d[1]);\n        T last = std::move(d.back());\n        d.pop_back();\n\
+    \        d[1] = std::move(last);\n        down_max();\n        return res;\n \
+    \   }\n\n  private:\n    // \u4F4D\u7F6E i (\u5DE6\u7AEF) \u306E\u8981\u7D20\u3092\
+    \ min-heap \u3068\u3057\u3066\u4E0A\u3052\u308B\n    void up_min(int i) {\n  \
+    \      T x = std::move(d[i]);\n        int k = i >> 1;\n        while (k > 0)\
+    \ {\n            int p = (k - 1) >> 1;\n            if (!comp(x, d[p << 1])) break;\n\
+    \            d[k << 1] = std::move(d[p << 1]);\n            k = p;\n        }\n\
+    \        d[k << 1] = std::move(x);\n    }\n\n    // \u4F4D\u7F6E i (\u53F3\u7AEF\
+    \uFF0E\u8981\u7D20 1 \u500B\u306E\u7BC0\u70B9\u306A\u3089\u5DE6\u7AEF) \u306E\u8981\
+    \u7D20\u3092 max-heap \u3068\u3057\u3066\u4E0A\u3052\u308B\n    void up_max(int\
+    \ i) {\n        T x = std::move(d[i]);\n        int k = i >> 1;\n        int pos\
+    \ = i;\n        while (k > 0) {\n            int p = (k - 1) >> 1;\n         \
+    \   if (!comp(d[p << 1 | 1], x)) break;\n            d[pos] = std::move(d[p <<\
+    \ 1 | 1]);\n            pos = p << 1 | 1;\n            k = p;\n        }\n   \
+    \     d[pos] = std::move(x);\n    }\n\n    void down_min() {\n        int n =\
+    \ d.size();\n        int k = 0;\n        while (true) {\n            int lo =\
+    \ k << 1;\n            if (lo + 1 < n && comp(d[lo + 1], d[lo])) swap(d[lo], d[lo\
+    \ + 1]);\n            int c = (k << 1) + 1;\n            if ((c << 1) >= n) break;\n\
+    \            if (((c + 1) << 1) < n && comp(d[(c + 1) << 1], d[c << 1])) c++;\n\
+    \            if (!comp(d[c << 1], d[lo])) break;\n            swap(d[c << 1],\
+    \ d[lo]);\n            k = c;\n        }\n        // \u6700\u5F8C\u306B\u79FB\u3063\
+    \u305F\u7BC0\u70B9\u306E\u533A\u9593\u306E\u5411\u304D\u3092\u76F4\u3059\n   \
+    \     int lo = k << 1;\n        if (lo + 1 < n && comp(d[lo + 1], d[lo])) swap(d[lo],\
+    \ d[lo + 1]);\n    }\n\n    void down_max() {\n        int n = d.size();\n   \
+    \     int k = 0;\n        while (true) {\n            int hi = k << 1 | 1;\n \
+    \           if (hi < n && comp(d[hi], d[hi - 1])) swap(d[hi], d[hi - 1]);\n  \
+    \          int c = (k << 1) + 1;\n            if ((c << 1) >= n) break;\n    \
+    \        // \u5B50\u306E\u53F3\u7AEF (\u8981\u7D20 1 \u500B\u306E\u7BC0\u70B9\u306A\
+    \u3089\u5DE6\u7AEF)\n            int hc = std::min((c << 1) | 1, n - 1);\n   \
+    \         if (((c + 1) << 1) < n) {\n                int hc2 = std::min(((c +\
+    \ 1) << 1) | 1, n - 1);\n                if (comp(d[hc], d[hc2])) hc = hc2, c++;\n\
+    \            }\n            if (!comp(d[hi], d[hc])) break;\n            swap(d[hc],\
+    \ d[hi]);\n            k = c;\n        }\n        int hi = k << 1 | 1;\n     \
+    \   if (hi < n && comp(d[hi], d[hi - 1])) swap(d[hi], d[hi - 1]);\n    }\n};\n\
+    #line 4 \"test/double_ended_priority_queue.test.cpp\"\n\nint main() {\n    int\
+    \ n, q;\n    fin >> n >> q;\n    vector<int> s(n);\n    fin >> s;\n    IntervalHeap<int>\
+    \ hp;\n    hp.reserve(n + q);\n    for (int v : s) hp.push(v);\n    while (q--)\
+    \ {\n        int t;\n        fin >> t;\n        if (t == 0) {\n            int\
+    \ x;\n            fin >> x;\n            hp.push(x);\n        } else if (t ==\
+    \ 1) {\n            fout << hp.pop_min() << '\\n';\n        } else {\n       \
+    \     fout << hp.pop_max() << '\\n';\n        }\n    }\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/double_ended_priority_queue\"\
     \n#include \"../io/fastio.hpp\"\n#include \"../data_structure/interval_heap.hpp\"\
     \n\nint main() {\n    int n, q;\n    fin >> n >> q;\n    vector<int> s(n);\n \
@@ -284,7 +285,7 @@ data:
   isVerificationFile: true
   path: test/double_ended_priority_queue.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 11:00:46+09:00'
+  timestamp: '2026-10-17 01:04:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/double_ended_priority_queue.test.cpp

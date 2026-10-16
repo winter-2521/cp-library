@@ -1,24 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/static_range_inversions.hpp
     title: "\u9759\u7684\u306A\u533A\u9593\u8EE2\u5012\u6570 (Static Range Inversions\
       \ Query)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -37,31 +37,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -196,58 +197,59 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/static_range_inversions.hpp\"\
-    \n\n// \u9759\u7684\u306A\u6570\u5217\u306E\u533A\u9593\u8EE2\u5012\u6570 (Static\
-    \ Range Inversions Query)\uFF0E\u30AA\u30F3\u30E9\u30A4\u30F3\uFF0C\u5E73\u65B9\
-    \u5206\u5272\n// \u30D6\u30ED\u30C3\u30AF\u306E\u5927\u304D\u3055\u3092 B\uFF0C\
-    \u500B\u6570\u3092 nb \u3068\u3059\u308B\uFF0E\u524D\u8A08\u7B97:\n//   lt[R][i]\
-    \ = #{j : block(i) < block(j) < R, a[j] < a[i]}   (i \u3088\u308A\u53F3\uFF0C\u30D6\
-    \u30ED\u30C3\u30AF R \u306E\u624B\u524D\u307E\u3067\u3067 a[i] \u3088\u308A\u5C0F\
-    \u3055\u3044\u3082\u306E)\n//   gt[L][j] = #{i : L <= block(i) < block(j), a[i]\
-    \ > a[j]}  (\u30D6\u30ED\u30C3\u30AF L \u304B\u3089 j \u306E\u624B\u524D\u306E\
-    \u30D6\u30ED\u30C3\u30AF\u307E\u3067\u3067 a[j] \u3088\u308A\u5927\u304D\u3044\
-    \u3082\u306E)\n//   big[L][R] = \u30D6\u30ED\u30C3\u30AF L..R-1 \u306E\u4E2D\u306E\
-    \u8EE2\u5012\u6570\n//   pre[i], suf[i] = i \u306E\u30D6\u30ED\u30C3\u30AF\u5185\
-    \u3067 [\u30D6\u30ED\u30C3\u30AF\u5148\u982D, i] / [i, \u30D6\u30ED\u30C3\u30AF\
-    \u672B\u5C3E) \u306E\u8EE2\u5012\u6570\n//   \u5404\u30D6\u30ED\u30C3\u30AF\u306E\
-    \ (\u5024, \u4F4D\u7F6E) \u306E\u6607\u9806\u30EA\u30B9\u30C8\n// \u30AF\u30A8\
-    \u30EA\u306F\u300C\u5DE6\u306E\u7AEF\u30FB\u53F3\u306E\u7AEF\u30FB\u9593\u306E\
-    \u5B8C\u5168\u306A\u30D6\u30ED\u30C3\u30AF\u300D\u306B\u5206\u3051\u3066\u6570\
-    \u3048\u308B\uFF0Elt / gt \u306F\u4F4D\u7F6E\u306E\u9806\u306B\u4E26\u3079\u3066\
-    \u3042\u308B\u306E\u3067\uFF0C\u7AEF\u306E\u8981\u7D20\u3092\u9806\u306B\u898B\
-    \u308B\u3068\u304D\u9023\u7D9A\u30A2\u30AF\u30BB\u30B9\u306B\u306A\u308B\n// \u69CB\
-    \u7BC9 O(n \u221An)\uFF0C\u30AF\u30A8\u30EA O(\u221An)\uFF0C\u30E1\u30E2\u30EA\
-    \ O(n \u221An)\ntemplate <class T>\nstruct StaticRangeInversions {\n    int n,\
-    \ B, nb;\n    vector<int> c;                    // \u5727\u7E2E\u5F8C\u306E\u5024\
-    \n    vector<int> lt, gt;               // lt[R * n + i], gt[L * n + j]\n    vector<long\
-    \ long> big;            // big[L * (nb + 1) + R]\n    vector<long long> pre, suf;\n\
-    \    vector<pair<int, int>> sorted_;   // \u30D6\u30ED\u30C3\u30AF\u3054\u3068\
-    \u306B (\u5024, \u4F4D\u7F6E) \u3092\u6607\u9806\u306B\u4E26\u3079\u305F\u3082\
-    \u306E\n\n    StaticRangeInversions(const vector<T> &a, int block = -1) : n(a.size())\
-    \ {\n        vector<T> vals = a;\n        sort(vals.begin(), vals.end());\n  \
-    \      vals.erase(unique(vals.begin(), vals.end()), vals.end());\n        c.resize(n);\n\
-    \        for (int i = 0; i < n; i++) c[i] = lower_bound(vals.begin(), vals.end(),\
-    \ a[i]) - vals.begin();\n        B = block > 0 ? block : std::max(16, (int)(1.25\
-    \ * sqrt(n)));\n        nb = std::max(1, (n + B - 1) / B);\n        sorted_.resize(n);\n\
-    \        for (int i = 0; i < n; i++) sorted_[i] = {c[i], i};\n        for (int\
-    \ b = 0; b < nb; b++) sort(sorted_.begin() + std::min(n, b * B), sorted_.begin()\
-    \ + std::min(n, (b + 1) * B));\n        vector<pair<int, int>> all = sorted_;\
-    \  // \u5168\u4F53\u3092 (\u5024, \u4F4D\u7F6E) \u306E\u6607\u9806\u306B\n   \
-    \     sort(all.begin(), all.end());\n        // lt[R][i] = lt[R-1][i] + #{j \u2208\
-    \ \u30D6\u30ED\u30C3\u30AF R-1 : c[j] < c[i]} (block(i) < R-1 \u306E\u3068\u304D\
-    )\n        lt.assign((size_t)(nb + 1) * n, 0);\n        for (int R = 2; R <= nb;\
-    \ R++) {\n            int *cur = &lt[(size_t)R * n], *prv = &lt[(size_t)(R - 1)\
-    \ * n];\n            int bs = (R - 1) * B, be = std::min(n, R * B), p = bs;\n\
-    \            for (auto [v, i] : all) {\n                while (p < be && sorted_[p].first\
-    \ < v) p++;\n                if (i < bs) cur[i] = prv[i] + (p - bs);\n       \
-    \     }\n        }\n        // gt[L][j] = gt[L+1][j] + #{i \u2208 \u30D6\u30ED\
-    \u30C3\u30AF L : c[i] > c[j]} (block(j) > L \u306E\u3068\u304D)\n        gt.assign((size_t)(nb\
-    \ + 1) * n, 0);\n        for (int L = nb - 2; L >= 0; L--) {\n            int\
-    \ *cur = &gt[(size_t)L * n], *nxt = &gt[(size_t)(L + 1) * n];\n            int\
-    \ bs = L * B, be = std::min(n, (L + 1) * B), p = bs;\n            for (auto [v,\
-    \ j] : all) {\n                while (p < be && sorted_[p].first <= v) p++;\n\
-    \                if (j >= be) cur[j] = nxt[j] + (be - p);\n            }\n   \
-    \     }\n        // \u30D6\u30ED\u30C3\u30AF\u5185\u306E\u8EE2\u5012\u6570\n \
-    \       pre.assign(n, 0), suf.assign(n, 0);\n        for (int b = 0; b < nb; b++)\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u9759\u7684\u306A\u6570\
+    \u5217\u306E\u533A\u9593\u8EE2\u5012\u6570 (Static Range Inversions Query)\uFF0E\
+    \u30AA\u30F3\u30E9\u30A4\u30F3\uFF0C\u5E73\u65B9\u5206\u5272\n// \u30D6\u30ED\u30C3\
+    \u30AF\u306E\u5927\u304D\u3055\u3092 B\uFF0C\u500B\u6570\u3092 nb \u3068\u3059\
+    \u308B\uFF0E\u524D\u8A08\u7B97:\n//   lt[R][i] = #{j : block(i) < block(j) < R,\
+    \ a[j] < a[i]}   (i \u3088\u308A\u53F3\uFF0C\u30D6\u30ED\u30C3\u30AF R \u306E\u624B\
+    \u524D\u307E\u3067\u3067 a[i] \u3088\u308A\u5C0F\u3055\u3044\u3082\u306E)\n//\
+    \   gt[L][j] = #{i : L <= block(i) < block(j), a[i] > a[j]}  (\u30D6\u30ED\u30C3\
+    \u30AF L \u304B\u3089 j \u306E\u624B\u524D\u306E\u30D6\u30ED\u30C3\u30AF\u307E\
+    \u3067\u3067 a[j] \u3088\u308A\u5927\u304D\u3044\u3082\u306E)\n//   big[L][R]\
+    \ = \u30D6\u30ED\u30C3\u30AF L..R-1 \u306E\u4E2D\u306E\u8EE2\u5012\u6570\n// \
+    \  pre[i], suf[i] = i \u306E\u30D6\u30ED\u30C3\u30AF\u5185\u3067 [\u30D6\u30ED\
+    \u30C3\u30AF\u5148\u982D, i] / [i, \u30D6\u30ED\u30C3\u30AF\u672B\u5C3E) \u306E\
+    \u8EE2\u5012\u6570\n//   \u5404\u30D6\u30ED\u30C3\u30AF\u306E (\u5024, \u4F4D\u7F6E\
+    ) \u306E\u6607\u9806\u30EA\u30B9\u30C8\n// \u30AF\u30A8\u30EA\u306F\u300C\u5DE6\
+    \u306E\u7AEF\u30FB\u53F3\u306E\u7AEF\u30FB\u9593\u306E\u5B8C\u5168\u306A\u30D6\
+    \u30ED\u30C3\u30AF\u300D\u306B\u5206\u3051\u3066\u6570\u3048\u308B\uFF0Elt / gt\
+    \ \u306F\u4F4D\u7F6E\u306E\u9806\u306B\u4E26\u3079\u3066\u3042\u308B\u306E\u3067\
+    \uFF0C\u7AEF\u306E\u8981\u7D20\u3092\u9806\u306B\u898B\u308B\u3068\u304D\u9023\
+    \u7D9A\u30A2\u30AF\u30BB\u30B9\u306B\u306A\u308B\n// \u69CB\u7BC9 O(n \u221An)\uFF0C\
+    \u30AF\u30A8\u30EA O(\u221An)\uFF0C\u30E1\u30E2\u30EA O(n \u221An)\ntemplate <class\
+    \ T>\nstruct StaticRangeInversions {\n    int n, B, nb;\n    vector<int> c;  \
+    \                  // \u5727\u7E2E\u5F8C\u306E\u5024\n    vector<int> lt, gt;\
+    \               // lt[R * n + i], gt[L * n + j]\n    vector<long long> big;  \
+    \          // big[L * (nb + 1) + R]\n    vector<long long> pre, suf;\n    vector<pair<int,\
+    \ int>> sorted_;   // \u30D6\u30ED\u30C3\u30AF\u3054\u3068\u306B (\u5024, \u4F4D\
+    \u7F6E) \u3092\u6607\u9806\u306B\u4E26\u3079\u305F\u3082\u306E\n\n    StaticRangeInversions(const\
+    \ vector<T> &a, int block = -1) : n(a.size()) {\n        vector<T> vals = a;\n\
+    \        sort(vals.begin(), vals.end());\n        vals.erase(unique(vals.begin(),\
+    \ vals.end()), vals.end());\n        c.resize(n);\n        for (int i = 0; i <\
+    \ n; i++) c[i] = lower_bound(vals.begin(), vals.end(), a[i]) - vals.begin();\n\
+    \        B = block > 0 ? block : std::max(16, (int)(1.25 * sqrt(n)));\n      \
+    \  nb = std::max(1, (n + B - 1) / B);\n        sorted_.resize(n);\n        for\
+    \ (int i = 0; i < n; i++) sorted_[i] = {c[i], i};\n        for (int b = 0; b <\
+    \ nb; b++) sort(sorted_.begin() + std::min(n, b * B), sorted_.begin() + std::min(n,\
+    \ (b + 1) * B));\n        vector<pair<int, int>> all = sorted_;  // \u5168\u4F53\
+    \u3092 (\u5024, \u4F4D\u7F6E) \u306E\u6607\u9806\u306B\n        sort(all.begin(),\
+    \ all.end());\n        // lt[R][i] = lt[R-1][i] + #{j \u2208 \u30D6\u30ED\u30C3\
+    \u30AF R-1 : c[j] < c[i]} (block(i) < R-1 \u306E\u3068\u304D)\n        lt.assign((size_t)(nb\
+    \ + 1) * n, 0);\n        for (int R = 2; R <= nb; R++) {\n            int *cur\
+    \ = &lt[(size_t)R * n], *prv = &lt[(size_t)(R - 1) * n];\n            int bs =\
+    \ (R - 1) * B, be = std::min(n, R * B), p = bs;\n            for (auto [v, i]\
+    \ : all) {\n                while (p < be && sorted_[p].first < v) p++;\n    \
+    \            if (i < bs) cur[i] = prv[i] + (p - bs);\n            }\n        }\n\
+    \        // gt[L][j] = gt[L+1][j] + #{i \u2208 \u30D6\u30ED\u30C3\u30AF L : c[i]\
+    \ > c[j]} (block(j) > L \u306E\u3068\u304D)\n        gt.assign((size_t)(nb + 1)\
+    \ * n, 0);\n        for (int L = nb - 2; L >= 0; L--) {\n            int *cur\
+    \ = &gt[(size_t)L * n], *nxt = &gt[(size_t)(L + 1) * n];\n            int bs =\
+    \ L * B, be = std::min(n, (L + 1) * B), p = bs;\n            for (auto [v, j]\
+    \ : all) {\n                while (p < be && sorted_[p].first <= v) p++;\n   \
+    \             if (j >= be) cur[j] = nxt[j] + (be - p);\n            }\n      \
+    \  }\n        // \u30D6\u30ED\u30C3\u30AF\u5185\u306E\u8EE2\u5012\u6570\n    \
+    \    pre.assign(n, 0), suf.assign(n, 0);\n        for (int b = 0; b < nb; b++)\
     \ {\n            int s = b * B, e = std::min(n, (b + 1) * B);\n            for\
     \ (int i = s; i < e; i++) {\n                long long x = i > s ? pre[i - 1]\
     \ : 0;\n                for (int j = s; j < i; j++) x += c[j] > c[i];\n      \
@@ -305,8 +307,8 @@ data:
   isVerificationFile: true
   path: test/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2026-10-14 23:42:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/static_range_inversions_query.test.cpp
 layout: document

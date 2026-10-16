@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/hash_map.hpp
     title: "\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7 (Hash Map)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -35,31 +35,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -194,18 +195,19 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/hash_map.hpp\"\
-    \n\n// \u6574\u6570\u30AD\u30FC\u306E\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7\
-    \ (\u30AA\u30FC\u30D7\u30F3\u30A2\u30C9\u30EC\u30B9\u6CD5\u30FB\u7DDA\u5F62\u63A2\
-    \u67FB)\n// unordered_map \u3088\u308A\u5927\u5E45\u306B\u901F\u3044\uFF0E\u30AD\
-    \u30FC\u306F 64 bit \u4EE5\u4E0B\u306E\u6574\u6570\u578B\ntemplate <class Key,\
-    \ class Val>\nstruct HashMap {\n    static_assert(is_integral_v<Key>, \"HashMap:\
-    \ Key must be an integral type\");\n\n    struct Slot {\n        Key key;\n  \
-    \      Val val;\n    };\n\n    vector<Slot> slots;\n    vector<uint8_t> used;\n\
-    \    uint32_t mask;\n    int shift;\n    size_t cnt = 0;\n    // \u30CF\u30C3\u30B7\
-    \u30E5\u7528\u306E\u4E71\u6570 (\u5947\u6570)\uFF0E\u5B9F\u884C\u3054\u3068\u306B\
-    \u5909\u308F\u308B\u306E\u3067\uFF0C\u72D9\u3044\u6483\u3061\u306E\u5165\u529B\
-    \u3067\u885D\u7A81\u3055\u305B\u3089\u308C\u306B\u304F\u3044\n    uint64_t mul;\n\
-    \n    HashMap(size_t reserve_size = 0) {\n        mul = uint64_t(chrono::steady_clock::now().time_since_epoch().count())\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u6574\u6570\u30AD\u30FC\
+    \u306E\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7 (\u30AA\u30FC\u30D7\u30F3\u30A2\
+    \u30C9\u30EC\u30B9\u6CD5\u30FB\u7DDA\u5F62\u63A2\u67FB)\n// unordered_map \u3088\
+    \u308A\u5927\u5E45\u306B\u901F\u3044\uFF0E\u30AD\u30FC\u306F 64 bit \u4EE5\u4E0B\
+    \u306E\u6574\u6570\u578B\ntemplate <class Key, class Val>\nstruct HashMap {\n\
+    \    static_assert(is_integral_v<Key>, \"HashMap: Key must be an integral type\"\
+    );\n\n    struct Slot {\n        Key key;\n        Val val;\n    };\n\n    vector<Slot>\
+    \ slots;\n    vector<uint8_t> used;\n    uint32_t mask;\n    int shift;\n    size_t\
+    \ cnt = 0;\n    // \u30CF\u30C3\u30B7\u30E5\u7528\u306E\u4E71\u6570 (\u5947\u6570\
+    )\uFF0E\u5B9F\u884C\u3054\u3068\u306B\u5909\u308F\u308B\u306E\u3067\uFF0C\u72D9\
+    \u3044\u6483\u3061\u306E\u5165\u529B\u3067\u885D\u7A81\u3055\u305B\u3089\u308C\
+    \u306B\u304F\u3044\n    uint64_t mul;\n\n    HashMap(size_t reserve_size = 0)\
+    \ {\n        mul = uint64_t(chrono::steady_clock::now().time_since_epoch().count())\
     \ * 0x9E3779B97F4A7C15ULL | 1;\n        mul ^= uint64_t(reinterpret_cast<uintptr_t>(this))\
     \ << 1;\n        mul |= 1;\n        size_t cap = 16;\n        while (cap < reserve_size\
     \ * 2) cap <<= 1;\n        init(cap);\n    }\n\n    void init(size_t cap) {\n\
@@ -313,8 +315,8 @@ data:
   isVerificationFile: true
   path: test/unittest/hash_map.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 11:00:46+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/unittest/hash_map.test.cpp
 layout: document

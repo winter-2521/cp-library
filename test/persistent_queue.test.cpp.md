@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/persistent_queue.hpp
     title: "\u6C38\u7D9A\u30AD\u30E5\u30FC (Persistent Queue)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/persistent_queue
@@ -35,31 +35,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -194,36 +195,36 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/persistent_queue.hpp\"\
-    \n\n// \u6C38\u7D9A\u30AD\u30E5\u30FC (Persistent Queue)\uFF0E\u3069\u306E\u7248\
-    \u306B\u3082 push / pop \u3067\u304D\uFF0C\u65B0\u3057\u3044\u7248\u306E\u756A\
-    \u53F7\u3092\u8FD4\u3059\n// \u8FFD\u52A0\u3057\u305F\u8981\u7D20\u3092\u300C\u89AA\
-    \ = 1 \u3064\u524D\u306E\u672B\u5C3E\u300D\u3068\u3059\u308B\u6728\u3067\u6301\
-    \u3061\uFF0C\u7248\u306F (\u672B\u5C3E\u306E\u30CE\u30FC\u30C9, \u5148\u982D\u306E\
-    \u6DF1\u3055) \u306E\u7D44\uFF0E\n// \u5148\u982D\u306E\u8981\u7D20 = \u672B\u5C3E\
-    \u306E\u30CE\u30FC\u30C9\u306E\u7956\u5148\u306E\u3046\u3061\u6DF1\u3055\u304C\
-    \ \u5148\u982D\u306E\u6DF1\u3055 + 1 \u306E\u3082\u306E\uFF0E\u7956\u5148\u306F\
-    \ skew-binary \u306E\u8DF3\u3073\u5148\u3067 O(log n) \u3067\u6C42\u3081\u308B\
-    \n// push O(1)\uFF0Cpop\u30FBfront O(log n)\ntemplate <class T>\nstruct PersistentQueue\
-    \ {\n    struct Node {\n        T val;\n        int par, jump, depth;\n    };\n\
-    \    vector<Node> nodes;                 // nodes[0] \u306F\u6839 (\u6DF1\u3055\
-    \ 0\uFF0C\u8981\u7D20\u306A\u3057)\n    vector<pair<int, int>> versions;    //\
-    \ (\u672B\u5C3E\u306E\u30CE\u30FC\u30C9, \u5148\u982D\u306E\u6DF1\u3055)\uFF0E\
-    versions[0] \u306F\u7A7A\u306E\u30AD\u30E5\u30FC\n\n    PersistentQueue() {\n\
-    \        nodes.push_back({T(), 0, 0, 0});\n        versions.push_back({0, 0});\n\
-    \    }\n\n    void reserve(int n) { nodes.reserve(n + 1), versions.reserve(n +\
-    \ 1); }\n\n    // \u7A7A\u306E\u30AD\u30E5\u30FC\u306E\u7248\u306E\u756A\u53F7\
-    \n    static constexpr int empty_version() { return 0; }\n\n    int size(int v)\
-    \ const { return nodes[versions[v].first].depth - versions[v].second; }\n    bool\
-    \ empty(int v) const { return size(v) == 0; }\n\n    // \u7248 v \u306E\u672B\u5C3E\
-    \u306B x \u3092\u8FFD\u52A0\u3057\u305F\u7248\u3092\u4F5C\u308A\uFF0C\u305D\u306E\
-    \u756A\u53F7\u3092\u8FD4\u3059\n    int push(int v, const T &x) {\n        auto\
-    \ [tail, head] = versions[v];\n        int p = tail;\n        // skew-binary \u306E\
-    \u8DF3\u3073\u5148: \u89AA\u306E\u8DF3\u3073\u5148\u306E\u8DF3\u3073\u5148\u3068\
-    \u6DF1\u3055\u306E\u5DEE\u304C\u305D\u308D\u3063\u3066\u3044\u308C\u3070\u305D\
-    \u3053\u3078\uFF0C\u3067\u306A\u3051\u308C\u3070\u89AA\n        int j = p, pj\
-    \ = nodes[p].jump, dep = nodes[p].depth;\n        if (dep - nodes[pj].depth ==\
-    \ nodes[pj].depth - nodes[nodes[pj].jump].depth) j = nodes[pj].jump;\n       \
-    \ nodes.push_back({x, p, j, dep + 1});\n        versions.push_back({(int)nodes.size()\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u6C38\u7D9A\u30AD\u30E5\
+    \u30FC (Persistent Queue)\uFF0E\u3069\u306E\u7248\u306B\u3082 push / pop \u3067\
+    \u304D\uFF0C\u65B0\u3057\u3044\u7248\u306E\u756A\u53F7\u3092\u8FD4\u3059\n// \u8FFD\
+    \u52A0\u3057\u305F\u8981\u7D20\u3092\u300C\u89AA = 1 \u3064\u524D\u306E\u672B\u5C3E\
+    \u300D\u3068\u3059\u308B\u6728\u3067\u6301\u3061\uFF0C\u7248\u306F (\u672B\u5C3E\
+    \u306E\u30CE\u30FC\u30C9, \u5148\u982D\u306E\u6DF1\u3055) \u306E\u7D44\uFF0E\n\
+    // \u5148\u982D\u306E\u8981\u7D20 = \u672B\u5C3E\u306E\u30CE\u30FC\u30C9\u306E\
+    \u7956\u5148\u306E\u3046\u3061\u6DF1\u3055\u304C \u5148\u982D\u306E\u6DF1\u3055\
+    \ + 1 \u306E\u3082\u306E\uFF0E\u7956\u5148\u306F skew-binary \u306E\u8DF3\u3073\
+    \u5148\u3067 O(log n) \u3067\u6C42\u3081\u308B\n// push O(1)\uFF0Cpop\u30FBfront\
+    \ O(log n)\ntemplate <class T>\nstruct PersistentQueue {\n    struct Node {\n\
+    \        T val;\n        int par, jump, depth;\n    };\n    vector<Node> nodes;\
+    \                 // nodes[0] \u306F\u6839 (\u6DF1\u3055 0\uFF0C\u8981\u7D20\u306A\
+    \u3057)\n    vector<pair<int, int>> versions;    // (\u672B\u5C3E\u306E\u30CE\u30FC\
+    \u30C9, \u5148\u982D\u306E\u6DF1\u3055)\uFF0Eversions[0] \u306F\u7A7A\u306E\u30AD\
+    \u30E5\u30FC\n\n    PersistentQueue() {\n        nodes.push_back({T(), 0, 0, 0});\n\
+    \        versions.push_back({0, 0});\n    }\n\n    void reserve(int n) { nodes.reserve(n\
+    \ + 1), versions.reserve(n + 1); }\n\n    // \u7A7A\u306E\u30AD\u30E5\u30FC\u306E\
+    \u7248\u306E\u756A\u53F7\n    static constexpr int empty_version() { return 0;\
+    \ }\n\n    int size(int v) const { return nodes[versions[v].first].depth - versions[v].second;\
+    \ }\n    bool empty(int v) const { return size(v) == 0; }\n\n    // \u7248 v \u306E\
+    \u672B\u5C3E\u306B x \u3092\u8FFD\u52A0\u3057\u305F\u7248\u3092\u4F5C\u308A\uFF0C\
+    \u305D\u306E\u756A\u53F7\u3092\u8FD4\u3059\n    int push(int v, const T &x) {\n\
+    \        auto [tail, head] = versions[v];\n        int p = tail;\n        // skew-binary\
+    \ \u306E\u8DF3\u3073\u5148: \u89AA\u306E\u8DF3\u3073\u5148\u306E\u8DF3\u3073\u5148\
+    \u3068\u6DF1\u3055\u306E\u5DEE\u304C\u305D\u308D\u3063\u3066\u3044\u308C\u3070\
+    \u305D\u3053\u3078\uFF0C\u3067\u306A\u3051\u308C\u3070\u89AA\n        int j =\
+    \ p, pj = nodes[p].jump, dep = nodes[p].depth;\n        if (dep - nodes[pj].depth\
+    \ == nodes[pj].depth - nodes[nodes[pj].jump].depth) j = nodes[pj].jump;\n    \
+    \    nodes.push_back({x, p, j, dep + 1});\n        versions.push_back({(int)nodes.size()\
     \ - 1, head});\n        return versions.size() - 1;\n    }\n\n    // \u7248 v\
     \ \u306E\u5148\u982D\u306E\u8981\u7D20 (\u7A7A\u3067\u306A\u3044\u3053\u3068)\n\
     \    T front(int v) const {\n        auto [tail, head] = versions[v];\n      \
@@ -261,8 +262,8 @@ data:
   isVerificationFile: true
   path: test/persistent_queue.test.cpp
   requiredBy: []
-  timestamp: '2026-10-15 00:08:07+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/persistent_queue.test.cpp
 layout: document

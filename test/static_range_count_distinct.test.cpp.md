@@ -1,27 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/static_range_count_distinct.hpp
     title: "\u9759\u7684\u306A\u533A\u9593\u306E\u7A2E\u985E\u6570 (Static Range Count\
       \ Distinct)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/wavelet_matrix.hpp
     title: "\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\u5217 (Wavelet Matrix)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_count_distinct
@@ -40,31 +40,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -210,97 +211,99 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/wavelet_matrix.hpp\"\
-    \n\n// \u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\u5217 (\u9759\u7684\u306A\
-    \u6570\u5217\u306B\u5BFE\u3059\u308B\u533A\u9593 k \u756A\u76EE\u30FB\u533A\u9593\
-    \u306E\u5024\u306E\u500B\u6570\u306A\u3069)\n// \u5024\u306F\u5185\u90E8\u3067\
-    \u5EA7\u6A19\u5727\u7E2E\u3059\u308B\uFF0E\u69CB\u7BC9 O(n log n)\uFF0C\u5404\u30AF\
-    \u30A8\u30EA O(log \u03C3) (\u03C3 \u306F\u5024\u306E\u7A2E\u985E\u6570)\ntemplate\
-    \ <class T>\nstruct WaveletMatrix {\n    // 64 bit \u3054\u3068\u306B\uFF0C\u30D3\
-    \u30C3\u30C8\u5217\u3068\u305D\u308C\u3088\u308A\u524D\u306E 1 \u306E\u500B\u6570\
-    \u3092\u307E\u3068\u3081\u3066\u6301\u3064\n    struct BitVector {\n        struct\
-    \ Block {\n            uint64_t bits;\n            int cnt;\n        };\n    \
-    \    vector<Block> b;\n        void init(int n) { b.assign((n >> 6) + 1, {0, 0});\
-    \ }\n        void set(int i) { b[i >> 6].bits |= 1ULL << (i & 63); }\n       \
-    \ void build() {\n            for (size_t i = 1; i < b.size(); i++) b[i].cnt =\
-    \ b[i - 1].cnt + __builtin_popcountll(b[i - 1].bits);\n        }\n        // [0,\
-    \ i) \u306E 1 \u306E\u500B\u6570\n        int rank1(int i) const {\n         \
-    \   const Block &x = b[i >> 6];\n            return x.cnt + __builtin_popcountll(x.bits\
-    \ & ((1ULL << (i & 63)) - 1));\n        }\n        bool get(int i) const { return\
-    \ b[i >> 6].bits >> (i & 63) & 1; }\n    };\n\n    int n, lg;\n    vector<T> vals;\
-    \  // \u5EA7\u6A19\u5727\u7E2E\u5F8C\u306E\u5024 (\u6607\u9806)\n    vector<BitVector>\
-    \ bv;\n    vector<int> zeros;\n\n    WaveletMatrix(const vector<T> &a = {}) :\
-    \ n(a.size()) {\n        vals = a;\n        sort(vals.begin(), vals.end());\n\
-    \        vals.erase(unique(vals.begin(), vals.end()), vals.end());\n        vector<int>\
-    \ cur(n);\n        for (int i = 0; i < n; i++) cur[i] = int(lower_bound(vals.begin(),\
-    \ vals.end(), a[i]) - vals.begin());\n        lg = 1;\n        while ((1 << lg)\
-    \ < (int)vals.size()) lg++;\n        bv.resize(lg);\n        zeros.resize(lg);\n\
-    \        vector<int> nxt(n);\n        for (int h = lg - 1; h >= 0; h--) {\n  \
-    \          bv[h].init(n);\n            int z = 0;\n            for (int i = 0;\
-    \ i < n; i++) {\n                if (cur[i] >> h & 1) bv[h].set(i);\n        \
-    \        else z++;\n            }\n            bv[h].build();\n            zeros[h]\
-    \ = z;\n            // 0 \u306E\u3082\u306E\u3092\u524D\u306B\uFF0C1 \u306E\u3082\
-    \u306E\u3092\u5F8C\u308D\u306B (\u5B89\u5B9A)\n            int p0 = 0, p1 = z;\n\
-    \            for (int i = 0; i < n; i++) nxt[(cur[i] >> h & 1) ? p1++ : p0++]\
-    \ = cur[i];\n            swap(cur, nxt);\n        }\n    }\n\n    int size() const\
-    \ { return n; }\n\n    // a[i]\n    T access(int i) const {\n        int res =\
-    \ 0;\n        for (int h = lg - 1; h >= 0; h--) {\n            int r1 = bv[h].rank1(i);\n\
-    \            if (bv[h].get(i)) res |= 1 << h, i = zeros[h] + r1;\n           \
-    \ else i -= r1;\n        }\n        return vals[res];\n    }\n    T operator[](int\
-    \ i) const { return access(i); }\n\n    // a[l..r) \u306E\u4E2D\u3067\u5C0F\u3055\
-    \u3044\u65B9\u304B\u3089 k \u756A\u76EE (0-indexed) \u306E\u5024\uFF0E0 <= k <\
-    \ r - l \u3067\u3042\u308B\u3053\u3068\n    T kth_smallest(int l, int r, int k)\
-    \ const {\n        int res = 0;\n        for (int h = lg - 1; h >= 0; h--) {\n\
-    \            int l1 = bv[h].rank1(l), r1 = bv[h].rank1(r);\n            int z\
-    \ = (r - r1) - (l - l1);\n            if (k < z) {\n                l -= l1, r\
-    \ -= r1;\n            } else {\n                k -= z;\n                res |=\
-    \ 1 << h;\n                l = zeros[h] + l1, r = zeros[h] + r1;\n           \
-    \ }\n        }\n        return vals[res];\n    }\n    // a[l..r) \u306E\u4E2D\u3067\
-    \u5927\u304D\u3044\u65B9\u304B\u3089 k \u756A\u76EE (0-indexed) \u306E\u5024\n\
-    \    T kth_largest(int l, int r, int k) const { return kth_smallest(l, r, r -\
-    \ l - 1 - k); }\n\n    // a[l..r) \u306E\u4E2D\u306E x \u672A\u6E80\u306E\u5024\
-    \u306E\u500B\u6570\n    int count_lt(int l, int r, const T &x) const { return\
-    \ count_lt_id(l, r, id_lower(x)); }\n    // a[l..r) \u306E\u4E2D\u306E x \u4EE5\
-    \u4E0B\u306E\u5024\u306E\u500B\u6570\n    int count_le(int l, int r, const T &x)\
-    \ const { return count_lt_id(l, r, id_upper(x)); }\n    // a[l..r) \u306E\u4E2D\
-    \u306E lo \u4EE5\u4E0A hi \u672A\u6E80\u306E\u5024\u306E\u500B\u6570\n    int\
-    \ count_range(int l, int r, const T &lo, const T &hi) const {\n        if (!(lo\
-    \ < hi)) return 0;\n        return count_lt(l, r, hi) - count_lt(l, r, lo);\n\
-    \    }\n    // a[l..r) \u306E\u4E2D\u306E x \u306E\u500B\u6570\n    int count(int\
-    \ l, int r, const T &x) const { return count_le(l, r, x) - count_lt(l, r, x);\
-    \ }\n\n    // a[l..r) \u306E\u4E2D\u306E x \u672A\u6E80\u306E\u6700\u5927\u306E\
-    \u5024 (\u306A\u3051\u308C\u3070 def)\n    T max_lt(int l, int r, const T &x,\
-    \ T def = T(-1)) const {\n        int c = count_lt(l, r, x);\n        return c\
-    \ == 0 ? def : kth_smallest(l, r, c - 1);\n    }\n    // a[l..r) \u306E\u4E2D\u306E\
-    \ x \u4EE5\u4E0B\u306E\u6700\u5927\u306E\u5024 (\u306A\u3051\u308C\u3070 def)\n\
-    \    T max_le(int l, int r, const T &x, T def = T(-1)) const {\n        int c\
-    \ = count_le(l, r, x);\n        return c == 0 ? def : kth_smallest(l, r, c - 1);\n\
-    \    }\n    // a[l..r) \u306E\u4E2D\u306E x \u4EE5\u4E0A\u306E\u6700\u5C0F\u306E\
-    \u5024 (\u306A\u3051\u308C\u3070 def)\n    T min_ge(int l, int r, const T &x,\
-    \ T def = T(-1)) const {\n        int c = count_lt(l, r, x);\n        return c\
-    \ == r - l ? def : kth_smallest(l, r, c);\n    }\n    // a[l..r) \u306E\u4E2D\u306E\
-    \ x \u3088\u308A\u5927\u304D\u3044\u6700\u5C0F\u306E\u5024 (\u306A\u3051\u308C\
-    \u3070 def)\n    T min_gt(int l, int r, const T &x, T def = T(-1)) const {\n \
-    \       int c = count_le(l, r, x);\n        return c == r - l ? def : kth_smallest(l,\
-    \ r, c);\n    }\n\n  private:\n    int id_lower(const T &x) const { return int(lower_bound(vals.begin(),\
-    \ vals.end(), x) - vals.begin()); }\n    int id_upper(const T &x) const { return\
-    \ int(upper_bound(vals.begin(), vals.end(), x) - vals.begin()); }\n    // a[l..r)\
-    \ \u306E\u4E2D\u3067\u5727\u7E2E\u5F8C\u306E\u5024\u304C v \u672A\u6E80\u306E\u3082\
-    \u306E\u306E\u500B\u6570\n    int count_lt_id(int l, int r, int v) const {\n \
-    \       if (l >= r) return 0;\n        if (v >= (1 << lg)) return r - l;\n   \
-    \     int res = 0;\n        for (int h = lg - 1; h >= 0; h--) {\n            int\
-    \ l1 = bv[h].rank1(l), r1 = bv[h].rank1(r);\n            if (v >> h & 1) {\n \
-    \               res += (r - r1) - (l - l1);\n                l = zeros[h] + l1,\
-    \ r = zeros[h] + r1;\n            } else {\n                l -= l1, r -= r1;\n\
-    \            }\n        }\n        return res;\n    }\n};\n#line 4 \"data_structure/static_range_count_distinct.hpp\"\
-    \n\n// \u9759\u7684\u306A\u6570\u5217\u306E\u533A\u9593\u306B\u542B\u307E\u308C\
-    \u308B\u5024\u306E\u7A2E\u985E\u6570 (Static Range Count Distinct)\uFF0E\u30AA\
-    \u30F3\u30E9\u30A4\u30F3\n// prev[i] = i \u3088\u308A\u524D\u3067 a[i] \u3068\u540C\
-    \u3058\u5024\u304C\u6700\u5F8C\u306B\u51FA\u3066\u304F\u308B\u4F4D\u7F6E (\u306A\
-    \u3051\u308C\u3070 -1) \u3068\u3059\u308B\u3068\uFF0C\n// [l, r) \u306E\u7A2E\u985E\
-    \u6570 = #{i \u2208 [l, r) : prev[i] < l}\uFF0E\u3053\u308C\u3092\u30A6\u30A7\u30FC\
-    \u30D6\u30EC\u30C3\u30C8\u884C\u5217\u3067\u6570\u3048\u308B\n// \u69CB\u7BC9\
-    \ O(n log n)\uFF0C\u30AF\u30A8\u30EA O(log n)\ntemplate <class T>\nstruct StaticRangeCountDistinct\
-    \ {\n    int n;\n    WaveletMatrix<int> wm;\n\n    StaticRangeCountDistinct(const\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u30A6\u30A7\u30FC\u30D6\
+    \u30EC\u30C3\u30C8\u884C\u5217 (\u9759\u7684\u306A\u6570\u5217\u306B\u5BFE\u3059\
+    \u308B\u533A\u9593 k \u756A\u76EE\u30FB\u533A\u9593\u306E\u5024\u306E\u500B\u6570\
+    \u306A\u3069)\n// \u5024\u306F\u5185\u90E8\u3067\u5EA7\u6A19\u5727\u7E2E\u3059\
+    \u308B\uFF0E\u69CB\u7BC9 O(n log n)\uFF0C\u5404\u30AF\u30A8\u30EA O(log \u03C3\
+    ) (\u03C3 \u306F\u5024\u306E\u7A2E\u985E\u6570)\ntemplate <class T>\nstruct WaveletMatrix\
+    \ {\n    // 64 bit \u3054\u3068\u306B\uFF0C\u30D3\u30C3\u30C8\u5217\u3068\u305D\
+    \u308C\u3088\u308A\u524D\u306E 1 \u306E\u500B\u6570\u3092\u307E\u3068\u3081\u3066\
+    \u6301\u3064\n    struct BitVector {\n        struct Block {\n            uint64_t\
+    \ bits;\n            int cnt;\n        };\n        vector<Block> b;\n        void\
+    \ init(int n) { b.assign((n >> 6) + 1, {0, 0}); }\n        void set(int i) { b[i\
+    \ >> 6].bits |= 1ULL << (i & 63); }\n        void build() {\n            for (size_t\
+    \ i = 1; i < b.size(); i++) b[i].cnt = b[i - 1].cnt + __builtin_popcountll(b[i\
+    \ - 1].bits);\n        }\n        // [0, i) \u306E 1 \u306E\u500B\u6570\n    \
+    \    int rank1(int i) const {\n            const Block &x = b[i >> 6];\n     \
+    \       return x.cnt + __builtin_popcountll(x.bits & ((1ULL << (i & 63)) - 1));\n\
+    \        }\n        bool get(int i) const { return b[i >> 6].bits >> (i & 63)\
+    \ & 1; }\n    };\n\n    int n, lg;\n    vector<T> vals;  // \u5EA7\u6A19\u5727\
+    \u7E2E\u5F8C\u306E\u5024 (\u6607\u9806)\n    vector<BitVector> bv;\n    vector<int>\
+    \ zeros;\n\n    WaveletMatrix(const vector<T> &a = {}) : n(a.size()) {\n     \
+    \   vals = a;\n        sort(vals.begin(), vals.end());\n        vals.erase(unique(vals.begin(),\
+    \ vals.end()), vals.end());\n        vector<int> cur(n);\n        for (int i =\
+    \ 0; i < n; i++) cur[i] = int(lower_bound(vals.begin(), vals.end(), a[i]) - vals.begin());\n\
+    \        lg = 1;\n        while ((1 << lg) < (int)vals.size()) lg++;\n       \
+    \ bv.resize(lg);\n        zeros.resize(lg);\n        vector<int> nxt(n);\n   \
+    \     for (int h = lg - 1; h >= 0; h--) {\n            bv[h].init(n);\n      \
+    \      int z = 0;\n            for (int i = 0; i < n; i++) {\n               \
+    \ if (cur[i] >> h & 1) bv[h].set(i);\n                else z++;\n            }\n\
+    \            bv[h].build();\n            zeros[h] = z;\n            // 0 \u306E\
+    \u3082\u306E\u3092\u524D\u306B\uFF0C1 \u306E\u3082\u306E\u3092\u5F8C\u308D\u306B\
+    \ (\u5B89\u5B9A)\n            int p0 = 0, p1 = z;\n            for (int i = 0;\
+    \ i < n; i++) nxt[(cur[i] >> h & 1) ? p1++ : p0++] = cur[i];\n            swap(cur,\
+    \ nxt);\n        }\n    }\n\n    int size() const { return n; }\n\n    // a[i]\n\
+    \    T access(int i) const {\n        int res = 0;\n        for (int h = lg -\
+    \ 1; h >= 0; h--) {\n            int r1 = bv[h].rank1(i);\n            if (bv[h].get(i))\
+    \ res |= 1 << h, i = zeros[h] + r1;\n            else i -= r1;\n        }\n  \
+    \      return vals[res];\n    }\n    T operator[](int i) const { return access(i);\
+    \ }\n\n    // a[l..r) \u306E\u4E2D\u3067\u5C0F\u3055\u3044\u65B9\u304B\u3089 k\
+    \ \u756A\u76EE (0-indexed) \u306E\u5024\uFF0E0 <= k < r - l \u3067\u3042\u308B\
+    \u3053\u3068\n    T kth_smallest(int l, int r, int k) const {\n        int res\
+    \ = 0;\n        for (int h = lg - 1; h >= 0; h--) {\n            int l1 = bv[h].rank1(l),\
+    \ r1 = bv[h].rank1(r);\n            int z = (r - r1) - (l - l1);\n           \
+    \ if (k < z) {\n                l -= l1, r -= r1;\n            } else {\n    \
+    \            k -= z;\n                res |= 1 << h;\n                l = zeros[h]\
+    \ + l1, r = zeros[h] + r1;\n            }\n        }\n        return vals[res];\n\
+    \    }\n    // a[l..r) \u306E\u4E2D\u3067\u5927\u304D\u3044\u65B9\u304B\u3089\
+    \ k \u756A\u76EE (0-indexed) \u306E\u5024\n    T kth_largest(int l, int r, int\
+    \ k) const { return kth_smallest(l, r, r - l - 1 - k); }\n\n    // a[l..r) \u306E\
+    \u4E2D\u306E x \u672A\u6E80\u306E\u5024\u306E\u500B\u6570\n    int count_lt(int\
+    \ l, int r, const T &x) const { return count_lt_id(l, r, id_lower(x)); }\n   \
+    \ // a[l..r) \u306E\u4E2D\u306E x \u4EE5\u4E0B\u306E\u5024\u306E\u500B\u6570\n\
+    \    int count_le(int l, int r, const T &x) const { return count_lt_id(l, r, id_upper(x));\
+    \ }\n    // a[l..r) \u306E\u4E2D\u306E lo \u4EE5\u4E0A hi \u672A\u6E80\u306E\u5024\
+    \u306E\u500B\u6570\n    int count_range(int l, int r, const T &lo, const T &hi)\
+    \ const {\n        if (!(lo < hi)) return 0;\n        return count_lt(l, r, hi)\
+    \ - count_lt(l, r, lo);\n    }\n    // a[l..r) \u306E\u4E2D\u306E x \u306E\u500B\
+    \u6570\n    int count(int l, int r, const T &x) const { return count_le(l, r,\
+    \ x) - count_lt(l, r, x); }\n\n    // a[l..r) \u306E\u4E2D\u306E x \u672A\u6E80\
+    \u306E\u6700\u5927\u306E\u5024 (\u306A\u3051\u308C\u3070 def)\n    T max_lt(int\
+    \ l, int r, const T &x, T def = T(-1)) const {\n        int c = count_lt(l, r,\
+    \ x);\n        return c == 0 ? def : kth_smallest(l, r, c - 1);\n    }\n    //\
+    \ a[l..r) \u306E\u4E2D\u306E x \u4EE5\u4E0B\u306E\u6700\u5927\u306E\u5024 (\u306A\
+    \u3051\u308C\u3070 def)\n    T max_le(int l, int r, const T &x, T def = T(-1))\
+    \ const {\n        int c = count_le(l, r, x);\n        return c == 0 ? def : kth_smallest(l,\
+    \ r, c - 1);\n    }\n    // a[l..r) \u306E\u4E2D\u306E x \u4EE5\u4E0A\u306E\u6700\
+    \u5C0F\u306E\u5024 (\u306A\u3051\u308C\u3070 def)\n    T min_ge(int l, int r,\
+    \ const T &x, T def = T(-1)) const {\n        int c = count_lt(l, r, x);\n   \
+    \     return c == r - l ? def : kth_smallest(l, r, c);\n    }\n    // a[l..r)\
+    \ \u306E\u4E2D\u306E x \u3088\u308A\u5927\u304D\u3044\u6700\u5C0F\u306E\u5024\
+    \ (\u306A\u3051\u308C\u3070 def)\n    T min_gt(int l, int r, const T &x, T def\
+    \ = T(-1)) const {\n        int c = count_le(l, r, x);\n        return c == r\
+    \ - l ? def : kth_smallest(l, r, c);\n    }\n\n  private:\n    int id_lower(const\
+    \ T &x) const { return int(lower_bound(vals.begin(), vals.end(), x) - vals.begin());\
+    \ }\n    int id_upper(const T &x) const { return int(upper_bound(vals.begin(),\
+    \ vals.end(), x) - vals.begin()); }\n    // a[l..r) \u306E\u4E2D\u3067\u5727\u7E2E\
+    \u5F8C\u306E\u5024\u304C v \u672A\u6E80\u306E\u3082\u306E\u306E\u500B\u6570\n\
+    \    int count_lt_id(int l, int r, int v) const {\n        if (l >= r) return\
+    \ 0;\n        if (v >= (1 << lg)) return r - l;\n        int res = 0;\n      \
+    \  for (int h = lg - 1; h >= 0; h--) {\n            int l1 = bv[h].rank1(l), r1\
+    \ = bv[h].rank1(r);\n            if (v >> h & 1) {\n                res += (r\
+    \ - r1) - (l - l1);\n                l = zeros[h] + l1, r = zeros[h] + r1;\n \
+    \           } else {\n                l -= l1, r -= r1;\n            }\n     \
+    \   }\n        return res;\n    }\n};\n#line 4 \"data_structure/static_range_count_distinct.hpp\"\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u9759\u7684\u306A\u6570\
+    \u5217\u306E\u533A\u9593\u306B\u542B\u307E\u308C\u308B\u5024\u306E\u7A2E\u985E\
+    \u6570 (Static Range Count Distinct)\uFF0E\u30AA\u30F3\u30E9\u30A4\u30F3\n// prev[i]\
+    \ = i \u3088\u308A\u524D\u3067 a[i] \u3068\u540C\u3058\u5024\u304C\u6700\u5F8C\
+    \u306B\u51FA\u3066\u304F\u308B\u4F4D\u7F6E (\u306A\u3051\u308C\u3070 -1) \u3068\
+    \u3059\u308B\u3068\uFF0C\n// [l, r) \u306E\u7A2E\u985E\u6570 = #{i \u2208 [l,\
+    \ r) : prev[i] < l}\uFF0E\u3053\u308C\u3092\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\
+    \u30C8\u884C\u5217\u3067\u6570\u3048\u308B\n// \u69CB\u7BC9 O(n log n)\uFF0C\u30AF\
+    \u30A8\u30EA O(log n)\ntemplate <class T>\nstruct StaticRangeCountDistinct {\n\
+    \    int n;\n    WaveletMatrix<int> wm;\n\n    StaticRangeCountDistinct(const\
     \ vector<T> &a) : n(a.size()) {\n        vector<int> ord(n), prev(n, -1);\n  \
     \      iota(ord.begin(), ord.end(), 0);\n        stable_sort(ord.begin(), ord.end(),\
     \ [&](int i, int j) { return a[i] < a[j]; });\n        for (int k = 1; k < n;\
@@ -327,8 +330,8 @@ data:
   isVerificationFile: true
   path: test/static_range_count_distinct.test.cpp
   requiredBy: []
-  timestamp: '2026-10-14 23:42:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/static_range_count_distinct.test.cpp
 layout: document

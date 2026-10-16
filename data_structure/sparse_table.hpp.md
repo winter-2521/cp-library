@@ -1,22 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/staticrmq_sparse_table.test.cpp
     title: test/staticrmq_sparse_table.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/static_rmq.test.cpp
     title: test/unittest/static_rmq.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -28,49 +29,49 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"data_structure/sparse_table.hpp\"\n\n// Sparse Table\n// \u51AA\u7B49\u306A\
-    \u6F14\u7B97 (min, max, gcd, and, or \u306A\u3069) \u306E\u533A\u9593\u30AF\u30A8\
-    \u30EA\u3092\uFF0C\u69CB\u7BC9 O(n log n)\u30FB\u30AF\u30A8\u30EA O(1) \u3067\u51E6\
-    \u7406\u3059\u308B\n// SparseTable st(a, [](int x, int y) { return min(x, y);\
-    \ });\ntemplate <class T, class Op>\nstruct SparseTable {\n    int n, lg;\n  \
-    \  Op op;\n    // t[k * n + i] = op(a[i], ..., a[i + 2^k - 1])  (1 \u672C\u306E\
-    \u914D\u5217\u306B\u307E\u3068\u3081\u3066\u30AD\u30E3\u30C3\u30B7\u30E5\u52B9\
-    \u7387\u3092\u4E0A\u3052\u308B)\n    vector<T> t;\n\n    SparseTable(const vector<T>\
-    \ &a, Op op) : n(a.size()), op(op) {\n        lg = 1;\n        while ((1 << lg)\
-    \ <= n) lg++;\n        t.resize((size_t)lg * max(n, 1));\n        copy(a.begin(),\
-    \ a.end(), t.begin());\n        for (int k = 1; k < lg; k++) {\n            const\
-    \ T *src = t.data() + (size_t)(k - 1) * n;\n            T *dst = t.data() + (size_t)k\
-    \ * n;\n            int half = 1 << (k - 1);\n            for (int i = 0; i +\
-    \ (1 << k) <= n; i++) dst[i] = op(src[i], src[i + half]);\n        }\n    }\n\n\
-    \    // op(a[l], ..., a[r-1])\uFF0El < r \u3067\u3042\u308B\u3053\u3068\n    T\
-    \ prod(int l, int r) const {\n        int k = 31 - __builtin_clz(r - l);\n   \
-    \     return op(t[(size_t)k * n + l], t[(size_t)k * n + r - (1 << k)]);\n    }\n\
-    };\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n\n// Sparse Table\n// \u51AA\u7B49\
-    \u306A\u6F14\u7B97 (min, max, gcd, and, or \u306A\u3069) \u306E\u533A\u9593\u30AF\
-    \u30A8\u30EA\u3092\uFF0C\u69CB\u7BC9 O(n log n)\u30FB\u30AF\u30A8\u30EA O(1) \u3067\
-    \u51E6\u7406\u3059\u308B\n// SparseTable st(a, [](int x, int y) { return min(x,\
-    \ y); });\ntemplate <class T, class Op>\nstruct SparseTable {\n    int n, lg;\n\
-    \    Op op;\n    // t[k * n + i] = op(a[i], ..., a[i + 2^k - 1])  (1 \u672C\u306E\
-    \u914D\u5217\u306B\u307E\u3068\u3081\u3066\u30AD\u30E3\u30C3\u30B7\u30E5\u52B9\
-    \u7387\u3092\u4E0A\u3052\u308B)\n    vector<T> t;\n\n    SparseTable(const vector<T>\
-    \ &a, Op op) : n(a.size()), op(op) {\n        lg = 1;\n        while ((1 << lg)\
-    \ <= n) lg++;\n        t.resize((size_t)lg * max(n, 1));\n        copy(a.begin(),\
-    \ a.end(), t.begin());\n        for (int k = 1; k < lg; k++) {\n            const\
-    \ T *src = t.data() + (size_t)(k - 1) * n;\n            T *dst = t.data() + (size_t)k\
-    \ * n;\n            int half = 1 << (k - 1);\n            for (int i = 0; i +\
-    \ (1 << k) <= n; i++) dst[i] = op(src[i], src[i + half]);\n        }\n    }\n\n\
-    \    // op(a[l], ..., a[r-1])\uFF0El < r \u3067\u3042\u308B\u3053\u3068\n    T\
-    \ prod(int l, int r) const {\n        int k = 31 - __builtin_clz(r - l);\n   \
-    \     return op(t[(size_t)k * n + l], t[(size_t)k * n + r - (1 << k)]);\n    }\n\
-    };\n"
+    \ 3 \"data_structure/sparse_table.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// Sparse Table\n// \u51AA\u7B49\u306A\u6F14\u7B97 (min, max, gcd, and, or \u306A\
+    \u3069) \u306E\u533A\u9593\u30AF\u30A8\u30EA\u3092\uFF0C\u69CB\u7BC9 O(n log n)\u30FB\
+    \u30AF\u30A8\u30EA O(1) \u3067\u51E6\u7406\u3059\u308B\n// SparseTable st(a, [](int\
+    \ x, int y) { return min(x, y); });\ntemplate <class T, class Op>\nstruct SparseTable\
+    \ {\n    int n, lg;\n    Op op;\n    // t[k * n + i] = op(a[i], ..., a[i + 2^k\
+    \ - 1])  (1 \u672C\u306E\u914D\u5217\u306B\u307E\u3068\u3081\u3066\u30AD\u30E3\
+    \u30C3\u30B7\u30E5\u52B9\u7387\u3092\u4E0A\u3052\u308B)\n    vector<T> t;\n\n\
+    \    SparseTable(const vector<T> &a, Op op) : n(a.size()), op(op) {\n        lg\
+    \ = 1;\n        while ((1 << lg) <= n) lg++;\n        t.resize((size_t)lg * max(n,\
+    \ 1));\n        copy(a.begin(), a.end(), t.begin());\n        for (int k = 1;\
+    \ k < lg; k++) {\n            const T *src = t.data() + (size_t)(k - 1) * n;\n\
+    \            T *dst = t.data() + (size_t)k * n;\n            int half = 1 << (k\
+    \ - 1);\n            for (int i = 0; i + (1 << k) <= n; i++) dst[i] = op(src[i],\
+    \ src[i + half]);\n        }\n    }\n\n    // op(a[l], ..., a[r-1])\uFF0El < r\
+    \ \u3067\u3042\u308B\u3053\u3068\n    T prod(int l, int r) const {\n        int\
+    \ k = 31 - __builtin_clz(r - l);\n        return op(t[(size_t)k * n + l], t[(size_t)k\
+    \ * n + r - (1 << k)]);\n    }\n};\n"
+  code: "#pragma once\n#include \"../template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// Sparse Table\n// \u51AA\u7B49\u306A\u6F14\u7B97 (min, max, gcd, and, or \u306A\
+    \u3069) \u306E\u533A\u9593\u30AF\u30A8\u30EA\u3092\uFF0C\u69CB\u7BC9 O(n log n)\u30FB\
+    \u30AF\u30A8\u30EA O(1) \u3067\u51E6\u7406\u3059\u308B\n// SparseTable st(a, [](int\
+    \ x, int y) { return min(x, y); });\ntemplate <class T, class Op>\nstruct SparseTable\
+    \ {\n    int n, lg;\n    Op op;\n    // t[k * n + i] = op(a[i], ..., a[i + 2^k\
+    \ - 1])  (1 \u672C\u306E\u914D\u5217\u306B\u307E\u3068\u3081\u3066\u30AD\u30E3\
+    \u30C3\u30B7\u30E5\u52B9\u7387\u3092\u4E0A\u3052\u308B)\n    vector<T> t;\n\n\
+    \    SparseTable(const vector<T> &a, Op op) : n(a.size()), op(op) {\n        lg\
+    \ = 1;\n        while ((1 << lg) <= n) lg++;\n        t.resize((size_t)lg * max(n,\
+    \ 1));\n        copy(a.begin(), a.end(), t.begin());\n        for (int k = 1;\
+    \ k < lg; k++) {\n            const T *src = t.data() + (size_t)(k - 1) * n;\n\
+    \            T *dst = t.data() + (size_t)k * n;\n            int half = 1 << (k\
+    \ - 1);\n            for (int i = 0; i + (1 << k) <= n; i++) dst[i] = op(src[i],\
+    \ src[i + half]);\n        }\n    }\n\n    // op(a[l], ..., a[r-1])\uFF0El < r\
+    \ \u3067\u3042\u308B\u3053\u3068\n    T prod(int l, int r) const {\n        int\
+    \ k = 31 - __builtin_clz(r - l);\n        return op(t[(size_t)k * n + l], t[(size_t)k\
+    \ * n + r - (1 << k)]);\n    }\n};\n"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: data_structure/sparse_table.hpp
   requiredBy: []
-  timestamp: '2026-10-12 10:14:40+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/unittest/static_rmq.test.cpp
   - test/staticrmq_sparse_table.test.cpp

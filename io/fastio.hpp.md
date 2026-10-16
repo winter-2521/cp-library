@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -13,11 +13,20 @@ data:
     path: test/area_of_union_of_rectangles.test.cpp
     title: test/area_of_union_of_rectangles.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/assignment.test.cpp
+    title: test/assignment.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/associative_array.test.cpp
     title: test/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/biconnected_components.test.cpp
     title: test/biconnected_components.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/bipartite_edge_coloring.test.cpp
+    title: test/bipartite_edge_coloring.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/bipartitematching.test.cpp
+    title: test/bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/connected_components_of_complement_graph.test.cpp
     title: test/connected_components_of_complement_graph.test.cpp
@@ -31,6 +40,9 @@ data:
     path: test/deque_operate_all_composite.test.cpp
     title: test/deque_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/directedmst.test.cpp
+    title: test/directedmst.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/double_ended_priority_queue.test.cpp
     title: test/double_ended_priority_queue.test.cpp
   - icon: ':heavy_check_mark:'
@@ -39,239 +51,261 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/dynamic_sequence_range_affine_range_sum.test.cpp
     title: test/dynamic_sequence_range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/eulerian_trail_directed.test.cpp
     title: test/eulerian_trail_directed.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: test/eulerian_trail_undirected.test.cpp
+    title: test/eulerian_trail_undirected.test.cpp
+  - icon: ':x:'
+    path: test/general_matching.test.cpp
+    title: test/general_matching.test.cpp
+  - icon: ':x:'
+    path: test/general_weighted_matching.test.cpp
+    title: test/general_weighted_matching.test.cpp
+  - icon: ':x:'
     path: test/incremental_scc.test.cpp
     title: test/incremental_scc.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/k_shortest_walk.test.cpp
     title: test/k_shortest_walk.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/line_add_get_min.test.cpp
     title: test/line_add_get_min.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/many_aplusb.test.cpp
     title: test/many_aplusb.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/many_aplusb_128bit.test.cpp
     title: test/many_aplusb_128bit.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: test/min_cost_b_flow.test.cpp
+    title: test/min_cost_b_flow.test.cpp
+  - icon: ':x:'
+    path: test/minimum_spanning_tree.test.cpp
+    title: test/minimum_spanning_tree.test.cpp
+  - icon: ':x:'
     path: test/ordered_set.test.cpp
     title: test/ordered_set.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/persistent_queue.test.cpp
     title: test/persistent_queue.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/persistent_range_affine_range_sum.test.cpp
     title: test/persistent_range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/persistent_unionfind.test.cpp
     title: test/persistent_unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/point_add_range_sum.test.cpp
     title: test/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/point_add_rectangle_sum.test.cpp
     title: test/point_add_rectangle_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/point_set_range_composite.test.cpp
     title: test/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/point_set_range_composite_large_array.test.cpp
     title: test/point_set_range_composite_large_array.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/point_set_range_frequency.test.cpp
     title: test/point_set_range_frequency.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/point_set_range_sort_range_composite.test.cpp
     title: test/point_set_range_sort_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/predecessor_problem.test.cpp
     title: test/predecessor_problem.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/queue_operate_all_composite.test.cpp
     title: test/queue_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_affine_point_get.test.cpp
     title: test/range_affine_point_get.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_affine_range_sum.test.cpp
     title: test/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_affine_range_sum_large_array.test.cpp
     title: test/range_affine_range_sum_large_array.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_chmin_chmax_add_range_sum.test.cpp
     title: test/range_chmin_chmax_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_kth_smallest.test.cpp
     title: test/range_kth_smallest.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_linear_add_range_min.test.cpp
     title: test/range_linear_add_range_min.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_parallel_unionfind.test.cpp
     title: test/range_parallel_unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_parallel_unionfind_online.test.cpp
     title: test/range_parallel_unionfind_online.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_reverse_range_sum.test.cpp
     title: test/range_reverse_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_set_range_composite.test.cpp
     title: test/range_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/rectangle_add_point_get.test.cpp
     title: test/rectangle_add_point_get.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/rectangle_sum.test.cpp
     title: test/rectangle_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/scc.test.cpp
     title: test/scc.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/segment_add_get_min.test.cpp
     title: test/segment_add_get_min.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/segment_add_get_min_offline.test.cpp
     title: test/segment_add_get_min_offline.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/set_xor_min.test.cpp
     title: test/set_xor_min.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: test/st_numbering.test.cpp
+    title: test/st_numbering.test.cpp
+  - icon: ':x:'
     path: test/static_range_count_distinct.test.cpp
     title: test/static_range_count_distinct.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/static_range_frequency.test.cpp
     title: test/static_range_frequency.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/static_range_inversions_query.test.cpp
     title: test/static_range_inversions_query.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/static_range_lis_query.test.cpp
     title: test/static_range_lis_query.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/static_range_mode_query.test.cpp
     title: test/static_range_mode_query.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/static_range_sum.test.cpp
     title: test/static_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/static_rectangle_add_rectangle_sum.test.cpp
     title: test/static_rectangle_add_rectangle_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/staticrmq.test.cpp
     title: test/staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/staticrmq_sparse_table.test.cpp
     title: test/staticrmq_sparse_table.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/three_edge_connected_components.test.cpp
     title: test/three_edge_connected_components.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/two_edge_connected_components.test.cpp
     title: test/two_edge_connected_components.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unionfind_with_potential.test.cpp
     title: test/unionfind_with_potential.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unionfind_with_potential_non_commutative_group.test.cpp
     title: test/unionfind_with_potential_non_commutative_group.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/binary_trie.test.cpp
     title: test/unittest/binary_trie.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/cumulative_sum.test.cpp
     title: test/unittest/cumulative_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/dynamic_sequence.test.cpp
     title: test/unittest/dynamic_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/fast_set.test.cpp
     title: test/unittest/fast_set.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/fenwick_tree.test.cpp
     title: test/unittest/fenwick_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/foldable_queue.test.cpp
     title: test/unittest/foldable_queue.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/graph_components.test.cpp
     title: test/unittest/graph_components.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: test/unittest/graph_optimization.test.cpp
+    title: test/unittest/graph_optimization.test.cpp
+  - icon: ':x:'
     path: test/unittest/hash_map.test.cpp
     title: test/unittest/hash_map.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/incremental_scc_k_shortest.test.cpp
     title: test/unittest/incremental_scc_k_shortest.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/interval_heap.test.cpp
     title: test/unittest/interval_heap.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/kd_tree.test.cpp
     title: test/unittest/kd_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/lazy_segment_tree.test.cpp
     title: test/unittest/lazy_segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/li_chao_tree.test.cpp
     title: test/unittest/li_chao_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/linear_add_min_segment_tree.test.cpp
     title: test/unittest/linear_add_min_segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/modint.test.cpp
     title: test/unittest/modint.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/ordered_set.test.cpp
     title: test/unittest/ordered_set.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/persistent.test.cpp
     title: test/unittest/persistent.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/potentialized_unionfind.test.cpp
     title: test/unittest/potentialized_unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/range_assign_segment_tree.test.cpp
     title: test/unittest/range_assign_segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/range_parallel_unionfind.test.cpp
     title: test/unittest/range_parallel_unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/rectangle_add.test.cpp
     title: test/unittest/rectangle_add.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/segment_tree.test.cpp
     title: test/unittest/segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/segment_tree_beats.test.cpp
     title: test/unittest/segment_tree_beats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/sortable_segment_tree.test.cpp
     title: test/unittest/sortable_segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/static_range_lis.test.cpp
     title: test/unittest/static_range_lis.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/static_range_queries.test.cpp
     title: test/unittest/static_range_queries.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/static_rectangle_sum.test.cpp
     title: test/unittest/static_rectangle_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/static_rmq.test.cpp
     title: test/unittest/static_rmq.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/wavelet_matrix.test.cpp
     title: test/unittest/wavelet_matrix.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -283,31 +317,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -431,50 +466,51 @@ data:
     \   if (i) write_char(' ');\n            *this << v[i];\n        }\n        return\
     \ *this;\n    }\n};\n\ninline Reader fin;\ninline Writer fout;\n\n}  // namespace\
     \ fastio\n\nusing fastio::fin;\nusing fastio::fout;\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\
-    \u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin\
-    \ / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf\
-    \ / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\
-    \n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\
-    \u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\
-    \u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\
-    \u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\
-    \n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\
-    \u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n    char d[10000][4];\n \
-    \   constexpr DigitTable() : d() {\n        for (int i = 0; i < 10000; i++) {\n\
-    \            int x = i;\n            for (int j = 3; j >= 0; j--) d[i][j] = char('0'\
-    \ + x % 10), x /= 10;\n        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\
-    \n// __int128 \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral\
-    \ \u306B\u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\
-    \u308B\ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct\
-    \ is_int128<__int128> : true_type {};\ntemplate <> struct is_int128<unsigned __int128>\
-    \ : true_type {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\
-    \u5FDC\u3059\u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class\
-    \ T> struct unsigned_of { using type = make_unsigned_t<T>; };\ntemplate <> struct\
-    \ unsigned_of<__int128> { using type = unsigned __int128; };\ntemplate <class\
-    \ T> using unsigned_of_t = typename unsigned_of<T>::type;\n\ntemplate <class T>\
-    \ constexpr bool is_integer_v = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T,\
-    \ char>) || is_int128<T>::value;\n// ModInt \u306E\u3088\u3046\u306B val() \u3067\
-    \u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\
-    \u3067\u304D\u308B\u578B\ntemplate <class T, class = void> struct has_val : false_type\
-    \ {};\ntemplate <class T> struct has_val<T, void_t<decltype(declval<const T &>().val())>>\
-    \ : true_type {};\n\ntemplate <class T> constexpr bool is_signed_integer_v = is_same_v<T,\
-    \ __int128> || (is_integral_v<T> && is_signed_v<T>);\n\nstruct Reader {\n    //\
-    \ \u6570\u5024\u3092\u8AAD\u3080\u524D\u306B\u5E38\u306B TOKEN_MARGIN \u6587\u5B57\
-    \u4EE5\u4E0A\u304C buf \u306B\u6B8B\u3063\u3066\u3044\u308B\u3088\u3046\u306B\u3057\
-    \u3066\uFF0C\u6570\u5024\u306E\u8AAD\u307F\u8FBC\u307F\u4E2D\u306E\u5883\u754C\
-    \u30C1\u30A7\u30C3\u30AF\u3092\u7701\u304F\n    static constexpr size_t TOKEN_MARGIN\
-    \ = 64;\n    char buf[BUF_SIZE + TOKEN_MARGIN + 8];\n    size_t pos = 0, len =\
-    \ 0;\n    bool eof = false;\n\n    // \u672A\u8AAD\u90E8\u5206\u3092\u5148\u982D\
-    \u306B\u5BC4\u305B\u3066\u304B\u3089\u8AAD\u307F\u8DB3\u3059\n    void refill()\
-    \ {\n        size_t rem = len - pos;\n        memmove(buf, buf + pos, rem);\n\
-    \        pos = 0, len = rem;\n        while (!eof && len < TOKEN_MARGIN) {\n \
-    \           size_t r = fread(buf + len, 1, BUF_SIZE - len, stdin);\n         \
-    \   if (r == 0) eof = true;\n            len += r;\n        }\n        // 8 \u30D0\
-    \u30A4\u30C8\u5358\u4F4D\u3067\u6570\u5B57\u3092\u8AAD\u3080\u3068\u304D\u306B\
-    \u672B\u5C3E\u306E\u5148\u3092\u8AAD\u3093\u3067\u3082\u6B62\u307E\u308B\u3088\
-    \u3046\u756A\u5175\u3092\u7F6E\u304F\n        memset(buf + len, 0, 8);\n    }\n\
-    \n    // \u7A7A\u767D\u3092\u8AAD\u307F\u98DB\u3070\u3059\uFF0E\u8AAD\u307F\u7D42\
+  code: "#pragma once\n#include \"../template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';\
+    \  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\
+    \u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\
+    \u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\
+    \u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\
+    \u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio\
+    \ {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\n\
+    constexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\
+    \u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable\
+    \ {\n    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int\
+    \ i = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
+    \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
+    template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
+    \ || (is_integral_v<T> && is_signed_v<T>);\n\nstruct Reader {\n    // \u6570\u5024\
+    \u3092\u8AAD\u3080\u524D\u306B\u5E38\u306B TOKEN_MARGIN \u6587\u5B57\u4EE5\u4E0A\
+    \u304C buf \u306B\u6B8B\u3063\u3066\u3044\u308B\u3088\u3046\u306B\u3057\u3066\uFF0C\
+    \u6570\u5024\u306E\u8AAD\u307F\u8FBC\u307F\u4E2D\u306E\u5883\u754C\u30C1\u30A7\
+    \u30C3\u30AF\u3092\u7701\u304F\n    static constexpr size_t TOKEN_MARGIN = 64;\n\
+    \    char buf[BUF_SIZE + TOKEN_MARGIN + 8];\n    size_t pos = 0, len = 0;\n  \
+    \  bool eof = false;\n\n    // \u672A\u8AAD\u90E8\u5206\u3092\u5148\u982D\u306B\
+    \u5BC4\u305B\u3066\u304B\u3089\u8AAD\u307F\u8DB3\u3059\n    void refill() {\n\
+    \        size_t rem = len - pos;\n        memmove(buf, buf + pos, rem);\n    \
+    \    pos = 0, len = rem;\n        while (!eof && len < TOKEN_MARGIN) {\n     \
+    \       size_t r = fread(buf + len, 1, BUF_SIZE - len, stdin);\n            if\
+    \ (r == 0) eof = true;\n            len += r;\n        }\n        // 8 \u30D0\u30A4\
+    \u30C8\u5358\u4F4D\u3067\u6570\u5B57\u3092\u8AAD\u3080\u3068\u304D\u306B\u672B\
+    \u5C3E\u306E\u5148\u3092\u8AAD\u3093\u3067\u3082\u6B62\u307E\u308B\u3088\u3046\
+    \u756A\u5175\u3092\u7F6E\u304F\n        memset(buf + len, 0, 8);\n    }\n\n  \
+    \  // \u7A7A\u767D\u3092\u8AAD\u307F\u98DB\u3070\u3059\uFF0E\u8AAD\u307F\u7D42\
     \u308F\u3063\u305F\u5F8C\u306F TOKEN_MARGIN \u6587\u5B57\u4EE5\u4E0A(\u307E\u305F\
     \u306F EOF \u307E\u3067)\u304C\u6B8B\u3063\u3066\u3044\u308B\n    void skip_space()\
     \ {\n        while (true) {\n            if (len - pos < TOKEN_MARGIN && !eof)\
@@ -584,12 +620,14 @@ data:
   isVerificationFile: false
   path: io/fastio.hpp
   requiredBy: []
-  timestamp: '2026-10-12 10:14:40+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/min_cost_b_flow.test.cpp
   - test/static_range_count_distinct.test.cpp
   - test/unionfind_with_potential_non_commutative_group.test.cpp
   - test/persistent_unionfind.test.cpp
+  - test/minimum_spanning_tree.test.cpp
   - test/static_range_sum.test.cpp
   - test/static_range_inversions_query.test.cpp
   - test/double_ended_priority_queue.test.cpp
@@ -606,12 +644,15 @@ data:
   - test/three_edge_connected_components.test.cpp
   - test/biconnected_components.test.cpp
   - test/two_edge_connected_components.test.cpp
+  - test/st_numbering.test.cpp
+  - test/eulerian_trail_undirected.test.cpp
   - test/persistent_range_affine_range_sum.test.cpp
   - test/unittest/segment_tree_beats.test.cpp
   - test/unittest/modint.test.cpp
   - test/unittest/static_rectangle_sum.test.cpp
   - test/unittest/wavelet_matrix.test.cpp
   - test/unittest/fenwick_tree.test.cpp
+  - test/unittest/graph_optimization.test.cpp
   - test/unittest/kd_tree.test.cpp
   - test/unittest/cumulative_sum.test.cpp
   - test/unittest/foldable_queue.test.cpp
@@ -638,17 +679,21 @@ data:
   - test/unittest/sortable_segment_tree.test.cpp
   - test/deque_operate_all_composite.test.cpp
   - test/point_set_range_sort_range_composite.test.cpp
+  - test/bipartitematching.test.cpp
   - test/incremental_scc.test.cpp
   - test/set_xor_min.test.cpp
   - test/staticrmq_sparse_table.test.cpp
   - test/dynamic_sequence_range_affine_range_sum.test.cpp
   - test/connected_components_of_complement_graph.test.cpp
+  - test/general_weighted_matching.test.cpp
+  - test/bipartite_edge_coloring.test.cpp
   - test/range_kth_smallest.test.cpp
   - test/point_set_range_frequency.test.cpp
   - test/static_range_lis_query.test.cpp
   - test/range_parallel_unionfind_online.test.cpp
   - test/predecessor_problem.test.cpp
   - test/range_parallel_unionfind.test.cpp
+  - test/general_matching.test.cpp
   - test/ordered_set.test.cpp
   - test/static_range_frequency.test.cpp
   - test/range_affine_point_get.test.cpp
@@ -658,6 +703,7 @@ data:
   - test/scc.test.cpp
   - test/unionfind_with_potential.test.cpp
   - test/range_chmin_chmax_add_range_sum.test.cpp
+  - test/assignment.test.cpp
   - test/k_shortest_walk.test.cpp
   - test/associative_array.test.cpp
   - test/line_add_get_min.test.cpp
@@ -669,6 +715,7 @@ data:
   - test/rectangle_sum.test.cpp
   - test/range_set_range_composite.test.cpp
   - test/point_add_range_sum.test.cpp
+  - test/directedmst.test.cpp
   - test/rectangle_add_point_get.test.cpp
   - test/range_linear_add_range_min.test.cpp
   - test/range_affine_range_sum.test.cpp

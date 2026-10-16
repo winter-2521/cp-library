@@ -1,32 +1,33 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/dynamic_range_frequency.hpp
     title: "\u4E00\u70B9\u66F4\u65B0\u3042\u308A\u306E\u533A\u9593\u306E\u5024\u306E\
       \u500B\u6570 (Point Set Range Frequency)"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/ordered_set.test.cpp
     title: test/ordered_set.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/point_set_range_frequency.test.cpp
     title: test/point_set_range_frequency.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/ordered_set.test.cpp
     title: test/unittest/ordered_set.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/static_range_queries.test.cpp
     title: test/unittest/static_range_queries.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -38,84 +39,85 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"data_structure/ordered_set.hpp\"\n\n// \u9806\u5E8F\u4ED8\u304D\u96C6\u5408\
-    \ (\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u5024\u306E\u5148\u8AAD\u307F\u4E0D\u8981\
-    )\n// \u5404\u30CE\u30FC\u30C9\u304C\u6700\u5927 B \u500B\u306E\u5024\u3092\u30BD\
-    \u30FC\u30C8\u6E08\u307F\u914D\u5217\u3067\u6301\u3064 AVL \u6728\uFF0E\n// 1\
-    \ \u30CE\u30FC\u30C9\u3092 128 \u30D0\u30A4\u30C8\u7A0B\u5EA6\u306B\u3057\u3066\
-    \u30AD\u30E3\u30C3\u30B7\u30E5\u52B9\u7387\u3092\u4E0A\u3052\uFF0C\u30CE\u30FC\
-    \u30C9\u5185\u306F\u7DDA\u5F62\u63A2\u7D22\u3059\u308B\uFF0E\u5404\u64CD\u4F5C\
-    \ O(log n)\n//\n// \u5B58\u5728\u3057\u306A\u3044\u5834\u5408\u306E\u623B\u308A\
-    \u5024\u306F def (\u7701\u7565\u6642 -1)\ntemplate <class T, int B = std::max(4,\
-    \ int(112 / sizeof(T)))>\nstruct OrderedSet {\n    struct Node {\n        T data[B];\n\
-    \        int left, right, total;  // total: \u90E8\u5206\u6728\u306E\u8981\u7D20\
-    \u6570\n        short height, size;\n    };\n\n    vector<Node> t;\n    vector<int>\
-    \ free_list;\n    int root = 0;\n\n    OrderedSet() { t.push_back(Node{}); } \
-    \ // t[0] \u306F\u756A\u5175 (height = total = 0)\n\n    // \u521D\u671F\u8981\
-    \u7D20 a (\u9806\u4E0D\u540C\u30FB\u91CD\u8907\u53EF) \u3067 O(n log n) \u69CB\
-    \u7BC9 (\u30BD\u30FC\u30C8\u6E08\u307F\u306A\u3089 O(n))\n    OrderedSet(vector<T>\
-    \ a) : OrderedSet() {\n        if (!is_sorted(a.begin(), a.end())) sort(a.begin(),\
-    \ a.end());\n        a.erase(unique(a.begin(), a.end()), a.end());\n        int\
-    \ n = a.size();\n        if (n == 0) return;\n        // \u5F8C\u304B\u3089\u633F\
-    \u5165\u3067\u304D\u308B\u3088\u3046\u5C11\u3057\u4F59\u88D5\u3092\u6B8B\u3057\
-    \u3066\u8A70\u3081\u308B\n        int bs = std::max(1, B * 6 / 7);\n        int\
-    \ m = (n + bs - 1) / bs;\n        t.reserve(m + 1);\n        vector<int> ids(m);\n\
-    \        for (int i = 0; i < m; i++) {\n            int v = ids[i] = new_node();\n\
-    \            int l = i * bs, r = std::min(n, l + bs);\n            for (int j\
-    \ = l; j < r; j++) t[v].data[j - l] = a[j];\n            t[v].size = r - l;\n\
-    \        }\n        root = build(ids, 0, m);\n    }\n\n    int size() const {\
-    \ return t[root].total; }\n    bool empty() const { return root == 0; }\n\n  \
-    \  // x \u3092\u633F\u5165\u3059\u308B\uFF0E\u633F\u5165\u3057\u305F\u3089 true\uFF0C\
-    \u65E2\u306B\u3042\u308C\u3070 false\n    bool insert(const T &x) {\n        done\
-    \ = false;\n        root = insert(root, x);\n        return done;\n    }\n\n \
-    \   // x \u3092\u524A\u9664\u3059\u308B\uFF0E\u524A\u9664\u3057\u305F\u3089 true\uFF0C\
-    \u306A\u3051\u308C\u3070 false\n    bool erase(const T &x) {\n        done = false;\n\
-    \        root = erase(root, x);\n        return done;\n    }\n\n    bool contains(const\
-    \ T &x) const {\n        for (int v = root; v;) {\n            const Node &nd\
-    \ = t[v];\n            if (x < nd.data[0]) v = nd.left;\n            else if (nd.data[nd.size\
-    \ - 1] < x) v = nd.right;\n            else {\n                for (int i = 0;\
-    \ i < nd.size; i++) if (!(nd.data[i] < x)) return !(x < nd.data[i]);\n       \
-    \         return false;\n            }\n        }\n        return false;\n   \
-    \ }\n    size_t count(const T &x) const { return contains(x); }\n\n    // \u5C0F\
-    \u3055\u3044\u65B9\u304B\u3089 k \u756A\u76EE (0-indexed) \u306E\u8981\u7D20\uFF0E\
-    k >= size() \u306A\u3089 def\n    T kth(int k, T def = T(-1)) const {\n      \
-    \  if (k < 0 || k >= size()) return def;\n        for (int v = root;;) {\n   \
-    \         const Node &nd = t[v];\n            int ls = t[nd.left].total;\n   \
-    \         if (k < ls) v = nd.left;\n            else if (k < ls + nd.size) return\
-    \ nd.data[k - ls];\n            else k -= ls + nd.size, v = nd.right;\n      \
-    \  }\n    }\n\n    // x \u672A\u6E80\u306E\u8981\u7D20\u306E\u500B\u6570\n   \
-    \ int count_lt(const T &x) const {\n        int res = 0;\n        for (int v =\
-    \ root; v;) {\n            const Node &nd = t[v];\n            if (!(nd.data[0]\
-    \ < x)) v = nd.left;\n            else if (nd.data[nd.size - 1] < x) res += nd.total\
-    \ - t[nd.right].total, v = nd.right;\n            else {\n                int\
-    \ i = 0;\n                while (nd.data[i] < x) i++;\n                return\
-    \ res + t[nd.left].total + i;\n            }\n        }\n        return res;\n\
-    \    }\n\n    // x \u4EE5\u4E0B\u306E\u8981\u7D20\u306E\u500B\u6570\n    int count_le(const\
-    \ T &x) const {\n        int res = 0;\n        for (int v = root; v;) {\n    \
-    \        const Node &nd = t[v];\n            if (x < nd.data[0]) v = nd.left;\n\
-    \            else if (!(x < nd.data[nd.size - 1])) res += nd.total - t[nd.right].total,\
-    \ v = nd.right;\n            else {\n                int i = 0;\n            \
-    \    while (!(x < nd.data[i])) i++;\n                return res + t[nd.left].total\
-    \ + i;\n            }\n        }\n        return res;\n    }\n\n    // [lo, hi)\
-    \ \u306B\u542B\u307E\u308C\u308B\u8981\u7D20\u306E\u500B\u6570\n    int count_range(const\
-    \ T &lo, const T &hi) const { return lo < hi ? count_lt(hi) - count_lt(lo) : 0;\
-    \ }\n\n    // x \u672A\u6E80\u306E\u6700\u5927\u306E\u8981\u7D20 (\u306A\u3051\
-    \u308C\u3070 def)\n    T max_lt(const T &x, T def = T(-1)) const {\n        for\
-    \ (int v = root; v;) {\n            const Node &nd = t[v];\n            if (!(nd.data[0]\
-    \ < x)) v = nd.left;\n            else if (nd.data[nd.size - 1] < x) def = nd.data[nd.size\
-    \ - 1], v = nd.right;\n            else {\n                int i = 1;\n      \
-    \          while (nd.data[i] < x) i++;\n                return nd.data[i - 1];\n\
-    \            }\n        }\n        return def;\n    }\n\n    // x \u4EE5\u4E0B\
-    \u306E\u6700\u5927\u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T max_le(const\
+    \ 3 \"data_structure/ordered_set.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u9806\u5E8F\u4ED8\u304D\u96C6\u5408 (\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\
+    \u5024\u306E\u5148\u8AAD\u307F\u4E0D\u8981)\n// \u5404\u30CE\u30FC\u30C9\u304C\
+    \u6700\u5927 B \u500B\u306E\u5024\u3092\u30BD\u30FC\u30C8\u6E08\u307F\u914D\u5217\
+    \u3067\u6301\u3064 AVL \u6728\uFF0E\n// 1 \u30CE\u30FC\u30C9\u3092 128 \u30D0\u30A4\
+    \u30C8\u7A0B\u5EA6\u306B\u3057\u3066\u30AD\u30E3\u30C3\u30B7\u30E5\u52B9\u7387\
+    \u3092\u4E0A\u3052\uFF0C\u30CE\u30FC\u30C9\u5185\u306F\u7DDA\u5F62\u63A2\u7D22\
+    \u3059\u308B\uFF0E\u5404\u64CD\u4F5C O(log n)\n//\n// \u5B58\u5728\u3057\u306A\
+    \u3044\u5834\u5408\u306E\u623B\u308A\u5024\u306F def (\u7701\u7565\u6642 -1)\n\
+    template <class T, int B = std::max(4, int(112 / sizeof(T)))>\nstruct OrderedSet\
+    \ {\n    struct Node {\n        T data[B];\n        int left, right, total;  //\
+    \ total: \u90E8\u5206\u6728\u306E\u8981\u7D20\u6570\n        short height, size;\n\
+    \    };\n\n    vector<Node> t;\n    vector<int> free_list;\n    int root = 0;\n\
+    \n    OrderedSet() { t.push_back(Node{}); }  // t[0] \u306F\u756A\u5175 (height\
+    \ = total = 0)\n\n    // \u521D\u671F\u8981\u7D20 a (\u9806\u4E0D\u540C\u30FB\u91CD\
+    \u8907\u53EF) \u3067 O(n log n) \u69CB\u7BC9 (\u30BD\u30FC\u30C8\u6E08\u307F\u306A\
+    \u3089 O(n))\n    OrderedSet(vector<T> a) : OrderedSet() {\n        if (!is_sorted(a.begin(),\
+    \ a.end())) sort(a.begin(), a.end());\n        a.erase(unique(a.begin(), a.end()),\
+    \ a.end());\n        int n = a.size();\n        if (n == 0) return;\n        //\
+    \ \u5F8C\u304B\u3089\u633F\u5165\u3067\u304D\u308B\u3088\u3046\u5C11\u3057\u4F59\
+    \u88D5\u3092\u6B8B\u3057\u3066\u8A70\u3081\u308B\n        int bs = std::max(1,\
+    \ B * 6 / 7);\n        int m = (n + bs - 1) / bs;\n        t.reserve(m + 1);\n\
+    \        vector<int> ids(m);\n        for (int i = 0; i < m; i++) {\n        \
+    \    int v = ids[i] = new_node();\n            int l = i * bs, r = std::min(n,\
+    \ l + bs);\n            for (int j = l; j < r; j++) t[v].data[j - l] = a[j];\n\
+    \            t[v].size = r - l;\n        }\n        root = build(ids, 0, m);\n\
+    \    }\n\n    int size() const { return t[root].total; }\n    bool empty() const\
+    \ { return root == 0; }\n\n    // x \u3092\u633F\u5165\u3059\u308B\uFF0E\u633F\
+    \u5165\u3057\u305F\u3089 true\uFF0C\u65E2\u306B\u3042\u308C\u3070 false\n    bool\
+    \ insert(const T &x) {\n        done = false;\n        root = insert(root, x);\n\
+    \        return done;\n    }\n\n    // x \u3092\u524A\u9664\u3059\u308B\uFF0E\u524A\
+    \u9664\u3057\u305F\u3089 true\uFF0C\u306A\u3051\u308C\u3070 false\n    bool erase(const\
+    \ T &x) {\n        done = false;\n        root = erase(root, x);\n        return\
+    \ done;\n    }\n\n    bool contains(const T &x) const {\n        for (int v =\
+    \ root; v;) {\n            const Node &nd = t[v];\n            if (x < nd.data[0])\
+    \ v = nd.left;\n            else if (nd.data[nd.size - 1] < x) v = nd.right;\n\
+    \            else {\n                for (int i = 0; i < nd.size; i++) if (!(nd.data[i]\
+    \ < x)) return !(x < nd.data[i]);\n                return false;\n           \
+    \ }\n        }\n        return false;\n    }\n    size_t count(const T &x) const\
+    \ { return contains(x); }\n\n    // \u5C0F\u3055\u3044\u65B9\u304B\u3089 k \u756A\
+    \u76EE (0-indexed) \u306E\u8981\u7D20\uFF0Ek >= size() \u306A\u3089 def\n    T\
+    \ kth(int k, T def = T(-1)) const {\n        if (k < 0 || k >= size()) return\
+    \ def;\n        for (int v = root;;) {\n            const Node &nd = t[v];\n \
+    \           int ls = t[nd.left].total;\n            if (k < ls) v = nd.left;\n\
+    \            else if (k < ls + nd.size) return nd.data[k - ls];\n            else\
+    \ k -= ls + nd.size, v = nd.right;\n        }\n    }\n\n    // x \u672A\u6E80\u306E\
+    \u8981\u7D20\u306E\u500B\u6570\n    int count_lt(const T &x) const {\n       \
+    \ int res = 0;\n        for (int v = root; v;) {\n            const Node &nd =\
+    \ t[v];\n            if (!(nd.data[0] < x)) v = nd.left;\n            else if\
+    \ (nd.data[nd.size - 1] < x) res += nd.total - t[nd.right].total, v = nd.right;\n\
+    \            else {\n                int i = 0;\n                while (nd.data[i]\
+    \ < x) i++;\n                return res + t[nd.left].total + i;\n            }\n\
+    \        }\n        return res;\n    }\n\n    // x \u4EE5\u4E0B\u306E\u8981\u7D20\
+    \u306E\u500B\u6570\n    int count_le(const T &x) const {\n        int res = 0;\n\
+    \        for (int v = root; v;) {\n            const Node &nd = t[v];\n      \
+    \      if (x < nd.data[0]) v = nd.left;\n            else if (!(x < nd.data[nd.size\
+    \ - 1])) res += nd.total - t[nd.right].total, v = nd.right;\n            else\
+    \ {\n                int i = 0;\n                while (!(x < nd.data[i])) i++;\n\
+    \                return res + t[nd.left].total + i;\n            }\n        }\n\
+    \        return res;\n    }\n\n    // [lo, hi) \u306B\u542B\u307E\u308C\u308B\u8981\
+    \u7D20\u306E\u500B\u6570\n    int count_range(const T &lo, const T &hi) const\
+    \ { return lo < hi ? count_lt(hi) - count_lt(lo) : 0; }\n\n    // x \u672A\u6E80\
+    \u306E\u6700\u5927\u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T max_lt(const\
     \ T &x, T def = T(-1)) const {\n        for (int v = root; v;) {\n           \
-    \ const Node &nd = t[v];\n            if (x < nd.data[0]) v = nd.left;\n     \
-    \       else if (!(x < nd.data[nd.size - 1])) def = nd.data[nd.size - 1], v =\
+    \ const Node &nd = t[v];\n            if (!(nd.data[0] < x)) v = nd.left;\n  \
+    \          else if (nd.data[nd.size - 1] < x) def = nd.data[nd.size - 1], v =\
     \ nd.right;\n            else {\n                int i = 1;\n                while\
-    \ (!(x < nd.data[i])) i++;\n                return nd.data[i - 1];\n         \
-    \   }\n        }\n        return def;\n    }\n\n    // x \u4EE5\u4E0A\u306E\u6700\
-    \u5C0F\u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T min_ge(const T\
-    \ &x, T def = T(-1)) const {\n        for (int v = root; v;) {\n            const\
-    \ Node &nd = t[v];\n            if (!(nd.data[0] < x)) def = nd.data[0], v = nd.left;\n\
+    \ (nd.data[i] < x) i++;\n                return nd.data[i - 1];\n            }\n\
+    \        }\n        return def;\n    }\n\n    // x \u4EE5\u4E0B\u306E\u6700\u5927\
+    \u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T max_le(const T &x, T\
+    \ def = T(-1)) const {\n        for (int v = root; v;) {\n            const Node\
+    \ &nd = t[v];\n            if (x < nd.data[0]) v = nd.left;\n            else\
+    \ if (!(x < nd.data[nd.size - 1])) def = nd.data[nd.size - 1], v = nd.right;\n\
+    \            else {\n                int i = 1;\n                while (!(x <\
+    \ nd.data[i])) i++;\n                return nd.data[i - 1];\n            }\n \
+    \       }\n        return def;\n    }\n\n    // x \u4EE5\u4E0A\u306E\u6700\u5C0F\
+    \u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T min_ge(const T &x, T\
+    \ def = T(-1)) const {\n        for (int v = root; v;) {\n            const Node\
+    \ &nd = t[v];\n            if (!(nd.data[0] < x)) def = nd.data[0], v = nd.left;\n\
     \            else if (nd.data[nd.size - 1] < x) v = nd.right;\n            else\
     \ {\n                int i = 1;\n                while (nd.data[i] < x) i++;\n\
     \                return nd.data[i];\n            }\n        }\n        return\
@@ -213,84 +215,85 @@ data:
     \                t[u].left = t[v].left, t[u].right = r;\n                update(u);\n\
     \                return balance(u);\n            }\n        }\n        update(v);\n\
     \        return balance(v);\n    }\n};\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n\n// \u9806\u5E8F\u4ED8\u304D\
-    \u96C6\u5408 (\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u5024\u306E\u5148\u8AAD\u307F\
-    \u4E0D\u8981)\n// \u5404\u30CE\u30FC\u30C9\u304C\u6700\u5927 B \u500B\u306E\u5024\
-    \u3092\u30BD\u30FC\u30C8\u6E08\u307F\u914D\u5217\u3067\u6301\u3064 AVL \u6728\uFF0E\
-    \n// 1 \u30CE\u30FC\u30C9\u3092 128 \u30D0\u30A4\u30C8\u7A0B\u5EA6\u306B\u3057\
-    \u3066\u30AD\u30E3\u30C3\u30B7\u30E5\u52B9\u7387\u3092\u4E0A\u3052\uFF0C\u30CE\
-    \u30FC\u30C9\u5185\u306F\u7DDA\u5F62\u63A2\u7D22\u3059\u308B\uFF0E\u5404\u64CD\
-    \u4F5C O(log n)\n//\n// \u5B58\u5728\u3057\u306A\u3044\u5834\u5408\u306E\u623B\
-    \u308A\u5024\u306F def (\u7701\u7565\u6642 -1)\ntemplate <class T, int B = std::max(4,\
-    \ int(112 / sizeof(T)))>\nstruct OrderedSet {\n    struct Node {\n        T data[B];\n\
-    \        int left, right, total;  // total: \u90E8\u5206\u6728\u306E\u8981\u7D20\
-    \u6570\n        short height, size;\n    };\n\n    vector<Node> t;\n    vector<int>\
-    \ free_list;\n    int root = 0;\n\n    OrderedSet() { t.push_back(Node{}); } \
-    \ // t[0] \u306F\u756A\u5175 (height = total = 0)\n\n    // \u521D\u671F\u8981\
-    \u7D20 a (\u9806\u4E0D\u540C\u30FB\u91CD\u8907\u53EF) \u3067 O(n log n) \u69CB\
-    \u7BC9 (\u30BD\u30FC\u30C8\u6E08\u307F\u306A\u3089 O(n))\n    OrderedSet(vector<T>\
-    \ a) : OrderedSet() {\n        if (!is_sorted(a.begin(), a.end())) sort(a.begin(),\
-    \ a.end());\n        a.erase(unique(a.begin(), a.end()), a.end());\n        int\
-    \ n = a.size();\n        if (n == 0) return;\n        // \u5F8C\u304B\u3089\u633F\
-    \u5165\u3067\u304D\u308B\u3088\u3046\u5C11\u3057\u4F59\u88D5\u3092\u6B8B\u3057\
-    \u3066\u8A70\u3081\u308B\n        int bs = std::max(1, B * 6 / 7);\n        int\
-    \ m = (n + bs - 1) / bs;\n        t.reserve(m + 1);\n        vector<int> ids(m);\n\
-    \        for (int i = 0; i < m; i++) {\n            int v = ids[i] = new_node();\n\
-    \            int l = i * bs, r = std::min(n, l + bs);\n            for (int j\
-    \ = l; j < r; j++) t[v].data[j - l] = a[j];\n            t[v].size = r - l;\n\
-    \        }\n        root = build(ids, 0, m);\n    }\n\n    int size() const {\
-    \ return t[root].total; }\n    bool empty() const { return root == 0; }\n\n  \
-    \  // x \u3092\u633F\u5165\u3059\u308B\uFF0E\u633F\u5165\u3057\u305F\u3089 true\uFF0C\
-    \u65E2\u306B\u3042\u308C\u3070 false\n    bool insert(const T &x) {\n        done\
-    \ = false;\n        root = insert(root, x);\n        return done;\n    }\n\n \
-    \   // x \u3092\u524A\u9664\u3059\u308B\uFF0E\u524A\u9664\u3057\u305F\u3089 true\uFF0C\
-    \u306A\u3051\u308C\u3070 false\n    bool erase(const T &x) {\n        done = false;\n\
-    \        root = erase(root, x);\n        return done;\n    }\n\n    bool contains(const\
-    \ T &x) const {\n        for (int v = root; v;) {\n            const Node &nd\
-    \ = t[v];\n            if (x < nd.data[0]) v = nd.left;\n            else if (nd.data[nd.size\
-    \ - 1] < x) v = nd.right;\n            else {\n                for (int i = 0;\
-    \ i < nd.size; i++) if (!(nd.data[i] < x)) return !(x < nd.data[i]);\n       \
-    \         return false;\n            }\n        }\n        return false;\n   \
-    \ }\n    size_t count(const T &x) const { return contains(x); }\n\n    // \u5C0F\
-    \u3055\u3044\u65B9\u304B\u3089 k \u756A\u76EE (0-indexed) \u306E\u8981\u7D20\uFF0E\
-    k >= size() \u306A\u3089 def\n    T kth(int k, T def = T(-1)) const {\n      \
-    \  if (k < 0 || k >= size()) return def;\n        for (int v = root;;) {\n   \
-    \         const Node &nd = t[v];\n            int ls = t[nd.left].total;\n   \
-    \         if (k < ls) v = nd.left;\n            else if (k < ls + nd.size) return\
-    \ nd.data[k - ls];\n            else k -= ls + nd.size, v = nd.right;\n      \
-    \  }\n    }\n\n    // x \u672A\u6E80\u306E\u8981\u7D20\u306E\u500B\u6570\n   \
-    \ int count_lt(const T &x) const {\n        int res = 0;\n        for (int v =\
-    \ root; v;) {\n            const Node &nd = t[v];\n            if (!(nd.data[0]\
-    \ < x)) v = nd.left;\n            else if (nd.data[nd.size - 1] < x) res += nd.total\
-    \ - t[nd.right].total, v = nd.right;\n            else {\n                int\
-    \ i = 0;\n                while (nd.data[i] < x) i++;\n                return\
-    \ res + t[nd.left].total + i;\n            }\n        }\n        return res;\n\
-    \    }\n\n    // x \u4EE5\u4E0B\u306E\u8981\u7D20\u306E\u500B\u6570\n    int count_le(const\
-    \ T &x) const {\n        int res = 0;\n        for (int v = root; v;) {\n    \
-    \        const Node &nd = t[v];\n            if (x < nd.data[0]) v = nd.left;\n\
-    \            else if (!(x < nd.data[nd.size - 1])) res += nd.total - t[nd.right].total,\
-    \ v = nd.right;\n            else {\n                int i = 0;\n            \
-    \    while (!(x < nd.data[i])) i++;\n                return res + t[nd.left].total\
-    \ + i;\n            }\n        }\n        return res;\n    }\n\n    // [lo, hi)\
-    \ \u306B\u542B\u307E\u308C\u308B\u8981\u7D20\u306E\u500B\u6570\n    int count_range(const\
-    \ T &lo, const T &hi) const { return lo < hi ? count_lt(hi) - count_lt(lo) : 0;\
-    \ }\n\n    // x \u672A\u6E80\u306E\u6700\u5927\u306E\u8981\u7D20 (\u306A\u3051\
-    \u308C\u3070 def)\n    T max_lt(const T &x, T def = T(-1)) const {\n        for\
-    \ (int v = root; v;) {\n            const Node &nd = t[v];\n            if (!(nd.data[0]\
-    \ < x)) v = nd.left;\n            else if (nd.data[nd.size - 1] < x) def = nd.data[nd.size\
-    \ - 1], v = nd.right;\n            else {\n                int i = 1;\n      \
-    \          while (nd.data[i] < x) i++;\n                return nd.data[i - 1];\n\
-    \            }\n        }\n        return def;\n    }\n\n    // x \u4EE5\u4E0B\
-    \u306E\u6700\u5927\u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T max_le(const\
+  code: "#pragma once\n#include \"../template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u9806\u5E8F\u4ED8\u304D\u96C6\u5408 (\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\
+    \u5024\u306E\u5148\u8AAD\u307F\u4E0D\u8981)\n// \u5404\u30CE\u30FC\u30C9\u304C\
+    \u6700\u5927 B \u500B\u306E\u5024\u3092\u30BD\u30FC\u30C8\u6E08\u307F\u914D\u5217\
+    \u3067\u6301\u3064 AVL \u6728\uFF0E\n// 1 \u30CE\u30FC\u30C9\u3092 128 \u30D0\u30A4\
+    \u30C8\u7A0B\u5EA6\u306B\u3057\u3066\u30AD\u30E3\u30C3\u30B7\u30E5\u52B9\u7387\
+    \u3092\u4E0A\u3052\uFF0C\u30CE\u30FC\u30C9\u5185\u306F\u7DDA\u5F62\u63A2\u7D22\
+    \u3059\u308B\uFF0E\u5404\u64CD\u4F5C O(log n)\n//\n// \u5B58\u5728\u3057\u306A\
+    \u3044\u5834\u5408\u306E\u623B\u308A\u5024\u306F def (\u7701\u7565\u6642 -1)\n\
+    template <class T, int B = std::max(4, int(112 / sizeof(T)))>\nstruct OrderedSet\
+    \ {\n    struct Node {\n        T data[B];\n        int left, right, total;  //\
+    \ total: \u90E8\u5206\u6728\u306E\u8981\u7D20\u6570\n        short height, size;\n\
+    \    };\n\n    vector<Node> t;\n    vector<int> free_list;\n    int root = 0;\n\
+    \n    OrderedSet() { t.push_back(Node{}); }  // t[0] \u306F\u756A\u5175 (height\
+    \ = total = 0)\n\n    // \u521D\u671F\u8981\u7D20 a (\u9806\u4E0D\u540C\u30FB\u91CD\
+    \u8907\u53EF) \u3067 O(n log n) \u69CB\u7BC9 (\u30BD\u30FC\u30C8\u6E08\u307F\u306A\
+    \u3089 O(n))\n    OrderedSet(vector<T> a) : OrderedSet() {\n        if (!is_sorted(a.begin(),\
+    \ a.end())) sort(a.begin(), a.end());\n        a.erase(unique(a.begin(), a.end()),\
+    \ a.end());\n        int n = a.size();\n        if (n == 0) return;\n        //\
+    \ \u5F8C\u304B\u3089\u633F\u5165\u3067\u304D\u308B\u3088\u3046\u5C11\u3057\u4F59\
+    \u88D5\u3092\u6B8B\u3057\u3066\u8A70\u3081\u308B\n        int bs = std::max(1,\
+    \ B * 6 / 7);\n        int m = (n + bs - 1) / bs;\n        t.reserve(m + 1);\n\
+    \        vector<int> ids(m);\n        for (int i = 0; i < m; i++) {\n        \
+    \    int v = ids[i] = new_node();\n            int l = i * bs, r = std::min(n,\
+    \ l + bs);\n            for (int j = l; j < r; j++) t[v].data[j - l] = a[j];\n\
+    \            t[v].size = r - l;\n        }\n        root = build(ids, 0, m);\n\
+    \    }\n\n    int size() const { return t[root].total; }\n    bool empty() const\
+    \ { return root == 0; }\n\n    // x \u3092\u633F\u5165\u3059\u308B\uFF0E\u633F\
+    \u5165\u3057\u305F\u3089 true\uFF0C\u65E2\u306B\u3042\u308C\u3070 false\n    bool\
+    \ insert(const T &x) {\n        done = false;\n        root = insert(root, x);\n\
+    \        return done;\n    }\n\n    // x \u3092\u524A\u9664\u3059\u308B\uFF0E\u524A\
+    \u9664\u3057\u305F\u3089 true\uFF0C\u306A\u3051\u308C\u3070 false\n    bool erase(const\
+    \ T &x) {\n        done = false;\n        root = erase(root, x);\n        return\
+    \ done;\n    }\n\n    bool contains(const T &x) const {\n        for (int v =\
+    \ root; v;) {\n            const Node &nd = t[v];\n            if (x < nd.data[0])\
+    \ v = nd.left;\n            else if (nd.data[nd.size - 1] < x) v = nd.right;\n\
+    \            else {\n                for (int i = 0; i < nd.size; i++) if (!(nd.data[i]\
+    \ < x)) return !(x < nd.data[i]);\n                return false;\n           \
+    \ }\n        }\n        return false;\n    }\n    size_t count(const T &x) const\
+    \ { return contains(x); }\n\n    // \u5C0F\u3055\u3044\u65B9\u304B\u3089 k \u756A\
+    \u76EE (0-indexed) \u306E\u8981\u7D20\uFF0Ek >= size() \u306A\u3089 def\n    T\
+    \ kth(int k, T def = T(-1)) const {\n        if (k < 0 || k >= size()) return\
+    \ def;\n        for (int v = root;;) {\n            const Node &nd = t[v];\n \
+    \           int ls = t[nd.left].total;\n            if (k < ls) v = nd.left;\n\
+    \            else if (k < ls + nd.size) return nd.data[k - ls];\n            else\
+    \ k -= ls + nd.size, v = nd.right;\n        }\n    }\n\n    // x \u672A\u6E80\u306E\
+    \u8981\u7D20\u306E\u500B\u6570\n    int count_lt(const T &x) const {\n       \
+    \ int res = 0;\n        for (int v = root; v;) {\n            const Node &nd =\
+    \ t[v];\n            if (!(nd.data[0] < x)) v = nd.left;\n            else if\
+    \ (nd.data[nd.size - 1] < x) res += nd.total - t[nd.right].total, v = nd.right;\n\
+    \            else {\n                int i = 0;\n                while (nd.data[i]\
+    \ < x) i++;\n                return res + t[nd.left].total + i;\n            }\n\
+    \        }\n        return res;\n    }\n\n    // x \u4EE5\u4E0B\u306E\u8981\u7D20\
+    \u306E\u500B\u6570\n    int count_le(const T &x) const {\n        int res = 0;\n\
+    \        for (int v = root; v;) {\n            const Node &nd = t[v];\n      \
+    \      if (x < nd.data[0]) v = nd.left;\n            else if (!(x < nd.data[nd.size\
+    \ - 1])) res += nd.total - t[nd.right].total, v = nd.right;\n            else\
+    \ {\n                int i = 0;\n                while (!(x < nd.data[i])) i++;\n\
+    \                return res + t[nd.left].total + i;\n            }\n        }\n\
+    \        return res;\n    }\n\n    // [lo, hi) \u306B\u542B\u307E\u308C\u308B\u8981\
+    \u7D20\u306E\u500B\u6570\n    int count_range(const T &lo, const T &hi) const\
+    \ { return lo < hi ? count_lt(hi) - count_lt(lo) : 0; }\n\n    // x \u672A\u6E80\
+    \u306E\u6700\u5927\u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T max_lt(const\
     \ T &x, T def = T(-1)) const {\n        for (int v = root; v;) {\n           \
-    \ const Node &nd = t[v];\n            if (x < nd.data[0]) v = nd.left;\n     \
-    \       else if (!(x < nd.data[nd.size - 1])) def = nd.data[nd.size - 1], v =\
+    \ const Node &nd = t[v];\n            if (!(nd.data[0] < x)) v = nd.left;\n  \
+    \          else if (nd.data[nd.size - 1] < x) def = nd.data[nd.size - 1], v =\
     \ nd.right;\n            else {\n                int i = 1;\n                while\
-    \ (!(x < nd.data[i])) i++;\n                return nd.data[i - 1];\n         \
-    \   }\n        }\n        return def;\n    }\n\n    // x \u4EE5\u4E0A\u306E\u6700\
-    \u5C0F\u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T min_ge(const T\
-    \ &x, T def = T(-1)) const {\n        for (int v = root; v;) {\n            const\
-    \ Node &nd = t[v];\n            if (!(nd.data[0] < x)) def = nd.data[0], v = nd.left;\n\
+    \ (nd.data[i] < x) i++;\n                return nd.data[i - 1];\n            }\n\
+    \        }\n        return def;\n    }\n\n    // x \u4EE5\u4E0B\u306E\u6700\u5927\
+    \u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T max_le(const T &x, T\
+    \ def = T(-1)) const {\n        for (int v = root; v;) {\n            const Node\
+    \ &nd = t[v];\n            if (x < nd.data[0]) v = nd.left;\n            else\
+    \ if (!(x < nd.data[nd.size - 1])) def = nd.data[nd.size - 1], v = nd.right;\n\
+    \            else {\n                int i = 1;\n                while (!(x <\
+    \ nd.data[i])) i++;\n                return nd.data[i - 1];\n            }\n \
+    \       }\n        return def;\n    }\n\n    // x \u4EE5\u4E0A\u306E\u6700\u5C0F\
+    \u306E\u8981\u7D20 (\u306A\u3051\u308C\u3070 def)\n    T min_ge(const T &x, T\
+    \ def = T(-1)) const {\n        for (int v = root; v;) {\n            const Node\
+    \ &nd = t[v];\n            if (!(nd.data[0] < x)) def = nd.data[0], v = nd.left;\n\
     \            else if (nd.data[nd.size - 1] < x) v = nd.right;\n            else\
     \ {\n                int i = 1;\n                while (nd.data[i] < x) i++;\n\
     \                return nd.data[i];\n            }\n        }\n        return\
@@ -394,8 +397,8 @@ data:
   path: data_structure/ordered_set.hpp
   requiredBy:
   - data_structure/dynamic_range_frequency.hpp
-  timestamp: '2026-10-12 10:34:42+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/unittest/ordered_set.test.cpp
   - test/unittest/static_range_queries.test.cpp

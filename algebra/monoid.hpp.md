@@ -1,54 +1,54 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/acted_monoid.hpp
     title: "\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9 (Acted Monoid)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/dual_segment_tree.hpp
     title: "\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dual Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/dynamic_lazy_segment_tree.hpp
     title: "\u52D5\u7684\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dynamic\
       \ Lazy Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/dynamic_segment_tree.hpp
     title: "\u52D5\u7684\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dynamic Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/dynamic_sequence.hpp
     title: "\u5217\u306E\u633F\u5165\u30FB\u524A\u9664\u30FB\u53CD\u8EE2\u30FB\u533A\
       \u9593\u4F5C\u7528 (Dynamic Sequence, Splay \u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/foldable_deque.hpp
     title: "\u5168\u4F53\u306E\u7A4D\u304C\u53D6\u308C\u308B\u4E21\u7AEF\u30AD\u30E5\
       \u30FC (Foldable Deque)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/foldable_queue.hpp
     title: "\u5168\u4F53\u306E\u7A4D\u304C\u53D6\u308C\u308B\u30AD\u30E5\u30FC (Foldable\
       \ Queue / SWAG)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/kd_tree.hpp
     title: "k-d \u6728 (\u9577\u65B9\u5F62\u4F5C\u7528\u30FB\u9577\u65B9\u5F62\u7A4D\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/lazy_segment_tree.hpp
     title: "\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Lazy Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/persistent_lazy_segment_tree.hpp
     title: "\u6C38\u7D9A\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Persistent\
       \ Lazy Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/range_assign_segment_tree.hpp
     title: "\u533A\u9593\u4EE3\u5165\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Range Assign\
       \ Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/sortable_segment_tree.hpp
     title: "\u533A\u9593\u30BD\u30FC\u30C8\u304C\u3067\u304D\u308B\u30BB\u30B0\u30E1\
       \u30F3\u30C8\u6728 (Sortable Segment Tree)"
@@ -62,62 +62,63 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/dynamic_sequence_range_affine_range_sum.test.cpp
     title: test/dynamic_sequence_range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/persistent_range_affine_range_sum.test.cpp
     title: test/persistent_range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/point_set_range_composite.test.cpp
     title: test/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/point_set_range_composite_large_array.test.cpp
     title: test/point_set_range_composite_large_array.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/point_set_range_sort_range_composite.test.cpp
     title: test/point_set_range_sort_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/queue_operate_all_composite.test.cpp
     title: test/queue_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_affine_point_get.test.cpp
     title: test/range_affine_point_get.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_affine_range_sum.test.cpp
     title: test/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_affine_range_sum_large_array.test.cpp
     title: test/range_affine_range_sum_large_array.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_reverse_range_sum.test.cpp
     title: test/range_reverse_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_set_range_composite.test.cpp
     title: test/range_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/dynamic_sequence.test.cpp
     title: test/unittest/dynamic_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/foldable_queue.test.cpp
     title: test/unittest/foldable_queue.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/kd_tree.test.cpp
     title: test/unittest/kd_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/lazy_segment_tree.test.cpp
     title: test/unittest/lazy_segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/range_assign_segment_tree.test.cpp
     title: test/unittest/range_assign_segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/segment_tree.test.cpp
     title: test/unittest/segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/sortable_segment_tree.test.cpp
     title: test/unittest/sortable_segment_tree.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -129,27 +130,28 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"algebra/monoid.hpp\"\n\n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\
-    \u306B\u6E21\u3059\u30E2\u30CE\u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\
-    \u578B; static S op(const S &a, const S &b); static S e();\n// op \u306F\u7D50\
-    \u5408\u7684\u3067\uFF0Ce \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300C\
-    a \u304C\u5DE6 (\u5148)\uFF0Cb \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\
-    \u6570 f(x) = a x + b\ntemplate <class T>\nstruct Affine {\n    T a = T(1), b\
-    \ = T(0);\n    Affine() = default;\n    Affine(T a, T b) : a(a), b(b) {}\n   \
-    \ T operator()(const T &x) const { return a * x + b; }\n    T eval(const T &x)\
-    \ const { return a * x + b; }\n    // \u300C\u5148\u306B *this\uFF0C\u6B21\u306B\
-    \ g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n    Affine then(const Affine\
-    \ &g) const { return Affine(a * g.a, b * g.a + g.b); }\n    friend bool operator==(const\
-    \ Affine &f, const Affine &g) { return f.a == g.a && f.b == g.b; }\n    friend\
-    \ bool operator!=(const Affine &f, const Affine &g) { return !(f == g); }\n};\n\
-    \n// \u548C\ntemplate <class T>\nstruct MonoidSum {\n    using S = T;\n    static\
-    \ S op(const S &a, const S &b) { return a + b; }\n    static S e() { return S(0);\
-    \ }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::max())\n\
-    template <class T>\nstruct MonoidMin {\n    using S = T;\n    static S op(const\
-    \ S &a, const S &b) { return b < a ? b : a; }\n    static S e() { return numeric_limits<T>::max();\
-    \ }\n};\n\n// \u6700\u5927\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::lowest())\n\
-    template <class T>\nstruct MonoidMax {\n    using S = T;\n    static S op(const\
-    \ S &a, const S &b) { return a < b ? b : a; }\n    static S e() { return numeric_limits<T>::lowest();\
+    \ 3 \"algebra/monoid.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n\
+    // \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u30E2\u30CE\
+    \u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\u578B; static S op(const\
+    \ S &a, const S &b); static S e();\n// op \u306F\u7D50\u5408\u7684\u3067\uFF0C\
+    e \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300Ca \u304C\u5DE6 (\u5148)\uFF0C\
+    b \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\u6570 f(x) = a x + b\ntemplate\
+    \ <class T>\nstruct Affine {\n    T a = T(1), b = T(0);\n    Affine() = default;\n\
+    \    Affine(T a, T b) : a(a), b(b) {}\n    T operator()(const T &x) const { return\
+    \ a * x + b; }\n    T eval(const T &x) const { return a * x + b; }\n    // \u300C\
+    \u5148\u306B *this\uFF0C\u6B21\u306B g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n\
+    \    Affine then(const Affine &g) const { return Affine(a * g.a, b * g.a + g.b);\
+    \ }\n    friend bool operator==(const Affine &f, const Affine &g) { return f.a\
+    \ == g.a && f.b == g.b; }\n    friend bool operator!=(const Affine &f, const Affine\
+    \ &g) { return !(f == g); }\n};\n\n// \u548C\ntemplate <class T>\nstruct MonoidSum\
+    \ {\n    using S = T;\n    static S op(const S &a, const S &b) { return a + b;\
+    \ }\n    static S e() { return S(0); }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\
+    \u5143\u306F numeric_limits<T>::max())\ntemplate <class T>\nstruct MonoidMin {\n\
+    \    using S = T;\n    static S op(const S &a, const S &b) { return b < a ? b\
+    \ : a; }\n    static S e() { return numeric_limits<T>::max(); }\n};\n\n// \u6700\
+    \u5927\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::lowest())\ntemplate\
+    \ <class T>\nstruct MonoidMax {\n    using S = T;\n    static S op(const S &a,\
+    \ const S &b) { return a < b ? b : a; }\n    static S e() { return numeric_limits<T>::lowest();\
     \ }\n};\n\n// xor\ntemplate <class T>\nstruct MonoidXor {\n    using S = T;\n\
     \    static S op(const S &a, const S &b) { return a ^ b; }\n    static S e() {\
     \ return S(0); }\n};\n\n// 1 \u6B21\u95A2\u6570\u306E\u5408\u6210\uFF0Eop(f, g)\
@@ -162,20 +164,20 @@ data:
     \ x, long long k) {\n    typename M::S r = M::e();\n    while (k) {\n        if\
     \ (k & 1) r = M::op(r, x);\n        k >>= 1;\n        if (k) x = M::op(x, x);\n\
     \    }\n    return r;\n}\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n\n// \u30BB\u30B0\u30E1\u30F3\
-    \u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u30E2\u30CE\u30A4\u30C9\n// \u5F62\u5F0F\
-    : using S = \u5024\u306E\u578B; static S op(const S &a, const S &b); static S\
-    \ e();\n// op \u306F\u7D50\u5408\u7684\u3067\uFF0Ce \u306F\u5358\u4F4D\u5143\uFF0E\
-    op(a, b) \u306F\u300Ca \u304C\u5DE6 (\u5148)\uFF0Cb \u304C\u53F3 (\u5F8C)\u300D\
-    \n\n// 1 \u6B21\u95A2\u6570 f(x) = a x + b\ntemplate <class T>\nstruct Affine\
-    \ {\n    T a = T(1), b = T(0);\n    Affine() = default;\n    Affine(T a, T b)\
-    \ : a(a), b(b) {}\n    T operator()(const T &x) const { return a * x + b; }\n\
-    \    T eval(const T &x) const { return a * x + b; }\n    // \u300C\u5148\u306B\
-    \ *this\uFF0C\u6B21\u306B g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n    Affine\
-    \ then(const Affine &g) const { return Affine(a * g.a, b * g.a + g.b); }\n   \
-    \ friend bool operator==(const Affine &f, const Affine &g) { return f.a == g.a\
-    \ && f.b == g.b; }\n    friend bool operator!=(const Affine &f, const Affine &g)\
-    \ { return !(f == g); }\n};\n\n// \u548C\ntemplate <class T>\nstruct MonoidSum\
+  code: "#pragma once\n#include \"../template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u30E2\u30CE\
+    \u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\u578B; static S op(const\
+    \ S &a, const S &b); static S e();\n// op \u306F\u7D50\u5408\u7684\u3067\uFF0C\
+    e \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300Ca \u304C\u5DE6 (\u5148)\uFF0C\
+    b \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\u6570 f(x) = a x + b\ntemplate\
+    \ <class T>\nstruct Affine {\n    T a = T(1), b = T(0);\n    Affine() = default;\n\
+    \    Affine(T a, T b) : a(a), b(b) {}\n    T operator()(const T &x) const { return\
+    \ a * x + b; }\n    T eval(const T &x) const { return a * x + b; }\n    // \u300C\
+    \u5148\u306B *this\uFF0C\u6B21\u306B g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n\
+    \    Affine then(const Affine &g) const { return Affine(a * g.a, b * g.a + g.b);\
+    \ }\n    friend bool operator==(const Affine &f, const Affine &g) { return f.a\
+    \ == g.a && f.b == g.b; }\n    friend bool operator!=(const Affine &f, const Affine\
+    \ &g) { return !(f == g); }\n};\n\n// \u548C\ntemplate <class T>\nstruct MonoidSum\
     \ {\n    using S = T;\n    static S op(const S &a, const S &b) { return a + b;\
     \ }\n    static S e() { return S(0); }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\
     \u5143\u306F numeric_limits<T>::max())\ntemplate <class T>\nstruct MonoidMin {\n\
@@ -214,8 +216,8 @@ data:
   - data_structure/foldable_queue.hpp
   - data_structure/range_assign_segment_tree.hpp
   - algebra/acted_monoid.hpp
-  timestamp: '2026-10-12 11:35:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/dynamic_point_set_rectangle_affine_rectangle_sum.test.cpp
   - test/point_set_range_composite_large_array.test.cpp

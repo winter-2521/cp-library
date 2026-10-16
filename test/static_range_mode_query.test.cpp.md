@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/static_range_mode.hpp
     title: "\u9759\u7684\u306A\u533A\u9593\u6700\u983B\u5024 (Static Range Mode Query)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_mode_query
@@ -36,31 +36,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -195,33 +196,34 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/static_range_mode.hpp\"\
-    \n\n// \u9759\u7684\u306A\u6570\u5217\u306E\u533A\u9593\u6700\u983B\u5024 (Static\
-    \ Range Mode Query)\uFF0E\u30AA\u30F3\u30E9\u30A4\u30F3\uFF0C\u5E73\u65B9\u5206\
-    \u5272\n// \u30D6\u30ED\u30C3\u30AF\u306E\u533A\u9593 [bi, bj] \u3054\u3068\u306B\
-    \u6700\u983B\u5024\u3068\u500B\u6570\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\
-    \u304D\uFF0C\u7AEF\u306E\u8981\u7D20\u306F\n// \u300C\u5024\u3054\u3068\u306E\u51FA\
-    \u73FE\u4F4D\u7F6E\u306E\u5217\u300D\u3067\u500B\u6570\u3092 1 \u305A\u3064\u4F38\
-    \u3070\u305B\u308B\u304B\u78BA\u304B\u3081\u308B\uFF0E\u69CB\u7BC9 O(n \u221A\
-    n)\uFF0C\u30AF\u30A8\u30EA O(\u221An)\ntemplate <class T>\nstruct StaticRangeMode\
-    \ {\n    int n, B, nb;\n    vector<T> vals;              // \u5EA7\u6A19\u5727\
-    \u7E2E\u5F8C\u306E\u5024 \u2192 \u5143\u306E\u5024\n    vector<int> c;       \
-    \        // \u5727\u7E2E\u5F8C\u306E\u5024\n    vector<int> rank_in;         //\
-    \ i \u304C pos[c[i]] \u306E\u4F55\u756A\u76EE\u304B\n    vector<vector<int>> pos;\
-    \     // \u5024\u3054\u3068\u306E\u51FA\u73FE\u4F4D\u7F6E\n    vector<int> mode_val,\
-    \ mode_cnt;  // \u30D6\u30ED\u30C3\u30AF\u533A\u9593 [bi, bj] \u306E\u6700\u983B\
-    \u5024\u30FB\u500B\u6570 (bi * nb + bj)\n\n    StaticRangeMode(const vector<T>\
-    \ &a) : n(a.size()) {\n        vals = a;\n        sort(vals.begin(), vals.end());\n\
-    \        vals.erase(unique(vals.begin(), vals.end()), vals.end());\n        int\
-    \ m = vals.size();\n        c.resize(n), rank_in.resize(n), pos.assign(m, {});\n\
-    \        for (int i = 0; i < n; i++) {\n            c[i] = lower_bound(vals.begin(),\
-    \ vals.end(), a[i]) - vals.begin();\n            rank_in[i] = pos[c[i]].size();\n\
-    \            pos[c[i]].push_back(i);\n        }\n        B = std::max(1, (int)sqrt(n));\n\
-    \        nb = (n + B - 1) / B;\n        mode_val.assign(nb * nb, -1), mode_cnt.assign(nb\
-    \ * nb, 0);\n        vector<int> cnt(m, 0);\n        for (int bi = 0; bi < nb;\
-    \ bi++) {\n            int best = -1, bc = 0;\n            for (int bj = bi; bj\
-    \ < nb; bj++) {\n                for (int i = bj * B; i < std::min(n, (bj + 1)\
-    \ * B); i++) {\n                    if (++cnt[c[i]] > bc) bc = cnt[c[i]], best\
-    \ = c[i];\n                }\n                mode_val[bi * nb + bj] = best, mode_cnt[bi\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u9759\u7684\u306A\u6570\
+    \u5217\u306E\u533A\u9593\u6700\u983B\u5024 (Static Range Mode Query)\uFF0E\u30AA\
+    \u30F3\u30E9\u30A4\u30F3\uFF0C\u5E73\u65B9\u5206\u5272\n// \u30D6\u30ED\u30C3\u30AF\
+    \u306E\u533A\u9593 [bi, bj] \u3054\u3068\u306B\u6700\u983B\u5024\u3068\u500B\u6570\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304D\uFF0C\u7AEF\u306E\u8981\u7D20\
+    \u306F\n// \u300C\u5024\u3054\u3068\u306E\u51FA\u73FE\u4F4D\u7F6E\u306E\u5217\u300D\
+    \u3067\u500B\u6570\u3092 1 \u305A\u3064\u4F38\u3070\u305B\u308B\u304B\u78BA\u304B\
+    \u3081\u308B\uFF0E\u69CB\u7BC9 O(n \u221An)\uFF0C\u30AF\u30A8\u30EA O(\u221An)\n\
+    template <class T>\nstruct StaticRangeMode {\n    int n, B, nb;\n    vector<T>\
+    \ vals;              // \u5EA7\u6A19\u5727\u7E2E\u5F8C\u306E\u5024 \u2192 \u5143\
+    \u306E\u5024\n    vector<int> c;               // \u5727\u7E2E\u5F8C\u306E\u5024\
+    \n    vector<int> rank_in;         // i \u304C pos[c[i]] \u306E\u4F55\u756A\u76EE\
+    \u304B\n    vector<vector<int>> pos;     // \u5024\u3054\u3068\u306E\u51FA\u73FE\
+    \u4F4D\u7F6E\n    vector<int> mode_val, mode_cnt;  // \u30D6\u30ED\u30C3\u30AF\
+    \u533A\u9593 [bi, bj] \u306E\u6700\u983B\u5024\u30FB\u500B\u6570 (bi * nb + bj)\n\
+    \n    StaticRangeMode(const vector<T> &a) : n(a.size()) {\n        vals = a;\n\
+    \        sort(vals.begin(), vals.end());\n        vals.erase(unique(vals.begin(),\
+    \ vals.end()), vals.end());\n        int m = vals.size();\n        c.resize(n),\
+    \ rank_in.resize(n), pos.assign(m, {});\n        for (int i = 0; i < n; i++) {\n\
+    \            c[i] = lower_bound(vals.begin(), vals.end(), a[i]) - vals.begin();\n\
+    \            rank_in[i] = pos[c[i]].size();\n            pos[c[i]].push_back(i);\n\
+    \        }\n        B = std::max(1, (int)sqrt(n));\n        nb = (n + B - 1) /\
+    \ B;\n        mode_val.assign(nb * nb, -1), mode_cnt.assign(nb * nb, 0);\n   \
+    \     vector<int> cnt(m, 0);\n        for (int bi = 0; bi < nb; bi++) {\n    \
+    \        int best = -1, bc = 0;\n            for (int bj = bi; bj < nb; bj++)\
+    \ {\n                for (int i = bj * B; i < std::min(n, (bj + 1) * B); i++)\
+    \ {\n                    if (++cnt[c[i]] > bc) bc = cnt[c[i]], best = c[i];\n\
+    \                }\n                mode_val[bi * nb + bj] = best, mode_cnt[bi\
     \ * nb + bj] = bc;\n            }\n            for (int i = bi * B; i < n; i++)\
     \ cnt[c[i]]--;\n        }\n    }\n\n    // a[l..r) \u306E\u6700\u983B\u5024\u3068\
     \u305D\u306E\u500B\u6570 (l < r)\uFF0E\u6700\u983B\u5024\u304C\u8907\u6570\u3042\
@@ -258,8 +260,8 @@ data:
   isVerificationFile: true
   path: test/static_range_mode_query.test.cpp
   requiredBy: []
-  timestamp: '2026-10-14 23:42:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/static_range_mode_query.test.cpp
 layout: document

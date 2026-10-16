@@ -1,27 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/csr.hpp
     title: "CSR (\u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\
       \u6301\u3064)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/eulerian_trail.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u8DEF (Eulerian Trail)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/eulerian_trail_directed
@@ -40,31 +40,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -210,56 +211,57 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"graph/csr.hpp\"\
-    \n\n// \u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\
-    \u3064 (Compressed Sparse Row)\n// \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v]\
-    \ .. start[v+1])\uFF0Evector<vector<int>> \u3088\u308A\u901F\u304F\u30E1\u30E2\
-    \u30EA\u3082\u5C11\u306A\u3044\ntemplate <class E>\nstruct CSR {\n    vector<int>\
-    \ start;\n    vector<E> elist;\n    CSR() = default;\n    // edges[i] = (from,\
-    \ \u4E2D\u8EAB)\n    CSR(int n, const vector<pair<int, E>> &edges) : start(n +\
-    \ 1, 0), elist(edges.size()) {\n        for (auto &e : edges) start[e.first +\
-    \ 1]++;\n        for (int i = 1; i <= n; i++) start[i] += start[i - 1];\n    \
-    \    vector<int> pos(start.begin(), start.end() - 1);\n        for (auto &e :\
-    \ edges) elist[pos[e.first]++] = e.second;\n    }\n    int size() const { return\
-    \ (int)start.size() - 1; }\n};\n#line 4 \"graph/eulerian_trail.hpp\"\n\n// \u30AA\
-    \u30A4\u30E9\u30FC\u8DEF (\u5168\u3066\u306E\u8FBA\u3092\u3061\u3087\u3046\u3069\
-    \ 1 \u56DE\u305A\u3064\u901A\u308B\u8DEF)\uFF0EHierholzer \u6CD5\uFF0C\u975E\u518D\
-    \u5E30\u3067 O(n + m)\n// \u8FD4\u308A\u5024: {\u9802\u70B9\u306E\u5217 (m+1 \u500B\
-    ), \u8FBA\u756A\u53F7\u306E\u5217 (m \u500B)}\uFF0E\u5B58\u5728\u3057\u306A\u3051\
-    \u308C\u3070\u7A7A\u306E pair\n// \u8FBA\u304C\u306A\u3044\u3068\u304D\u306F {{0},\
-    \ {}} (\u9802\u70B9 0 \u304B\u3089\u9577\u3055 0 \u306E\u8DEF)\n// DIRECTED =\
-    \ true \u306A\u3089\u6709\u5411\u30B0\u30E9\u30D5\uFF0Cfalse \u306A\u3089\u7121\
-    \u5411\u30B0\u30E9\u30D5\n\ntemplate <bool DIRECTED>\npair<vector<int>, vector<int>>\
-    \ eulerian_trail(int n, const vector<pair<int, int>> &edges) {\n    int m = edges.size();\n\
-    \    if (m == 0) return {{0}, {}};\n    vector<int> deg(n, 0);  // \u6709\u5411\
-    : \u51FA\u6B21\u6570 - \u5165\u6B21\u6570\uFF0C\u7121\u5411: \u6B21\u6570\n  \
-    \  vector<pair<int, int>> el;\n    el.reserve(DIRECTED ? m : 2 * m);\n    for\
-    \ (int i = 0; i < m; i++) {\n        auto [a, b] = edges[i];\n        el.push_back({a,\
-    \ i});\n        if (DIRECTED) deg[a]++, deg[b]--;\n        else {\n          \
-    \  el.push_back({b, i});\n            deg[a]++, deg[b]++;\n        }\n    }\n\
-    \    // \u59CB\u70B9: \u6709\u5411\u306A\u3089 \u51FA - \u5165 = 1 \u306E\u9802\
-    \u70B9\uFF0C\u7121\u5411\u306A\u3089\u6B21\u6570\u304C\u5947\u6570\u306E\u9802\
-    \u70B9\uFF0E\u306A\u3051\u308C\u3070\u8FBA\u3092\u6301\u3064\u9802\u70B9\n   \
-    \ int s = edges[0].first, odd = 0;\n    for (int v = 0; v < n; v++) {\n      \
-    \  if (DIRECTED) {\n            if (deg[v] == 1) s = v, odd++;\n            else\
-    \ if (deg[v] != 0 && deg[v] != -1) return {};\n            else if (deg[v] ==\
-    \ -1) odd++;\n        } else if (deg[v] & 1) {\n            if (odd == 0) s =\
-    \ v;\n            odd++;\n        }\n    }\n    if (odd > 2) return {};\n    CSR<int>\
-    \ g(n, el);\n    vector<int> it(g.start.begin(), g.start.end() - 1);\n    vector<char>\
-    \ used(m, 0);\n    vector<int> vs, es;\n    vs.reserve(m + 1), es.reserve(m);\n\
-    \    // \u30B9\u30BF\u30C3\u30AF\u306B\u306F (\u9802\u70B9, \u305D\u3053\u3078\
-    \u6765\u305F\u8FBA)\n    vector<pair<int, int>> stk{{s, -1}};\n    while (!stk.empty())\
-    \ {\n        auto [v, ein] = stk.back();\n        int &i = it[v];\n        while\
-    \ (i < g.start[v + 1] && used[g.elist[i]]) i++;\n        if (i == g.start[v +\
-    \ 1]) {\n            vs.push_back(v);\n            if (ein >= 0) es.push_back(ein);\n\
-    \            stk.pop_back();\n            continue;\n        }\n        int e\
-    \ = g.elist[i++];\n        used[e] = 1;\n        int to = DIRECTED ? edges[e].second\
-    \ : edges[e].first ^ edges[e].second ^ v;\n        stk.push_back({to, e});\n \
-    \   }\n    if ((int)es.size() != m) return {};  // \u9023\u7D50\u3067\u306A\u3044\
-    \n    reverse(vs.begin(), vs.end()), reverse(es.begin(), es.end());\n    return\
-    \ {vs, es};\n}\n#line 4 \"test/eulerian_trail_directed.test.cpp\"\n\nint main()\
-    \ {\n    int T;\n    fin >> T;\n    while (T--) {\n        int n, m;\n       \
-    \ fin >> n >> m;\n        vector<pair<int, int>> edges(m);\n        for (auto\
-    \ &[a, b] : edges) fin >> a >> b;\n        auto [vs, es] = eulerian_trail<true>(n,\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u96A3\u63A5\u30EA\u30B9\
+    \u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\u3064 (Compressed Sparse Row)\n\
+    // \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v] .. start[v+1])\uFF0E\
+    vector<vector<int>> \u3088\u308A\u901F\u304F\u30E1\u30E2\u30EA\u3082\u5C11\u306A\
+    \u3044\ntemplate <class E>\nstruct CSR {\n    vector<int> start;\n    vector<E>\
+    \ elist;\n    CSR() = default;\n    // edges[i] = (from, \u4E2D\u8EAB)\n    CSR(int\
+    \ n, const vector<pair<int, E>> &edges) : start(n + 1, 0), elist(edges.size())\
+    \ {\n        for (auto &e : edges) start[e.first + 1]++;\n        for (int i =\
+    \ 1; i <= n; i++) start[i] += start[i - 1];\n        vector<int> pos(start.begin(),\
+    \ start.end() - 1);\n        for (auto &e : edges) elist[pos[e.first]++] = e.second;\n\
+    \    }\n    int size() const { return (int)start.size() - 1; }\n};\n#line 4 \"\
+    graph/eulerian_trail.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n\
+    // \u30AA\u30A4\u30E9\u30FC\u8DEF (\u5168\u3066\u306E\u8FBA\u3092\u3061\u3087\u3046\
+    \u3069 1 \u56DE\u305A\u3064\u901A\u308B\u8DEF)\uFF0EHierholzer \u6CD5\uFF0C\u975E\
+    \u518D\u5E30\u3067 O(n + m)\n// \u8FD4\u308A\u5024: {\u9802\u70B9\u306E\u5217\
+    \ (m+1 \u500B), \u8FBA\u756A\u53F7\u306E\u5217 (m \u500B)}\uFF0E\u5B58\u5728\u3057\
+    \u306A\u3051\u308C\u3070\u7A7A\u306E pair\n// \u8FBA\u304C\u306A\u3044\u3068\u304D\
+    \u306F {{0}, {}} (\u9802\u70B9 0 \u304B\u3089\u9577\u3055 0 \u306E\u8DEF)\n//\
+    \ DIRECTED = true \u306A\u3089\u6709\u5411\u30B0\u30E9\u30D5\uFF0Cfalse \u306A\
+    \u3089\u7121\u5411\u30B0\u30E9\u30D5\n\ntemplate <bool DIRECTED>\npair<vector<int>,\
+    \ vector<int>> eulerian_trail(int n, const vector<pair<int, int>> &edges) {\n\
+    \    int m = edges.size();\n    if (m == 0) return {{0}, {}};\n    vector<int>\
+    \ deg(n, 0);  // \u6709\u5411: \u51FA\u6B21\u6570 - \u5165\u6B21\u6570\uFF0C\u7121\
+    \u5411: \u6B21\u6570\n    vector<pair<int, int>> el;\n    el.reserve(DIRECTED\
+    \ ? m : 2 * m);\n    for (int i = 0; i < m; i++) {\n        auto [a, b] = edges[i];\n\
+    \        el.push_back({a, i});\n        if (DIRECTED) deg[a]++, deg[b]--;\n  \
+    \      else {\n            el.push_back({b, i});\n            deg[a]++, deg[b]++;\n\
+    \        }\n    }\n    // \u59CB\u70B9: \u6709\u5411\u306A\u3089 \u51FA - \u5165\
+    \ = 1 \u306E\u9802\u70B9\uFF0C\u7121\u5411\u306A\u3089\u6B21\u6570\u304C\u5947\
+    \u6570\u306E\u9802\u70B9\uFF0E\u306A\u3051\u308C\u3070\u8FBA\u3092\u6301\u3064\
+    \u9802\u70B9\n    int s = edges[0].first, odd = 0;\n    for (int v = 0; v < n;\
+    \ v++) {\n        if (DIRECTED) {\n            if (deg[v] == 1) s = v, odd++;\n\
+    \            else if (deg[v] != 0 && deg[v] != -1) return {};\n            else\
+    \ if (deg[v] == -1) odd++;\n        } else if (deg[v] & 1) {\n            if (odd\
+    \ == 0) s = v;\n            odd++;\n        }\n    }\n    if (odd > 2) return\
+    \ {};\n    CSR<int> g(n, el);\n    vector<int> it(g.start.begin(), g.start.end()\
+    \ - 1);\n    vector<char> used(m, 0);\n    vector<int> vs, es;\n    vs.reserve(m\
+    \ + 1), es.reserve(m);\n    // \u30B9\u30BF\u30C3\u30AF\u306B\u306F (\u9802\u70B9\
+    , \u305D\u3053\u3078\u6765\u305F\u8FBA)\n    vector<pair<int, int>> stk{{s, -1}};\n\
+    \    while (!stk.empty()) {\n        auto [v, ein] = stk.back();\n        int\
+    \ &i = it[v];\n        while (i < g.start[v + 1] && used[g.elist[i]]) i++;\n \
+    \       if (i == g.start[v + 1]) {\n            vs.push_back(v);\n           \
+    \ if (ein >= 0) es.push_back(ein);\n            stk.pop_back();\n            continue;\n\
+    \        }\n        int e = g.elist[i++];\n        used[e] = 1;\n        int to\
+    \ = DIRECTED ? edges[e].second : edges[e].first ^ edges[e].second ^ v;\n     \
+    \   stk.push_back({to, e});\n    }\n    if ((int)es.size() != m) return {};  //\
+    \ \u9023\u7D50\u3067\u306A\u3044\n    reverse(vs.begin(), vs.end()), reverse(es.begin(),\
+    \ es.end());\n    return {vs, es};\n}\n#line 4 \"test/eulerian_trail_directed.test.cpp\"\
+    \n\nint main() {\n    int T;\n    fin >> T;\n    while (T--) {\n        int n,\
+    \ m;\n        fin >> n >> m;\n        vector<pair<int, int>> edges(m);\n     \
+    \   for (auto &[a, b] : edges) fin >> a >> b;\n        auto [vs, es] = eulerian_trail<true>(n,\
     \ edges);\n        if (vs.empty()) {\n            fout << \"No\\n\";\n       \
     \     continue;\n        }\n        fout << \"Yes\\n\" << vs << '\\n' << es <<\
     \ '\\n';\n    }\n    return 0;\n}\n"
@@ -280,8 +282,8 @@ data:
   isVerificationFile: true
   path: test/eulerian_trail_directed.test.cpp
   requiredBy: []
-  timestamp: '2026-10-15 00:32:43+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/eulerian_trail_directed.test.cpp
 layout: document

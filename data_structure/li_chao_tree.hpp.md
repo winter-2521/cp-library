@@ -1,28 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/line_add_get_min.test.cpp
     title: test/line_add_get_min.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/segment_add_get_min.test.cpp
     title: test/segment_add_get_min.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/segment_add_get_min_offline.test.cpp
     title: test/segment_add_get_min_offline.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/li_chao_tree.test.cpp
     title: test/unittest/li_chao_tree.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -34,23 +35,23 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"data_structure/li_chao_tree.hpp\"\n\n// Li Chao Tree (\u76F4\u7DDA\u30FB\
-    \u7DDA\u5206\u306E\u8FFD\u52A0\uFF0C\u3042\u308B x \u3067\u306E\u6700\u5C0F\u5024\
-    )\n// 2 \u7A2E\u985E\u3042\u308B:\n//   DynamicLiChaoTree<T>(xlo, xhi) : x \u2208\
-    \ [xlo, xhi) \u306E\u6574\u6570\uFF0E\u30CE\u30FC\u30C9\u3092\u5FC5\u8981\u306A\
-    \u5206\u3060\u3051\u4F5C\u308B (\u30AA\u30F3\u30E9\u30A4\u30F3)\n//   LiChaoTree<T>(xs)\
-    \             : x \u304C xs \u306E\u3069\u308C\u304B (\u5148\u8AAD\u307F\u3067\
-    \u304D\u308B\u3068\u304D\uFF0E\u914D\u5217\u3067\u6301\u3064\u306E\u3067\u901F\
-    \u3044)\n// MAX = true \u306A\u3089\u6700\u5927\u5024\uFF0ET \u306F\u5024\u306E\
-    \u578B (a x + b \u304C T \u306B\u53CE\u307E\u308B\u3053\u3068)\n\n// \u76F4\u7DDA\
-    \ y = a x + b\ntemplate <class T>\nstruct LiChaoLine {\n    T a, b;\n    T operator()(T\
-    \ x) const { return a * x + b; }\n};\n\ntemplate <class T, bool MAX = false>\n\
-    struct DynamicLiChaoTree {\n    using Line = LiChaoLine<T>;\n    struct Node {\n\
-    \        Line f;\n        int ch[2];\n    };\n    static constexpr T INF = MAX\
-    \ ? numeric_limits<T>::lowest() : numeric_limits<T>::max();\n    T xlo, xhi;\n\
-    \    vector<Node> d;  // d[0] \u306F\u756A\u5175 (\u76F4\u7DDA\u306A\u3057)\n\
-    \    int root = 0;\n\n    DynamicLiChaoTree(T xlo, T xhi) : xlo(xlo), xhi(xhi)\
-    \ { d.push_back({{0, INF}, {0, 0}}); }\n\n    void reserve(int n) { d.reserve(n);\
+    \ 3 \"data_structure/li_chao_tree.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// Li Chao Tree (\u76F4\u7DDA\u30FB\u7DDA\u5206\u306E\u8FFD\u52A0\uFF0C\u3042\
+    \u308B x \u3067\u306E\u6700\u5C0F\u5024)\n// 2 \u7A2E\u985E\u3042\u308B:\n// \
+    \  DynamicLiChaoTree<T>(xlo, xhi) : x \u2208 [xlo, xhi) \u306E\u6574\u6570\uFF0E\
+    \u30CE\u30FC\u30C9\u3092\u5FC5\u8981\u306A\u5206\u3060\u3051\u4F5C\u308B (\u30AA\
+    \u30F3\u30E9\u30A4\u30F3)\n//   LiChaoTree<T>(xs)             : x \u304C xs \u306E\
+    \u3069\u308C\u304B (\u5148\u8AAD\u307F\u3067\u304D\u308B\u3068\u304D\uFF0E\u914D\
+    \u5217\u3067\u6301\u3064\u306E\u3067\u901F\u3044)\n// MAX = true \u306A\u3089\u6700\
+    \u5927\u5024\uFF0ET \u306F\u5024\u306E\u578B (a x + b \u304C T \u306B\u53CE\u307E\
+    \u308B\u3053\u3068)\n\n// \u76F4\u7DDA y = a x + b\ntemplate <class T>\nstruct\
+    \ LiChaoLine {\n    T a, b;\n    T operator()(T x) const { return a * x + b; }\n\
+    };\n\ntemplate <class T, bool MAX = false>\nstruct DynamicLiChaoTree {\n    using\
+    \ Line = LiChaoLine<T>;\n    struct Node {\n        Line f;\n        int ch[2];\n\
+    \    };\n    static constexpr T INF = MAX ? numeric_limits<T>::lowest() : numeric_limits<T>::max();\n\
+    \    T xlo, xhi;\n    vector<Node> d;  // d[0] \u306F\u756A\u5175 (\u76F4\u7DDA\
+    \u306A\u3057)\n    int root = 0;\n\n    DynamicLiChaoTree(T xlo, T xhi) : xlo(xlo),\
+    \ xhi(xhi) { d.push_back({{0, INF}, {0, 0}}); }\n\n    void reserve(int n) { d.reserve(n);\
     \ }\n\n    // \u76F4\u7DDA y = a x + b \u3092\u8FFD\u52A0\n    void add_line(T\
     \ a, T b) { root = insert(root, xlo, xhi, {a, b}); }\n\n    // \u7DDA\u5206 y\
     \ = a x + b (x \u2208 [l, r)) \u3092\u8FFD\u52A0\n    void add_segment(T l, T\
@@ -118,23 +119,23 @@ data:
     \        if (bl != bm) v = 2 * v, hi = m;\n            else if (better(f(xs[hi\
     \ - 1]), g(xs[hi - 1]))) v = 2 * v + 1, lo = m;\n            else return;\n  \
     \      }\n    }\n};\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n\n// Li Chao Tree (\u76F4\u7DDA\
-    \u30FB\u7DDA\u5206\u306E\u8FFD\u52A0\uFF0C\u3042\u308B x \u3067\u306E\u6700\u5C0F\
-    \u5024)\n// 2 \u7A2E\u985E\u3042\u308B:\n//   DynamicLiChaoTree<T>(xlo, xhi) :\
-    \ x \u2208 [xlo, xhi) \u306E\u6574\u6570\uFF0E\u30CE\u30FC\u30C9\u3092\u5FC5\u8981\
-    \u306A\u5206\u3060\u3051\u4F5C\u308B (\u30AA\u30F3\u30E9\u30A4\u30F3)\n//   LiChaoTree<T>(xs)\
-    \             : x \u304C xs \u306E\u3069\u308C\u304B (\u5148\u8AAD\u307F\u3067\
-    \u304D\u308B\u3068\u304D\uFF0E\u914D\u5217\u3067\u6301\u3064\u306E\u3067\u901F\
-    \u3044)\n// MAX = true \u306A\u3089\u6700\u5927\u5024\uFF0ET \u306F\u5024\u306E\
-    \u578B (a x + b \u304C T \u306B\u53CE\u307E\u308B\u3053\u3068)\n\n// \u76F4\u7DDA\
-    \ y = a x + b\ntemplate <class T>\nstruct LiChaoLine {\n    T a, b;\n    T operator()(T\
-    \ x) const { return a * x + b; }\n};\n\ntemplate <class T, bool MAX = false>\n\
-    struct DynamicLiChaoTree {\n    using Line = LiChaoLine<T>;\n    struct Node {\n\
-    \        Line f;\n        int ch[2];\n    };\n    static constexpr T INF = MAX\
-    \ ? numeric_limits<T>::lowest() : numeric_limits<T>::max();\n    T xlo, xhi;\n\
-    \    vector<Node> d;  // d[0] \u306F\u756A\u5175 (\u76F4\u7DDA\u306A\u3057)\n\
-    \    int root = 0;\n\n    DynamicLiChaoTree(T xlo, T xhi) : xlo(xlo), xhi(xhi)\
-    \ { d.push_back({{0, INF}, {0, 0}}); }\n\n    void reserve(int n) { d.reserve(n);\
+  code: "#pragma once\n#include \"../template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// Li Chao Tree (\u76F4\u7DDA\u30FB\u7DDA\u5206\u306E\u8FFD\u52A0\uFF0C\u3042\
+    \u308B x \u3067\u306E\u6700\u5C0F\u5024)\n// 2 \u7A2E\u985E\u3042\u308B:\n// \
+    \  DynamicLiChaoTree<T>(xlo, xhi) : x \u2208 [xlo, xhi) \u306E\u6574\u6570\uFF0E\
+    \u30CE\u30FC\u30C9\u3092\u5FC5\u8981\u306A\u5206\u3060\u3051\u4F5C\u308B (\u30AA\
+    \u30F3\u30E9\u30A4\u30F3)\n//   LiChaoTree<T>(xs)             : x \u304C xs \u306E\
+    \u3069\u308C\u304B (\u5148\u8AAD\u307F\u3067\u304D\u308B\u3068\u304D\uFF0E\u914D\
+    \u5217\u3067\u6301\u3064\u306E\u3067\u901F\u3044)\n// MAX = true \u306A\u3089\u6700\
+    \u5927\u5024\uFF0ET \u306F\u5024\u306E\u578B (a x + b \u304C T \u306B\u53CE\u307E\
+    \u308B\u3053\u3068)\n\n// \u76F4\u7DDA y = a x + b\ntemplate <class T>\nstruct\
+    \ LiChaoLine {\n    T a, b;\n    T operator()(T x) const { return a * x + b; }\n\
+    };\n\ntemplate <class T, bool MAX = false>\nstruct DynamicLiChaoTree {\n    using\
+    \ Line = LiChaoLine<T>;\n    struct Node {\n        Line f;\n        int ch[2];\n\
+    \    };\n    static constexpr T INF = MAX ? numeric_limits<T>::lowest() : numeric_limits<T>::max();\n\
+    \    T xlo, xhi;\n    vector<Node> d;  // d[0] \u306F\u756A\u5175 (\u76F4\u7DDA\
+    \u306A\u3057)\n    int root = 0;\n\n    DynamicLiChaoTree(T xlo, T xhi) : xlo(xlo),\
+    \ xhi(xhi) { d.push_back({{0, INF}, {0, 0}}); }\n\n    void reserve(int n) { d.reserve(n);\
     \ }\n\n    // \u76F4\u7DDA y = a x + b \u3092\u8FFD\u52A0\n    void add_line(T\
     \ a, T b) { root = insert(root, xlo, xhi, {a, b}); }\n\n    // \u7DDA\u5206 y\
     \ = a x + b (x \u2208 [l, r)) \u3092\u8FFD\u52A0\n    void add_segment(T l, T\
@@ -207,8 +208,8 @@ data:
   isVerificationFile: false
   path: data_structure/li_chao_tree.hpp
   requiredBy: []
-  timestamp: '2026-10-14 23:17:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/segment_add_get_min.test.cpp
   - test/unittest/li_chao_tree.test.cpp

@@ -8,7 +8,7 @@
 
 既存のライブラリ（`graph/dsu.hpp`, `graph/dijkstra.hpp`）は fastio 導入前に作ったもので、速度面の見直しはまだしていない。
 
-**進捗: 57 / 235**
+**進捗: 67 / 235**
 
 ## Sample
 
@@ -81,16 +81,16 @@
 | ✅ | [Biconnected Components](https://judge.yosupo.jp/problem/biconnected_components) (`biconnected_components`) | [`graph/biconnected_components.hpp`](graph/biconnected_components.hpp) | [`test/biconnected_components.test.cpp`](test/biconnected_components.test.cpp) |
 | ✅ | [Connected Components of Complement Graph](https://judge.yosupo.jp/problem/connected_components_of_complement_graph) (`connected_components_of_complement_graph`) | [`graph/complement_graph_components.hpp`](graph/complement_graph_components.hpp) | [`test/connected_components_of_complement_graph.test.cpp`](test/connected_components_of_complement_graph.test.cpp) |
 | ✅ | [Eulerian Trail (Directed)](https://judge.yosupo.jp/problem/eulerian_trail_directed) (`eulerian_trail_directed`) | [`graph/eulerian_trail.hpp`](graph/eulerian_trail.hpp) | [`test/eulerian_trail_directed.test.cpp`](test/eulerian_trail_directed.test.cpp) |
-| ⬜ | [Eulerian Trail (Undirected)](https://judge.yosupo.jp/problem/eulerian_trail_undirected) (`eulerian_trail_undirected`) |  |  |
-| ⬜ | [st-Numbering](https://judge.yosupo.jp/problem/st_numbering) (`st_numbering`) |  |  |
-| ⬜ | [Minimum Cost b-flow](https://judge.yosupo.jp/problem/min_cost_b_flow) (`min_cost_b_flow`) |  |  |
-| ⬜ | [Matching on Bipartite Graph](https://judge.yosupo.jp/problem/bipartitematching) (`bipartitematching`) |  |  |
-| ⬜ | [Matching on General Graph](https://judge.yosupo.jp/problem/general_matching) (`general_matching`) |  |  |
-| ⬜ | [General Weighted Matching](https://judge.yosupo.jp/problem/general_weighted_matching) (`general_weighted_matching`) |  |  |
-| ⬜ | [Edge Coloring of Bipartite Graph](https://judge.yosupo.jp/problem/bipartite_edge_coloring) (`bipartite_edge_coloring`) |  |  |
-| ⬜ | [Assignment Problem](https://judge.yosupo.jp/problem/assignment) (`assignment`) |  |  |
-| ⬜ | [Minimum Spanning Tree](https://judge.yosupo.jp/problem/minimum_spanning_tree) (`minimum_spanning_tree`) |  |  |
-| ⬜ | [Directed MST](https://judge.yosupo.jp/problem/directedmst) (`directedmst`) |  |  |
+| ✅ | [Eulerian Trail (Undirected)](https://judge.yosupo.jp/problem/eulerian_trail_undirected) (`eulerian_trail_undirected`) | [`graph/eulerian_trail.hpp`](graph/eulerian_trail.hpp) | [`test/eulerian_trail_undirected.test.cpp`](test/eulerian_trail_undirected.test.cpp) |
+| ✅ | [st-Numbering](https://judge.yosupo.jp/problem/st_numbering) (`st_numbering`) | [`graph/st_numbering.hpp`](graph/st_numbering.hpp) | [`test/st_numbering.test.cpp`](test/st_numbering.test.cpp) |
+| ✅ | [Minimum Cost b-flow](https://judge.yosupo.jp/problem/min_cost_b_flow) (`min_cost_b_flow`) | [`graph/min_cost_b_flow.hpp`](graph/min_cost_b_flow.hpp) | [`test/min_cost_b_flow.test.cpp`](test/min_cost_b_flow.test.cpp) |
+| ✅ | [Matching on Bipartite Graph](https://judge.yosupo.jp/problem/bipartitematching) (`bipartitematching`) | [`graph/bipartite_matching.hpp`](graph/bipartite_matching.hpp) | [`test/bipartitematching.test.cpp`](test/bipartitematching.test.cpp) |
+| ✅ | [Matching on General Graph](https://judge.yosupo.jp/problem/general_matching) (`general_matching`) | [`graph/general_matching.hpp`](graph/general_matching.hpp) | [`test/general_matching.test.cpp`](test/general_matching.test.cpp) |
+| ✅ | [General Weighted Matching](https://judge.yosupo.jp/problem/general_weighted_matching) (`general_weighted_matching`) | [`graph/general_weighted_matching.hpp`](graph/general_weighted_matching.hpp) | [`test/general_weighted_matching.test.cpp`](test/general_weighted_matching.test.cpp) |
+| ✅ | [Edge Coloring of Bipartite Graph](https://judge.yosupo.jp/problem/bipartite_edge_coloring) (`bipartite_edge_coloring`) | [`graph/bipartite_edge_coloring.hpp`](graph/bipartite_edge_coloring.hpp) | [`test/bipartite_edge_coloring.test.cpp`](test/bipartite_edge_coloring.test.cpp) |
+| ✅ | [Assignment Problem](https://judge.yosupo.jp/problem/assignment) (`assignment`) | [`graph/hungarian.hpp`](graph/hungarian.hpp) | [`test/assignment.test.cpp`](test/assignment.test.cpp) |
+| ✅ | [Minimum Spanning Tree](https://judge.yosupo.jp/problem/minimum_spanning_tree) (`minimum_spanning_tree`) | [`graph/minimum_spanning_tree.hpp`](graph/minimum_spanning_tree.hpp) | [`test/minimum_spanning_tree.test.cpp`](test/minimum_spanning_tree.test.cpp) |
+| ✅ | [Directed MST](https://judge.yosupo.jp/problem/directedmst) (`directedmst`) | [`graph/directed_mst.hpp`](graph/directed_mst.hpp) | [`test/directedmst.test.cpp`](test/directedmst.test.cpp) |
 | ⬜ | [Minimum Diameter Spanning Tree](https://judge.yosupo.jp/problem/minimum_diameter_spanning_tree) (`minimum_diameter_spanning_tree`) |  |  |
 | ⬜ | [Dominator Tree](https://judge.yosupo.jp/problem/dominatortree) (`dominatortree`) |  |  |
 | ⬜ | [Maximum Independent Set](https://judge.yosupo.jp/problem/maximum_independent_set) (`maximum_independent_set`) |  |  |

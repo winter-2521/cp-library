@@ -1,33 +1,33 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/acted_monoid.hpp
     title: "\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9 (Acted Monoid)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/monoid.hpp
     title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/dynamic_sequence.hpp
     title: "\u5217\u306E\u633F\u5165\u30FB\u524A\u9664\u30FB\u53CD\u8EE2\u30FB\u533A\
       \u9593\u4F5C\u7528 (Dynamic Sequence, Splay \u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_reverse_range_sum
@@ -46,31 +46,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -216,19 +217,20 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"algebra/monoid.hpp\"\
-    \n\n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u30E2\
-    \u30CE\u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\u578B; static S op(const\
-    \ S &a, const S &b); static S e();\n// op \u306F\u7D50\u5408\u7684\u3067\uFF0C\
-    e \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300Ca \u304C\u5DE6 (\u5148)\uFF0C\
-    b \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\u6570 f(x) = a x + b\ntemplate\
-    \ <class T>\nstruct Affine {\n    T a = T(1), b = T(0);\n    Affine() = default;\n\
-    \    Affine(T a, T b) : a(a), b(b) {}\n    T operator()(const T &x) const { return\
-    \ a * x + b; }\n    T eval(const T &x) const { return a * x + b; }\n    // \u300C\
-    \u5148\u306B *this\uFF0C\u6B21\u306B g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n\
-    \    Affine then(const Affine &g) const { return Affine(a * g.a, b * g.a + g.b);\
-    \ }\n    friend bool operator==(const Affine &f, const Affine &g) { return f.a\
-    \ == g.a && f.b == g.b; }\n    friend bool operator!=(const Affine &f, const Affine\
-    \ &g) { return !(f == g); }\n};\n\n// \u548C\ntemplate <class T>\nstruct MonoidSum\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u30BB\u30B0\u30E1\u30F3\
+    \u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u30E2\u30CE\u30A4\u30C9\n// \u5F62\u5F0F\
+    : using S = \u5024\u306E\u578B; static S op(const S &a, const S &b); static S\
+    \ e();\n// op \u306F\u7D50\u5408\u7684\u3067\uFF0Ce \u306F\u5358\u4F4D\u5143\uFF0E\
+    op(a, b) \u306F\u300Ca \u304C\u5DE6 (\u5148)\uFF0Cb \u304C\u53F3 (\u5F8C)\u300D\
+    \n\n// 1 \u6B21\u95A2\u6570 f(x) = a x + b\ntemplate <class T>\nstruct Affine\
+    \ {\n    T a = T(1), b = T(0);\n    Affine() = default;\n    Affine(T a, T b)\
+    \ : a(a), b(b) {}\n    T operator()(const T &x) const { return a * x + b; }\n\
+    \    T eval(const T &x) const { return a * x + b; }\n    // \u300C\u5148\u306B\
+    \ *this\uFF0C\u6B21\u306B g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n    Affine\
+    \ then(const Affine &g) const { return Affine(a * g.a, b * g.a + g.b); }\n   \
+    \ friend bool operator==(const Affine &f, const Affine &g) { return f.a == g.a\
+    \ && f.b == g.b; }\n    friend bool operator!=(const Affine &f, const Affine &g)\
+    \ { return !(f == g); }\n};\n\n// \u548C\ntemplate <class T>\nstruct MonoidSum\
     \ {\n    using S = T;\n    static S op(const S &a, const S &b) { return a + b;\
     \ }\n    static S e() { return S(0); }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\
     \u5143\u306F numeric_limits<T>::max())\ntemplate <class T>\nstruct MonoidMin {\n\
@@ -248,16 +250,16 @@ data:
     \ k) \u56DE\u306E op\ntemplate <class M>\ntypename M::S monoid_pow(typename M::S\
     \ x, long long k) {\n    typename M::S r = M::e();\n    while (k) {\n        if\
     \ (k & 1) r = M::op(r, x);\n        k >>= 1;\n        if (k) x = M::op(x, x);\n\
-    \    }\n    return r;\n}\n#line 3 \"algebra/acted_monoid.hpp\"\n\n// \u9045\u5EF6\
-    \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u300C\u4F5C\
-    \u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9\u300D(ACL \u306E lazy_segtree \u3068\
-    \u540C\u3058\u898F\u7D04)\n// \u5F62\u5F0F:\n//   using S = \u5024\u306E\u578B\
-    ;   static S op(S, S);  static S e();\n//   using F = \u4F5C\u7528\u306E\u578B\
-    ; static S mapping(F f, S x);  // f \u3092 x \u306B\u4F5C\u7528\u3055\u305B\u308B\
-    \n//                       static F composition(F f, F g);  // \u5148\u306B g\uFF0C\
-    \u6B21\u306B f (f \u2218 g)\n//                       static F id();\n\n// \u533A\
-    \u9593 1 \u6B21\u95A2\u6570\u4F5C\u7528\u30FB\u533A\u9593\u548C\uFF0ES \u306F\
-    \ {\u548C, \u9577\u3055}\n// \u521D\u671F\u5024\u306F ActedAffineSum<T>::make(x)\
+    \    }\n    return r;\n}\n#line 3 \"algebra/acted_monoid.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\
+    \u300C\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9\u300D(ACL \u306E lazy_segtree\
+    \ \u3068\u540C\u3058\u898F\u7D04)\n// \u5F62\u5F0F:\n//   using S = \u5024\u306E\
+    \u578B;   static S op(S, S);  static S e();\n//   using F = \u4F5C\u7528\u306E\
+    \u578B; static S mapping(F f, S x);  // f \u3092 x \u306B\u4F5C\u7528\u3055\u305B\
+    \u308B\n//                       static F composition(F f, F g);  // \u5148\u306B\
+    \ g\uFF0C\u6B21\u306B f (f \u2218 g)\n//                       static F id();\n\
+    \n// \u533A\u9593 1 \u6B21\u95A2\u6570\u4F5C\u7528\u30FB\u533A\u9593\u548C\uFF0E\
+    S \u306F {\u548C, \u9577\u3055}\n// \u521D\u671F\u5024\u306F ActedAffineSum<T>::make(x)\
     \ (= {x, 1}) \u3067\u4F5C\u308B\ntemplate <class T>\nstruct ActedAffineSum {\n\
     \    struct S {\n        T sum, len;\n    };\n    using F = Affine<T>;\n    static\
     \ S make(const T &x) { return {x, T(1)}; }\n    static S op(const S &a, const\
@@ -316,26 +318,26 @@ data:
     \ const S &b) { return M::op(a, b); }\n    static S e() { return M::e(); }\n \
     \   static S mapping(const F &, const S &x) { return x; }\n    static F composition(const\
     \ F &, const F &) { return F(); }\n    static F id() { return F(); }\n};\n#line\
-    \ 4 \"data_structure/dynamic_sequence.hpp\"\n\n// \u5217\u306E\u633F\u5165\u30FB\
-    \u524A\u9664\u30FB\u533A\u9593\u53CD\u8EE2\u30FB\u533A\u9593\u4F5C\u7528\u30FB\
-    \u533A\u9593\u7A4D (Splay \u6728)\n// AM \u306F\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\
-    \u30A4\u30C9 (algebra/acted_monoid.hpp \u53C2\u7167)\n// COMMUTATIVE = false \u306A\
-    \u3089\u975E\u53EF\u63DB\u306A\u30E2\u30CE\u30A4\u30C9\u3067\u3082\u53CD\u8EE2\
-    \u3067\u304D\u308B (\u9006\u9806\u306E\u7A4D\u3082\u6301\u3064\uFF0E\u5C11\u3057\
-    \u9045\u3044)\n// \u4E21\u7AEF\u306B\u756A\u5175\u3092\u7F6E\u304D\uFF0C\u533A\
-    \u9593 [l, r) \u306F\u300Cl-1 \u756A\u76EE\u3092\u6839\u306B\uFF0Cr \u756A\u76EE\
-    \u3092\u6839\u306E\u53F3\u306E\u5B50\u306B splay \u3057\u305F\u5F8C\u306E\uFF0C\
-    \u305D\u306E\u5DE6\u306E\u5B50\u300D\u3068\u3057\u3066\u53D6\u308A\u51FA\u3059\
-    \ntemplate <class AM, bool COMMUTATIVE = true>\nstruct DynamicSequence {\n   \
-    \ using S = typename AM::S;\n    using F = typename AM::F;\n    // \u9006\u9806\
-    \u306E\u7A4D rsum \u306F COMMUTATIVE = false \u306E\u3068\u304D\u3060\u3051\u6301\
-    \u3064\n    struct NoRSum {};\n    struct WithRSum {\n        S rsum;\n    };\n\
-    \    struct Node : conditional_t<COMMUTATIVE, NoRSum, WithRSum> {\n        int\
-    \ ch[2], p, sz;\n        S val, sum;\n        F lz;\n        bool has_lz, rev;\n\
-    \    };\n    vector<Node> d;  // d[0] \u306F\u7A7A\u30CE\u30FC\u30C9\n    int\
-    \ root;\n\n    DynamicSequence(const vector<S> &a = {}) {\n        int n = a.size();\n\
-    \        d.reserve(n + 3);\n        d.push_back(make_node(AM::e()));\n       \
-    \ d[0].sz = 0;\n        vector<int> ids(n + 2);\n        ids[0] = new_node(AM::e());\n\
+    \ 4 \"data_structure/dynamic_sequence.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u5217\u306E\u633F\u5165\u30FB\u524A\u9664\u30FB\u533A\u9593\u53CD\u8EE2\u30FB\
+    \u533A\u9593\u4F5C\u7528\u30FB\u533A\u9593\u7A4D (Splay \u6728)\n// AM \u306F\u4F5C\
+    \u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9 (algebra/acted_monoid.hpp \u53C2\u7167\
+    )\n// COMMUTATIVE = false \u306A\u3089\u975E\u53EF\u63DB\u306A\u30E2\u30CE\u30A4\
+    \u30C9\u3067\u3082\u53CD\u8EE2\u3067\u304D\u308B (\u9006\u9806\u306E\u7A4D\u3082\
+    \u6301\u3064\uFF0E\u5C11\u3057\u9045\u3044)\n// \u4E21\u7AEF\u306B\u756A\u5175\
+    \u3092\u7F6E\u304D\uFF0C\u533A\u9593 [l, r) \u306F\u300Cl-1 \u756A\u76EE\u3092\
+    \u6839\u306B\uFF0Cr \u756A\u76EE\u3092\u6839\u306E\u53F3\u306E\u5B50\u306B splay\
+    \ \u3057\u305F\u5F8C\u306E\uFF0C\u305D\u306E\u5DE6\u306E\u5B50\u300D\u3068\u3057\
+    \u3066\u53D6\u308A\u51FA\u3059\ntemplate <class AM, bool COMMUTATIVE = true>\n\
+    struct DynamicSequence {\n    using S = typename AM::S;\n    using F = typename\
+    \ AM::F;\n    // \u9006\u9806\u306E\u7A4D rsum \u306F COMMUTATIVE = false \u306E\
+    \u3068\u304D\u3060\u3051\u6301\u3064\n    struct NoRSum {};\n    struct WithRSum\
+    \ {\n        S rsum;\n    };\n    struct Node : conditional_t<COMMUTATIVE, NoRSum,\
+    \ WithRSum> {\n        int ch[2], p, sz;\n        S val, sum;\n        F lz;\n\
+    \        bool has_lz, rev;\n    };\n    vector<Node> d;  // d[0] \u306F\u7A7A\u30CE\
+    \u30FC\u30C9\n    int root;\n\n    DynamicSequence(const vector<S> &a = {}) {\n\
+    \        int n = a.size();\n        d.reserve(n + 3);\n        d.push_back(make_node(AM::e()));\n\
+    \        d[0].sz = 0;\n        vector<int> ids(n + 2);\n        ids[0] = new_node(AM::e());\n\
     \        for (int i = 0; i < n; i++) ids[i + 1] = new_node(a[i]);\n        ids[n\
     \ + 1] = new_node(AM::e());\n        root = build(ids, 0, n + 2, 0);\n    }\n\n\
     \    void reserve(int n) { d.reserve(n + 3); }\n    int size() const { return\
@@ -431,8 +433,8 @@ data:
   isVerificationFile: true
   path: test/range_reverse_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2026-10-14 23:17:41+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/range_reverse_range_sum.test.cpp
 layout: document

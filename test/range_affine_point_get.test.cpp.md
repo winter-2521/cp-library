@@ -1,36 +1,36 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/monoid.hpp
     title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/dual_segment_tree.hpp
     title: "\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dual Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modint.hpp
     title: "ModInt (\u6CD5\u304C\u30B3\u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E\
       \ modint)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_affine_point_get
@@ -49,31 +49,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -208,62 +209,63 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"math/modint.hpp\"\
-    \n\n// \u6CD5 MOD \u304C \u30B3\u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E\
-    \ modint\n// MOD < 2^31 \u3067\u3042\u308B\u3053\u3068 (\u7D20\u6570\u3067\u306A\
-    \u304F\u3066\u3082\u3088\u3044\uFF0E\u305F\u3060\u3057 inv() \u306F MOD \u3068\
-    \u4E92\u3044\u306B\u7D20\u306A\u5024\u306B\u5BFE\u3057\u3066\u306E\u307F\u6709\
-    \u52B9)\n// \u30A4\u30F3\u30BF\u30FC\u30D5\u30A7\u30FC\u30B9\u306F ACL (atcoder::static_modint)\
-    \ \u3068\u63C3\u3048\u3066\u3042\u308B\uFF0E\n// \u3053\u306E\u30E9\u30A4\u30D6\
-    \u30E9\u30EA\u306E\u4ED6\u306E\u30D5\u30A1\u30A4\u30EB (fastio \u306A\u3069) \u306F\
-    \ ACL \u306E modint \u3067\u3082\u305D\u306E\u307E\u307E\u52D5\u304F\ntemplate\
-    \ <uint32_t MOD>\nstruct ModInt {\n    static_assert(1 <= MOD && MOD < (1u <<\
-    \ 31), \"MOD must be in [1, 2^31)\");\n    using mint = ModInt;\n    uint32_t\
-    \ v;\n\n    static constexpr int mod() { return MOD; }\n\n    constexpr ModInt()\
-    \ : v(0) {}\n\n    template <class T, enable_if_t<is_integral_v<T>, nullptr_t>\
-    \ = nullptr>\n    constexpr ModInt(T x) : v(0) {\n        if constexpr (is_signed_v<T>)\
-    \ {\n            long long y = (long long)(x % (long long)MOD);\n            if\
-    \ (y < 0) y += MOD;\n            v = uint32_t(y);\n        } else {\n        \
-    \    v = uint32_t(x % MOD);\n        }\n    }\n\n    // 0 <= x < MOD \u304C\u5206\
-    \u304B\u3063\u3066\u3044\u308B\u3068\u304D\u306B\u5270\u4F59\u3092\u53D6\u3089\
-    \u305A\u306B\u4F5C\u308B\n    static constexpr mint raw(int x) {\n        mint\
-    \ r;\n        r.v = x;\n        return r;\n    }\n\n    // ACL (\u73FE\u884C\u7248\
-    ) \u3068\u540C\u3058\u304F int \u3067\u8FD4\u3059\n    constexpr int val() const\
-    \ { return int(v); }\n\n    constexpr mint &operator+=(const mint &r) {\n    \
-    \    v += r.v;\n        if (v >= MOD) v -= MOD;\n        return *this;\n    }\n\
-    \    constexpr mint &operator-=(const mint &r) {\n        v += MOD - r.v;\n  \
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u6CD5 MOD \u304C \u30B3\
+    \u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E modint\n// MOD < 2^31 \u3067\u3042\
+    \u308B\u3053\u3068 (\u7D20\u6570\u3067\u306A\u304F\u3066\u3082\u3088\u3044\uFF0E\
+    \u305F\u3060\u3057 inv() \u306F MOD \u3068\u4E92\u3044\u306B\u7D20\u306A\u5024\
+    \u306B\u5BFE\u3057\u3066\u306E\u307F\u6709\u52B9)\n// \u30A4\u30F3\u30BF\u30FC\
+    \u30D5\u30A7\u30FC\u30B9\u306F ACL (atcoder::static_modint) \u3068\u63C3\u3048\
+    \u3066\u3042\u308B\uFF0E\n// \u3053\u306E\u30E9\u30A4\u30D6\u30E9\u30EA\u306E\u4ED6\
+    \u306E\u30D5\u30A1\u30A4\u30EB (fastio \u306A\u3069) \u306F ACL \u306E modint\
+    \ \u3067\u3082\u305D\u306E\u307E\u307E\u52D5\u304F\ntemplate <uint32_t MOD>\n\
+    struct ModInt {\n    static_assert(1 <= MOD && MOD < (1u << 31), \"MOD must be\
+    \ in [1, 2^31)\");\n    using mint = ModInt;\n    uint32_t v;\n\n    static constexpr\
+    \ int mod() { return MOD; }\n\n    constexpr ModInt() : v(0) {}\n\n    template\
+    \ <class T, enable_if_t<is_integral_v<T>, nullptr_t> = nullptr>\n    constexpr\
+    \ ModInt(T x) : v(0) {\n        if constexpr (is_signed_v<T>) {\n            long\
+    \ long y = (long long)(x % (long long)MOD);\n            if (y < 0) y += MOD;\n\
+    \            v = uint32_t(y);\n        } else {\n            v = uint32_t(x %\
+    \ MOD);\n        }\n    }\n\n    // 0 <= x < MOD \u304C\u5206\u304B\u3063\u3066\
+    \u3044\u308B\u3068\u304D\u306B\u5270\u4F59\u3092\u53D6\u3089\u305A\u306B\u4F5C\
+    \u308B\n    static constexpr mint raw(int x) {\n        mint r;\n        r.v =\
+    \ x;\n        return r;\n    }\n\n    // ACL (\u73FE\u884C\u7248) \u3068\u540C\
+    \u3058\u304F int \u3067\u8FD4\u3059\n    constexpr int val() const { return int(v);\
+    \ }\n\n    constexpr mint &operator+=(const mint &r) {\n        v += r.v;\n  \
     \      if (v >= MOD) v -= MOD;\n        return *this;\n    }\n    constexpr mint\
-    \ &operator*=(const mint &r) {\n        // MOD \u304C\u5B9A\u6570\u306A\u306E\u3067\
-    \ % \u306F\u4E57\u7B97\u3068\u30B7\u30D5\u30C8\u306B\u6700\u9069\u5316\u3055\u308C\
-    \u308B\n        v = uint32_t((uint64_t)v * r.v % MOD);\n        return *this;\n\
-    \    }\n    constexpr mint &operator/=(const mint &r) { return *this *= r.inv();\
-    \ }\n\n    constexpr mint operator+() const { return *this; }\n    constexpr mint\
-    \ operator-() const { return raw(v == 0 ? 0 : MOD - v); }\n\n    constexpr mint\
-    \ &operator++() { return *this += raw(1); }\n    constexpr mint &operator--()\
-    \ { return *this -= raw(1); }\n    constexpr mint operator++(int) { mint r = *this;\
-    \ ++*this; return r; }\n    constexpr mint operator--(int) { mint r = *this; --*this;\
-    \ return r; }\n\n    friend constexpr mint operator+(mint l, const mint &r) {\
-    \ return l += r; }\n    friend constexpr mint operator-(mint l, const mint &r)\
-    \ { return l -= r; }\n    friend constexpr mint operator*(mint l, const mint &r)\
-    \ { return l *= r; }\n    friend constexpr mint operator/(mint l, const mint &r)\
-    \ { return l /= r; }\n    friend constexpr bool operator==(const mint &l, const\
-    \ mint &r) { return l.v == r.v; }\n    friend constexpr bool operator!=(const\
-    \ mint &l, const mint &r) { return l.v != r.v; }\n\n    // this^n (n < 0 \u306A\
-    \u3089\u9006\u5143\u306E -n \u4E57)\n    constexpr mint pow(long long n) const\
-    \ {\n        mint x = n >= 0 ? *this : inv(), r = raw(1 % MOD);\n        unsigned\
-    \ long long e = n >= 0 ? (unsigned long long)n : 0ULL - (unsigned long long)n;\n\
-    \        while (e) {\n            if (e & 1) r *= x;\n            x *= x;\n  \
-    \          e >>= 1;\n        }\n        return r;\n    }\n\n    // \u62E1\u5F35\
-    \u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5\u306B\u3088\u308B\
-    \u9006\u5143 (MOD \u304C\u7D20\u6570\u3067\u306A\u304F\u3066\u3082 gcd(v, MOD)\
-    \ = 1 \u306A\u3089\u6B63\u3057\u3044)\n    constexpr mint inv() const {\n    \
-    \    long long a = v, b = MOD, x = 1, y = 0;\n        while (b) {\n          \
-    \  long long t = a / b;\n            a -= t * b, swap(a, b);\n            x -=\
-    \ t * y, swap(x, y);\n        }\n        assert(a == 1);\n        return mint(x);\n\
-    \    }\n\n    friend ostream &operator<<(ostream &os, const mint &x) { return\
-    \ os << x.v; }\n    friend istream &operator>>(istream &is, mint &x) {\n     \
-    \   long long t;\n        is >> t;\n        x = mint(t);\n        return is;\n\
-    \    }\n};\n\nusing ModInt998244353 = ModInt<998244353>;\nusing ModInt1000000007\
-    \ = ModInt<1000000007>;\n#line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
+    \ &operator-=(const mint &r) {\n        v += MOD - r.v;\n        if (v >= MOD)\
+    \ v -= MOD;\n        return *this;\n    }\n    constexpr mint &operator*=(const\
+    \ mint &r) {\n        // MOD \u304C\u5B9A\u6570\u306A\u306E\u3067 % \u306F\u4E57\
+    \u7B97\u3068\u30B7\u30D5\u30C8\u306B\u6700\u9069\u5316\u3055\u308C\u308B\n   \
+    \     v = uint32_t((uint64_t)v * r.v % MOD);\n        return *this;\n    }\n \
+    \   constexpr mint &operator/=(const mint &r) { return *this *= r.inv(); }\n\n\
+    \    constexpr mint operator+() const { return *this; }\n    constexpr mint operator-()\
+    \ const { return raw(v == 0 ? 0 : MOD - v); }\n\n    constexpr mint &operator++()\
+    \ { return *this += raw(1); }\n    constexpr mint &operator--() { return *this\
+    \ -= raw(1); }\n    constexpr mint operator++(int) { mint r = *this; ++*this;\
+    \ return r; }\n    constexpr mint operator--(int) { mint r = *this; --*this; return\
+    \ r; }\n\n    friend constexpr mint operator+(mint l, const mint &r) { return\
+    \ l += r; }\n    friend constexpr mint operator-(mint l, const mint &r) { return\
+    \ l -= r; }\n    friend constexpr mint operator*(mint l, const mint &r) { return\
+    \ l *= r; }\n    friend constexpr mint operator/(mint l, const mint &r) { return\
+    \ l /= r; }\n    friend constexpr bool operator==(const mint &l, const mint &r)\
+    \ { return l.v == r.v; }\n    friend constexpr bool operator!=(const mint &l,\
+    \ const mint &r) { return l.v != r.v; }\n\n    // this^n (n < 0 \u306A\u3089\u9006\
+    \u5143\u306E -n \u4E57)\n    constexpr mint pow(long long n) const {\n       \
+    \ mint x = n >= 0 ? *this : inv(), r = raw(1 % MOD);\n        unsigned long long\
+    \ e = n >= 0 ? (unsigned long long)n : 0ULL - (unsigned long long)n;\n       \
+    \ while (e) {\n            if (e & 1) r *= x;\n            x *= x;\n         \
+    \   e >>= 1;\n        }\n        return r;\n    }\n\n    // \u62E1\u5F35\u30E6\
+    \u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5\u306B\u3088\u308B\u9006\
+    \u5143 (MOD \u304C\u7D20\u6570\u3067\u306A\u304F\u3066\u3082 gcd(v, MOD) = 1 \u306A\
+    \u3089\u6B63\u3057\u3044)\n    constexpr mint inv() const {\n        long long\
+    \ a = v, b = MOD, x = 1, y = 0;\n        while (b) {\n            long long t\
+    \ = a / b;\n            a -= t * b, swap(a, b);\n            x -= t * y, swap(x,\
+    \ y);\n        }\n        assert(a == 1);\n        return mint(x);\n    }\n\n\
+    \    friend ostream &operator<<(ostream &os, const mint &x) { return os << x.v;\
+    \ }\n    friend istream &operator>>(istream &is, mint &x) {\n        long long\
+    \ t;\n        is >> t;\n        x = mint(t);\n        return is;\n    }\n};\n\n\
+    using ModInt998244353 = ModInt<998244353>;\nusing ModInt1000000007 = ModInt<1000000007>;\n\
+    #line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
     #include <atcoder/all>\nusing namespace atcoder;\n#endif\n// QCfium\u6CD5\u3092\
     \u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\u30C8\u30A2\u30A6\u30C8\u3092\u5916\
     \u3059\n/*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
@@ -285,27 +287,28 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"algebra/monoid.hpp\"\n\n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\
-    \u306B\u6E21\u3059\u30E2\u30CE\u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\
-    \u578B; static S op(const S &a, const S &b); static S e();\n// op \u306F\u7D50\
-    \u5408\u7684\u3067\uFF0Ce \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300C\
-    a \u304C\u5DE6 (\u5148)\uFF0Cb \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\
-    \u6570 f(x) = a x + b\ntemplate <class T>\nstruct Affine {\n    T a = T(1), b\
-    \ = T(0);\n    Affine() = default;\n    Affine(T a, T b) : a(a), b(b) {}\n   \
-    \ T operator()(const T &x) const { return a * x + b; }\n    T eval(const T &x)\
-    \ const { return a * x + b; }\n    // \u300C\u5148\u306B *this\uFF0C\u6B21\u306B\
-    \ g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n    Affine then(const Affine\
-    \ &g) const { return Affine(a * g.a, b * g.a + g.b); }\n    friend bool operator==(const\
-    \ Affine &f, const Affine &g) { return f.a == g.a && f.b == g.b; }\n    friend\
-    \ bool operator!=(const Affine &f, const Affine &g) { return !(f == g); }\n};\n\
-    \n// \u548C\ntemplate <class T>\nstruct MonoidSum {\n    using S = T;\n    static\
-    \ S op(const S &a, const S &b) { return a + b; }\n    static S e() { return S(0);\
-    \ }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::max())\n\
-    template <class T>\nstruct MonoidMin {\n    using S = T;\n    static S op(const\
-    \ S &a, const S &b) { return b < a ? b : a; }\n    static S e() { return numeric_limits<T>::max();\
-    \ }\n};\n\n// \u6700\u5927\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::lowest())\n\
-    template <class T>\nstruct MonoidMax {\n    using S = T;\n    static S op(const\
-    \ S &a, const S &b) { return a < b ? b : a; }\n    static S e() { return numeric_limits<T>::lowest();\
+    \ 3 \"algebra/monoid.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n\
+    // \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u30E2\u30CE\
+    \u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\u578B; static S op(const\
+    \ S &a, const S &b); static S e();\n// op \u306F\u7D50\u5408\u7684\u3067\uFF0C\
+    e \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300Ca \u304C\u5DE6 (\u5148)\uFF0C\
+    b \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\u6570 f(x) = a x + b\ntemplate\
+    \ <class T>\nstruct Affine {\n    T a = T(1), b = T(0);\n    Affine() = default;\n\
+    \    Affine(T a, T b) : a(a), b(b) {}\n    T operator()(const T &x) const { return\
+    \ a * x + b; }\n    T eval(const T &x) const { return a * x + b; }\n    // \u300C\
+    \u5148\u306B *this\uFF0C\u6B21\u306B g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n\
+    \    Affine then(const Affine &g) const { return Affine(a * g.a, b * g.a + g.b);\
+    \ }\n    friend bool operator==(const Affine &f, const Affine &g) { return f.a\
+    \ == g.a && f.b == g.b; }\n    friend bool operator!=(const Affine &f, const Affine\
+    \ &g) { return !(f == g); }\n};\n\n// \u548C\ntemplate <class T>\nstruct MonoidSum\
+    \ {\n    using S = T;\n    static S op(const S &a, const S &b) { return a + b;\
+    \ }\n    static S e() { return S(0); }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\
+    \u5143\u306F numeric_limits<T>::max())\ntemplate <class T>\nstruct MonoidMin {\n\
+    \    using S = T;\n    static S op(const S &a, const S &b) { return b < a ? b\
+    \ : a; }\n    static S e() { return numeric_limits<T>::max(); }\n};\n\n// \u6700\
+    \u5927\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::lowest())\ntemplate\
+    \ <class T>\nstruct MonoidMax {\n    using S = T;\n    static S op(const S &a,\
+    \ const S &b) { return a < b ? b : a; }\n    static S e() { return numeric_limits<T>::lowest();\
     \ }\n};\n\n// xor\ntemplate <class T>\nstruct MonoidXor {\n    using S = T;\n\
     \    static S op(const S &a, const S &b) { return a ^ b; }\n    static S e() {\
     \ return S(0); }\n};\n\n// 1 \u6B21\u95A2\u6570\u306E\u5408\u6210\uFF0Eop(f, g)\
@@ -318,46 +321,47 @@ data:
     \ x, long long k) {\n    typename M::S r = M::e();\n    while (k) {\n        if\
     \ (k & 1) r = M::op(r, x);\n        k >>= 1;\n        if (k) x = M::op(x, x);\n\
     \    }\n    return r;\n}\n#line 4 \"data_structure/dual_segment_tree.hpp\"\n\n\
-    // \u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u533A\u9593\u4F5C\u7528\u30FB\
-    \u4E00\u70B9\u53D6\u5F97)\n// \u5404\u4F4D\u7F6E i \u306B\u4F5C\u7528 F_i (\u306F\
-    \u3058\u3081 e()) \u3092\u6301\u3061\uFF0C\u533A\u9593 [l, r) \u306E\u5404 F_i\
-    \ \u3092 op(F_i, f) \u306B\u66F4\u65B0\u3059\u308B\uFF0E\n// M \u306F\u30E2\u30CE\
-    \u30A4\u30C9\u3067\uFF0Cop(x, y) \u306F\u300C\u5148\u306B x\uFF0C\u6B21\u306B\
-    \ y\u300D\u3068\u3044\u3046\u6642\u7CFB\u5217\u9806\u306E\u5408\u6210 (\u975E\u53EF\
-    \u63DB\u3067\u3082\u3088\u3044)\n// \u4F8B: DualSegmentTree<MonoidAffine<mint>>\
-    \ \u3067\u533A\u9593 1 \u6B21\u95A2\u6570\u4F5C\u7528\uFF0Cget(i)(a[i]) \u3067\
-    \u73FE\u5728\u306E\u5024\ntemplate <class M>\nstruct DualSegmentTree {\n    using\
-    \ S = typename M::S;\n    int n, sz, lg;\n    vector<S> lz;\n\n    DualSegmentTree(int\
-    \ n = 0) : n(n) {\n        lg = 0;\n        while ((1 << lg) < n) lg++;\n    \
-    \    sz = 1 << lg;\n        lz.assign(2 * sz, M::e());\n    }\n\n    int size()\
-    \ const { return n; }\n\n    // i in [l, r) \u306B\u3064\u3044\u3066 F_i = op(F_i,\
-    \ f)\n    void apply(int l, int r, const S &f) {\n        if (l >= r) return;\n\
-    \        l += sz, r += sz;\n        // \u975E\u53EF\u63DB\u306A\u306E\u3067\uFF0C\
-    \u5148\u306B\u5883\u754C\u306E\u7956\u5148\u306E\u4F5C\u7528\u3092\u4E0B\u308D\
-    \u3057\u3066\u304A\u304F\n        for (int i = lg; i >= 1; i--) {\n          \
-    \  if (((l >> i) << i) != l) push(l >> i);\n            if (((r >> i) << i) !=\
-    \ r) push((r - 1) >> i);\n        }\n        while (l < r) {\n            if (l\
-    \ & 1) lz[l] = M::op(lz[l], f), l++;\n            if (r & 1) --r, lz[r] = M::op(lz[r],\
-    \ f);\n            l >>= 1, r >>= 1;\n        }\n    }\n\n    // F_p = op(F_p,\
-    \ f)\n    void apply(int p, const S &f) { apply(p, p + 1, f); }\n\n    // F_p\
-    \ (\u4F4D\u7F6E p \u306B\u3053\u308C\u307E\u3067\u306B\u4F5C\u7528\u3057\u305F\
-    \u5168\u3066\u3092\u6642\u7CFB\u5217\u9806\u306B\u5408\u6210\u3057\u305F\u3082\
-    \u306E)\n    S get(int p) const {\n        p += sz;\n        S res = lz[p];\n\
-    \        // \u7956\u5148\u306E\u4F5C\u7528\u306E\u65B9\u304C\u65B0\u3057\u3044\
-    \n        for (p >>= 1; p; p >>= 1) res = M::op(res, lz[p]);\n        return res;\n\
-    \    }\n    S operator[](int p) const { return get(p); }\n\n    // F_p = f \u306B\
-    \u7F6E\u304D\u63DB\u3048\u308B\n    void set(int p, const S &f) {\n        p +=\
-    \ sz;\n        for (int i = lg; i >= 1; i--) push(p >> i);\n        lz[p] = f;\n\
-    \    }\n\n  private:\n    void push(int k) {\n        lz[2 * k] = M::op(lz[2 *\
-    \ k], lz[k]);\n        lz[2 * k + 1] = M::op(lz[2 * k + 1], lz[k]);\n        lz[k]\
-    \ = M::e();\n    }\n};\n#line 5 \"test/range_affine_point_get.test.cpp\"\n\nusing\
-    \ mint = ModInt998244353;\n\nint main() {\n    int n, q;\n    fin >> n >> q;\n\
-    \    vector<mint> a(n);\n    fin >> a;\n    DualSegmentTree<MonoidAffine<mint>>\
-    \ seg(n);\n    while (q--) {\n        int t;\n        fin >> t;\n        if (t\
-    \ == 0) {\n            int l, r;\n            mint b, c;\n            fin >> l\
-    \ >> r >> b >> c;\n            seg.apply(l, r, {b, c});\n        } else {\n  \
-    \          int i;\n            fin >> i;\n            fout << seg.get(i)(a[i])\
-    \ << '\\n';\n        }\n    }\n    return 0;\n}\n"
+    // https://github.com/winter-2521/cp-library\n\n// \u53CC\u5BFE\u30BB\u30B0\u30E1\
+    \u30F3\u30C8\u6728 (\u533A\u9593\u4F5C\u7528\u30FB\u4E00\u70B9\u53D6\u5F97)\n\
+    // \u5404\u4F4D\u7F6E i \u306B\u4F5C\u7528 F_i (\u306F\u3058\u3081 e()) \u3092\
+    \u6301\u3061\uFF0C\u533A\u9593 [l, r) \u306E\u5404 F_i \u3092 op(F_i, f) \u306B\
+    \u66F4\u65B0\u3059\u308B\uFF0E\n// M \u306F\u30E2\u30CE\u30A4\u30C9\u3067\uFF0C\
+    op(x, y) \u306F\u300C\u5148\u306B x\uFF0C\u6B21\u306B y\u300D\u3068\u3044\u3046\
+    \u6642\u7CFB\u5217\u9806\u306E\u5408\u6210 (\u975E\u53EF\u63DB\u3067\u3082\u3088\
+    \u3044)\n// \u4F8B: DualSegmentTree<MonoidAffine<mint>> \u3067\u533A\u9593 1 \u6B21\
+    \u95A2\u6570\u4F5C\u7528\uFF0Cget(i)(a[i]) \u3067\u73FE\u5728\u306E\u5024\ntemplate\
+    \ <class M>\nstruct DualSegmentTree {\n    using S = typename M::S;\n    int n,\
+    \ sz, lg;\n    vector<S> lz;\n\n    DualSegmentTree(int n = 0) : n(n) {\n    \
+    \    lg = 0;\n        while ((1 << lg) < n) lg++;\n        sz = 1 << lg;\n   \
+    \     lz.assign(2 * sz, M::e());\n    }\n\n    int size() const { return n; }\n\
+    \n    // i in [l, r) \u306B\u3064\u3044\u3066 F_i = op(F_i, f)\n    void apply(int\
+    \ l, int r, const S &f) {\n        if (l >= r) return;\n        l += sz, r +=\
+    \ sz;\n        // \u975E\u53EF\u63DB\u306A\u306E\u3067\uFF0C\u5148\u306B\u5883\
+    \u754C\u306E\u7956\u5148\u306E\u4F5C\u7528\u3092\u4E0B\u308D\u3057\u3066\u304A\
+    \u304F\n        for (int i = lg; i >= 1; i--) {\n            if (((l >> i) <<\
+    \ i) != l) push(l >> i);\n            if (((r >> i) << i) != r) push((r - 1) >>\
+    \ i);\n        }\n        while (l < r) {\n            if (l & 1) lz[l] = M::op(lz[l],\
+    \ f), l++;\n            if (r & 1) --r, lz[r] = M::op(lz[r], f);\n           \
+    \ l >>= 1, r >>= 1;\n        }\n    }\n\n    // F_p = op(F_p, f)\n    void apply(int\
+    \ p, const S &f) { apply(p, p + 1, f); }\n\n    // F_p (\u4F4D\u7F6E p \u306B\u3053\
+    \u308C\u307E\u3067\u306B\u4F5C\u7528\u3057\u305F\u5168\u3066\u3092\u6642\u7CFB\
+    \u5217\u9806\u306B\u5408\u6210\u3057\u305F\u3082\u306E)\n    S get(int p) const\
+    \ {\n        p += sz;\n        S res = lz[p];\n        // \u7956\u5148\u306E\u4F5C\
+    \u7528\u306E\u65B9\u304C\u65B0\u3057\u3044\n        for (p >>= 1; p; p >>= 1)\
+    \ res = M::op(res, lz[p]);\n        return res;\n    }\n    S operator[](int p)\
+    \ const { return get(p); }\n\n    // F_p = f \u306B\u7F6E\u304D\u63DB\u3048\u308B\
+    \n    void set(int p, const S &f) {\n        p += sz;\n        for (int i = lg;\
+    \ i >= 1; i--) push(p >> i);\n        lz[p] = f;\n    }\n\n  private:\n    void\
+    \ push(int k) {\n        lz[2 * k] = M::op(lz[2 * k], lz[k]);\n        lz[2 *\
+    \ k + 1] = M::op(lz[2 * k + 1], lz[k]);\n        lz[k] = M::e();\n    }\n};\n\
+    #line 5 \"test/range_affine_point_get.test.cpp\"\n\nusing mint = ModInt998244353;\n\
+    \nint main() {\n    int n, q;\n    fin >> n >> q;\n    vector<mint> a(n);\n  \
+    \  fin >> a;\n    DualSegmentTree<MonoidAffine<mint>> seg(n);\n    while (q--)\
+    \ {\n        int t;\n        fin >> t;\n        if (t == 0) {\n            int\
+    \ l, r;\n            mint b, c;\n            fin >> l >> r >> b >> c;\n      \
+    \      seg.apply(l, r, {b, c});\n        } else {\n            int i;\n      \
+    \      fin >> i;\n            fout << seg.get(i)(a[i]) << '\\n';\n        }\n\
+    \    }\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_point_get\"\
     \n#include \"../io/fastio.hpp\"\n#include \"../math/modint.hpp\"\n#include \"\
     ../data_structure/dual_segment_tree.hpp\"\n\nusing mint = ModInt998244353;\n\n\
@@ -380,8 +384,8 @@ data:
   isVerificationFile: true
   path: test/range_affine_point_get.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 11:35:48+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/range_affine_point_get.test.cpp
 layout: document

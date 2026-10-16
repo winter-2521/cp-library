@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/csr.hpp
     title: "CSR (\u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\
       \u6301\u3064)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -13,14 +13,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/connected_components_of_complement_graph.test.cpp
     title: test/connected_components_of_complement_graph.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/graph_components.test.cpp
     title: test/unittest/graph_components.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -43,18 +44,19 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"graph/csr.hpp\"\n\n// \u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\
-    \u914D\u5217\u3067\u6301\u3064 (Compressed Sparse Row)\n// \u9802\u70B9 v \u306E\
-    \u96A3\u63A5\u306F elist[start[v] .. start[v+1])\uFF0Evector<vector<int>> \u3088\
-    \u308A\u901F\u304F\u30E1\u30E2\u30EA\u3082\u5C11\u306A\u3044\ntemplate <class\
-    \ E>\nstruct CSR {\n    vector<int> start;\n    vector<E> elist;\n    CSR() =\
-    \ default;\n    // edges[i] = (from, \u4E2D\u8EAB)\n    CSR(int n, const vector<pair<int,\
-    \ E>> &edges) : start(n + 1, 0), elist(edges.size()) {\n        for (auto &e :\
-    \ edges) start[e.first + 1]++;\n        for (int i = 1; i <= n; i++) start[i]\
-    \ += start[i - 1];\n        vector<int> pos(start.begin(), start.end() - 1);\n\
-    \        for (auto &e : edges) elist[pos[e.first]++] = e.second;\n    }\n    int\
-    \ size() const { return (int)start.size() - 1; }\n};\n#line 4 \"graph/complement_graph_components.hpp\"\
-    \n\n// \u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3\uFF0E\
+    \ 3 \"graph/csr.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u96A3\
+    \u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\u3064 (Compressed\
+    \ Sparse Row)\n// \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v] .. start[v+1])\uFF0E\
+    vector<vector<int>> \u3088\u308A\u901F\u304F\u30E1\u30E2\u30EA\u3082\u5C11\u306A\
+    \u3044\ntemplate <class E>\nstruct CSR {\n    vector<int> start;\n    vector<E>\
+    \ elist;\n    CSR() = default;\n    // edges[i] = (from, \u4E2D\u8EAB)\n    CSR(int\
+    \ n, const vector<pair<int, E>> &edges) : start(n + 1, 0), elist(edges.size())\
+    \ {\n        for (auto &e : edges) start[e.first + 1]++;\n        for (int i =\
+    \ 1; i <= n; i++) start[i] += start[i - 1];\n        vector<int> pos(start.begin(),\
+    \ start.end() - 1);\n        for (auto &e : edges) elist[pos[e.first]++] = e.second;\n\
+    \    }\n    int size() const { return (int)start.size() - 1; }\n};\n#line 4 \"\
+    graph/complement_graph_components.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3\uFF0E\
     O(n + m)\n// \u307E\u3060\u3069\u306E\u6210\u5206\u306B\u3082\u5165\u3063\u3066\
     \u3044\u306A\u3044\u9802\u70B9\u3092\u9023\u7D50\u30EA\u30B9\u30C8\u3067\u6301\
     \u3061\uFF0CBFS \u3067\u9802\u70B9 v \u304B\u3089\u300Cv \u3068\u5143\u306E\u30B0\
@@ -79,17 +81,17 @@ data:
     \            if (stamp[u] != v) erase(u), que.push_back(u);\n                u\
     \ = nu;\n            }\n        }\n        res.push_back(que);\n    }\n    return\
     \ res;\n}\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n#include \"csr.hpp\"\n\n// \u88DC\
-    \u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3\uFF0EO(n + m)\n//\
-    \ \u307E\u3060\u3069\u306E\u6210\u5206\u306B\u3082\u5165\u3063\u3066\u3044\u306A\
-    \u3044\u9802\u70B9\u3092\u9023\u7D50\u30EA\u30B9\u30C8\u3067\u6301\u3061\uFF0C\
-    BFS \u3067\u9802\u70B9 v \u304B\u3089\u300Cv \u3068\u5143\u306E\u30B0\u30E9\u30D5\
-    \u3067\u96A3\u63A5\u3057\u3066\u3044\u306A\u3044\u672A\u8A2A\u554F\u9802\u70B9\
-    \u300D\u3092\u5168\u90E8\u53D6\u308B\uFF0E\n// \u672A\u8A2A\u554F\u30EA\u30B9\u30C8\
-    \u3092 1 \u5468\u3059\u308B\u3068\u304D\uFF0C\u53D6\u3089\u306A\u304B\u3063\u305F\
-    \u9802\u70B9\u306F v \u306E\u96A3\u63A5\u9802\u70B9\u306A\u306E\u3067\uFF0C1 \u5468\
-    \u306E\u30B3\u30B9\u30C8\u306F deg(v) + (\u53D6\u3063\u305F\u6570) \u3067\u6291\
-    \u3048\u3089\u308C\u308B\ninline vector<vector<int>> complement_graph_components(int\
+  code: "#pragma once\n#include \"../template.hpp\"\n#include \"csr.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3\uFF0E\
+    O(n + m)\n// \u307E\u3060\u3069\u306E\u6210\u5206\u306B\u3082\u5165\u3063\u3066\
+    \u3044\u306A\u3044\u9802\u70B9\u3092\u9023\u7D50\u30EA\u30B9\u30C8\u3067\u6301\
+    \u3061\uFF0CBFS \u3067\u9802\u70B9 v \u304B\u3089\u300Cv \u3068\u5143\u306E\u30B0\
+    \u30E9\u30D5\u3067\u96A3\u63A5\u3057\u3066\u3044\u306A\u3044\u672A\u8A2A\u554F\
+    \u9802\u70B9\u300D\u3092\u5168\u90E8\u53D6\u308B\uFF0E\n// \u672A\u8A2A\u554F\u30EA\
+    \u30B9\u30C8\u3092 1 \u5468\u3059\u308B\u3068\u304D\uFF0C\u53D6\u3089\u306A\u304B\
+    \u3063\u305F\u9802\u70B9\u306F v \u306E\u96A3\u63A5\u9802\u70B9\u306A\u306E\u3067\
+    \uFF0C1 \u5468\u306E\u30B3\u30B9\u30C8\u306F deg(v) + (\u53D6\u3063\u305F\u6570\
+    ) \u3067\u6291\u3048\u3089\u308C\u308B\ninline vector<vector<int>> complement_graph_components(int\
     \ n, const vector<pair<int, int>> &edges) {\n    vector<pair<int, int>> el;\n\
     \    el.reserve(2 * edges.size());\n    for (auto [a, b] : edges) el.push_back({a,\
     \ b}), el.push_back({b, a});\n    CSR<int> g(n, el);\n    // \u672A\u8A2A\u554F\
@@ -111,8 +113,8 @@ data:
   isVerificationFile: false
   path: graph/complement_graph_components.hpp
   requiredBy: []
-  timestamp: '2026-10-15 00:32:43+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/unittest/graph_components.test.cpp
   - test/connected_components_of_complement_graph.test.cpp

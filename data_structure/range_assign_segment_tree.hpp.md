@@ -1,34 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/monoid.hpp
     title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/fast_set.hpp
     title: "64 \u5206\u6728\u306B\u3088\u308B\u6574\u6570\u96C6\u5408 (Fast Set)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_set_range_composite.test.cpp
     title: test/range_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/range_assign_segment_tree.test.cpp
     title: test/unittest/range_assign_segment_tree.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -51,27 +52,28 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"algebra/monoid.hpp\"\n\n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\
-    \u306B\u6E21\u3059\u30E2\u30CE\u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\
-    \u578B; static S op(const S &a, const S &b); static S e();\n// op \u306F\u7D50\
-    \u5408\u7684\u3067\uFF0Ce \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300C\
-    a \u304C\u5DE6 (\u5148)\uFF0Cb \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\
-    \u6570 f(x) = a x + b\ntemplate <class T>\nstruct Affine {\n    T a = T(1), b\
-    \ = T(0);\n    Affine() = default;\n    Affine(T a, T b) : a(a), b(b) {}\n   \
-    \ T operator()(const T &x) const { return a * x + b; }\n    T eval(const T &x)\
-    \ const { return a * x + b; }\n    // \u300C\u5148\u306B *this\uFF0C\u6B21\u306B\
-    \ g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n    Affine then(const Affine\
-    \ &g) const { return Affine(a * g.a, b * g.a + g.b); }\n    friend bool operator==(const\
-    \ Affine &f, const Affine &g) { return f.a == g.a && f.b == g.b; }\n    friend\
-    \ bool operator!=(const Affine &f, const Affine &g) { return !(f == g); }\n};\n\
-    \n// \u548C\ntemplate <class T>\nstruct MonoidSum {\n    using S = T;\n    static\
-    \ S op(const S &a, const S &b) { return a + b; }\n    static S e() { return S(0);\
-    \ }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::max())\n\
-    template <class T>\nstruct MonoidMin {\n    using S = T;\n    static S op(const\
-    \ S &a, const S &b) { return b < a ? b : a; }\n    static S e() { return numeric_limits<T>::max();\
-    \ }\n};\n\n// \u6700\u5927\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::lowest())\n\
-    template <class T>\nstruct MonoidMax {\n    using S = T;\n    static S op(const\
-    \ S &a, const S &b) { return a < b ? b : a; }\n    static S e() { return numeric_limits<T>::lowest();\
+    \ 3 \"algebra/monoid.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n\
+    // \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u30E2\u30CE\
+    \u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\u578B; static S op(const\
+    \ S &a, const S &b); static S e();\n// op \u306F\u7D50\u5408\u7684\u3067\uFF0C\
+    e \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300Ca \u304C\u5DE6 (\u5148)\uFF0C\
+    b \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\u6570 f(x) = a x + b\ntemplate\
+    \ <class T>\nstruct Affine {\n    T a = T(1), b = T(0);\n    Affine() = default;\n\
+    \    Affine(T a, T b) : a(a), b(b) {}\n    T operator()(const T &x) const { return\
+    \ a * x + b; }\n    T eval(const T &x) const { return a * x + b; }\n    // \u300C\
+    \u5148\u306B *this\uFF0C\u6B21\u306B g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n\
+    \    Affine then(const Affine &g) const { return Affine(a * g.a, b * g.a + g.b);\
+    \ }\n    friend bool operator==(const Affine &f, const Affine &g) { return f.a\
+    \ == g.a && f.b == g.b; }\n    friend bool operator!=(const Affine &f, const Affine\
+    \ &g) { return !(f == g); }\n};\n\n// \u548C\ntemplate <class T>\nstruct MonoidSum\
+    \ {\n    using S = T;\n    static S op(const S &a, const S &b) { return a + b;\
+    \ }\n    static S e() { return S(0); }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\
+    \u5143\u306F numeric_limits<T>::max())\ntemplate <class T>\nstruct MonoidMin {\n\
+    \    using S = T;\n    static S op(const S &a, const S &b) { return b < a ? b\
+    \ : a; }\n    static S e() { return numeric_limits<T>::max(); }\n};\n\n// \u6700\
+    \u5927\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::lowest())\ntemplate\
+    \ <class T>\nstruct MonoidMax {\n    using S = T;\n    static S op(const S &a,\
+    \ const S &b) { return a < b ? b : a; }\n    static S e() { return numeric_limits<T>::lowest();\
     \ }\n};\n\n// xor\ntemplate <class T>\nstruct MonoidXor {\n    using S = T;\n\
     \    static S op(const S &a, const S &b) { return a ^ b; }\n    static S e() {\
     \ return S(0); }\n};\n\n// 1 \u6B21\u95A2\u6570\u306E\u5408\u6210\uFF0Eop(f, g)\
@@ -94,72 +96,73 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"data_structure/fast_set.hpp\"\n\n// 64 \u5206\u6728\u306B\u3088\u308B [0,\
-    \ n) \u306E\u6574\u6570\u96C6\u5408\n// \u633F\u5165\u30FB\u524A\u9664\u30FB\u5B58\
-    \u5728\u5224\u5B9A\u30FB\u6B21\u306E\u8981\u7D20\u30FB\u524D\u306E\u8981\u7D20\
-    \u3092 O(log_64 n) \u3067\u51E6\u7406\u3059\u308B\nstruct FastSet {\n    int n,\
-    \ lg;\n    // seg[0] \u304C\u6700\u4E0B\u6BB5\uFF0Eseg[h+1] \u306E bit i \u306F\
-    \ seg[h] \u306E i \u756A\u76EE\u306E\u30EF\u30FC\u30C9\u304C 0 \u3067\u306A\u3044\
-    \u304B\u3092\u8868\u3059\n    vector<vector<uint64_t>> seg;\n\n    FastSet(int\
-    \ n = 0) : n(n) {\n        int m = n;\n        do {\n            seg.push_back(vector<uint64_t>(std::max(1,\
-    \ (m + 63) >> 6)));\n            m = (m + 63) >> 6;\n        } while (m > 1);\n\
-    \        lg = seg.size();\n    }\n\n    // f(i) \u304C true \u306E i \u3092\u5168\
-    \u3066\u5165\u308C\u305F\u72B6\u614B\u3067\u521D\u671F\u5316\u3059\u308B\uFF0E\
-    O(n)\n    template <class F>\n    FastSet(int n, F f) : FastSet(n) {\n       \
-    \ for (int i = 0; i < n; i++) if (f(i)) seg[0][i >> 6] |= 1ULL << (i & 63);\n\
-    \        build_upper();\n    }\n\n    // \u6700\u4E0B\u6BB5\u304B\u3089\u4E0A\u306E\
-    \u6BB5\u3092\u4F5C\u308A\u76F4\u3059\n    void build_upper() {\n        for (int\
-    \ h = 0; h + 1 < lg; h++) {\n            fill(seg[h + 1].begin(), seg[h + 1].end(),\
-    \ 0);\n            for (size_t i = 0; i < seg[h].size(); i++) if (seg[h][i]) seg[h\
-    \ + 1][i >> 6] |= 1ULL << (i & 63);\n        }\n    }\n\n    int size() const\
-    \ { return n; }\n\n    bool contains(int i) const { return seg[0][i >> 6] >> (i\
-    \ & 63) & 1; }\n    bool operator[](int i) const { return contains(i); }\n\n \
-    \   void insert(int i) {\n        for (int h = 0; h < lg; h++) {\n           \
-    \ uint64_t &w = seg[h][i >> 6];\n            bool was_empty = w == 0;\n      \
-    \      w |= 1ULL << (i & 63);\n            // \u3059\u3067\u306B\u4E0A\u306E\u6BB5\
-    \u306B\u30D5\u30E9\u30B0\u304C\u7ACB\u3063\u3066\u3044\u308B\u306E\u3067\u6253\
-    \u3061\u5207\u308B\n            if (!was_empty) break;\n            i >>= 6;\n\
-    \        }\n    }\n\n    void erase(int i) {\n        for (int h = 0; h < lg;\
-    \ h++) {\n            uint64_t &w = seg[h][i >> 6];\n            w &= ~(1ULL <<\
-    \ (i & 63));\n            // \u30EF\u30FC\u30C9\u304C\u307E\u3060\u7A7A\u3067\u306A\
-    \u3051\u308C\u3070\u4E0A\u306E\u6BB5\u306F\u5909\u308F\u3089\u306A\u3044\n   \
-    \         if (w) break;\n            i >>= 6;\n        }\n    }\n\n    // i \u4EE5\
-    \u4E0A\u306E\u6700\u5C0F\u306E\u8981\u7D20 (\u5B58\u5728\u3057\u306A\u3051\u308C\
-    \u3070 -1)\n    int next(int i) const {\n        if (i < 0) i = 0;\n        if\
-    \ (i >= n) return -1;\n        for (int h = 0; h < lg; h++) {\n            if\
-    \ ((i >> 6) == (int)seg[h].size()) break;\n            uint64_t d = seg[h][i >>\
-    \ 6] >> (i & 63);\n            if (d == 0) {\n                i = (i >> 6) + 1;\n\
-    \                continue;\n            }\n            i += __builtin_ctzll(d);\n\
-    \            for (int g = h - 1; g >= 0; g--) {\n                i <<= 6;\n  \
-    \              i += __builtin_ctzll(seg[g][i >> 6]);\n            }\n        \
-    \    return i;\n        }\n        return -1;\n    }\n\n    // i \u4EE5\u4E0B\u306E\
-    \u6700\u5927\u306E\u8981\u7D20 (\u5B58\u5728\u3057\u306A\u3051\u308C\u3070 -1)\n\
-    \    int prev(int i) const {\n        if (i >= n) i = n - 1;\n        for (int\
-    \ h = 0; h < lg; h++) {\n            if (i < 0) break;\n            uint64_t d\
-    \ = seg[h][i >> 6] << (63 - (i & 63));\n            if (d == 0) {\n          \
-    \      i = (i >> 6) - 1;\n                continue;\n            }\n         \
-    \   i -= __builtin_clzll(d);\n            for (int g = h - 1; g >= 0; g--) {\n\
-    \                i <<= 6;\n                i += 63 - __builtin_clzll(seg[g][i\
+    \ 3 \"data_structure/fast_set.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// 64 \u5206\u6728\u306B\u3088\u308B [0, n) \u306E\u6574\u6570\u96C6\u5408\n\
+    // \u633F\u5165\u30FB\u524A\u9664\u30FB\u5B58\u5728\u5224\u5B9A\u30FB\u6B21\u306E\
+    \u8981\u7D20\u30FB\u524D\u306E\u8981\u7D20\u3092 O(log_64 n) \u3067\u51E6\u7406\
+    \u3059\u308B\nstruct FastSet {\n    int n, lg;\n    // seg[0] \u304C\u6700\u4E0B\
+    \u6BB5\uFF0Eseg[h+1] \u306E bit i \u306F seg[h] \u306E i \u756A\u76EE\u306E\u30EF\
+    \u30FC\u30C9\u304C 0 \u3067\u306A\u3044\u304B\u3092\u8868\u3059\n    vector<vector<uint64_t>>\
+    \ seg;\n\n    FastSet(int n = 0) : n(n) {\n        int m = n;\n        do {\n\
+    \            seg.push_back(vector<uint64_t>(std::max(1, (m + 63) >> 6)));\n  \
+    \          m = (m + 63) >> 6;\n        } while (m > 1);\n        lg = seg.size();\n\
+    \    }\n\n    // f(i) \u304C true \u306E i \u3092\u5168\u3066\u5165\u308C\u305F\
+    \u72B6\u614B\u3067\u521D\u671F\u5316\u3059\u308B\uFF0EO(n)\n    template <class\
+    \ F>\n    FastSet(int n, F f) : FastSet(n) {\n        for (int i = 0; i < n; i++)\
+    \ if (f(i)) seg[0][i >> 6] |= 1ULL << (i & 63);\n        build_upper();\n    }\n\
+    \n    // \u6700\u4E0B\u6BB5\u304B\u3089\u4E0A\u306E\u6BB5\u3092\u4F5C\u308A\u76F4\
+    \u3059\n    void build_upper() {\n        for (int h = 0; h + 1 < lg; h++) {\n\
+    \            fill(seg[h + 1].begin(), seg[h + 1].end(), 0);\n            for (size_t\
+    \ i = 0; i < seg[h].size(); i++) if (seg[h][i]) seg[h + 1][i >> 6] |= 1ULL <<\
+    \ (i & 63);\n        }\n    }\n\n    int size() const { return n; }\n\n    bool\
+    \ contains(int i) const { return seg[0][i >> 6] >> (i & 63) & 1; }\n    bool operator[](int\
+    \ i) const { return contains(i); }\n\n    void insert(int i) {\n        for (int\
+    \ h = 0; h < lg; h++) {\n            uint64_t &w = seg[h][i >> 6];\n         \
+    \   bool was_empty = w == 0;\n            w |= 1ULL << (i & 63);\n           \
+    \ // \u3059\u3067\u306B\u4E0A\u306E\u6BB5\u306B\u30D5\u30E9\u30B0\u304C\u7ACB\u3063\
+    \u3066\u3044\u308B\u306E\u3067\u6253\u3061\u5207\u308B\n            if (!was_empty)\
+    \ break;\n            i >>= 6;\n        }\n    }\n\n    void erase(int i) {\n\
+    \        for (int h = 0; h < lg; h++) {\n            uint64_t &w = seg[h][i >>\
+    \ 6];\n            w &= ~(1ULL << (i & 63));\n            // \u30EF\u30FC\u30C9\
+    \u304C\u307E\u3060\u7A7A\u3067\u306A\u3051\u308C\u3070\u4E0A\u306E\u6BB5\u306F\
+    \u5909\u308F\u3089\u306A\u3044\n            if (w) break;\n            i >>= 6;\n\
+    \        }\n    }\n\n    // i \u4EE5\u4E0A\u306E\u6700\u5C0F\u306E\u8981\u7D20\
+    \ (\u5B58\u5728\u3057\u306A\u3051\u308C\u3070 -1)\n    int next(int i) const {\n\
+    \        if (i < 0) i = 0;\n        if (i >= n) return -1;\n        for (int h\
+    \ = 0; h < lg; h++) {\n            if ((i >> 6) == (int)seg[h].size()) break;\n\
+    \            uint64_t d = seg[h][i >> 6] >> (i & 63);\n            if (d == 0)\
+    \ {\n                i = (i >> 6) + 1;\n                continue;\n          \
+    \  }\n            i += __builtin_ctzll(d);\n            for (int g = h - 1; g\
+    \ >= 0; g--) {\n                i <<= 6;\n                i += __builtin_ctzll(seg[g][i\
     \ >> 6]);\n            }\n            return i;\n        }\n        return -1;\n\
-    \    }\n\n    // \u6700\u5C0F\u306E\u8981\u7D20 (\u7A7A\u306A\u3089 -1)\n    int\
-    \ min() const { return next(0); }\n    // \u6700\u5927\u306E\u8981\u7D20 (\u7A7A\
-    \u306A\u3089 -1)\n    int max() const { return prev(n - 1); }\n    bool empty()\
-    \ const { return seg[lg - 1][0] == 0; }\n\n    // [l, r) \u306B\u542B\u307E\u308C\
-    \u308B\u8981\u7D20\u3092\u6607\u9806\u306B f \u306B\u6E21\u3059\n    template\
-    \ <class F>\n    void enumerate(int l, int r, F f) const {\n        for (int x\
-    \ = next(l); x != -1 && x < r; x = next(x + 1)) f(x);\n    }\n};\n#line 2 \"template.hpp\"\
-    \nusing namespace std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\n\
-    using namespace atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\
-    \u30B3\u30E1\u30F3\u30C8\u30A2\u30A6\u30C8\u3092\u5916\u3059\n/*/\n#pragma GCC\
-    \ optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\")\n#pragma GCC target(\"\
-    avx2,bmi,bmi2,lzcnt,popcnt\")\n#pragma GCC target(\"avx,avx2,fma\")\n#pragma GCC\
-    \ target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma\")\n//*/\n#define\
-    \ rep(i,n) for(int i=0;i<n;i++)\n#define Rep(i,a,b) for(int i=a;i<b;i++)\n#define\
-    \ ALL(x) (x).begin(),(x).end()\n#define dbgv(x); for(auto now : x) cout << now\
-    \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
-    using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
-    \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 4 \"data_structure/segment_tree.hpp\"\
-    \n\n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u4E00\u70B9\u66F4\u65B0\u30FB\u533A\
+    \    }\n\n    // i \u4EE5\u4E0B\u306E\u6700\u5927\u306E\u8981\u7D20 (\u5B58\u5728\
+    \u3057\u306A\u3051\u308C\u3070 -1)\n    int prev(int i) const {\n        if (i\
+    \ >= n) i = n - 1;\n        for (int h = 0; h < lg; h++) {\n            if (i\
+    \ < 0) break;\n            uint64_t d = seg[h][i >> 6] << (63 - (i & 63));\n \
+    \           if (d == 0) {\n                i = (i >> 6) - 1;\n               \
+    \ continue;\n            }\n            i -= __builtin_clzll(d);\n           \
+    \ for (int g = h - 1; g >= 0; g--) {\n                i <<= 6;\n             \
+    \   i += 63 - __builtin_clzll(seg[g][i >> 6]);\n            }\n            return\
+    \ i;\n        }\n        return -1;\n    }\n\n    // \u6700\u5C0F\u306E\u8981\u7D20\
+    \ (\u7A7A\u306A\u3089 -1)\n    int min() const { return next(0); }\n    // \u6700\
+    \u5927\u306E\u8981\u7D20 (\u7A7A\u306A\u3089 -1)\n    int max() const { return\
+    \ prev(n - 1); }\n    bool empty() const { return seg[lg - 1][0] == 0; }\n\n \
+    \   // [l, r) \u306B\u542B\u307E\u308C\u308B\u8981\u7D20\u3092\u6607\u9806\u306B\
+    \ f \u306B\u6E21\u3059\n    template <class F>\n    void enumerate(int l, int\
+    \ r, F f) const {\n        for (int x = next(l); x != -1 && x < r; x = next(x\
+    \ + 1)) f(x);\n    }\n};\n#line 2 \"template.hpp\"\nusing namespace std;\n#if\
+    \ __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace atcoder;\n\
+    #endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\u30C8\u30A2\
+    \u30A6\u30C8\u3092\u5916\u3059\n/*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
+    )\n#pragma GCC target(\"avx2,bmi,bmi2,lzcnt,popcnt\")\n#pragma GCC target(\"avx,avx2,fma\"\
+    )\n#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma\"\
+    )\n//*/\n#define rep(i,n) for(int i=0;i<n;i++)\n#define Rep(i,a,b) for(int i=a;i<b;i++)\n\
+    #define ALL(x) (x).begin(),(x).end()\n#define dbgv(x); for(auto now : x) cout\
+    \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
+    \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
+    \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
+    \ 4 \"data_structure/segment_tree.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u4E00\u70B9\u66F4\u65B0\u30FB\u533A\
     \u9593\u7A4D)\n// M \u306F\u30E2\u30CE\u30A4\u30C9 (algebra/monoid.hpp \u53C2\u7167\
     )\uFF0E\u975E\u53EF\u63DB\u3067\u3082\u3088\u3044\ntemplate <class M>\nstruct\
     \ SegmentTree {\n    using S = typename M::S;\n    int n, sz, lg;\n    vector<S>\
@@ -197,71 +200,22 @@ data:
     \ sm = M::op(d[r--], sm);\n                }\n                return r + 1 - sz;\n\
     \            }\n            sm = M::op(d[r], sm);\n        } while ((r & -r) !=\
     \ r);\n        return 0;\n    }\n};\n#line 6 \"data_structure/range_assign_segment_tree.hpp\"\
-    \n\n// \u533A\u9593\u4EE3\u5165\u30FB\u533A\u9593\u7A4D\u306E\u30BB\u30B0\u30E1\
-    \u30F3\u30C8\u6728 (\u4EFB\u610F\u306E\u30E2\u30CE\u30A4\u30C9\uFF0C\u975E\u53EF\
-    \u63DB\u3067\u3082\u3088\u3044)\n// \u5024\u304C\u7B49\u3057\u3044\u9023\u7D9A\
-    \u90E8\u5206 (\u30E9\u30F3) \u3054\u3068\u306B\u307E\u3068\u3081\u3066\u6301\u3064\
-    \uFF0E\n// \u30E9\u30F3\u306E\u5148\u982D\u4F4D\u7F6E\u3092 FastSet \u3067\u7BA1\
-    \u7406\u3057\uFF0C\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306E\u30E9\u30F3\u306E\
-    \u5148\u982D\u306E\u4F4D\u7F6E\u306B x^(\u30E9\u30F3\u306E\u9577\u3055) \u3092\
-    \u7F6E\u304F\uFF0E\n// \u4EE3\u5165\u3067\u6D88\u3048\u308B\u30E9\u30F3\u306F\u9AD8\
-    \u3005\u300C\u4F5C\u3063\u305F\u30E9\u30F3\u306E\u500B\u6570\u300D\u306A\u306E\
-    \u3067\uFF0C\u5168\u4F53\u3067\u306A\u3089\u3057 O((n + q) log n) \u56DE\u306E\
-    \ op\n// (x^k \u306E\u8A08\u7B97\u306B O(log k) \u56DE\u306E op \u3092\u4F7F\u3046\
-    )\ntemplate <class M>\nstruct RangeAssignSegmentTree {\n    using S = typename\
-    \ M::S;\n    int n;\n    FastSet starts;     // \u30E9\u30F3\u306E\u5148\u982D\
-    \u4F4D\u7F6E\n    vector<S> val;      // val[s]: s \u304B\u3089\u59CB\u307E\u308B\
-    \u30E9\u30F3\u306E\u5024\n    SegmentTree<M> seg; // seg[s] = val[s]^(\u30E9\u30F3\
-    \u306E\u9577\u3055)\uFF0E\u30E9\u30F3\u306E\u5148\u982D\u4EE5\u5916\u306F e()\n\
-    \n    // \u9577\u3055 n\uFF0C\u5168\u3066 x\n    RangeAssignSegmentTree(int n\
-    \ = 0, const S &x = M::e()) : n(n), starts(n), val(n, x), seg(n) {\n        if\
-    \ (n > 0) {\n            starts.insert(0);\n            seg.set(0, monoid_pow<M>(x,\
-    \ n));\n        }\n    }\n\n    // \u914D\u5217 a \u3067\u521D\u671F\u5316 (\u5404\
-    \u8981\u7D20\u304C\u9577\u3055 1 \u306E\u30E9\u30F3)\n    RangeAssignSegmentTree(const\
-    \ vector<S> &a) : n(a.size()), starts(n, [](int) { return true; }), val(a), seg(a)\
-    \ {}\n\n    int size() const { return n; }\n\n    // i in [l, r) \u306B\u3064\u3044\
-    \u3066 a[i] = x\n    void assign(int l, int r, const S &x) {\n        if (l >=\
-    \ r) return;\n        split(l), split(r);\n        for (int s = starts.next(l\
-    \ + 1); s != -1 && s < r; s = starts.next(s + 1)) {\n            starts.erase(s);\n\
-    \            seg.set(s, M::e());\n        }\n        val[l] = x;\n        seg.set(l,\
-    \ monoid_pow<M>(x, r - l));\n    }\n\n    // a[i] = x\n    void set(int i, const\
-    \ S &x) { assign(i, i + 1, x); }\n\n    S get(int i) const { return val[starts.prev(i)];\
-    \ }\n    S operator[](int i) const { return get(i); }\n\n    // op(a[l], ...,\
-    \ a[r-1])\uFF0El == r \u306A\u3089 e()\n    S prod(int l, int r) const {\n   \
-    \     if (l >= r) return M::e();\n        int s = starts.prev(l), e = run_end(s);\n\
-    \        if (r <= e) return monoid_pow<M>(val[s], r - l);\n        int s2 = starts.prev(r\
-    \ - 1);\n        S res = monoid_pow<M>(val[s], e - l);\n        res = M::op(res,\
-    \ seg.prod(e, s2));\n        return M::op(res, monoid_pow<M>(val[s2], r - s2));\n\
-    \    }\n\n    S all_prod() const { return seg.all_prod(); }\n\n    // \u30E9\u30F3\
-    \u3092\u5217\u6319\u3059\u308B: f(l, r, x) \u3092\u5DE6\u304B\u3089\u9806\u306B\
-    \u547C\u3076 ([l, r) \u304C\u5024 x \u306E\u30E9\u30F3)\n    template <class Fn>\n\
-    \    void enumerate_runs(Fn f) const {\n        for (int s = starts.next(0); s\
-    \ != -1; s = starts.next(s + 1)) f(s, run_end(s), val[s]);\n    }\n\n  private:\n\
-    \    // s \u304B\u3089\u59CB\u307E\u308B\u30E9\u30F3\u306E\u7D42\u308F\u308A (\u6B21\
-    \u306E\u30E9\u30F3\u306E\u5148\u982D)\n    int run_end(int s) const {\n      \
-    \  int e = starts.next(s + 1);\n        return e == -1 ? n : e;\n    }\n    //\
-    \ p \u3092\u30E9\u30F3\u306E\u5148\u982D\u306B\u3059\u308B\n    void split(int\
-    \ p) {\n        if (p <= 0 || p >= n || starts.contains(p)) return;\n        int\
-    \ s = starts.prev(p), e = run_end(s);\n        starts.insert(p);\n        val[p]\
-    \ = val[s];\n        seg.set(s, monoid_pow<M>(val[s], p - s));\n        seg.set(p,\
-    \ monoid_pow<M>(val[s], e - p));\n    }\n};\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n#include \"../algebra/monoid.hpp\"\
-    \n#include \"fast_set.hpp\"\n#include \"segment_tree.hpp\"\n\n// \u533A\u9593\u4EE3\
-    \u5165\u30FB\u533A\u9593\u7A4D\u306E\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u4EFB\
-    \u610F\u306E\u30E2\u30CE\u30A4\u30C9\uFF0C\u975E\u53EF\u63DB\u3067\u3082\u3088\
-    \u3044)\n// \u5024\u304C\u7B49\u3057\u3044\u9023\u7D9A\u90E8\u5206 (\u30E9\u30F3\
-    ) \u3054\u3068\u306B\u307E\u3068\u3081\u3066\u6301\u3064\uFF0E\n// \u30E9\u30F3\
-    \u306E\u5148\u982D\u4F4D\u7F6E\u3092 FastSet \u3067\u7BA1\u7406\u3057\uFF0C\u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728\u306E\u30E9\u30F3\u306E\u5148\u982D\u306E\u4F4D\
-    \u7F6E\u306B x^(\u30E9\u30F3\u306E\u9577\u3055) \u3092\u7F6E\u304F\uFF0E\n// \u4EE3\
-    \u5165\u3067\u6D88\u3048\u308B\u30E9\u30F3\u306F\u9AD8\u3005\u300C\u4F5C\u3063\
-    \u305F\u30E9\u30F3\u306E\u500B\u6570\u300D\u306A\u306E\u3067\uFF0C\u5168\u4F53\
-    \u3067\u306A\u3089\u3057 O((n + q) log n) \u56DE\u306E op\n// (x^k \u306E\u8A08\
-    \u7B97\u306B O(log k) \u56DE\u306E op \u3092\u4F7F\u3046)\ntemplate <class M>\n\
-    struct RangeAssignSegmentTree {\n    using S = typename M::S;\n    int n;\n  \
-    \  FastSet starts;     // \u30E9\u30F3\u306E\u5148\u982D\u4F4D\u7F6E\n    vector<S>\
-    \ val;      // val[s]: s \u304B\u3089\u59CB\u307E\u308B\u30E9\u30F3\u306E\u5024\
-    \n    SegmentTree<M> seg; // seg[s] = val[s]^(\u30E9\u30F3\u306E\u9577\u3055)\uFF0E\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u533A\u9593\u4EE3\u5165\
+    \u30FB\u533A\u9593\u7A4D\u306E\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u4EFB\u610F\
+    \u306E\u30E2\u30CE\u30A4\u30C9\uFF0C\u975E\u53EF\u63DB\u3067\u3082\u3088\u3044\
+    )\n// \u5024\u304C\u7B49\u3057\u3044\u9023\u7D9A\u90E8\u5206 (\u30E9\u30F3) \u3054\
+    \u3068\u306B\u307E\u3068\u3081\u3066\u6301\u3064\uFF0E\n// \u30E9\u30F3\u306E\u5148\
+    \u982D\u4F4D\u7F6E\u3092 FastSet \u3067\u7BA1\u7406\u3057\uFF0C\u30BB\u30B0\u30E1\
+    \u30F3\u30C8\u6728\u306E\u30E9\u30F3\u306E\u5148\u982D\u306E\u4F4D\u7F6E\u306B\
+    \ x^(\u30E9\u30F3\u306E\u9577\u3055) \u3092\u7F6E\u304F\uFF0E\n// \u4EE3\u5165\
+    \u3067\u6D88\u3048\u308B\u30E9\u30F3\u306F\u9AD8\u3005\u300C\u4F5C\u3063\u305F\
+    \u30E9\u30F3\u306E\u500B\u6570\u300D\u306A\u306E\u3067\uFF0C\u5168\u4F53\u3067\
+    \u306A\u3089\u3057 O((n + q) log n) \u56DE\u306E op\n// (x^k \u306E\u8A08\u7B97\
+    \u306B O(log k) \u56DE\u306E op \u3092\u4F7F\u3046)\ntemplate <class M>\nstruct\
+    \ RangeAssignSegmentTree {\n    using S = typename M::S;\n    int n;\n    FastSet\
+    \ starts;     // \u30E9\u30F3\u306E\u5148\u982D\u4F4D\u7F6E\n    vector<S> val;\
+    \      // val[s]: s \u304B\u3089\u59CB\u307E\u308B\u30E9\u30F3\u306E\u5024\n \
+    \   SegmentTree<M> seg; // seg[s] = val[s]^(\u30E9\u30F3\u306E\u9577\u3055)\uFF0E\
     \u30E9\u30F3\u306E\u5148\u982D\u4EE5\u5916\u306F e()\n\n    // \u9577\u3055 n\uFF0C\
     \u5168\u3066 x\n    RangeAssignSegmentTree(int n = 0, const S &x = M::e()) : n(n),\
     \ starts(n), val(n, x), seg(n) {\n        if (n > 0) {\n            starts.insert(0);\n\
@@ -294,6 +248,56 @@ data:
     \ return;\n        int s = starts.prev(p), e = run_end(s);\n        starts.insert(p);\n\
     \        val[p] = val[s];\n        seg.set(s, monoid_pow<M>(val[s], p - s));\n\
     \        seg.set(p, monoid_pow<M>(val[s], e - p));\n    }\n};\n"
+  code: "#pragma once\n#include \"../template.hpp\"\n#include \"../algebra/monoid.hpp\"\
+    \n#include \"fast_set.hpp\"\n#include \"segment_tree.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u533A\u9593\u4EE3\u5165\u30FB\u533A\u9593\u7A4D\u306E\u30BB\u30B0\u30E1\u30F3\
+    \u30C8\u6728 (\u4EFB\u610F\u306E\u30E2\u30CE\u30A4\u30C9\uFF0C\u975E\u53EF\u63DB\
+    \u3067\u3082\u3088\u3044)\n// \u5024\u304C\u7B49\u3057\u3044\u9023\u7D9A\u90E8\
+    \u5206 (\u30E9\u30F3) \u3054\u3068\u306B\u307E\u3068\u3081\u3066\u6301\u3064\uFF0E\
+    \n// \u30E9\u30F3\u306E\u5148\u982D\u4F4D\u7F6E\u3092 FastSet \u3067\u7BA1\u7406\
+    \u3057\uFF0C\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306E\u30E9\u30F3\u306E\u5148\
+    \u982D\u306E\u4F4D\u7F6E\u306B x^(\u30E9\u30F3\u306E\u9577\u3055) \u3092\u7F6E\
+    \u304F\uFF0E\n// \u4EE3\u5165\u3067\u6D88\u3048\u308B\u30E9\u30F3\u306F\u9AD8\u3005\
+    \u300C\u4F5C\u3063\u305F\u30E9\u30F3\u306E\u500B\u6570\u300D\u306A\u306E\u3067\
+    \uFF0C\u5168\u4F53\u3067\u306A\u3089\u3057 O((n + q) log n) \u56DE\u306E op\n\
+    // (x^k \u306E\u8A08\u7B97\u306B O(log k) \u56DE\u306E op \u3092\u4F7F\u3046)\n\
+    template <class M>\nstruct RangeAssignSegmentTree {\n    using S = typename M::S;\n\
+    \    int n;\n    FastSet starts;     // \u30E9\u30F3\u306E\u5148\u982D\u4F4D\u7F6E\
+    \n    vector<S> val;      // val[s]: s \u304B\u3089\u59CB\u307E\u308B\u30E9\u30F3\
+    \u306E\u5024\n    SegmentTree<M> seg; // seg[s] = val[s]^(\u30E9\u30F3\u306E\u9577\
+    \u3055)\uFF0E\u30E9\u30F3\u306E\u5148\u982D\u4EE5\u5916\u306F e()\n\n    // \u9577\
+    \u3055 n\uFF0C\u5168\u3066 x\n    RangeAssignSegmentTree(int n = 0, const S &x\
+    \ = M::e()) : n(n), starts(n), val(n, x), seg(n) {\n        if (n > 0) {\n   \
+    \         starts.insert(0);\n            seg.set(0, monoid_pow<M>(x, n));\n  \
+    \      }\n    }\n\n    // \u914D\u5217 a \u3067\u521D\u671F\u5316 (\u5404\u8981\
+    \u7D20\u304C\u9577\u3055 1 \u306E\u30E9\u30F3)\n    RangeAssignSegmentTree(const\
+    \ vector<S> &a) : n(a.size()), starts(n, [](int) { return true; }), val(a), seg(a)\
+    \ {}\n\n    int size() const { return n; }\n\n    // i in [l, r) \u306B\u3064\u3044\
+    \u3066 a[i] = x\n    void assign(int l, int r, const S &x) {\n        if (l >=\
+    \ r) return;\n        split(l), split(r);\n        for (int s = starts.next(l\
+    \ + 1); s != -1 && s < r; s = starts.next(s + 1)) {\n            starts.erase(s);\n\
+    \            seg.set(s, M::e());\n        }\n        val[l] = x;\n        seg.set(l,\
+    \ monoid_pow<M>(x, r - l));\n    }\n\n    // a[i] = x\n    void set(int i, const\
+    \ S &x) { assign(i, i + 1, x); }\n\n    S get(int i) const { return val[starts.prev(i)];\
+    \ }\n    S operator[](int i) const { return get(i); }\n\n    // op(a[l], ...,\
+    \ a[r-1])\uFF0El == r \u306A\u3089 e()\n    S prod(int l, int r) const {\n   \
+    \     if (l >= r) return M::e();\n        int s = starts.prev(l), e = run_end(s);\n\
+    \        if (r <= e) return monoid_pow<M>(val[s], r - l);\n        int s2 = starts.prev(r\
+    \ - 1);\n        S res = monoid_pow<M>(val[s], e - l);\n        res = M::op(res,\
+    \ seg.prod(e, s2));\n        return M::op(res, monoid_pow<M>(val[s2], r - s2));\n\
+    \    }\n\n    S all_prod() const { return seg.all_prod(); }\n\n    // \u30E9\u30F3\
+    \u3092\u5217\u6319\u3059\u308B: f(l, r, x) \u3092\u5DE6\u304B\u3089\u9806\u306B\
+    \u547C\u3076 ([l, r) \u304C\u5024 x \u306E\u30E9\u30F3)\n    template <class Fn>\n\
+    \    void enumerate_runs(Fn f) const {\n        for (int s = starts.next(0); s\
+    \ != -1; s = starts.next(s + 1)) f(s, run_end(s), val[s]);\n    }\n\n  private:\n\
+    \    // s \u304B\u3089\u59CB\u307E\u308B\u30E9\u30F3\u306E\u7D42\u308F\u308A (\u6B21\
+    \u306E\u30E9\u30F3\u306E\u5148\u982D)\n    int run_end(int s) const {\n      \
+    \  int e = starts.next(s + 1);\n        return e == -1 ? n : e;\n    }\n    //\
+    \ p \u3092\u30E9\u30F3\u306E\u5148\u982D\u306B\u3059\u308B\n    void split(int\
+    \ p) {\n        if (p <= 0 || p >= n || starts.contains(p)) return;\n        int\
+    \ s = starts.prev(p), e = run_end(s);\n        starts.insert(p);\n        val[p]\
+    \ = val[s];\n        seg.set(s, monoid_pow<M>(val[s], p - s));\n        seg.set(p,\
+    \ monoid_pow<M>(val[s], e - p));\n    }\n};\n"
   dependsOn:
   - template.hpp
   - algebra/monoid.hpp
@@ -303,8 +307,8 @@ data:
   isVerificationFile: false
   path: data_structure/range_assign_segment_tree.hpp
   requiredBy: []
-  timestamp: '2026-10-12 11:35:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/unittest/range_assign_segment_tree.test.cpp
   - test/range_set_range_composite.test.cpp

@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/fenwick_tree.hpp
     title: Fenwick Tree (Binary Indexed Tree)
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -36,50 +36,50 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"io/fastio.hpp\"\
-    \n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\\
-    n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\
-    \u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\
-    \u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\
-    \u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\
-    \u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio\
-    \ {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\n\
-    constexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\
-    \u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable\
-    \ {\n    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int\
-    \ i = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
-    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
-    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
-    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
-    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
-    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
-    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
-    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
-    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
-    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
-    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
-    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
-    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
-    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
-    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
-    \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
-    \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
-    template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
-    \ || (is_integral_v<T> && is_signed_v<T>);\n\nstruct Reader {\n    // \u6570\u5024\
-    \u3092\u8AAD\u3080\u524D\u306B\u5E38\u306B TOKEN_MARGIN \u6587\u5B57\u4EE5\u4E0A\
-    \u304C buf \u306B\u6B8B\u3063\u3066\u3044\u308B\u3088\u3046\u306B\u3057\u3066\uFF0C\
-    \u6570\u5024\u306E\u8AAD\u307F\u8FBC\u307F\u4E2D\u306E\u5883\u754C\u30C1\u30A7\
-    \u30C3\u30AF\u3092\u7701\u304F\n    static constexpr size_t TOKEN_MARGIN = 64;\n\
-    \    char buf[BUF_SIZE + TOKEN_MARGIN + 8];\n    size_t pos = 0, len = 0;\n  \
-    \  bool eof = false;\n\n    // \u672A\u8AAD\u90E8\u5206\u3092\u5148\u982D\u306B\
-    \u5BC4\u305B\u3066\u304B\u3089\u8AAD\u307F\u8DB3\u3059\n    void refill() {\n\
-    \        size_t rem = len - pos;\n        memmove(buf, buf + pos, rem);\n    \
-    \    pos = 0, len = rem;\n        while (!eof && len < TOKEN_MARGIN) {\n     \
-    \       size_t r = fread(buf + len, 1, BUF_SIZE - len, stdin);\n            if\
-    \ (r == 0) eof = true;\n            len += r;\n        }\n        // 8 \u30D0\u30A4\
-    \u30C8\u5358\u4F4D\u3067\u6570\u5B57\u3092\u8AAD\u3080\u3068\u304D\u306B\u672B\
-    \u5C3E\u306E\u5148\u3092\u8AAD\u3093\u3067\u3082\u6B62\u307E\u308B\u3088\u3046\
-    \u756A\u5175\u3092\u7F6E\u304F\n        memset(buf + len, 0, 8);\n    }\n\n  \
-    \  // \u7A7A\u767D\u3092\u8AAD\u307F\u98DB\u3070\u3059\uFF0E\u8AAD\u307F\u7D42\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\u901F\u5165\u51FA\
+    \u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin\
+    \ / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf\
+    \ / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\
+    \n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\
+    \u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\
+    \u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\
+    \u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\
+    \n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\
+    \u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n    char d[10000][4];\n \
+    \   constexpr DigitTable() : d() {\n        for (int i = 0; i < 10000; i++) {\n\
+    \            int x = i;\n            for (int j = 3; j >= 0; j--) d[i][j] = char('0'\
+    \ + x % 10), x /= 10;\n        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\
+    \n// __int128 \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral\
+    \ \u306B\u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\
+    \u308B\ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct\
+    \ is_int128<__int128> : true_type {};\ntemplate <> struct is_int128<unsigned __int128>\
+    \ : true_type {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\
+    \u5FDC\u3059\u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class\
+    \ T> struct unsigned_of { using type = make_unsigned_t<T>; };\ntemplate <> struct\
+    \ unsigned_of<__int128> { using type = unsigned __int128; };\ntemplate <class\
+    \ T> using unsigned_of_t = typename unsigned_of<T>::type;\n\ntemplate <class T>\
+    \ constexpr bool is_integer_v = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T,\
+    \ char>) || is_int128<T>::value;\n// ModInt \u306E\u3088\u3046\u306B val() \u3067\
+    \u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\
+    \u3067\u304D\u308B\u578B\ntemplate <class T, class = void> struct has_val : false_type\
+    \ {};\ntemplate <class T> struct has_val<T, void_t<decltype(declval<const T &>().val())>>\
+    \ : true_type {};\n\ntemplate <class T> constexpr bool is_signed_integer_v = is_same_v<T,\
+    \ __int128> || (is_integral_v<T> && is_signed_v<T>);\n\nstruct Reader {\n    //\
+    \ \u6570\u5024\u3092\u8AAD\u3080\u524D\u306B\u5E38\u306B TOKEN_MARGIN \u6587\u5B57\
+    \u4EE5\u4E0A\u304C buf \u306B\u6B8B\u3063\u3066\u3044\u308B\u3088\u3046\u306B\u3057\
+    \u3066\uFF0C\u6570\u5024\u306E\u8AAD\u307F\u8FBC\u307F\u4E2D\u306E\u5883\u754C\
+    \u30C1\u30A7\u30C3\u30AF\u3092\u7701\u304F\n    static constexpr size_t TOKEN_MARGIN\
+    \ = 64;\n    char buf[BUF_SIZE + TOKEN_MARGIN + 8];\n    size_t pos = 0, len =\
+    \ 0;\n    bool eof = false;\n\n    // \u672A\u8AAD\u90E8\u5206\u3092\u5148\u982D\
+    \u306B\u5BC4\u305B\u3066\u304B\u3089\u8AAD\u307F\u8DB3\u3059\n    void refill()\
+    \ {\n        size_t rem = len - pos;\n        memmove(buf, buf + pos, rem);\n\
+    \        pos = 0, len = rem;\n        while (!eof && len < TOKEN_MARGIN) {\n \
+    \           size_t r = fread(buf + len, 1, BUF_SIZE - len, stdin);\n         \
+    \   if (r == 0) eof = true;\n            len += r;\n        }\n        // 8 \u30D0\
+    \u30A4\u30C8\u5358\u4F4D\u3067\u6570\u5B57\u3092\u8AAD\u3080\u3068\u304D\u306B\
+    \u672B\u5C3E\u306E\u5148\u3092\u8AAD\u3093\u3067\u3082\u6B62\u307E\u308B\u3088\
+    \u3046\u756A\u5175\u3092\u7F6E\u304F\n        memset(buf + len, 0, 8);\n    }\n\
+    \n    // \u7A7A\u767D\u3092\u8AAD\u307F\u98DB\u3070\u3059\uFF0E\u8AAD\u307F\u7D42\
     \u308F\u3063\u305F\u5F8C\u306F TOKEN_MARGIN \u6587\u5B57\u4EE5\u4E0A(\u307E\u305F\
     \u306F EOF \u307E\u3067)\u304C\u6B8B\u3063\u3066\u3044\u308B\n    void skip_space()\
     \ {\n        while (true) {\n            if (len - pos < TOKEN_MARGIN && !eof)\
@@ -195,61 +195,62 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/fenwick_tree.hpp\"\
-    \n\n// Fenwick Tree (Binary Indexed Tree)\n// \u4E00\u70B9\u52A0\u7B97\u30FB\u533A\
-    \u9593\u548C\u3092 O(log n) \u3067\u51E6\u7406\u3059\u308B\uFF0E\u5916\u90E8\u304B\
-    \u3089\u306F 0-indexed \u3067\u6271\u3046\ntemplate <class T>\nstruct FenwickTree\
-    \ {\n    int n;\n    // d[i] (1-indexed) \u306F\u533A\u9593 (i - lowbit(i), i]\
-    \ \u306E\u548C\n    vector<T> d;\n\n    FenwickTree(int n = 0) : n(n), d(n + 1,\
-    \ T(0)) {}\n\n    // \u914D\u5217 a \u3067 O(n) \u521D\u671F\u5316\n    FenwickTree(const\
-    \ vector<T> &a) : n(a.size()), d(a.size() + 1, T(0)) {\n        for (int i = 0;\
-    \ i < n; i++) d[i + 1] = a[i];\n        for (int i = 1; i <= n; i++) {\n     \
-    \       int j = i + (i & -i);\n            if (j <= n) d[j] += d[i];\n       \
-    \ }\n    }\n\n    int size() const { return n; }\n\n    // a[i] += x\n    void\
-    \ add(int i, T x) {\n        for (i++; i <= n; i += i & -i) d[i] += x;\n    }\n\
-    \n    // a[0] + ... + a[r-1]\n    T sum(int r) const {\n        T s = T(0);\n\
-    \        for (; r > 0; r &= r - 1) s += d[r];\n        return s;\n    }\n\n  \
-    \  // a[l] + ... + a[r-1]\n    // sum(r) - sum(l) \u3092\uFF0Cl \u3068 r \u306E\
-    \u5171\u901A\u306E\u7956\u5148\u307E\u3067\u964D\u308A\u305F\u3068\u3053\u308D\
-    \u3067\u6253\u3061\u5207\u3063\u3066\u8A08\u7B97\u3059\u308B\n    T sum(int l,\
-    \ int r) const {\n        T s = T(0);\n        while (l < r) s += d[r], r &= r\
-    \ - 1;\n        while (r < l) s -= d[l], l &= l - 1;\n        return s;\n    }\n\
-    \n    // a[i]\n    T get(int i) const { return sum(i, i + 1); }\n\n    // a[i]\
-    \ = x\n    void set(int i, T x) { add(i, x - get(i)); }\n\n    // a[0] + ... +\
-    \ a[i] >= w \u3068\u306A\u308B\u6700\u5C0F\u306E i \u3092\u8FD4\u3059 (\u5B58\u5728\
-    \u3057\u306A\u3051\u308C\u3070 n)\n    // \u5168\u8981\u7D20\u304C\u975E\u8CA0\
-    \u3067\u3042\u308B\u3053\u3068\n    int lower_bound(T w) const {\n        if (w\
-    \ <= T(0)) return 0;\n        int x = 0;\n        int k = 1;\n        while (k\
-    \ * 2 <= n) k *= 2;\n        for (; k > 0; k >>= 1) {\n            if (x + k <=\
-    \ n && d[x + k] < w) {\n                x += k;\n                w -= d[x];\n\
-    \            }\n        }\n        return x;\n    }\n\n    // a[0] + ... + a[i]\
-    \ > w \u3068\u306A\u308B\u6700\u5C0F\u306E i \u3092\u8FD4\u3059 (\u5B58\u5728\u3057\
-    \u306A\u3051\u308C\u3070 n)\n    // \u5168\u8981\u7D20\u304C\u975E\u8CA0\u3067\
-    \u3042\u308B\u3053\u3068\n    int upper_bound(T w) const {\n        int x = 0;\n\
-    \        int k = 1;\n        while (k * 2 <= n) k *= 2;\n        for (; k > 0;\
-    \ k >>= 1) {\n            if (x + k <= n && !(w < d[x + k])) {\n             \
-    \   x += k;\n                w -= d[x];\n            }\n        }\n        return\
-    \ x;\n    }\n};\n#line 4 \"test/unittest/fenwick_tree.test.cpp\"\n\n// FenwickTree\
-    \ \u3092\u611A\u76F4\u306A\u914D\u5217\u3068\u7167\u5408\u3059\u308B\n\nint main()\
-    \ {\n    mt19937_64 rng(4);\n    for (int n : {0, 1, 2, 3, 7, 8, 9, 100, 1000})\
-    \ {\n        vector<long long> a(n);\n        for (auto &x : a) x = rng() % 5;\n\
-    \        FenwickTree<long long> bit(a);\n        assert(bit.size() == n);\n  \
-    \      for (int it = 0; it < 20000; it++) {\n            int t = rng() % 5;\n\
-    \            if (n == 0) t = 4;\n            if (t == 0) {\n                int\
-    \ i = rng() % n;\n                long long x = rng() % 4;\n                bit.add(i,\
-    \ x), a[i] += x;\n            } else if (t == 1) {\n                int i = rng()\
-    \ % n;\n                long long x = rng() % 4;\n                bit.set(i, x),\
-    \ a[i] = x;\n            } else if (t == 2) {\n                int l = rng() %\
-    \ (n + 1), r = rng() % (n + 1);\n                if (l > r) swap(l, r);\n    \
-    \            long long s = 0;\n                for (int i = l; i < r; i++) s +=\
-    \ a[i];\n                assert(bit.sum(l, r) == s && bit.sum(r) - bit.sum(l)\
-    \ == s);\n                if (l < n) assert(bit.get(l) == a[l]);\n           \
-    \ } else {\n                long long total = accumulate(a.begin(), a.end(), 0LL);\n\
-    \                long long w = (long long)(rng() % (total + 3)) - 1;\n       \
-    \         int lb = n, ub = n;\n                long long s = 0;\n            \
-    \    for (int i = n - 1; i >= 0; i--) {\n                    s = 0;\n        \
-    \            for (int j = 0; j <= i; j++) s += a[j];\n                    if (s\
-    \ >= w) lb = i;\n                    if (s > w) ub = i;\n                }\n \
-    \               assert(bit.lower_bound(w) == lb);\n                assert(bit.upper_bound(w)\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// Fenwick Tree (Binary Indexed\
+    \ Tree)\n// \u4E00\u70B9\u52A0\u7B97\u30FB\u533A\u9593\u548C\u3092 O(log n) \u3067\
+    \u51E6\u7406\u3059\u308B\uFF0E\u5916\u90E8\u304B\u3089\u306F 0-indexed \u3067\u6271\
+    \u3046\ntemplate <class T>\nstruct FenwickTree {\n    int n;\n    // d[i] (1-indexed)\
+    \ \u306F\u533A\u9593 (i - lowbit(i), i] \u306E\u548C\n    vector<T> d;\n\n   \
+    \ FenwickTree(int n = 0) : n(n), d(n + 1, T(0)) {}\n\n    // \u914D\u5217 a \u3067\
+    \ O(n) \u521D\u671F\u5316\n    FenwickTree(const vector<T> &a) : n(a.size()),\
+    \ d(a.size() + 1, T(0)) {\n        for (int i = 0; i < n; i++) d[i + 1] = a[i];\n\
+    \        for (int i = 1; i <= n; i++) {\n            int j = i + (i & -i);\n \
+    \           if (j <= n) d[j] += d[i];\n        }\n    }\n\n    int size() const\
+    \ { return n; }\n\n    // a[i] += x\n    void add(int i, T x) {\n        for (i++;\
+    \ i <= n; i += i & -i) d[i] += x;\n    }\n\n    // a[0] + ... + a[r-1]\n    T\
+    \ sum(int r) const {\n        T s = T(0);\n        for (; r > 0; r &= r - 1) s\
+    \ += d[r];\n        return s;\n    }\n\n    // a[l] + ... + a[r-1]\n    // sum(r)\
+    \ - sum(l) \u3092\uFF0Cl \u3068 r \u306E\u5171\u901A\u306E\u7956\u5148\u307E\u3067\
+    \u964D\u308A\u305F\u3068\u3053\u308D\u3067\u6253\u3061\u5207\u3063\u3066\u8A08\
+    \u7B97\u3059\u308B\n    T sum(int l, int r) const {\n        T s = T(0);\n   \
+    \     while (l < r) s += d[r], r &= r - 1;\n        while (r < l) s -= d[l], l\
+    \ &= l - 1;\n        return s;\n    }\n\n    // a[i]\n    T get(int i) const {\
+    \ return sum(i, i + 1); }\n\n    // a[i] = x\n    void set(int i, T x) { add(i,\
+    \ x - get(i)); }\n\n    // a[0] + ... + a[i] >= w \u3068\u306A\u308B\u6700\u5C0F\
+    \u306E i \u3092\u8FD4\u3059 (\u5B58\u5728\u3057\u306A\u3051\u308C\u3070 n)\n \
+    \   // \u5168\u8981\u7D20\u304C\u975E\u8CA0\u3067\u3042\u308B\u3053\u3068\n  \
+    \  int lower_bound(T w) const {\n        if (w <= T(0)) return 0;\n        int\
+    \ x = 0;\n        int k = 1;\n        while (k * 2 <= n) k *= 2;\n        for\
+    \ (; k > 0; k >>= 1) {\n            if (x + k <= n && d[x + k] < w) {\n      \
+    \          x += k;\n                w -= d[x];\n            }\n        }\n   \
+    \     return x;\n    }\n\n    // a[0] + ... + a[i] > w \u3068\u306A\u308B\u6700\
+    \u5C0F\u306E i \u3092\u8FD4\u3059 (\u5B58\u5728\u3057\u306A\u3051\u308C\u3070\
+    \ n)\n    // \u5168\u8981\u7D20\u304C\u975E\u8CA0\u3067\u3042\u308B\u3053\u3068\
+    \n    int upper_bound(T w) const {\n        int x = 0;\n        int k = 1;\n \
+    \       while (k * 2 <= n) k *= 2;\n        for (; k > 0; k >>= 1) {\n       \
+    \     if (x + k <= n && !(w < d[x + k])) {\n                x += k;\n        \
+    \        w -= d[x];\n            }\n        }\n        return x;\n    }\n};\n\
+    #line 4 \"test/unittest/fenwick_tree.test.cpp\"\n\n// FenwickTree \u3092\u611A\
+    \u76F4\u306A\u914D\u5217\u3068\u7167\u5408\u3059\u308B\n\nint main() {\n    mt19937_64\
+    \ rng(4);\n    for (int n : {0, 1, 2, 3, 7, 8, 9, 100, 1000}) {\n        vector<long\
+    \ long> a(n);\n        for (auto &x : a) x = rng() % 5;\n        FenwickTree<long\
+    \ long> bit(a);\n        assert(bit.size() == n);\n        for (int it = 0; it\
+    \ < 20000; it++) {\n            int t = rng() % 5;\n            if (n == 0) t\
+    \ = 4;\n            if (t == 0) {\n                int i = rng() % n;\n      \
+    \          long long x = rng() % 4;\n                bit.add(i, x), a[i] += x;\n\
+    \            } else if (t == 1) {\n                int i = rng() % n;\n      \
+    \          long long x = rng() % 4;\n                bit.set(i, x), a[i] = x;\n\
+    \            } else if (t == 2) {\n                int l = rng() % (n + 1), r\
+    \ = rng() % (n + 1);\n                if (l > r) swap(l, r);\n               \
+    \ long long s = 0;\n                for (int i = l; i < r; i++) s += a[i];\n \
+    \               assert(bit.sum(l, r) == s && bit.sum(r) - bit.sum(l) == s);\n\
+    \                if (l < n) assert(bit.get(l) == a[l]);\n            } else {\n\
+    \                long long total = accumulate(a.begin(), a.end(), 0LL);\n    \
+    \            long long w = (long long)(rng() % (total + 3)) - 1;\n           \
+    \     int lb = n, ub = n;\n                long long s = 0;\n                for\
+    \ (int i = n - 1; i >= 0; i--) {\n                    s = 0;\n               \
+    \     for (int j = 0; j <= i; j++) s += a[j];\n                    if (s >= w)\
+    \ lb = i;\n                    if (s > w) ub = i;\n                }\n       \
+    \         assert(bit.lower_bound(w) == lb);\n                assert(bit.upper_bound(w)\
     \ == ub);\n            }\n        }\n    }\n    long long a_, b_;\n    fin >>\
     \ a_ >> b_;\n    fout << a_ + b_ << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"../../io/fastio.hpp\"\
@@ -285,8 +286,8 @@ data:
   isVerificationFile: true
   path: test/unittest/fenwick_tree.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 10:14:40+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/unittest/fenwick_tree.test.cpp
 layout: document

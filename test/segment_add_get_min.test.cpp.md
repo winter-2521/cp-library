@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/li_chao_tree.hpp
     title: Li Chao Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/segment_add_get_min
@@ -36,31 +36,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -195,22 +196,23 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/li_chao_tree.hpp\"\
-    \n\n// Li Chao Tree (\u76F4\u7DDA\u30FB\u7DDA\u5206\u306E\u8FFD\u52A0\uFF0C\u3042\
-    \u308B x \u3067\u306E\u6700\u5C0F\u5024)\n// 2 \u7A2E\u985E\u3042\u308B:\n// \
-    \  DynamicLiChaoTree<T>(xlo, xhi) : x \u2208 [xlo, xhi) \u306E\u6574\u6570\uFF0E\
-    \u30CE\u30FC\u30C9\u3092\u5FC5\u8981\u306A\u5206\u3060\u3051\u4F5C\u308B (\u30AA\
-    \u30F3\u30E9\u30A4\u30F3)\n//   LiChaoTree<T>(xs)             : x \u304C xs \u306E\
-    \u3069\u308C\u304B (\u5148\u8AAD\u307F\u3067\u304D\u308B\u3068\u304D\uFF0E\u914D\
-    \u5217\u3067\u6301\u3064\u306E\u3067\u901F\u3044)\n// MAX = true \u306A\u3089\u6700\
-    \u5927\u5024\uFF0ET \u306F\u5024\u306E\u578B (a x + b \u304C T \u306B\u53CE\u307E\
-    \u308B\u3053\u3068)\n\n// \u76F4\u7DDA y = a x + b\ntemplate <class T>\nstruct\
-    \ LiChaoLine {\n    T a, b;\n    T operator()(T x) const { return a * x + b; }\n\
-    };\n\ntemplate <class T, bool MAX = false>\nstruct DynamicLiChaoTree {\n    using\
-    \ Line = LiChaoLine<T>;\n    struct Node {\n        Line f;\n        int ch[2];\n\
-    \    };\n    static constexpr T INF = MAX ? numeric_limits<T>::lowest() : numeric_limits<T>::max();\n\
-    \    T xlo, xhi;\n    vector<Node> d;  // d[0] \u306F\u756A\u5175 (\u76F4\u7DDA\
-    \u306A\u3057)\n    int root = 0;\n\n    DynamicLiChaoTree(T xlo, T xhi) : xlo(xlo),\
-    \ xhi(xhi) { d.push_back({{0, INF}, {0, 0}}); }\n\n    void reserve(int n) { d.reserve(n);\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// Li Chao Tree (\u76F4\u7DDA\
+    \u30FB\u7DDA\u5206\u306E\u8FFD\u52A0\uFF0C\u3042\u308B x \u3067\u306E\u6700\u5C0F\
+    \u5024)\n// 2 \u7A2E\u985E\u3042\u308B:\n//   DynamicLiChaoTree<T>(xlo, xhi) :\
+    \ x \u2208 [xlo, xhi) \u306E\u6574\u6570\uFF0E\u30CE\u30FC\u30C9\u3092\u5FC5\u8981\
+    \u306A\u5206\u3060\u3051\u4F5C\u308B (\u30AA\u30F3\u30E9\u30A4\u30F3)\n//   LiChaoTree<T>(xs)\
+    \             : x \u304C xs \u306E\u3069\u308C\u304B (\u5148\u8AAD\u307F\u3067\
+    \u304D\u308B\u3068\u304D\uFF0E\u914D\u5217\u3067\u6301\u3064\u306E\u3067\u901F\
+    \u3044)\n// MAX = true \u306A\u3089\u6700\u5927\u5024\uFF0ET \u306F\u5024\u306E\
+    \u578B (a x + b \u304C T \u306B\u53CE\u307E\u308B\u3053\u3068)\n\n// \u76F4\u7DDA\
+    \ y = a x + b\ntemplate <class T>\nstruct LiChaoLine {\n    T a, b;\n    T operator()(T\
+    \ x) const { return a * x + b; }\n};\n\ntemplate <class T, bool MAX = false>\n\
+    struct DynamicLiChaoTree {\n    using Line = LiChaoLine<T>;\n    struct Node {\n\
+    \        Line f;\n        int ch[2];\n    };\n    static constexpr T INF = MAX\
+    \ ? numeric_limits<T>::lowest() : numeric_limits<T>::max();\n    T xlo, xhi;\n\
+    \    vector<Node> d;  // d[0] \u306F\u756A\u5175 (\u76F4\u7DDA\u306A\u3057)\n\
+    \    int root = 0;\n\n    DynamicLiChaoTree(T xlo, T xhi) : xlo(xlo), xhi(xhi)\
+    \ { d.push_back({{0, INF}, {0, 0}}); }\n\n    void reserve(int n) { d.reserve(n);\
     \ }\n\n    // \u76F4\u7DDA y = a x + b \u3092\u8FFD\u52A0\n    void add_line(T\
     \ a, T b) { root = insert(root, xlo, xhi, {a, b}); }\n\n    // \u7DDA\u5206 y\
     \ = a x + b (x \u2208 [l, r)) \u3092\u8FFD\u52A0\n    void add_segment(T l, T\
@@ -306,8 +308,8 @@ data:
   isVerificationFile: true
   path: test/segment_add_get_min.test.cpp
   requiredBy: []
-  timestamp: '2026-10-14 23:17:41+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/segment_add_get_min.test.cpp
 layout: document

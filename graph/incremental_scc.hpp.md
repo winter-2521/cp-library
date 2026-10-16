@@ -1,26 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/csr.hpp
     title: "CSR (\u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\
       \u6301\u3064)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/incremental_scc.test.cpp
     title: test/incremental_scc.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/incremental_scc_k_shortest.test.cpp
     title: test/unittest/incremental_scc_k_shortest.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -43,49 +44,49 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"graph/csr.hpp\"\n\n// \u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\
-    \u914D\u5217\u3067\u6301\u3064 (Compressed Sparse Row)\n// \u9802\u70B9 v \u306E\
-    \u96A3\u63A5\u306F elist[start[v] .. start[v+1])\uFF0Evector<vector<int>> \u3088\
-    \u308A\u901F\u304F\u30E1\u30E2\u30EA\u3082\u5C11\u306A\u3044\ntemplate <class\
-    \ E>\nstruct CSR {\n    vector<int> start;\n    vector<E> elist;\n    CSR() =\
-    \ default;\n    // edges[i] = (from, \u4E2D\u8EAB)\n    CSR(int n, const vector<pair<int,\
-    \ E>> &edges) : start(n + 1, 0), elist(edges.size()) {\n        for (auto &e :\
-    \ edges) start[e.first + 1]++;\n        for (int i = 1; i <= n; i++) start[i]\
-    \ += start[i - 1];\n        vector<int> pos(start.begin(), start.end() - 1);\n\
-    \        for (auto &e : edges) elist[pos[e.first]++] = e.second;\n    }\n    int\
-    \ size() const { return (int)start.size() - 1; }\n};\n#line 4 \"graph/incremental_scc.hpp\"\
-    \n\n// \u8FBA\u3092\u9806\u306B\u8FFD\u52A0\u3057\u3066\u3044\u304F\u6709\u5411\
-    \u30B0\u30E9\u30D5\u306E\u5F37\u9023\u7D50\u6210\u5206 (Incremental SCC)\uFF0E\
-    \u30AA\u30D5\u30E9\u30A4\u30F3 (\u8FBA\u3092\u5168\u90E8\u5148\u8AAD\u307F\u3059\
-    \u308B)\n// incremental_scc(n, edges) \u306F\u5404\u8FBA i \u306B\u3064\u3044\u3066\
-    \u300C\u8FBA 0..t-1 \u3092\u8FFD\u52A0\u3057\u305F\u6642\u70B9\u3067 i \u306E\u4E21\
-    \u7AEF\u304C\u540C\u3058\u5F37\u9023\u7D50\u6210\u5206\u306B\u306A\u308B\u6700\
-    \u5C0F\u306E t\u300D\u3092\u8FD4\u3059\n// (\u306A\u3089\u306A\u3051\u308C\u3070\
-    \ m + 1)\uFF0Et > i \u3067\u3042\u308B\uFF0E\u8FBA\u3092 t \u306E\u9806\u306B\
-    \ Union-Find \u3067\u3064\u306A\u3052\u3070\uFF0C\u5404\u6642\u70B9\u306E\u5F37\
-    \u9023\u7D50\u6210\u5206\u304C\u5206\u304B\u308B\n// \u6642\u523B\u306B\u3064\u3044\
-    \u3066\u5206\u5272\u7D71\u6CBB\u3057\uFF0C\u5404\u6BB5\u3067\u5F37\u9023\u7D50\
-    \u6210\u5206\u5206\u89E3\u3092\u3059\u308B\uFF0EO(m log m)\ninline vector<int>\
-    \ incremental_scc(int n, const vector<pair<int, int>> &edges) {\n    int m = edges.size();\n\
-    \    vector<int> ans(m, m + 1);\n    // eu, ev: \u5404\u8FBA\u306E\u7AEF\u70B9\
-    \ (\u5206\u5272\u7D71\u6CBB\u306E\u4E2D\u3067\u7E2E\u7D04\u5F8C\u306E\u756A\u53F7\
-    \u306B\u66F8\u304D\u63DB\u308F\u308B)\n    vector<int> eu(m), ev(m);\n    for\
-    \ (int i = 0; i < m; i++) eu[i] = edges[i].first, ev[i] = edges[i].second;\n \
-    \   vector<int> id(n, -1);  // \u9802\u70B9\u756A\u53F7 \u2192 \u5C40\u6240\u756A\
-    \u53F7 (\u4F7F\u3044\u7D42\u308F\u3063\u305F\u3089 -1 \u306B\u623B\u3059)\n  \
-    \  vector<int> vs;\n    // \u5C40\u6240\u30B0\u30E9\u30D5 (\u9802\u70B9 0..k-1\uFF0C\
-    \u8FBA el) \u306E\u5F37\u9023\u7D50\u6210\u5206\uFF0Ecomp \u306B\u756A\u53F7\u3092\
-    \u5165\u308C\uFF0C\u500B\u6570\u3092\u8FD4\u3059 (Tarjan, \u975E\u518D\u5E30)\n\
-    \    vector<int> ord, low, it, comp, stk, call;\n    auto local_scc = [&](int\
-    \ k, const vector<pair<int, int>> &el) {\n        CSR<int> g(k, el);\n       \
-    \ ord.assign(k, -1), low.assign(k, 0), it.assign(k, 0), comp.assign(k, -1);\n\
-    \        int now = 0, nc = 0;\n        for (int s = 0; s < k; s++) {\n       \
-    \     if (ord[s] >= 0) continue;\n            call.push_back(s), ord[s] = low[s]\
-    \ = now++, it[s] = g.start[s], stk.push_back(s);\n            while (!call.empty())\
-    \ {\n                int v = call.back();\n                if (it[v] < g.start[v\
-    \ + 1]) {\n                    int to = g.elist[it[v]++];\n                  \
-    \  if (ord[to] < 0) {\n                        ord[to] = low[to] = now++, it[to]\
-    \ = g.start[to];\n                        stk.push_back(to), call.push_back(to);\n\
+    \ 3 \"graph/csr.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u96A3\
+    \u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\u3064 (Compressed\
+    \ Sparse Row)\n// \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v] .. start[v+1])\uFF0E\
+    vector<vector<int>> \u3088\u308A\u901F\u304F\u30E1\u30E2\u30EA\u3082\u5C11\u306A\
+    \u3044\ntemplate <class E>\nstruct CSR {\n    vector<int> start;\n    vector<E>\
+    \ elist;\n    CSR() = default;\n    // edges[i] = (from, \u4E2D\u8EAB)\n    CSR(int\
+    \ n, const vector<pair<int, E>> &edges) : start(n + 1, 0), elist(edges.size())\
+    \ {\n        for (auto &e : edges) start[e.first + 1]++;\n        for (int i =\
+    \ 1; i <= n; i++) start[i] += start[i - 1];\n        vector<int> pos(start.begin(),\
+    \ start.end() - 1);\n        for (auto &e : edges) elist[pos[e.first]++] = e.second;\n\
+    \    }\n    int size() const { return (int)start.size() - 1; }\n};\n#line 4 \"\
+    graph/incremental_scc.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n\
+    // \u8FBA\u3092\u9806\u306B\u8FFD\u52A0\u3057\u3066\u3044\u304F\u6709\u5411\u30B0\
+    \u30E9\u30D5\u306E\u5F37\u9023\u7D50\u6210\u5206 (Incremental SCC)\uFF0E\u30AA\
+    \u30D5\u30E9\u30A4\u30F3 (\u8FBA\u3092\u5168\u90E8\u5148\u8AAD\u307F\u3059\u308B\
+    )\n// incremental_scc(n, edges) \u306F\u5404\u8FBA i \u306B\u3064\u3044\u3066\u300C\
+    \u8FBA 0..t-1 \u3092\u8FFD\u52A0\u3057\u305F\u6642\u70B9\u3067 i \u306E\u4E21\u7AEF\
+    \u304C\u540C\u3058\u5F37\u9023\u7D50\u6210\u5206\u306B\u306A\u308B\u6700\u5C0F\
+    \u306E t\u300D\u3092\u8FD4\u3059\n// (\u306A\u3089\u306A\u3051\u308C\u3070 m +\
+    \ 1)\uFF0Et > i \u3067\u3042\u308B\uFF0E\u8FBA\u3092 t \u306E\u9806\u306B Union-Find\
+    \ \u3067\u3064\u306A\u3052\u3070\uFF0C\u5404\u6642\u70B9\u306E\u5F37\u9023\u7D50\
+    \u6210\u5206\u304C\u5206\u304B\u308B\n// \u6642\u523B\u306B\u3064\u3044\u3066\u5206\
+    \u5272\u7D71\u6CBB\u3057\uFF0C\u5404\u6BB5\u3067\u5F37\u9023\u7D50\u6210\u5206\
+    \u5206\u89E3\u3092\u3059\u308B\uFF0EO(m log m)\ninline vector<int> incremental_scc(int\
+    \ n, const vector<pair<int, int>> &edges) {\n    int m = edges.size();\n    vector<int>\
+    \ ans(m, m + 1);\n    // eu, ev: \u5404\u8FBA\u306E\u7AEF\u70B9 (\u5206\u5272\u7D71\
+    \u6CBB\u306E\u4E2D\u3067\u7E2E\u7D04\u5F8C\u306E\u756A\u53F7\u306B\u66F8\u304D\
+    \u63DB\u308F\u308B)\n    vector<int> eu(m), ev(m);\n    for (int i = 0; i < m;\
+    \ i++) eu[i] = edges[i].first, ev[i] = edges[i].second;\n    vector<int> id(n,\
+    \ -1);  // \u9802\u70B9\u756A\u53F7 \u2192 \u5C40\u6240\u756A\u53F7 (\u4F7F\u3044\
+    \u7D42\u308F\u3063\u305F\u3089 -1 \u306B\u623B\u3059)\n    vector<int> vs;\n \
+    \   // \u5C40\u6240\u30B0\u30E9\u30D5 (\u9802\u70B9 0..k-1\uFF0C\u8FBA el) \u306E\
+    \u5F37\u9023\u7D50\u6210\u5206\uFF0Ecomp \u306B\u756A\u53F7\u3092\u5165\u308C\uFF0C\
+    \u500B\u6570\u3092\u8FD4\u3059 (Tarjan, \u975E\u518D\u5E30)\n    vector<int> ord,\
+    \ low, it, comp, stk, call;\n    auto local_scc = [&](int k, const vector<pair<int,\
+    \ int>> &el) {\n        CSR<int> g(k, el);\n        ord.assign(k, -1), low.assign(k,\
+    \ 0), it.assign(k, 0), comp.assign(k, -1);\n        int now = 0, nc = 0;\n   \
+    \     for (int s = 0; s < k; s++) {\n            if (ord[s] >= 0) continue;\n\
+    \            call.push_back(s), ord[s] = low[s] = now++, it[s] = g.start[s], stk.push_back(s);\n\
+    \            while (!call.empty()) {\n                int v = call.back();\n \
+    \               if (it[v] < g.start[v + 1]) {\n                    int to = g.elist[it[v]++];\n\
+    \                    if (ord[to] < 0) {\n                        ord[to] = low[to]\
+    \ = now++, it[to] = g.start[to];\n                        stk.push_back(to), call.push_back(to);\n\
     \                    } else if (comp[to] < 0) {\n                        low[v]\
     \ = std::min(low[v], ord[to]);\n                    }\n                    continue;\n\
     \                }\n                call.pop_back();\n                if (!call.empty())\
@@ -121,11 +122,11 @@ data:
     \        self(self, mid, r, right);\n        self(self, l, mid, left);\n    };\n\
     \    vector<int> all(m);\n    iota(all.begin(), all.end(), 0);\n    rec(rec, 0,\
     \ m + 1, all);\n    return ans;\n}\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n#include \"csr.hpp\"\n\n// \u8FBA\
-    \u3092\u9806\u306B\u8FFD\u52A0\u3057\u3066\u3044\u304F\u6709\u5411\u30B0\u30E9\
-    \u30D5\u306E\u5F37\u9023\u7D50\u6210\u5206 (Incremental SCC)\uFF0E\u30AA\u30D5\
-    \u30E9\u30A4\u30F3 (\u8FBA\u3092\u5168\u90E8\u5148\u8AAD\u307F\u3059\u308B)\n\
-    // incremental_scc(n, edges) \u306F\u5404\u8FBA i \u306B\u3064\u3044\u3066\u300C\
+  code: "#pragma once\n#include \"../template.hpp\"\n#include \"csr.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u8FBA\u3092\u9806\u306B\u8FFD\u52A0\u3057\u3066\u3044\u304F\u6709\u5411\u30B0\
+    \u30E9\u30D5\u306E\u5F37\u9023\u7D50\u6210\u5206 (Incremental SCC)\uFF0E\u30AA\
+    \u30D5\u30E9\u30A4\u30F3 (\u8FBA\u3092\u5168\u90E8\u5148\u8AAD\u307F\u3059\u308B\
+    )\n// incremental_scc(n, edges) \u306F\u5404\u8FBA i \u306B\u3064\u3044\u3066\u300C\
     \u8FBA 0..t-1 \u3092\u8FFD\u52A0\u3057\u305F\u6642\u70B9\u3067 i \u306E\u4E21\u7AEF\
     \u304C\u540C\u3058\u5F37\u9023\u7D50\u6210\u5206\u306B\u306A\u308B\u6700\u5C0F\
     \u306E t\u300D\u3092\u8FD4\u3059\n// (\u306A\u3089\u306A\u3051\u308C\u3070 m +\
@@ -194,8 +195,8 @@ data:
   isVerificationFile: false
   path: graph/incremental_scc.hpp
   requiredBy: []
-  timestamp: '2026-10-15 00:32:43+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/unittest/incremental_scc_k_shortest.test.cpp
   - test/incremental_scc.test.cpp

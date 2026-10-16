@@ -1,25 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/persistent_unionfind.hpp
     title: "\u6C38\u7D9A Union-Find (Persistent Union-Find)"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/persistent_unionfind.test.cpp
     title: test/persistent_unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/persistent.test.cpp
     title: test/unittest/persistent.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -31,24 +32,24 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"data_structure/persistent_array.hpp\"\n\n// \u6C38\u7D9A\u914D\u5217 (Persistent\
-    \ Array)\uFF0E\u3069\u306E\u7248\u304B\u3089\u3067\u3082\u4E00\u70B9\u66F4\u65B0\
-    \u3067\u304D\uFF0C\u65B0\u3057\u3044\u7248\u306E\u756A\u53F7\u3092\u8FD4\u3059\
-    \n// 2^LOG \u5206\u6728\u3067\u6301\u3061\uFF0C\u66F4\u65B0\u306F\u6839\u304B\u3089\
-    \u8449\u307E\u3067\u306E\u9053\u306E\u30CE\u30FC\u30C9\u3060\u3051\u3092\u8907\
-    \u88FD\u3059\u308B (path copying)\n// \u53D6\u5F97\u30FB\u66F4\u65B0 O(log_{2^LOG}\
-    \ n)\uFF0E\u66F4\u65B0\u3054\u3068\u306B O(2^LOG log_{2^LOG} n) \u306E\u30E1\u30E2\
-    \u30EA\ntemplate <class T, int LOG = 3>\nstruct PersistentArray {\n    static\
-    \ constexpr int K = 1 << LOG;\n    int n, height;\n    vector<array<int, K>> ch;\
-    \   // \u5185\u90E8\u30CE\u30FC\u30C9\u306E\u5B50 (ch \u306E\u30CE\u30FC\u30C9\
-    \u756A\u53F7\uFF0C\u8449\u306E\u6BB5\u3067\u306F vals \u306E\u756A\u53F7)\n  \
-    \  vector<T> vals;              // \u8449\u306E\u5024\n    vector<int> roots;\
-    \           // \u7248\u3054\u3068\u306E\u6839\n\n    PersistentArray(const vector<T>\
-    \ &a = {}) : n(a.size()) {\n        height = 0;\n        while ((1LL << (LOG *\
-    \ height)) < std::max(n, 1)) height++;\n        vals = a;\n        if (vals.empty())\
-    \ vals.push_back(T());\n        roots.push_back(build(0, height));\n    }\n\n\
-    \    PersistentArray(int n, const T &x) : PersistentArray(vector<T>(n, x)) {}\n\
-    \n    void reserve(int updates) {\n        ch.reserve(ch.size() + (size_t)updates\
+    \ 3 \"data_structure/persistent_array.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u6C38\u7D9A\u914D\u5217 (Persistent Array)\uFF0E\u3069\u306E\u7248\u304B\
+    \u3089\u3067\u3082\u4E00\u70B9\u66F4\u65B0\u3067\u304D\uFF0C\u65B0\u3057\u3044\
+    \u7248\u306E\u756A\u53F7\u3092\u8FD4\u3059\n// 2^LOG \u5206\u6728\u3067\u6301\u3061\
+    \uFF0C\u66F4\u65B0\u306F\u6839\u304B\u3089\u8449\u307E\u3067\u306E\u9053\u306E\
+    \u30CE\u30FC\u30C9\u3060\u3051\u3092\u8907\u88FD\u3059\u308B (path copying)\n\
+    // \u53D6\u5F97\u30FB\u66F4\u65B0 O(log_{2^LOG} n)\uFF0E\u66F4\u65B0\u3054\u3068\
+    \u306B O(2^LOG log_{2^LOG} n) \u306E\u30E1\u30E2\u30EA\ntemplate <class T, int\
+    \ LOG = 3>\nstruct PersistentArray {\n    static constexpr int K = 1 << LOG;\n\
+    \    int n, height;\n    vector<array<int, K>> ch;   // \u5185\u90E8\u30CE\u30FC\
+    \u30C9\u306E\u5B50 (ch \u306E\u30CE\u30FC\u30C9\u756A\u53F7\uFF0C\u8449\u306E\u6BB5\
+    \u3067\u306F vals \u306E\u756A\u53F7)\n    vector<T> vals;              // \u8449\
+    \u306E\u5024\n    vector<int> roots;           // \u7248\u3054\u3068\u306E\u6839\
+    \n\n    PersistentArray(const vector<T> &a = {}) : n(a.size()) {\n        height\
+    \ = 0;\n        while ((1LL << (LOG * height)) < std::max(n, 1)) height++;\n \
+    \       vals = a;\n        if (vals.empty()) vals.push_back(T());\n        roots.push_back(build(0,\
+    \ height));\n    }\n\n    PersistentArray(int n, const T &x) : PersistentArray(vector<T>(n,\
+    \ x)) {}\n\n    void reserve(int updates) {\n        ch.reserve(ch.size() + (size_t)updates\
     \ * height);\n        vals.reserve(vals.size() + updates);\n        roots.reserve(roots.size()\
     \ + updates);\n    }\n\n    int size() const { return n; }\n    int versions()\
     \ const { return roots.size(); }\n\n    // \u7248 v \u306E a[i]\n    T get(int\
@@ -71,24 +72,24 @@ data:
     \        int k = (i >> (LOG * h)) & (K - 1);\n        c[k] = h == 0 ? leaf : set_rec(c[k],\
     \ h - 1, i, leaf);\n        ch.push_back(c);\n        return ch.size() - 1;\n\
     \    }\n};\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n\n// \u6C38\u7D9A\u914D\u5217\
-    \ (Persistent Array)\uFF0E\u3069\u306E\u7248\u304B\u3089\u3067\u3082\u4E00\u70B9\
-    \u66F4\u65B0\u3067\u304D\uFF0C\u65B0\u3057\u3044\u7248\u306E\u756A\u53F7\u3092\
-    \u8FD4\u3059\n// 2^LOG \u5206\u6728\u3067\u6301\u3061\uFF0C\u66F4\u65B0\u306F\u6839\
-    \u304B\u3089\u8449\u307E\u3067\u306E\u9053\u306E\u30CE\u30FC\u30C9\u3060\u3051\
-    \u3092\u8907\u88FD\u3059\u308B (path copying)\n// \u53D6\u5F97\u30FB\u66F4\u65B0\
-    \ O(log_{2^LOG} n)\uFF0E\u66F4\u65B0\u3054\u3068\u306B O(2^LOG log_{2^LOG} n)\
-    \ \u306E\u30E1\u30E2\u30EA\ntemplate <class T, int LOG = 3>\nstruct PersistentArray\
-    \ {\n    static constexpr int K = 1 << LOG;\n    int n, height;\n    vector<array<int,\
-    \ K>> ch;   // \u5185\u90E8\u30CE\u30FC\u30C9\u306E\u5B50 (ch \u306E\u30CE\u30FC\
-    \u30C9\u756A\u53F7\uFF0C\u8449\u306E\u6BB5\u3067\u306F vals \u306E\u756A\u53F7\
-    )\n    vector<T> vals;              // \u8449\u306E\u5024\n    vector<int> roots;\
-    \           // \u7248\u3054\u3068\u306E\u6839\n\n    PersistentArray(const vector<T>\
-    \ &a = {}) : n(a.size()) {\n        height = 0;\n        while ((1LL << (LOG *\
-    \ height)) < std::max(n, 1)) height++;\n        vals = a;\n        if (vals.empty())\
-    \ vals.push_back(T());\n        roots.push_back(build(0, height));\n    }\n\n\
-    \    PersistentArray(int n, const T &x) : PersistentArray(vector<T>(n, x)) {}\n\
-    \n    void reserve(int updates) {\n        ch.reserve(ch.size() + (size_t)updates\
+  code: "#pragma once\n#include \"../template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u6C38\u7D9A\u914D\u5217 (Persistent Array)\uFF0E\u3069\u306E\u7248\u304B\
+    \u3089\u3067\u3082\u4E00\u70B9\u66F4\u65B0\u3067\u304D\uFF0C\u65B0\u3057\u3044\
+    \u7248\u306E\u756A\u53F7\u3092\u8FD4\u3059\n// 2^LOG \u5206\u6728\u3067\u6301\u3061\
+    \uFF0C\u66F4\u65B0\u306F\u6839\u304B\u3089\u8449\u307E\u3067\u306E\u9053\u306E\
+    \u30CE\u30FC\u30C9\u3060\u3051\u3092\u8907\u88FD\u3059\u308B (path copying)\n\
+    // \u53D6\u5F97\u30FB\u66F4\u65B0 O(log_{2^LOG} n)\uFF0E\u66F4\u65B0\u3054\u3068\
+    \u306B O(2^LOG log_{2^LOG} n) \u306E\u30E1\u30E2\u30EA\ntemplate <class T, int\
+    \ LOG = 3>\nstruct PersistentArray {\n    static constexpr int K = 1 << LOG;\n\
+    \    int n, height;\n    vector<array<int, K>> ch;   // \u5185\u90E8\u30CE\u30FC\
+    \u30C9\u306E\u5B50 (ch \u306E\u30CE\u30FC\u30C9\u756A\u53F7\uFF0C\u8449\u306E\u6BB5\
+    \u3067\u306F vals \u306E\u756A\u53F7)\n    vector<T> vals;              // \u8449\
+    \u306E\u5024\n    vector<int> roots;           // \u7248\u3054\u3068\u306E\u6839\
+    \n\n    PersistentArray(const vector<T> &a = {}) : n(a.size()) {\n        height\
+    \ = 0;\n        while ((1LL << (LOG * height)) < std::max(n, 1)) height++;\n \
+    \       vals = a;\n        if (vals.empty()) vals.push_back(T());\n        roots.push_back(build(0,\
+    \ height));\n    }\n\n    PersistentArray(int n, const T &x) : PersistentArray(vector<T>(n,\
+    \ x)) {}\n\n    void reserve(int updates) {\n        ch.reserve(ch.size() + (size_t)updates\
     \ * height);\n        vals.reserve(vals.size() + updates);\n        roots.reserve(roots.size()\
     \ + updates);\n    }\n\n    int size() const { return n; }\n    int versions()\
     \ const { return roots.size(); }\n\n    // \u7248 v \u306E a[i]\n    T get(int\
@@ -117,8 +118,8 @@ data:
   path: data_structure/persistent_array.hpp
   requiredBy:
   - data_structure/persistent_unionfind.hpp
-  timestamp: '2026-10-15 00:08:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/persistent_unionfind.test.cpp
   - test/unittest/persistent.test.cpp

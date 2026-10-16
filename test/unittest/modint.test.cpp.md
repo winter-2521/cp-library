@@ -1,31 +1,31 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/potentialized_unionfind.hpp
     title: "\u30DD\u30C6\u30F3\u30B7\u30E3\u30EB\u4ED8\u304D Union-Find (\u975E\u53EF\
       \u63DB\u7FA4\u5BFE\u5FDC)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modint.hpp
     title: "ModInt (\u6CD5\u304C\u30B3\u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E\
       \ modint)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -43,31 +43,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -202,62 +203,63 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"math/modint.hpp\"\
-    \n\n// \u6CD5 MOD \u304C \u30B3\u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E\
-    \ modint\n// MOD < 2^31 \u3067\u3042\u308B\u3053\u3068 (\u7D20\u6570\u3067\u306A\
-    \u304F\u3066\u3082\u3088\u3044\uFF0E\u305F\u3060\u3057 inv() \u306F MOD \u3068\
-    \u4E92\u3044\u306B\u7D20\u306A\u5024\u306B\u5BFE\u3057\u3066\u306E\u307F\u6709\
-    \u52B9)\n// \u30A4\u30F3\u30BF\u30FC\u30D5\u30A7\u30FC\u30B9\u306F ACL (atcoder::static_modint)\
-    \ \u3068\u63C3\u3048\u3066\u3042\u308B\uFF0E\n// \u3053\u306E\u30E9\u30A4\u30D6\
-    \u30E9\u30EA\u306E\u4ED6\u306E\u30D5\u30A1\u30A4\u30EB (fastio \u306A\u3069) \u306F\
-    \ ACL \u306E modint \u3067\u3082\u305D\u306E\u307E\u307E\u52D5\u304F\ntemplate\
-    \ <uint32_t MOD>\nstruct ModInt {\n    static_assert(1 <= MOD && MOD < (1u <<\
-    \ 31), \"MOD must be in [1, 2^31)\");\n    using mint = ModInt;\n    uint32_t\
-    \ v;\n\n    static constexpr int mod() { return MOD; }\n\n    constexpr ModInt()\
-    \ : v(0) {}\n\n    template <class T, enable_if_t<is_integral_v<T>, nullptr_t>\
-    \ = nullptr>\n    constexpr ModInt(T x) : v(0) {\n        if constexpr (is_signed_v<T>)\
-    \ {\n            long long y = (long long)(x % (long long)MOD);\n            if\
-    \ (y < 0) y += MOD;\n            v = uint32_t(y);\n        } else {\n        \
-    \    v = uint32_t(x % MOD);\n        }\n    }\n\n    // 0 <= x < MOD \u304C\u5206\
-    \u304B\u3063\u3066\u3044\u308B\u3068\u304D\u306B\u5270\u4F59\u3092\u53D6\u3089\
-    \u305A\u306B\u4F5C\u308B\n    static constexpr mint raw(int x) {\n        mint\
-    \ r;\n        r.v = x;\n        return r;\n    }\n\n    // ACL (\u73FE\u884C\u7248\
-    ) \u3068\u540C\u3058\u304F int \u3067\u8FD4\u3059\n    constexpr int val() const\
-    \ { return int(v); }\n\n    constexpr mint &operator+=(const mint &r) {\n    \
-    \    v += r.v;\n        if (v >= MOD) v -= MOD;\n        return *this;\n    }\n\
-    \    constexpr mint &operator-=(const mint &r) {\n        v += MOD - r.v;\n  \
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u6CD5 MOD \u304C \u30B3\
+    \u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E modint\n// MOD < 2^31 \u3067\u3042\
+    \u308B\u3053\u3068 (\u7D20\u6570\u3067\u306A\u304F\u3066\u3082\u3088\u3044\uFF0E\
+    \u305F\u3060\u3057 inv() \u306F MOD \u3068\u4E92\u3044\u306B\u7D20\u306A\u5024\
+    \u306B\u5BFE\u3057\u3066\u306E\u307F\u6709\u52B9)\n// \u30A4\u30F3\u30BF\u30FC\
+    \u30D5\u30A7\u30FC\u30B9\u306F ACL (atcoder::static_modint) \u3068\u63C3\u3048\
+    \u3066\u3042\u308B\uFF0E\n// \u3053\u306E\u30E9\u30A4\u30D6\u30E9\u30EA\u306E\u4ED6\
+    \u306E\u30D5\u30A1\u30A4\u30EB (fastio \u306A\u3069) \u306F ACL \u306E modint\
+    \ \u3067\u3082\u305D\u306E\u307E\u307E\u52D5\u304F\ntemplate <uint32_t MOD>\n\
+    struct ModInt {\n    static_assert(1 <= MOD && MOD < (1u << 31), \"MOD must be\
+    \ in [1, 2^31)\");\n    using mint = ModInt;\n    uint32_t v;\n\n    static constexpr\
+    \ int mod() { return MOD; }\n\n    constexpr ModInt() : v(0) {}\n\n    template\
+    \ <class T, enable_if_t<is_integral_v<T>, nullptr_t> = nullptr>\n    constexpr\
+    \ ModInt(T x) : v(0) {\n        if constexpr (is_signed_v<T>) {\n            long\
+    \ long y = (long long)(x % (long long)MOD);\n            if (y < 0) y += MOD;\n\
+    \            v = uint32_t(y);\n        } else {\n            v = uint32_t(x %\
+    \ MOD);\n        }\n    }\n\n    // 0 <= x < MOD \u304C\u5206\u304B\u3063\u3066\
+    \u3044\u308B\u3068\u304D\u306B\u5270\u4F59\u3092\u53D6\u3089\u305A\u306B\u4F5C\
+    \u308B\n    static constexpr mint raw(int x) {\n        mint r;\n        r.v =\
+    \ x;\n        return r;\n    }\n\n    // ACL (\u73FE\u884C\u7248) \u3068\u540C\
+    \u3058\u304F int \u3067\u8FD4\u3059\n    constexpr int val() const { return int(v);\
+    \ }\n\n    constexpr mint &operator+=(const mint &r) {\n        v += r.v;\n  \
     \      if (v >= MOD) v -= MOD;\n        return *this;\n    }\n    constexpr mint\
-    \ &operator*=(const mint &r) {\n        // MOD \u304C\u5B9A\u6570\u306A\u306E\u3067\
-    \ % \u306F\u4E57\u7B97\u3068\u30B7\u30D5\u30C8\u306B\u6700\u9069\u5316\u3055\u308C\
-    \u308B\n        v = uint32_t((uint64_t)v * r.v % MOD);\n        return *this;\n\
-    \    }\n    constexpr mint &operator/=(const mint &r) { return *this *= r.inv();\
-    \ }\n\n    constexpr mint operator+() const { return *this; }\n    constexpr mint\
-    \ operator-() const { return raw(v == 0 ? 0 : MOD - v); }\n\n    constexpr mint\
-    \ &operator++() { return *this += raw(1); }\n    constexpr mint &operator--()\
-    \ { return *this -= raw(1); }\n    constexpr mint operator++(int) { mint r = *this;\
-    \ ++*this; return r; }\n    constexpr mint operator--(int) { mint r = *this; --*this;\
-    \ return r; }\n\n    friend constexpr mint operator+(mint l, const mint &r) {\
-    \ return l += r; }\n    friend constexpr mint operator-(mint l, const mint &r)\
-    \ { return l -= r; }\n    friend constexpr mint operator*(mint l, const mint &r)\
-    \ { return l *= r; }\n    friend constexpr mint operator/(mint l, const mint &r)\
-    \ { return l /= r; }\n    friend constexpr bool operator==(const mint &l, const\
-    \ mint &r) { return l.v == r.v; }\n    friend constexpr bool operator!=(const\
-    \ mint &l, const mint &r) { return l.v != r.v; }\n\n    // this^n (n < 0 \u306A\
-    \u3089\u9006\u5143\u306E -n \u4E57)\n    constexpr mint pow(long long n) const\
-    \ {\n        mint x = n >= 0 ? *this : inv(), r = raw(1 % MOD);\n        unsigned\
-    \ long long e = n >= 0 ? (unsigned long long)n : 0ULL - (unsigned long long)n;\n\
-    \        while (e) {\n            if (e & 1) r *= x;\n            x *= x;\n  \
-    \          e >>= 1;\n        }\n        return r;\n    }\n\n    // \u62E1\u5F35\
-    \u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5\u306B\u3088\u308B\
-    \u9006\u5143 (MOD \u304C\u7D20\u6570\u3067\u306A\u304F\u3066\u3082 gcd(v, MOD)\
-    \ = 1 \u306A\u3089\u6B63\u3057\u3044)\n    constexpr mint inv() const {\n    \
-    \    long long a = v, b = MOD, x = 1, y = 0;\n        while (b) {\n          \
-    \  long long t = a / b;\n            a -= t * b, swap(a, b);\n            x -=\
-    \ t * y, swap(x, y);\n        }\n        assert(a == 1);\n        return mint(x);\n\
-    \    }\n\n    friend ostream &operator<<(ostream &os, const mint &x) { return\
-    \ os << x.v; }\n    friend istream &operator>>(istream &is, mint &x) {\n     \
-    \   long long t;\n        is >> t;\n        x = mint(t);\n        return is;\n\
-    \    }\n};\n\nusing ModInt998244353 = ModInt<998244353>;\nusing ModInt1000000007\
-    \ = ModInt<1000000007>;\n#line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
+    \ &operator-=(const mint &r) {\n        v += MOD - r.v;\n        if (v >= MOD)\
+    \ v -= MOD;\n        return *this;\n    }\n    constexpr mint &operator*=(const\
+    \ mint &r) {\n        // MOD \u304C\u5B9A\u6570\u306A\u306E\u3067 % \u306F\u4E57\
+    \u7B97\u3068\u30B7\u30D5\u30C8\u306B\u6700\u9069\u5316\u3055\u308C\u308B\n   \
+    \     v = uint32_t((uint64_t)v * r.v % MOD);\n        return *this;\n    }\n \
+    \   constexpr mint &operator/=(const mint &r) { return *this *= r.inv(); }\n\n\
+    \    constexpr mint operator+() const { return *this; }\n    constexpr mint operator-()\
+    \ const { return raw(v == 0 ? 0 : MOD - v); }\n\n    constexpr mint &operator++()\
+    \ { return *this += raw(1); }\n    constexpr mint &operator--() { return *this\
+    \ -= raw(1); }\n    constexpr mint operator++(int) { mint r = *this; ++*this;\
+    \ return r; }\n    constexpr mint operator--(int) { mint r = *this; --*this; return\
+    \ r; }\n\n    friend constexpr mint operator+(mint l, const mint &r) { return\
+    \ l += r; }\n    friend constexpr mint operator-(mint l, const mint &r) { return\
+    \ l -= r; }\n    friend constexpr mint operator*(mint l, const mint &r) { return\
+    \ l *= r; }\n    friend constexpr mint operator/(mint l, const mint &r) { return\
+    \ l /= r; }\n    friend constexpr bool operator==(const mint &l, const mint &r)\
+    \ { return l.v == r.v; }\n    friend constexpr bool operator!=(const mint &l,\
+    \ const mint &r) { return l.v != r.v; }\n\n    // this^n (n < 0 \u306A\u3089\u9006\
+    \u5143\u306E -n \u4E57)\n    constexpr mint pow(long long n) const {\n       \
+    \ mint x = n >= 0 ? *this : inv(), r = raw(1 % MOD);\n        unsigned long long\
+    \ e = n >= 0 ? (unsigned long long)n : 0ULL - (unsigned long long)n;\n       \
+    \ while (e) {\n            if (e & 1) r *= x;\n            x *= x;\n         \
+    \   e >>= 1;\n        }\n        return r;\n    }\n\n    // \u62E1\u5F35\u30E6\
+    \u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5\u306B\u3088\u308B\u9006\
+    \u5143 (MOD \u304C\u7D20\u6570\u3067\u306A\u304F\u3066\u3082 gcd(v, MOD) = 1 \u306A\
+    \u3089\u6B63\u3057\u3044)\n    constexpr mint inv() const {\n        long long\
+    \ a = v, b = MOD, x = 1, y = 0;\n        while (b) {\n            long long t\
+    \ = a / b;\n            a -= t * b, swap(a, b);\n            x -= t * y, swap(x,\
+    \ y);\n        }\n        assert(a == 1);\n        return mint(x);\n    }\n\n\
+    \    friend ostream &operator<<(ostream &os, const mint &x) { return os << x.v;\
+    \ }\n    friend istream &operator>>(istream &is, mint &x) {\n        long long\
+    \ t;\n        is >> t;\n        x = mint(t);\n        return is;\n    }\n};\n\n\
+    using ModInt998244353 = ModInt<998244353>;\nusing ModInt1000000007 = ModInt<1000000007>;\n\
+    #line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
     #include <atcoder/all>\nusing namespace atcoder;\n#endif\n// QCfium\u6CD5\u3092\
     \u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\u30C8\u30A2\u30A6\u30C8\u3092\u5916\
     \u3059\n/*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
@@ -268,75 +270,75 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"data_structure/potentialized_unionfind.hpp\"\n\n// \u30DD\u30C6\u30F3\u30B7\
-    \u30E3\u30EB\u4ED8\u304D Union-Find\n// \u5404\u8981\u7D20 u \u306B\u7FA4 G \u306E\
-    \u5143 a_u \u3092\u6301\u305F\u305B\uFF0C\u300Ca_u = a_v w\u300D\u3068\u3044\u3046\
-    \u95A2\u4FC2\u3092\u8FFD\u52A0\u30FB\u77DB\u76FE\u5224\u5B9A\u3057\uFF0Ca_v^{-1}\
-    \ a_u \u3092\u53D6\u5F97\u3059\u308B\n// G \u306F\u975E\u53EF\u63DB\u7FA4\u3067\
-    \u3082\u3088\u3044\uFF0E\u52A0\u6CD5\u7FA4\u306A\u3089\u300Ca_u - a_v = w\u300D\
-    \u3068\u3044\u3046\u610F\u5473\u306B\u306A\u308B (Library Checker \u3068\u540C\
-    \u3058\u5411\u304D)\n//\n// G \u306B\u306F\u6B21\u3092\u5B9A\u7FA9\u3059\u308B\
-    :\n//   using T = \u7FA4\u306E\u5143\u306E\u578B;\n//   static T op(const T &a,\
-    \ const T &b);  // \u7FA4\u6F14\u7B97 a * b\n//   static T inv(const T &a);  \
-    \           // \u9006\u5143\n//   static T e();                         // \u5358\
-    \u4F4D\u5143\n// T \u306F == \u3067\u6BD4\u8F03\u3067\u304D\u308B\u3053\u3068\n\
-    template <class G>\nstruct PotentializedUnionFind {\n    using T = typename G::T;\n\
-    \    // \u6839\u306A\u3089 -(\u96C6\u5408\u306E\u30B5\u30A4\u30BA)\uFF0C\u305D\
-    \u3046\u3067\u306A\u3051\u308C\u3070\u89AA\n    vector<int> par;\n    // pot[x]\
-    \ = a_{par[x]}^{-1} a_x  (\u6839\u306A\u3089\u5358\u4F4D\u5143)\n    vector<T>\
-    \ pot;\n\n    PotentializedUnionFind(int n = 0) : par(n, -1), pot(n, G::e()) {}\n\
-    \n    // \u6839\u3092\u8FD4\u3059\uFF0E\u7D4C\u8DEF\u5727\u7E2E\u306E\u3064\u3044\
-    \u3067\u306B pot[x] \u3092\u6839\u304B\u3089\u306E\u5024\u306B\u66F4\u65B0\u3059\
-    \u308B\n    int leader(int x) {\n        if (par[x] < 0) return x;\n        int\
-    \ p = par[x];\n        int r = leader(p);\n        // pot[p] \u306F a_r^{-1} a_p\
-    \ \u306B\u306A\u3063\u3066\u3044\u308B\n        if (p != r) pot[x] = G::op(pot[p],\
-    \ pot[x]);\n        return par[x] = r;\n    }\n\n    bool same(int x, int y) {\
-    \ return leader(x) == leader(y); }\n\n    int size(int x) { return -par[leader(x)];\
-    \ }\n\n    // a_r^{-1} a_x  (r \u306F x \u306E\u5C5E\u3059\u308B\u96C6\u5408\u306E\
-    \u6839)\n    T potential(int x) {\n        leader(x);\n        return pot[x];\n\
-    \    }\n\n    // a_v^{-1} a_u (\u52A0\u6CD5\u7FA4\u306A\u3089 a_u - a_v)\uFF0E\
-    \u540C\u3058\u96C6\u5408\u306B\u5C5E\u3057\u3066\u3044\u308B\u3053\u3068\n   \
-    \ T diff(int u, int v) {\n        assert(same(u, v));\n        return G::op(G::inv(potential(v)),\
-    \ potential(u));\n    }\n\n    // a_u = a_v w (\u52A0\u6CD5\u7FA4\u306A\u3089\
-    \ a_u - a_v = w) \u3068\u3044\u3046\u95A2\u4FC2\u3092\u8FFD\u52A0\u3059\u308B\n\
-    \    // \u3053\u308C\u307E\u3067\u306E\u95A2\u4FC2\u3068\u77DB\u76FE\u3059\u308B\
-    \u306A\u3089\u4F55\u3082\u305B\u305A false\uFF0C\u77DB\u76FE\u3057\u306A\u3051\
-    \u308C\u3070 true (\u65E2\u306B\u5206\u304B\u3063\u3066\u3044\u305F\u95A2\u4FC2\
-    \u3067\u3082 true)\n    bool merge(int u, int v, T w) {\n        // \u4EE5\u4E0B\
-    \u3067\u306F x = v, y = u \u3068\u3057\u3066 a_x^{-1} a_y = w \u3092\u6271\u3046\
-    \n        int x = v, y = u;\n        int rx = leader(x), ry = leader(y);\n   \
-    \     const T &px = pot[x], &py = pot[y];\n        if (rx == ry) return G::op(G::inv(px),\
-    \ py) == w;\n        // a_x = a_rx px, a_y = a_ry py, a_y = a_x w \u3088\u308A\
-    \ a_rx^{-1} a_ry = px w py^{-1}\n        T d = G::op(G::op(px, w), G::inv(py));\n\
-    \        if (par[rx] > par[ry]) {\n            // rx \u306E\u65B9\u304C\u5C0F\u3055\
-    \u3044\u306E\u3067 ry \u306E\u4E0B\u306B\u3064\u3051\u308B\n            par[ry]\
-    \ += par[rx];\n            par[rx] = ry;\n            pot[rx] = G::inv(d);\n \
-    \       } else {\n            par[rx] += par[ry];\n            par[ry] = rx;\n\
-    \            pot[ry] = d;\n        }\n        return true;\n    }\n\n    // \u96C6\
-    \u5408\u3054\u3068\u306B\u8981\u7D20\u3092\u5217\u6319\n    vector<vector<int>>\
-    \ groups() {\n        int n = par.size();\n        vector<vector<int>> res(n);\n\
-    \        for (int i = 0; i < n; i++) res[leader(i)].push_back(i);\n        res.erase(remove_if(res.begin(),\
-    \ res.end(), [](const vector<int> &v) { return v.empty(); }), res.end());\n  \
-    \      return res;\n    }\n};\n\n// \u52A0\u6CD5\u7FA4 (a_u - a_v = w)\ntemplate\
-    \ <class X>\nstruct AdditiveGroup {\n    using T = X;\n    static T op(const T\
-    \ &a, const T &b) { return a + b; }\n    static T inv(const T &a) { return -a;\
-    \ }\n    static T e() { return T(0); }\n};\n\n// xor \u306E\u7FA4 (a_u xor a_v\
-    \ = w)\uFF0E\u5076\u5947\u306E\u5236\u7D04\u306A\u3069\u306B\u4F7F\u3046\ntemplate\
-    \ <class X>\nstruct XorGroup {\n    using T = X;\n    static T op(const T &a,\
-    \ const T &b) { return a ^ b; }\n    static T inv(const T &a) { return a; }\n\
-    \    static T e() { return T(0); }\n};\n#line 5 \"test/unittest/modint.test.cpp\"\
-    \n#include <atcoder/modint>\n\n// \u81EA\u4F5C ModInt \u3092 ACL \u306E static_modint\
-    \ \u3068\u7167\u5408\u3059\u308B\uFF0E\u3042\u308F\u305B\u3066 ACL \u306E modint\
-    \ \u304C\u4ED6\u306E\u30E9\u30A4\u30D6\u30E9\u30EA\u3067\u305D\u306E\u307E\u307E\
-    \u4F7F\u3048\u308B\u3053\u3068\u3092\u78BA\u8A8D\u3059\u308B\n\ntemplate <uint32_t\
-    \ MOD>\nvoid check(mt19937_64 &rng) {\n    using A = atcoder::static_modint<MOD>;\n\
-    \    using M = ModInt<MOD>;\n    static_assert(M::mod() == A::mod());\n    for\
-    \ (int it = 0; it < 200000; it++) {\n        long long x = (long long)rng(), y\
-    \ = (long long)rng();\n        if (it % 3 == 0) x %= 1000, y %= 1000;\n      \
-    \  M a(x), b(y);\n        A c(x), d(y);\n        assert(a.val() == c.val() &&\
-    \ b.val() == d.val());\n        assert((a + b).val() == (c + d).val());\n    \
-    \    assert((a - b).val() == (c - d).val());\n        assert((a * b).val() ==\
-    \ (c * d).val());\n        assert((-a).val() == (-c).val());\n        unsigned\
+    \ 3 \"data_structure/potentialized_unionfind.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u30DD\u30C6\u30F3\u30B7\u30E3\u30EB\u4ED8\u304D Union-Find\n// \u5404\u8981\
+    \u7D20 u \u306B\u7FA4 G \u306E\u5143 a_u \u3092\u6301\u305F\u305B\uFF0C\u300C\
+    a_u = a_v w\u300D\u3068\u3044\u3046\u95A2\u4FC2\u3092\u8FFD\u52A0\u30FB\u77DB\u76FE\
+    \u5224\u5B9A\u3057\uFF0Ca_v^{-1} a_u \u3092\u53D6\u5F97\u3059\u308B\n// G \u306F\
+    \u975E\u53EF\u63DB\u7FA4\u3067\u3082\u3088\u3044\uFF0E\u52A0\u6CD5\u7FA4\u306A\
+    \u3089\u300Ca_u - a_v = w\u300D\u3068\u3044\u3046\u610F\u5473\u306B\u306A\u308B\
+    \ (Library Checker \u3068\u540C\u3058\u5411\u304D)\n//\n// G \u306B\u306F\u6B21\
+    \u3092\u5B9A\u7FA9\u3059\u308B:\n//   using T = \u7FA4\u306E\u5143\u306E\u578B\
+    ;\n//   static T op(const T &a, const T &b);  // \u7FA4\u6F14\u7B97 a * b\n//\
+    \   static T inv(const T &a);             // \u9006\u5143\n//   static T e();\
+    \                         // \u5358\u4F4D\u5143\n// T \u306F == \u3067\u6BD4\u8F03\
+    \u3067\u304D\u308B\u3053\u3068\ntemplate <class G>\nstruct PotentializedUnionFind\
+    \ {\n    using T = typename G::T;\n    // \u6839\u306A\u3089 -(\u96C6\u5408\u306E\
+    \u30B5\u30A4\u30BA)\uFF0C\u305D\u3046\u3067\u306A\u3051\u308C\u3070\u89AA\n  \
+    \  vector<int> par;\n    // pot[x] = a_{par[x]}^{-1} a_x  (\u6839\u306A\u3089\u5358\
+    \u4F4D\u5143)\n    vector<T> pot;\n\n    PotentializedUnionFind(int n = 0) : par(n,\
+    \ -1), pot(n, G::e()) {}\n\n    // \u6839\u3092\u8FD4\u3059\uFF0E\u7D4C\u8DEF\u5727\
+    \u7E2E\u306E\u3064\u3044\u3067\u306B pot[x] \u3092\u6839\u304B\u3089\u306E\u5024\
+    \u306B\u66F4\u65B0\u3059\u308B\n    int leader(int x) {\n        if (par[x] <\
+    \ 0) return x;\n        int p = par[x];\n        int r = leader(p);\n        //\
+    \ pot[p] \u306F a_r^{-1} a_p \u306B\u306A\u3063\u3066\u3044\u308B\n        if\
+    \ (p != r) pot[x] = G::op(pot[p], pot[x]);\n        return par[x] = r;\n    }\n\
+    \n    bool same(int x, int y) { return leader(x) == leader(y); }\n\n    int size(int\
+    \ x) { return -par[leader(x)]; }\n\n    // a_r^{-1} a_x  (r \u306F x \u306E\u5C5E\
+    \u3059\u308B\u96C6\u5408\u306E\u6839)\n    T potential(int x) {\n        leader(x);\n\
+    \        return pot[x];\n    }\n\n    // a_v^{-1} a_u (\u52A0\u6CD5\u7FA4\u306A\
+    \u3089 a_u - a_v)\uFF0E\u540C\u3058\u96C6\u5408\u306B\u5C5E\u3057\u3066\u3044\u308B\
+    \u3053\u3068\n    T diff(int u, int v) {\n        assert(same(u, v));\n      \
+    \  return G::op(G::inv(potential(v)), potential(u));\n    }\n\n    // a_u = a_v\
+    \ w (\u52A0\u6CD5\u7FA4\u306A\u3089 a_u - a_v = w) \u3068\u3044\u3046\u95A2\u4FC2\
+    \u3092\u8FFD\u52A0\u3059\u308B\n    // \u3053\u308C\u307E\u3067\u306E\u95A2\u4FC2\
+    \u3068\u77DB\u76FE\u3059\u308B\u306A\u3089\u4F55\u3082\u305B\u305A false\uFF0C\
+    \u77DB\u76FE\u3057\u306A\u3051\u308C\u3070 true (\u65E2\u306B\u5206\u304B\u3063\
+    \u3066\u3044\u305F\u95A2\u4FC2\u3067\u3082 true)\n    bool merge(int u, int v,\
+    \ T w) {\n        // \u4EE5\u4E0B\u3067\u306F x = v, y = u \u3068\u3057\u3066\
+    \ a_x^{-1} a_y = w \u3092\u6271\u3046\n        int x = v, y = u;\n        int\
+    \ rx = leader(x), ry = leader(y);\n        const T &px = pot[x], &py = pot[y];\n\
+    \        if (rx == ry) return G::op(G::inv(px), py) == w;\n        // a_x = a_rx\
+    \ px, a_y = a_ry py, a_y = a_x w \u3088\u308A a_rx^{-1} a_ry = px w py^{-1}\n\
+    \        T d = G::op(G::op(px, w), G::inv(py));\n        if (par[rx] > par[ry])\
+    \ {\n            // rx \u306E\u65B9\u304C\u5C0F\u3055\u3044\u306E\u3067 ry \u306E\
+    \u4E0B\u306B\u3064\u3051\u308B\n            par[ry] += par[rx];\n            par[rx]\
+    \ = ry;\n            pot[rx] = G::inv(d);\n        } else {\n            par[rx]\
+    \ += par[ry];\n            par[ry] = rx;\n            pot[ry] = d;\n        }\n\
+    \        return true;\n    }\n\n    // \u96C6\u5408\u3054\u3068\u306B\u8981\u7D20\
+    \u3092\u5217\u6319\n    vector<vector<int>> groups() {\n        int n = par.size();\n\
+    \        vector<vector<int>> res(n);\n        for (int i = 0; i < n; i++) res[leader(i)].push_back(i);\n\
+    \        res.erase(remove_if(res.begin(), res.end(), [](const vector<int> &v)\
+    \ { return v.empty(); }), res.end());\n        return res;\n    }\n};\n\n// \u52A0\
+    \u6CD5\u7FA4 (a_u - a_v = w)\ntemplate <class X>\nstruct AdditiveGroup {\n   \
+    \ using T = X;\n    static T op(const T &a, const T &b) { return a + b; }\n  \
+    \  static T inv(const T &a) { return -a; }\n    static T e() { return T(0); }\n\
+    };\n\n// xor \u306E\u7FA4 (a_u xor a_v = w)\uFF0E\u5076\u5947\u306E\u5236\u7D04\
+    \u306A\u3069\u306B\u4F7F\u3046\ntemplate <class X>\nstruct XorGroup {\n    using\
+    \ T = X;\n    static T op(const T &a, const T &b) { return a ^ b; }\n    static\
+    \ T inv(const T &a) { return a; }\n    static T e() { return T(0); }\n};\n#line\
+    \ 5 \"test/unittest/modint.test.cpp\"\n#include <atcoder/modint>\n\n// \u81EA\u4F5C\
+    \ ModInt \u3092 ACL \u306E static_modint \u3068\u7167\u5408\u3059\u308B\uFF0E\u3042\
+    \u308F\u305B\u3066 ACL \u306E modint \u304C\u4ED6\u306E\u30E9\u30A4\u30D6\u30E9\
+    \u30EA\u3067\u305D\u306E\u307E\u307E\u4F7F\u3048\u308B\u3053\u3068\u3092\u78BA\
+    \u8A8D\u3059\u308B\n\ntemplate <uint32_t MOD>\nvoid check(mt19937_64 &rng) {\n\
+    \    using A = atcoder::static_modint<MOD>;\n    using M = ModInt<MOD>;\n    static_assert(M::mod()\
+    \ == A::mod());\n    for (int it = 0; it < 200000; it++) {\n        long long\
+    \ x = (long long)rng(), y = (long long)rng();\n        if (it % 3 == 0) x %= 1000,\
+    \ y %= 1000;\n        M a(x), b(y);\n        A c(x), d(y);\n        assert(a.val()\
+    \ == c.val() && b.val() == d.val());\n        assert((a + b).val() == (c + d).val());\n\
+    \        assert((a - b).val() == (c - d).val());\n        assert((a * b).val()\
+    \ == (c * d).val());\n        assert((-a).val() == (-c).val());\n        unsigned\
     \ long long ux = rng();\n        assert(M(ux).val() == A(ux).val());\n       \
     \ long long e = rng() % 1000000;\n        assert(a.pow(e).val() == c.pow(e).val());\n\
     \        if (gcd((long long)b.val(), (long long)MOD) == 1) {\n            assert((a\
@@ -403,8 +405,8 @@ data:
   isVerificationFile: true
   path: test/unittest/modint.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 11:00:46+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/unittest/modint.test.cpp
 layout: document

@@ -1,22 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/static_range_sum.test.cpp
     title: test/static_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/cumulative_sum.test.cpp
     title: test/unittest/cumulative_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -28,57 +29,57 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"data_structure/cumulative_sum.hpp\"\n\n// 1 \u6B21\u5143\u7D2F\u7A4D\u548C\
-    \uFF0E\u533A\u9593\u548C\u3092 O(1) \u3067\u6C42\u3081\u308B\ntemplate <class\
-    \ T>\nstruct CumulativeSum {\n    // s[i] = a[0] + ... + a[i-1]\n    vector<T>\
-    \ s;\n\n    CumulativeSum() : s(1, T(0)) {}\n\n    template <class U>\n    CumulativeSum(const\
-    \ vector<U> &a) : s(a.size() + 1) {\n        s[0] = T(0);\n        for (size_t\
-    \ i = 0; i < a.size(); i++) s[i + 1] = s[i] + T(a[i]);\n    }\n\n    int size()\
-    \ const { return int(s.size()) - 1; }\n\n    // \u672B\u5C3E\u306B x \u3092\u8FFD\
-    \u52A0\n    void push_back(const T &x) { s.push_back(s.back() + x); }\n\n    //\
-    \ a[0] + ... + a[r-1]\n    T prefix(int r) const { return s[r]; }\n\n    // a[l]\
-    \ + ... + a[r-1]\n    T sum(int l, int r) const { return s[r] - s[l]; }\n};\n\n\
-    // 2 \u6B21\u5143\u7D2F\u7A4D\u548C\uFF0E\u9577\u65B9\u5F62\u9818\u57DF\u306E\u548C\
-    \u3092 O(1) \u3067\u6C42\u3081\u308B\ntemplate <class T>\nstruct CumulativeSum2D\
-    \ {\n    int h, w;\n    // s[(i * (w + 1)) + j] = \u5DE6\u4E0A [0, i) x [0, j)\
-    \ \u306E\u548C\n    vector<T> s;\n\n    template <class U>\n    CumulativeSum2D(const\
-    \ vector<vector<U>> &a) : h(a.size()), w(a.empty() ? 0 : a[0].size()), s((h +\
-    \ 1) * (w + 1), T(0)) {\n        for (int i = 0; i < h; i++) {\n            T\
-    \ row = T(0);\n            for (int j = 0; j < w; j++) {\n                row\
-    \ += T(a[i][j]);\n                s[(i + 1) * (w + 1) + j + 1] = s[i * (w + 1)\
-    \ + j + 1] + row;\n            }\n        }\n    }\n\n    // \u884C [x1, x2) x\
-    \ \u5217 [y1, y2) \u306E\u548C\n    T sum(int x1, int y1, int x2, int y2) const\
-    \ {\n        return s[x2 * (w + 1) + y2] - s[x1 * (w + 1) + y2] - s[x2 * (w +\
-    \ 1) + y1] + s[x1 * (w + 1) + y1];\n    }\n};\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n\n// 1 \u6B21\u5143\u7D2F\u7A4D\
-    \u548C\uFF0E\u533A\u9593\u548C\u3092 O(1) \u3067\u6C42\u3081\u308B\ntemplate <class\
-    \ T>\nstruct CumulativeSum {\n    // s[i] = a[0] + ... + a[i-1]\n    vector<T>\
-    \ s;\n\n    CumulativeSum() : s(1, T(0)) {}\n\n    template <class U>\n    CumulativeSum(const\
-    \ vector<U> &a) : s(a.size() + 1) {\n        s[0] = T(0);\n        for (size_t\
-    \ i = 0; i < a.size(); i++) s[i + 1] = s[i] + T(a[i]);\n    }\n\n    int size()\
-    \ const { return int(s.size()) - 1; }\n\n    // \u672B\u5C3E\u306B x \u3092\u8FFD\
-    \u52A0\n    void push_back(const T &x) { s.push_back(s.back() + x); }\n\n    //\
-    \ a[0] + ... + a[r-1]\n    T prefix(int r) const { return s[r]; }\n\n    // a[l]\
-    \ + ... + a[r-1]\n    T sum(int l, int r) const { return s[r] - s[l]; }\n};\n\n\
-    // 2 \u6B21\u5143\u7D2F\u7A4D\u548C\uFF0E\u9577\u65B9\u5F62\u9818\u57DF\u306E\u548C\
-    \u3092 O(1) \u3067\u6C42\u3081\u308B\ntemplate <class T>\nstruct CumulativeSum2D\
-    \ {\n    int h, w;\n    // s[(i * (w + 1)) + j] = \u5DE6\u4E0A [0, i) x [0, j)\
-    \ \u306E\u548C\n    vector<T> s;\n\n    template <class U>\n    CumulativeSum2D(const\
-    \ vector<vector<U>> &a) : h(a.size()), w(a.empty() ? 0 : a[0].size()), s((h +\
-    \ 1) * (w + 1), T(0)) {\n        for (int i = 0; i < h; i++) {\n            T\
-    \ row = T(0);\n            for (int j = 0; j < w; j++) {\n                row\
-    \ += T(a[i][j]);\n                s[(i + 1) * (w + 1) + j + 1] = s[i * (w + 1)\
-    \ + j + 1] + row;\n            }\n        }\n    }\n\n    // \u884C [x1, x2) x\
-    \ \u5217 [y1, y2) \u306E\u548C\n    T sum(int x1, int y1, int x2, int y2) const\
-    \ {\n        return s[x2 * (w + 1) + y2] - s[x1 * (w + 1) + y2] - s[x2 * (w +\
-    \ 1) + y1] + s[x1 * (w + 1) + y1];\n    }\n};\n"
+    \ 3 \"data_structure/cumulative_sum.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// 1 \u6B21\u5143\u7D2F\u7A4D\u548C\uFF0E\u533A\u9593\u548C\u3092 O(1) \u3067\
+    \u6C42\u3081\u308B\ntemplate <class T>\nstruct CumulativeSum {\n    // s[i] =\
+    \ a[0] + ... + a[i-1]\n    vector<T> s;\n\n    CumulativeSum() : s(1, T(0)) {}\n\
+    \n    template <class U>\n    CumulativeSum(const vector<U> &a) : s(a.size() +\
+    \ 1) {\n        s[0] = T(0);\n        for (size_t i = 0; i < a.size(); i++) s[i\
+    \ + 1] = s[i] + T(a[i]);\n    }\n\n    int size() const { return int(s.size())\
+    \ - 1; }\n\n    // \u672B\u5C3E\u306B x \u3092\u8FFD\u52A0\n    void push_back(const\
+    \ T &x) { s.push_back(s.back() + x); }\n\n    // a[0] + ... + a[r-1]\n    T prefix(int\
+    \ r) const { return s[r]; }\n\n    // a[l] + ... + a[r-1]\n    T sum(int l, int\
+    \ r) const { return s[r] - s[l]; }\n};\n\n// 2 \u6B21\u5143\u7D2F\u7A4D\u548C\uFF0E\
+    \u9577\u65B9\u5F62\u9818\u57DF\u306E\u548C\u3092 O(1) \u3067\u6C42\u3081\u308B\
+    \ntemplate <class T>\nstruct CumulativeSum2D {\n    int h, w;\n    // s[(i * (w\
+    \ + 1)) + j] = \u5DE6\u4E0A [0, i) x [0, j) \u306E\u548C\n    vector<T> s;\n\n\
+    \    template <class U>\n    CumulativeSum2D(const vector<vector<U>> &a) : h(a.size()),\
+    \ w(a.empty() ? 0 : a[0].size()), s((h + 1) * (w + 1), T(0)) {\n        for (int\
+    \ i = 0; i < h; i++) {\n            T row = T(0);\n            for (int j = 0;\
+    \ j < w; j++) {\n                row += T(a[i][j]);\n                s[(i + 1)\
+    \ * (w + 1) + j + 1] = s[i * (w + 1) + j + 1] + row;\n            }\n        }\n\
+    \    }\n\n    // \u884C [x1, x2) x \u5217 [y1, y2) \u306E\u548C\n    T sum(int\
+    \ x1, int y1, int x2, int y2) const {\n        return s[x2 * (w + 1) + y2] - s[x1\
+    \ * (w + 1) + y2] - s[x2 * (w + 1) + y1] + s[x1 * (w + 1) + y1];\n    }\n};\n"
+  code: "#pragma once\n#include \"../template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// 1 \u6B21\u5143\u7D2F\u7A4D\u548C\uFF0E\u533A\u9593\u548C\u3092 O(1) \u3067\
+    \u6C42\u3081\u308B\ntemplate <class T>\nstruct CumulativeSum {\n    // s[i] =\
+    \ a[0] + ... + a[i-1]\n    vector<T> s;\n\n    CumulativeSum() : s(1, T(0)) {}\n\
+    \n    template <class U>\n    CumulativeSum(const vector<U> &a) : s(a.size() +\
+    \ 1) {\n        s[0] = T(0);\n        for (size_t i = 0; i < a.size(); i++) s[i\
+    \ + 1] = s[i] + T(a[i]);\n    }\n\n    int size() const { return int(s.size())\
+    \ - 1; }\n\n    // \u672B\u5C3E\u306B x \u3092\u8FFD\u52A0\n    void push_back(const\
+    \ T &x) { s.push_back(s.back() + x); }\n\n    // a[0] + ... + a[r-1]\n    T prefix(int\
+    \ r) const { return s[r]; }\n\n    // a[l] + ... + a[r-1]\n    T sum(int l, int\
+    \ r) const { return s[r] - s[l]; }\n};\n\n// 2 \u6B21\u5143\u7D2F\u7A4D\u548C\uFF0E\
+    \u9577\u65B9\u5F62\u9818\u57DF\u306E\u548C\u3092 O(1) \u3067\u6C42\u3081\u308B\
+    \ntemplate <class T>\nstruct CumulativeSum2D {\n    int h, w;\n    // s[(i * (w\
+    \ + 1)) + j] = \u5DE6\u4E0A [0, i) x [0, j) \u306E\u548C\n    vector<T> s;\n\n\
+    \    template <class U>\n    CumulativeSum2D(const vector<vector<U>> &a) : h(a.size()),\
+    \ w(a.empty() ? 0 : a[0].size()), s((h + 1) * (w + 1), T(0)) {\n        for (int\
+    \ i = 0; i < h; i++) {\n            T row = T(0);\n            for (int j = 0;\
+    \ j < w; j++) {\n                row += T(a[i][j]);\n                s[(i + 1)\
+    \ * (w + 1) + j + 1] = s[i * (w + 1) + j + 1] + row;\n            }\n        }\n\
+    \    }\n\n    // \u884C [x1, x2) x \u5217 [y1, y2) \u306E\u548C\n    T sum(int\
+    \ x1, int y1, int x2, int y2) const {\n        return s[x2 * (w + 1) + y2] - s[x1\
+    \ * (w + 1) + y2] - s[x2 * (w + 1) + y1] + s[x1 * (w + 1) + y1];\n    }\n};\n"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: data_structure/cumulative_sum.hpp
   requiredBy: []
-  timestamp: '2026-10-12 10:14:40+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/static_range_sum.test.cpp
   - test/unittest/cumulative_sum.test.cpp

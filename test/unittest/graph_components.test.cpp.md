@@ -1,48 +1,48 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/biconnected_components.hpp
     title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\u89E3 (Biconnected\
       \ Components)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/complement_graph_components.hpp
     title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/csr.hpp
     title: "CSR (\u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\
       \u6301\u3064)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/cycle_detection.hpp
     title: "\u9589\u8DEF\u691C\u51FA (Cycle Detection)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/eulerian_trail.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u8DEF (Eulerian Trail)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/scc.hpp
     title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3 (SCC)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/three_edge_connected_components.hpp
     title: "\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 (Three-Edge-Connected\
       \ Components)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/two_edge_connected_components.hpp
     title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 (Two-Edge-Connected\
       \ Components)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -61,31 +61,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -231,31 +232,32 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"graph/csr.hpp\"\
-    \n\n// \u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\
-    \u3064 (Compressed Sparse Row)\n// \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v]\
-    \ .. start[v+1])\uFF0Evector<vector<int>> \u3088\u308A\u901F\u304F\u30E1\u30E2\
-    \u30EA\u3082\u5C11\u306A\u3044\ntemplate <class E>\nstruct CSR {\n    vector<int>\
-    \ start;\n    vector<E> elist;\n    CSR() = default;\n    // edges[i] = (from,\
-    \ \u4E2D\u8EAB)\n    CSR(int n, const vector<pair<int, E>> &edges) : start(n +\
-    \ 1, 0), elist(edges.size()) {\n        for (auto &e : edges) start[e.first +\
-    \ 1]++;\n        for (int i = 1; i <= n; i++) start[i] += start[i - 1];\n    \
-    \    vector<int> pos(start.begin(), start.end() - 1);\n        for (auto &e :\
-    \ edges) elist[pos[e.first]++] = e.second;\n    }\n    int size() const { return\
-    \ (int)start.size() - 1; }\n};\n#line 4 \"graph/cycle_detection.hpp\"\n\n// \u9589\
-    \u8DEF\u691C\u51FA\n// find_cycle_directed(n, edges)   : \u6709\u5411\u30B0\u30E9\
-    \u30D5\u306E\u9589\u8DEF\u3092 1 \u3064\uFF0E\u8FBA\u756A\u53F7\u306E\u5217 (\u306A\
-    \u3051\u308C\u3070\u7A7A)\n// find_cycle_undirected(n, edges) : \u7121\u5411\u30B0\
-    \u30E9\u30D5\u306E\u9589\u8DEF\u3092 1 \u3064\uFF0E{\u9802\u70B9\u306E\u5217,\
-    \ \u8FBA\u756A\u53F7\u306E\u5217} (\u306A\u3051\u308C\u3070\u7A7A)\n// \u3069\u3061\
-    \u3089\u3082\u975E\u518D\u5E30\u306E DFS \u3067 O(n + m)\n\ninline vector<int>\
-    \ find_cycle_directed(int n, const vector<pair<int, int>> &edges) {\n    int m\
-    \ = edges.size();\n    vector<pair<int, int>> el(m);\n    for (int i = 0; i <\
-    \ m; i++) el[i] = {edges[i].first, i};\n    CSR<int> g(n, el);\n    // state:\
-    \ 0 = \u672A\u8A2A\u554F\uFF0C1 = \u63A2\u7D22\u4E2D (\u30B9\u30BF\u30C3\u30AF\
-    \u306B\u3042\u308B)\uFF0C2 = \u7D42\u4E86\n    vector<char> state(n, 0);\n   \
-    \ vector<int> it(n), par_edge(n, -1), stk;\n    for (int s = 0; s < n; s++) {\n\
-    \        if (state[s]) continue;\n        stk.push_back(s), state[s] = 1, it[s]\
-    \ = g.start[s];\n        while (!stk.empty()) {\n            int v = stk.back();\n\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u96A3\u63A5\u30EA\u30B9\
+    \u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\u3064 (Compressed Sparse Row)\n\
+    // \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v] .. start[v+1])\uFF0E\
+    vector<vector<int>> \u3088\u308A\u901F\u304F\u30E1\u30E2\u30EA\u3082\u5C11\u306A\
+    \u3044\ntemplate <class E>\nstruct CSR {\n    vector<int> start;\n    vector<E>\
+    \ elist;\n    CSR() = default;\n    // edges[i] = (from, \u4E2D\u8EAB)\n    CSR(int\
+    \ n, const vector<pair<int, E>> &edges) : start(n + 1, 0), elist(edges.size())\
+    \ {\n        for (auto &e : edges) start[e.first + 1]++;\n        for (int i =\
+    \ 1; i <= n; i++) start[i] += start[i - 1];\n        vector<int> pos(start.begin(),\
+    \ start.end() - 1);\n        for (auto &e : edges) elist[pos[e.first]++] = e.second;\n\
+    \    }\n    int size() const { return (int)start.size() - 1; }\n};\n#line 4 \"\
+    graph/cycle_detection.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n\
+    // \u9589\u8DEF\u691C\u51FA\n// find_cycle_directed(n, edges)   : \u6709\u5411\
+    \u30B0\u30E9\u30D5\u306E\u9589\u8DEF\u3092 1 \u3064\uFF0E\u8FBA\u756A\u53F7\u306E\
+    \u5217 (\u306A\u3051\u308C\u3070\u7A7A)\n// find_cycle_undirected(n, edges) :\
+    \ \u7121\u5411\u30B0\u30E9\u30D5\u306E\u9589\u8DEF\u3092 1 \u3064\uFF0E{\u9802\
+    \u70B9\u306E\u5217, \u8FBA\u756A\u53F7\u306E\u5217} (\u306A\u3051\u308C\u3070\u7A7A\
+    )\n// \u3069\u3061\u3089\u3082\u975E\u518D\u5E30\u306E DFS \u3067 O(n + m)\n\n\
+    inline vector<int> find_cycle_directed(int n, const vector<pair<int, int>> &edges)\
+    \ {\n    int m = edges.size();\n    vector<pair<int, int>> el(m);\n    for (int\
+    \ i = 0; i < m; i++) el[i] = {edges[i].first, i};\n    CSR<int> g(n, el);\n  \
+    \  // state: 0 = \u672A\u8A2A\u554F\uFF0C1 = \u63A2\u7D22\u4E2D (\u30B9\u30BF\u30C3\
+    \u30AF\u306B\u3042\u308B)\uFF0C2 = \u7D42\u4E86\n    vector<char> state(n, 0);\n\
+    \    vector<int> it(n), par_edge(n, -1), stk;\n    for (int s = 0; s < n; s++)\
+    \ {\n        if (state[s]) continue;\n        stk.push_back(s), state[s] = 1,\
+    \ it[s] = g.start[s];\n        while (!stk.empty()) {\n            int v = stk.back();\n\
     \            if (it[v] == g.start[v + 1]) {\n                state[v] = 2, stk.pop_back();\n\
     \                continue;\n            }\n            int e = g.elist[it[v]++],\
     \ to = edges[e].second;\n            if (state[to] == 0) {\n                par_edge[to]\
@@ -297,23 +299,24 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 4 \"graph/scc.hpp\"\n\n// \u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3 (Tarjan,\
-    \ \u975E\u518D\u5E30)\n// build() \u5F8C: groups \u306F\u30C8\u30DD\u30ED\u30B8\
-    \u30AB\u30EB\u9806 (\u8FBA u \u2192 v \u306A\u3089 u \u306E\u6210\u5206\u304C\u5148\
-    )\uFF0Ccomp[v] \u306F\u305D\u306E\u756A\u53F7\uFF0EO(n + m)\nstruct StronglyConnectedComponents\
-    \ {\n    int n;\n    vector<pair<int, int>> edges;\n    vector<int> comp;\n  \
-    \  vector<vector<int>> groups;\n\n    StronglyConnectedComponents(int n = 0) :\
-    \ n(n) {}\n    void reserve(int m) { edges.reserve(m); }\n    void add_edge(int\
-    \ u, int v) { edges.push_back({u, v}); }\n\n    // \u6210\u5206\u306E\u500B\u6570\
-    \u3092\u8FD4\u3059\n    int build() {\n        CSR<int> g(n, edges);\n       \
-    \ vector<int> ord(n, -1), low(n), it(n), stk, call;\n        comp.assign(n, -1);\n\
-    \        stk.reserve(n), call.reserve(n);\n        int now = 0, k = 0;\n     \
-    \   for (int s = 0; s < n; s++) {\n            if (ord[s] >= 0) continue;\n  \
-    \          call.push_back(s), ord[s] = low[s] = now++, it[s] = g.start[s], stk.push_back(s);\n\
-    \            while (!call.empty()) {\n                int v = call.back();\n \
-    \               if (it[v] < g.start[v + 1]) {\n                    int to = g.elist[it[v]++];\n\
-    \                    if (ord[to] < 0) {\n                        ord[to] = low[to]\
-    \ = now++, it[to] = g.start[to];\n                        stk.push_back(to), call.push_back(to);\n\
+    \ 4 \"graph/scc.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u5F37\
+    \u9023\u7D50\u6210\u5206\u5206\u89E3 (Tarjan, \u975E\u518D\u5E30)\n// build()\
+    \ \u5F8C: groups \u306F\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u9806 (\u8FBA u \u2192\
+    \ v \u306A\u3089 u \u306E\u6210\u5206\u304C\u5148)\uFF0Ccomp[v] \u306F\u305D\u306E\
+    \u756A\u53F7\uFF0EO(n + m)\nstruct StronglyConnectedComponents {\n    int n;\n\
+    \    vector<pair<int, int>> edges;\n    vector<int> comp;\n    vector<vector<int>>\
+    \ groups;\n\n    StronglyConnectedComponents(int n = 0) : n(n) {}\n    void reserve(int\
+    \ m) { edges.reserve(m); }\n    void add_edge(int u, int v) { edges.push_back({u,\
+    \ v}); }\n\n    // \u6210\u5206\u306E\u500B\u6570\u3092\u8FD4\u3059\n    int build()\
+    \ {\n        CSR<int> g(n, edges);\n        vector<int> ord(n, -1), low(n), it(n),\
+    \ stk, call;\n        comp.assign(n, -1);\n        stk.reserve(n), call.reserve(n);\n\
+    \        int now = 0, k = 0;\n        for (int s = 0; s < n; s++) {\n        \
+    \    if (ord[s] >= 0) continue;\n            call.push_back(s), ord[s] = low[s]\
+    \ = now++, it[s] = g.start[s], stk.push_back(s);\n            while (!call.empty())\
+    \ {\n                int v = call.back();\n                if (it[v] < g.start[v\
+    \ + 1]) {\n                    int to = g.elist[it[v]++];\n                  \
+    \  if (ord[to] < 0) {\n                        ord[to] = low[to] = now++, it[to]\
+    \ = g.start[to];\n                        stk.push_back(to), call.push_back(to);\n\
     \                    } else if (comp[to] < 0) {\n                        low[v]\
     \ = std::min(low[v], ord[to]);\n                    }\n                    continue;\n\
     \                }\n                call.pop_back();\n                if (!call.empty())\
@@ -339,32 +342,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 4 \"graph/two_edge_connected_components.hpp\"\n\n// \u4E8C\u91CD\u8FBA\u9023\
-    \u7D50\u6210\u5206\u5206\u89E3 (\u6A4B\u3067\u5207\u3063\u305F\u9023\u7D50\u6210\
-    \u5206)\uFF0Elowlink\uFF0C\u975E\u518D\u5E30 DFS \u3067 O(n + m)\n// \u8FD4\u308A\
-    \u5024: \u6210\u5206\u3054\u3068\u306E\u9802\u70B9\u306E\u5217\uFF0Ecomp \u3092\
-    \u6E21\u3059\u3068\u5404\u9802\u70B9\u306E\u6210\u5206\u756A\u53F7\u3082\u5165\
-    \u308B\n// is_bridge \u3092\u6E21\u3059\u3068\u5404\u8FBA\u304C\u6A4B\u304B\u3069\
-    \u3046\u304B\u3082\u5165\u308B\ninline vector<vector<int>> two_edge_connected_components(int\
-    \ n, const vector<pair<int, int>> &edges, vector<int> *comp_out = nullptr,\n \
-    \                                                        vector<char> *is_bridge\
-    \ = nullptr) {\n    int m = edges.size();\n    vector<pair<int, int>> el;\n  \
-    \  el.reserve(2 * m);\n    for (int i = 0; i < m; i++) {\n        if (edges[i].first\
-    \ == edges[i].second) continue;\n        el.push_back({edges[i].first, i}), el.push_back({edges[i].second,\
-    \ i});\n    }\n    CSR<int> g(n, el);\n    vector<int> ord(n, -1), low(n), it(n),\
-    \ par_edge(n, -1), call, stk, comp(n, -1);\n    vector<vector<int>> groups;\n\
-    \    if (is_bridge) is_bridge->assign(m, 0);\n    int now = 0;\n    for (int s\
-    \ = 0; s < n; s++) {\n        if (ord[s] >= 0) continue;\n        ord[s] = low[s]\
-    \ = now++, it[s] = g.start[s], call.push_back(s), stk.push_back(s);\n        while\
-    \ (!call.empty()) {\n            int v = call.back();\n            if (it[v] <\
-    \ g.start[v + 1]) {\n                int e = g.elist[it[v]++];\n             \
-    \   if (e == par_edge[v]) continue;  // \u6765\u305F\u8FBA (\u591A\u91CD\u8FBA\
-    \u306F\u5225\u306E\u8FBA\u3068\u3057\u3066\u6271\u3046)\n                int to\
-    \ = edges[e].first ^ edges[e].second ^ v;\n                if (ord[to] < 0) {\n\
-    \                    ord[to] = low[to] = now++, it[to] = g.start[to], par_edge[to]\
-    \ = e;\n                    call.push_back(to), stk.push_back(to);\n         \
-    \       } else {\n                    low[v] = std::min(low[v], ord[to]);\n  \
-    \              }\n                continue;\n            }\n            call.pop_back();\n\
+    \ 4 \"graph/two_edge_connected_components.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 (\u6A4B\u3067\u5207\
+    \u3063\u305F\u9023\u7D50\u6210\u5206)\uFF0Elowlink\uFF0C\u975E\u518D\u5E30 DFS\
+    \ \u3067 O(n + m)\n// \u8FD4\u308A\u5024: \u6210\u5206\u3054\u3068\u306E\u9802\
+    \u70B9\u306E\u5217\uFF0Ecomp \u3092\u6E21\u3059\u3068\u5404\u9802\u70B9\u306E\u6210\
+    \u5206\u756A\u53F7\u3082\u5165\u308B\n// is_bridge \u3092\u6E21\u3059\u3068\u5404\
+    \u8FBA\u304C\u6A4B\u304B\u3069\u3046\u304B\u3082\u5165\u308B\ninline vector<vector<int>>\
+    \ two_edge_connected_components(int n, const vector<pair<int, int>> &edges, vector<int>\
+    \ *comp_out = nullptr,\n                                                     \
+    \    vector<char> *is_bridge = nullptr) {\n    int m = edges.size();\n    vector<pair<int,\
+    \ int>> el;\n    el.reserve(2 * m);\n    for (int i = 0; i < m; i++) {\n     \
+    \   if (edges[i].first == edges[i].second) continue;\n        el.push_back({edges[i].first,\
+    \ i}), el.push_back({edges[i].second, i});\n    }\n    CSR<int> g(n, el);\n  \
+    \  vector<int> ord(n, -1), low(n), it(n), par_edge(n, -1), call, stk, comp(n,\
+    \ -1);\n    vector<vector<int>> groups;\n    if (is_bridge) is_bridge->assign(m,\
+    \ 0);\n    int now = 0;\n    for (int s = 0; s < n; s++) {\n        if (ord[s]\
+    \ >= 0) continue;\n        ord[s] = low[s] = now++, it[s] = g.start[s], call.push_back(s),\
+    \ stk.push_back(s);\n        while (!call.empty()) {\n            int v = call.back();\n\
+    \            if (it[v] < g.start[v + 1]) {\n                int e = g.elist[it[v]++];\n\
+    \                if (e == par_edge[v]) continue;  // \u6765\u305F\u8FBA (\u591A\
+    \u91CD\u8FBA\u306F\u5225\u306E\u8FBA\u3068\u3057\u3066\u6271\u3046)\n        \
+    \        int to = edges[e].first ^ edges[e].second ^ v;\n                if (ord[to]\
+    \ < 0) {\n                    ord[to] = low[to] = now++, it[to] = g.start[to],\
+    \ par_edge[to] = e;\n                    call.push_back(to), stk.push_back(to);\n\
+    \                } else {\n                    low[v] = std::min(low[v], ord[to]);\n\
+    \                }\n                continue;\n            }\n            call.pop_back();\n\
     \            if (!call.empty()) low[call.back()] = std::min(low[call.back()],\
     \ low[v]);\n            if (low[v] == ord[v]) {\n                // v \u304B\u3089\
     \u4E0B\u306E (\u307E\u3060\u53D6\u308A\u51FA\u3057\u3066\u3044\u306A\u3044) \u9802\
@@ -386,76 +389,77 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 4 \"graph/three_edge_connected_components.hpp\"\n\n// \u4E09\u91CD\u8FBA\u9023\
-    \u7D50\u6210\u5206\u5206\u89E3 (Tsin \u306E\u30D1\u30B9\u5438\u53CE\u6CD5\uFF0C\
-    \u975E\u518D\u5E30)\uFF0EO(n + m)\n// \u5404\u9802\u70B9 v \u306B\u3064\u3044\u3066\
-    \ DFS \u6728\u306E\u4E0B\u306B\u4F38\u3073\u308B\u300Cv \u306E\u30D1\u30B9\u300D\
-    (path[v] \u3067\u3064\u306A\u304C\u308B\u9802\u70B9\u306E\u5217) \u3068\uFF0C\n\
-    // v \u306E\u6210\u5206\u304B\u3089\u7956\u5148\u3078\u51FA\u3066\u3044\u304F\u8FBA\
-    \u306E\u672C\u6570 deg[v] \u3092\u6301\u3064\uFF0E\u5B50\u306E\u6210\u5206\u306E\
-    \ deg \u304C 1 \u4EE5\u4E0B (\u6A4B / 2 \u8FBA\u30AB\u30C3\u30C8) \u306A\u3089\
-    \u5207\u308A\u96E2\u3057\uFF0C\n// \u305D\u3046\u3067\u306A\u3051\u308C\u3070\u30D1\
-    \u30B9\u3092 v \u306B\u5438\u53CE (\u540C\u3058\u6210\u5206\u3068\u3057\u3066\u4F75\
-    \u5408) \u3059\u308B\ninline vector<vector<int>> three_edge_connected_components(int\
-    \ n, const vector<pair<int, int>> &edges) {\n    int m = edges.size();\n    vector<pair<int,\
-    \ int>> el;\n    el.reserve(2 * m);\n    for (int i = 0; i < m; i++) {\n     \
-    \   auto [a, b] = edges[i];\n        if (a == b) continue;\n        el.push_back({a,\
-    \ b}), el.push_back({b, a});\n    }\n    CSR<int> g(n, el);\n    const int NONE\
-    \ = n;\n    vector<int> in(n, -1), out(n), low(n, NONE), deg(n, 0), path(n, NONE),\
-    \ nxt(n);\n    iota(nxt.begin(), nxt.end(), 0);  // \u6210\u5206\u3092\u5DE1\u56DE\
-    \u30EA\u30B9\u30C8\u3067\u6301\u3064 (\u4F75\u5408\u306F nxt \u306E\u4EA4\u63DB\
-    )\n    auto absorb = [&](int v, int w) { swap(nxt[v], nxt[w]), deg[v] += deg[w];\
-    \ };\n    vector<int> it(n), par(n, NONE), call;\n    vector<char> par_used(n,\
-    \ 0);  // \u89AA\u3078\u306E\u8FBA\u3092 1 \u672C\u3060\u3051\u98DB\u3070\u3057\
-    \u305F\u304B (\u591A\u91CD\u8FBA\u5BFE\u7B56)\n    int cnt = 0;\n    for (int\
-    \ s = 0; s < n; s++) {\n        if (in[s] >= 0) continue;\n        in[s] = cnt++,\
-    \ it[s] = g.start[s], call.push_back(s);\n        while (!call.empty()) {\n  \
-    \          int v = call.back();\n            if (it[v] < g.start[v + 1]) {\n \
-    \               int w = g.elist[it[v]++];\n                if (w == par[v] &&\
-    \ !par_used[v]) {\n                    par_used[v] = 1;\n                    continue;\n\
-    \                }\n                if (in[w] >= 0) {\n                    if\
-    \ (in[w] < in[v]) {  // \u7956\u5148\u3078\u306E\u5F8C\u9000\u8FBA\n         \
-    \               deg[v]++;\n                        low[v] = std::min(low[v], in[w]);\n\
-    \                    } else {  // \u5B50\u5B6B\u304B\u3089\u306E\u5F8C\u9000\u8FBA\
-    : \u305D\u306E\u5B50\u5B6B\u3092\u542B\u3080\u30D1\u30B9\u4E0A\u306E\u9802\u70B9\
-    \u3092\u5438\u53CE\n                        deg[v]--;\n                      \
-    \  int u = path[v];\n                        while (u != NONE && in[u] <= in[w]\
-    \ && in[w] < out[u]) {\n                            absorb(v, u);\n          \
-    \                  u = path[u];\n                        }\n                 \
-    \       path[v] = u;\n                    }\n                    continue;\n \
-    \               }\n                par[w] = v, in[w] = cnt++, it[w] = g.start[w];\n\
-    \                call.push_back(w);\n                continue;\n            }\n\
-    \            // v \u306E\u63A2\u7D22\u7D42\u4E86\n            out[v] = cnt;\n\
-    \            call.pop_back();\n            if (call.empty()) break;\n        \
-    \    int p = call.back(), w = v;\n            if (path[w] == NONE && deg[w] <=\
-    \ 1) {\n                // w \u306E\u6210\u5206\u306F (p, w) \u3068\u9AD8\u3005\
-    \ 1 \u672C\u306E\u8FBA\u3067\u3057\u304B\u3064\u306A\u304C\u3089\u306A\u3044 \u2192\
-    \ \u72EC\u7ACB\u3057\u305F\u6210\u5206\n                deg[p] += deg[w];\n  \
-    \              low[p] = std::min(low[p], low[w]);\n                continue;\n\
-    \            } else if (deg[w] == 0) {\n                w = path[w];  // w \u81EA\
-    \u8EAB\u306F\u5207\u308A\u96E2\u3057\uFF0C\u305D\u306E\u4E0B\u306E\u30D1\u30B9\
-    \u3060\u3051\u6B8B\u3059\n            }\n            if (low[w] < low[p]) {\n\
-    \                low[p] = low[w];\n                swap(w, path[p]);  // \u3088\
-    \u308A\u4E0A\u306B\u5C4A\u304F\u30D1\u30B9\u3092 p \u306E\u30D1\u30B9\u306B\u3057\
-    \uFF0C\u5143\u306E\u30D1\u30B9\u306F\u5438\u53CE\u3059\u308B\n            }\n\
-    \            while (w != NONE) {\n                absorb(p, w);\n            \
-    \    w = path[w];\n            }\n        }\n    }\n    vector<vector<int>> res;\n\
-    \    vector<char> vis(n, 0);\n    for (int i = 0; i < n; i++) {\n        if (vis[i])\
-    \ continue;\n        res.emplace_back();\n        int y = i;\n        do {\n \
-    \           vis[y] = 1, res.back().push_back(y);\n            y = nxt[y];\n  \
-    \      } while (y != i);\n    }\n    return res;\n}\n#line 2 \"template.hpp\"\n\
-    using namespace std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\n\
-    using namespace atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\
-    \u30B3\u30E1\u30F3\u30C8\u30A2\u30A6\u30C8\u3092\u5916\u3059\n/*/\n#pragma GCC\
-    \ optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\")\n#pragma GCC target(\"\
-    avx2,bmi,bmi2,lzcnt,popcnt\")\n#pragma GCC target(\"avx,avx2,fma\")\n#pragma GCC\
-    \ target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma\")\n//*/\n#define\
-    \ rep(i,n) for(int i=0;i<n;i++)\n#define Rep(i,a,b) for(int i=a;i<b;i++)\n#define\
-    \ ALL(x) (x).begin(),(x).end()\n#define dbgv(x); for(auto now : x) cout << now\
-    \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
-    using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
-    \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 4 \"graph/biconnected_components.hpp\"\
-    \n\n// \u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\u89E3 (\u95A2\u7BC0\
+    \ 4 \"graph/three_edge_connected_components.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 (Tsin \u306E\u30D1\
+    \u30B9\u5438\u53CE\u6CD5\uFF0C\u975E\u518D\u5E30)\uFF0EO(n + m)\n// \u5404\u9802\
+    \u70B9 v \u306B\u3064\u3044\u3066 DFS \u6728\u306E\u4E0B\u306B\u4F38\u3073\u308B\
+    \u300Cv \u306E\u30D1\u30B9\u300D(path[v] \u3067\u3064\u306A\u304C\u308B\u9802\u70B9\
+    \u306E\u5217) \u3068\uFF0C\n// v \u306E\u6210\u5206\u304B\u3089\u7956\u5148\u3078\
+    \u51FA\u3066\u3044\u304F\u8FBA\u306E\u672C\u6570 deg[v] \u3092\u6301\u3064\uFF0E\
+    \u5B50\u306E\u6210\u5206\u306E deg \u304C 1 \u4EE5\u4E0B (\u6A4B / 2 \u8FBA\u30AB\
+    \u30C3\u30C8) \u306A\u3089\u5207\u308A\u96E2\u3057\uFF0C\n// \u305D\u3046\u3067\
+    \u306A\u3051\u308C\u3070\u30D1\u30B9\u3092 v \u306B\u5438\u53CE (\u540C\u3058\u6210\
+    \u5206\u3068\u3057\u3066\u4F75\u5408) \u3059\u308B\ninline vector<vector<int>>\
+    \ three_edge_connected_components(int n, const vector<pair<int, int>> &edges)\
+    \ {\n    int m = edges.size();\n    vector<pair<int, int>> el;\n    el.reserve(2\
+    \ * m);\n    for (int i = 0; i < m; i++) {\n        auto [a, b] = edges[i];\n\
+    \        if (a == b) continue;\n        el.push_back({a, b}), el.push_back({b,\
+    \ a});\n    }\n    CSR<int> g(n, el);\n    const int NONE = n;\n    vector<int>\
+    \ in(n, -1), out(n), low(n, NONE), deg(n, 0), path(n, NONE), nxt(n);\n    iota(nxt.begin(),\
+    \ nxt.end(), 0);  // \u6210\u5206\u3092\u5DE1\u56DE\u30EA\u30B9\u30C8\u3067\u6301\
+    \u3064 (\u4F75\u5408\u306F nxt \u306E\u4EA4\u63DB)\n    auto absorb = [&](int\
+    \ v, int w) { swap(nxt[v], nxt[w]), deg[v] += deg[w]; };\n    vector<int> it(n),\
+    \ par(n, NONE), call;\n    vector<char> par_used(n, 0);  // \u89AA\u3078\u306E\
+    \u8FBA\u3092 1 \u672C\u3060\u3051\u98DB\u3070\u3057\u305F\u304B (\u591A\u91CD\u8FBA\
+    \u5BFE\u7B56)\n    int cnt = 0;\n    for (int s = 0; s < n; s++) {\n        if\
+    \ (in[s] >= 0) continue;\n        in[s] = cnt++, it[s] = g.start[s], call.push_back(s);\n\
+    \        while (!call.empty()) {\n            int v = call.back();\n         \
+    \   if (it[v] < g.start[v + 1]) {\n                int w = g.elist[it[v]++];\n\
+    \                if (w == par[v] && !par_used[v]) {\n                    par_used[v]\
+    \ = 1;\n                    continue;\n                }\n                if (in[w]\
+    \ >= 0) {\n                    if (in[w] < in[v]) {  // \u7956\u5148\u3078\u306E\
+    \u5F8C\u9000\u8FBA\n                        deg[v]++;\n                      \
+    \  low[v] = std::min(low[v], in[w]);\n                    } else {  // \u5B50\u5B6B\
+    \u304B\u3089\u306E\u5F8C\u9000\u8FBA: \u305D\u306E\u5B50\u5B6B\u3092\u542B\u3080\
+    \u30D1\u30B9\u4E0A\u306E\u9802\u70B9\u3092\u5438\u53CE\n                     \
+    \   deg[v]--;\n                        int u = path[v];\n                    \
+    \    while (u != NONE && in[u] <= in[w] && in[w] < out[u]) {\n               \
+    \             absorb(v, u);\n                            u = path[u];\n      \
+    \                  }\n                        path[v] = u;\n                 \
+    \   }\n                    continue;\n                }\n                par[w]\
+    \ = v, in[w] = cnt++, it[w] = g.start[w];\n                call.push_back(w);\n\
+    \                continue;\n            }\n            // v \u306E\u63A2\u7D22\
+    \u7D42\u4E86\n            out[v] = cnt;\n            call.pop_back();\n      \
+    \      if (call.empty()) break;\n            int p = call.back(), w = v;\n   \
+    \         if (path[w] == NONE && deg[w] <= 1) {\n                // w \u306E\u6210\
+    \u5206\u306F (p, w) \u3068\u9AD8\u3005 1 \u672C\u306E\u8FBA\u3067\u3057\u304B\u3064\
+    \u306A\u304C\u3089\u306A\u3044 \u2192 \u72EC\u7ACB\u3057\u305F\u6210\u5206\n \
+    \               deg[p] += deg[w];\n                low[p] = std::min(low[p], low[w]);\n\
+    \                continue;\n            } else if (deg[w] == 0) {\n          \
+    \      w = path[w];  // w \u81EA\u8EAB\u306F\u5207\u308A\u96E2\u3057\uFF0C\u305D\
+    \u306E\u4E0B\u306E\u30D1\u30B9\u3060\u3051\u6B8B\u3059\n            }\n      \
+    \      if (low[w] < low[p]) {\n                low[p] = low[w];\n            \
+    \    swap(w, path[p]);  // \u3088\u308A\u4E0A\u306B\u5C4A\u304F\u30D1\u30B9\u3092\
+    \ p \u306E\u30D1\u30B9\u306B\u3057\uFF0C\u5143\u306E\u30D1\u30B9\u306F\u5438\u53CE\
+    \u3059\u308B\n            }\n            while (w != NONE) {\n               \
+    \ absorb(p, w);\n                w = path[w];\n            }\n        }\n    }\n\
+    \    vector<vector<int>> res;\n    vector<char> vis(n, 0);\n    for (int i = 0;\
+    \ i < n; i++) {\n        if (vis[i]) continue;\n        res.emplace_back();\n\
+    \        int y = i;\n        do {\n            vis[y] = 1, res.back().push_back(y);\n\
+    \            y = nxt[y];\n        } while (y != i);\n    }\n    return res;\n\
+    }\n#line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
+    #include <atcoder/all>\nusing namespace atcoder;\n#endif\n// QCfium\u6CD5\u3092\
+    \u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\u30C8\u30A2\u30A6\u30C8\u3092\u5916\
+    \u3059\n/*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
+    )\n#pragma GCC target(\"avx2,bmi,bmi2,lzcnt,popcnt\")\n#pragma GCC target(\"avx,avx2,fma\"\
+    )\n#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma\"\
+    )\n//*/\n#define rep(i,n) for(int i=0;i<n;i++)\n#define Rep(i,a,b) for(int i=a;i<b;i++)\n\
+    #define ALL(x) (x).begin(),(x).end()\n#define dbgv(x); for(auto now : x) cout\
+    \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
+    \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
+    \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
+    \ 4 \"graph/biconnected_components.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\u89E3 (\u95A2\u7BC0\
     \u70B9\u3067\u5207\u3063\u305F\u6210\u5206)\uFF0Elowlink + \u8FBA\u306E\u30B9\u30BF\
     \u30C3\u30AF\uFF0C\u975E\u518D\u5E30 DFS \u3067 O(n + m)\n// \u8FD4\u308A\u5024\
     : \u6210\u5206\u3054\u3068\u306E\u9802\u70B9\u306E\u5217 (\u95A2\u7BC0\u70B9\u306F\
@@ -508,43 +512,44 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 4 \"graph/complement_graph_components.hpp\"\n\n// \u88DC\u30B0\u30E9\u30D5\u306E\
-    \u9023\u7D50\u6210\u5206\u5206\u89E3\uFF0EO(n + m)\n// \u307E\u3060\u3069\u306E\
-    \u6210\u5206\u306B\u3082\u5165\u3063\u3066\u3044\u306A\u3044\u9802\u70B9\u3092\
-    \u9023\u7D50\u30EA\u30B9\u30C8\u3067\u6301\u3061\uFF0CBFS \u3067\u9802\u70B9 v\
-    \ \u304B\u3089\u300Cv \u3068\u5143\u306E\u30B0\u30E9\u30D5\u3067\u96A3\u63A5\u3057\
-    \u3066\u3044\u306A\u3044\u672A\u8A2A\u554F\u9802\u70B9\u300D\u3092\u5168\u90E8\
-    \u53D6\u308B\uFF0E\n// \u672A\u8A2A\u554F\u30EA\u30B9\u30C8\u3092 1 \u5468\u3059\
-    \u308B\u3068\u304D\uFF0C\u53D6\u3089\u306A\u304B\u3063\u305F\u9802\u70B9\u306F\
-    \ v \u306E\u96A3\u63A5\u9802\u70B9\u306A\u306E\u3067\uFF0C1 \u5468\u306E\u30B3\
-    \u30B9\u30C8\u306F deg(v) + (\u53D6\u3063\u305F\u6570) \u3067\u6291\u3048\u3089\
-    \u308C\u308B\ninline vector<vector<int>> complement_graph_components(int n, const\
-    \ vector<pair<int, int>> &edges) {\n    vector<pair<int, int>> el;\n    el.reserve(2\
-    \ * edges.size());\n    for (auto [a, b] : edges) el.push_back({a, b}), el.push_back({b,\
-    \ a});\n    CSR<int> g(n, el);\n    // \u672A\u8A2A\u554F\u9802\u70B9\u306E\u53CC\
-    \u65B9\u5411\u30EA\u30B9\u30C8 (\u756A\u5175 n)\n    vector<int> nx(n + 1), pv(n\
-    \ + 1);\n    for (int i = 0; i <= n; i++) nx[i] = (i + 1) % (n + 1), pv[i] = (i\
-    \ + n) % (n + 1);\n    auto erase = [&](int v) { nx[pv[v]] = nx[v], pv[nx[v]]\
-    \ = pv[v]; };\n    vector<int> stamp(n, -1), que;\n    que.reserve(n);\n    vector<vector<int>>\
-    \ res;\n    while (nx[n] != n) {\n        int s = nx[n];\n        erase(s);\n\
-    \        que.clear(), que.push_back(s);\n        for (size_t h = 0; h < que.size();\
-    \ h++) {\n            int v = que[h];\n            for (int i = g.start[v]; i\
-    \ < g.start[v + 1]; i++) stamp[g.elist[i]] = v;\n            for (int u = nx[n];\
-    \ u != n;) {\n                int nu = nx[u];\n                if (stamp[u] !=\
-    \ v) erase(u), que.push_back(u);\n                u = nu;\n            }\n   \
-    \     }\n        res.push_back(que);\n    }\n    return res;\n}\n#line 2 \"template.hpp\"\
-    \nusing namespace std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\n\
-    using namespace atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\
-    \u30B3\u30E1\u30F3\u30C8\u30A2\u30A6\u30C8\u3092\u5916\u3059\n/*/\n#pragma GCC\
-    \ optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\")\n#pragma GCC target(\"\
-    avx2,bmi,bmi2,lzcnt,popcnt\")\n#pragma GCC target(\"avx,avx2,fma\")\n#pragma GCC\
-    \ target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma\")\n//*/\n#define\
-    \ rep(i,n) for(int i=0;i<n;i++)\n#define Rep(i,a,b) for(int i=a;i<b;i++)\n#define\
-    \ ALL(x) (x).begin(),(x).end()\n#define dbgv(x); for(auto now : x) cout << now\
-    \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
-    using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
-    \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 4 \"graph/eulerian_trail.hpp\"\
-    \n\n// \u30AA\u30A4\u30E9\u30FC\u8DEF (\u5168\u3066\u306E\u8FBA\u3092\u3061\u3087\
+    \ 4 \"graph/complement_graph_components.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3\uFF0E\
+    O(n + m)\n// \u307E\u3060\u3069\u306E\u6210\u5206\u306B\u3082\u5165\u3063\u3066\
+    \u3044\u306A\u3044\u9802\u70B9\u3092\u9023\u7D50\u30EA\u30B9\u30C8\u3067\u6301\
+    \u3061\uFF0CBFS \u3067\u9802\u70B9 v \u304B\u3089\u300Cv \u3068\u5143\u306E\u30B0\
+    \u30E9\u30D5\u3067\u96A3\u63A5\u3057\u3066\u3044\u306A\u3044\u672A\u8A2A\u554F\
+    \u9802\u70B9\u300D\u3092\u5168\u90E8\u53D6\u308B\uFF0E\n// \u672A\u8A2A\u554F\u30EA\
+    \u30B9\u30C8\u3092 1 \u5468\u3059\u308B\u3068\u304D\uFF0C\u53D6\u3089\u306A\u304B\
+    \u3063\u305F\u9802\u70B9\u306F v \u306E\u96A3\u63A5\u9802\u70B9\u306A\u306E\u3067\
+    \uFF0C1 \u5468\u306E\u30B3\u30B9\u30C8\u306F deg(v) + (\u53D6\u3063\u305F\u6570\
+    ) \u3067\u6291\u3048\u3089\u308C\u308B\ninline vector<vector<int>> complement_graph_components(int\
+    \ n, const vector<pair<int, int>> &edges) {\n    vector<pair<int, int>> el;\n\
+    \    el.reserve(2 * edges.size());\n    for (auto [a, b] : edges) el.push_back({a,\
+    \ b}), el.push_back({b, a});\n    CSR<int> g(n, el);\n    // \u672A\u8A2A\u554F\
+    \u9802\u70B9\u306E\u53CC\u65B9\u5411\u30EA\u30B9\u30C8 (\u756A\u5175 n)\n    vector<int>\
+    \ nx(n + 1), pv(n + 1);\n    for (int i = 0; i <= n; i++) nx[i] = (i + 1) % (n\
+    \ + 1), pv[i] = (i + n) % (n + 1);\n    auto erase = [&](int v) { nx[pv[v]] =\
+    \ nx[v], pv[nx[v]] = pv[v]; };\n    vector<int> stamp(n, -1), que;\n    que.reserve(n);\n\
+    \    vector<vector<int>> res;\n    while (nx[n] != n) {\n        int s = nx[n];\n\
+    \        erase(s);\n        que.clear(), que.push_back(s);\n        for (size_t\
+    \ h = 0; h < que.size(); h++) {\n            int v = que[h];\n            for\
+    \ (int i = g.start[v]; i < g.start[v + 1]; i++) stamp[g.elist[i]] = v;\n     \
+    \       for (int u = nx[n]; u != n;) {\n                int nu = nx[u];\n    \
+    \            if (stamp[u] != v) erase(u), que.push_back(u);\n                u\
+    \ = nu;\n            }\n        }\n        res.push_back(que);\n    }\n    return\
+    \ res;\n}\n#line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
+    #include <atcoder/all>\nusing namespace atcoder;\n#endif\n// QCfium\u6CD5\u3092\
+    \u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\u30C8\u30A2\u30A6\u30C8\u3092\u5916\
+    \u3059\n/*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
+    )\n#pragma GCC target(\"avx2,bmi,bmi2,lzcnt,popcnt\")\n#pragma GCC target(\"avx,avx2,fma\"\
+    )\n#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma\"\
+    )\n//*/\n#define rep(i,n) for(int i=0;i<n;i++)\n#define Rep(i,a,b) for(int i=a;i<b;i++)\n\
+    #define ALL(x) (x).begin(),(x).end()\n#define dbgv(x); for(auto now : x) cout\
+    \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
+    \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
+    \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
+    \ 4 \"graph/eulerian_trail.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u30AA\u30A4\u30E9\u30FC\u8DEF (\u5168\u3066\u306E\u8FBA\u3092\u3061\u3087\
     \u3046\u3069 1 \u56DE\u305A\u3064\u901A\u308B\u8DEF)\uFF0EHierholzer \u6CD5\uFF0C\
     \u975E\u518D\u5E30\u3067 O(n + m)\n// \u8FD4\u308A\u5024: {\u9802\u70B9\u306E\u5217\
     \ (m+1 \u500B), \u8FBA\u756A\u53F7\u306E\u5217 (m \u500B)}\uFF0E\u5B58\u5728\u3057\
@@ -855,8 +860,8 @@ data:
   isVerificationFile: true
   path: test/unittest/graph_components.test.cpp
   requiredBy: []
-  timestamp: '2026-10-15 00:32:43+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/unittest/graph_components.test.cpp
 layout: document

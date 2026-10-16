@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/fast_set.hpp
     title: "64 \u5206\u6728\u306B\u3088\u308B\u6574\u6570\u96C6\u5408 (Fast Set)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/predecessor_problem
@@ -36,31 +36,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -195,44 +196,45 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/fast_set.hpp\"\
-    \n\n// 64 \u5206\u6728\u306B\u3088\u308B [0, n) \u306E\u6574\u6570\u96C6\u5408\
-    \n// \u633F\u5165\u30FB\u524A\u9664\u30FB\u5B58\u5728\u5224\u5B9A\u30FB\u6B21\u306E\
-    \u8981\u7D20\u30FB\u524D\u306E\u8981\u7D20\u3092 O(log_64 n) \u3067\u51E6\u7406\
-    \u3059\u308B\nstruct FastSet {\n    int n, lg;\n    // seg[0] \u304C\u6700\u4E0B\
-    \u6BB5\uFF0Eseg[h+1] \u306E bit i \u306F seg[h] \u306E i \u756A\u76EE\u306E\u30EF\
-    \u30FC\u30C9\u304C 0 \u3067\u306A\u3044\u304B\u3092\u8868\u3059\n    vector<vector<uint64_t>>\
-    \ seg;\n\n    FastSet(int n = 0) : n(n) {\n        int m = n;\n        do {\n\
-    \            seg.push_back(vector<uint64_t>(std::max(1, (m + 63) >> 6)));\n  \
-    \          m = (m + 63) >> 6;\n        } while (m > 1);\n        lg = seg.size();\n\
-    \    }\n\n    // f(i) \u304C true \u306E i \u3092\u5168\u3066\u5165\u308C\u305F\
-    \u72B6\u614B\u3067\u521D\u671F\u5316\u3059\u308B\uFF0EO(n)\n    template <class\
-    \ F>\n    FastSet(int n, F f) : FastSet(n) {\n        for (int i = 0; i < n; i++)\
-    \ if (f(i)) seg[0][i >> 6] |= 1ULL << (i & 63);\n        build_upper();\n    }\n\
-    \n    // \u6700\u4E0B\u6BB5\u304B\u3089\u4E0A\u306E\u6BB5\u3092\u4F5C\u308A\u76F4\
-    \u3059\n    void build_upper() {\n        for (int h = 0; h + 1 < lg; h++) {\n\
-    \            fill(seg[h + 1].begin(), seg[h + 1].end(), 0);\n            for (size_t\
-    \ i = 0; i < seg[h].size(); i++) if (seg[h][i]) seg[h + 1][i >> 6] |= 1ULL <<\
-    \ (i & 63);\n        }\n    }\n\n    int size() const { return n; }\n\n    bool\
-    \ contains(int i) const { return seg[0][i >> 6] >> (i & 63) & 1; }\n    bool operator[](int\
-    \ i) const { return contains(i); }\n\n    void insert(int i) {\n        for (int\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// 64 \u5206\u6728\u306B\u3088\
+    \u308B [0, n) \u306E\u6574\u6570\u96C6\u5408\n// \u633F\u5165\u30FB\u524A\u9664\
+    \u30FB\u5B58\u5728\u5224\u5B9A\u30FB\u6B21\u306E\u8981\u7D20\u30FB\u524D\u306E\
+    \u8981\u7D20\u3092 O(log_64 n) \u3067\u51E6\u7406\u3059\u308B\nstruct FastSet\
+    \ {\n    int n, lg;\n    // seg[0] \u304C\u6700\u4E0B\u6BB5\uFF0Eseg[h+1] \u306E\
+    \ bit i \u306F seg[h] \u306E i \u756A\u76EE\u306E\u30EF\u30FC\u30C9\u304C 0 \u3067\
+    \u306A\u3044\u304B\u3092\u8868\u3059\n    vector<vector<uint64_t>> seg;\n\n  \
+    \  FastSet(int n = 0) : n(n) {\n        int m = n;\n        do {\n           \
+    \ seg.push_back(vector<uint64_t>(std::max(1, (m + 63) >> 6)));\n            m\
+    \ = (m + 63) >> 6;\n        } while (m > 1);\n        lg = seg.size();\n    }\n\
+    \n    // f(i) \u304C true \u306E i \u3092\u5168\u3066\u5165\u308C\u305F\u72B6\u614B\
+    \u3067\u521D\u671F\u5316\u3059\u308B\uFF0EO(n)\n    template <class F>\n    FastSet(int\
+    \ n, F f) : FastSet(n) {\n        for (int i = 0; i < n; i++) if (f(i)) seg[0][i\
+    \ >> 6] |= 1ULL << (i & 63);\n        build_upper();\n    }\n\n    // \u6700\u4E0B\
+    \u6BB5\u304B\u3089\u4E0A\u306E\u6BB5\u3092\u4F5C\u308A\u76F4\u3059\n    void build_upper()\
+    \ {\n        for (int h = 0; h + 1 < lg; h++) {\n            fill(seg[h + 1].begin(),\
+    \ seg[h + 1].end(), 0);\n            for (size_t i = 0; i < seg[h].size(); i++)\
+    \ if (seg[h][i]) seg[h + 1][i >> 6] |= 1ULL << (i & 63);\n        }\n    }\n\n\
+    \    int size() const { return n; }\n\n    bool contains(int i) const { return\
+    \ seg[0][i >> 6] >> (i & 63) & 1; }\n    bool operator[](int i) const { return\
+    \ contains(i); }\n\n    void insert(int i) {\n        for (int h = 0; h < lg;\
+    \ h++) {\n            uint64_t &w = seg[h][i >> 6];\n            bool was_empty\
+    \ = w == 0;\n            w |= 1ULL << (i & 63);\n            // \u3059\u3067\u306B\
+    \u4E0A\u306E\u6BB5\u306B\u30D5\u30E9\u30B0\u304C\u7ACB\u3063\u3066\u3044\u308B\
+    \u306E\u3067\u6253\u3061\u5207\u308B\n            if (!was_empty) break;\n   \
+    \         i >>= 6;\n        }\n    }\n\n    void erase(int i) {\n        for (int\
     \ h = 0; h < lg; h++) {\n            uint64_t &w = seg[h][i >> 6];\n         \
-    \   bool was_empty = w == 0;\n            w |= 1ULL << (i & 63);\n           \
-    \ // \u3059\u3067\u306B\u4E0A\u306E\u6BB5\u306B\u30D5\u30E9\u30B0\u304C\u7ACB\u3063\
-    \u3066\u3044\u308B\u306E\u3067\u6253\u3061\u5207\u308B\n            if (!was_empty)\
-    \ break;\n            i >>= 6;\n        }\n    }\n\n    void erase(int i) {\n\
-    \        for (int h = 0; h < lg; h++) {\n            uint64_t &w = seg[h][i >>\
-    \ 6];\n            w &= ~(1ULL << (i & 63));\n            // \u30EF\u30FC\u30C9\
-    \u304C\u307E\u3060\u7A7A\u3067\u306A\u3051\u308C\u3070\u4E0A\u306E\u6BB5\u306F\
-    \u5909\u308F\u3089\u306A\u3044\n            if (w) break;\n            i >>= 6;\n\
-    \        }\n    }\n\n    // i \u4EE5\u4E0A\u306E\u6700\u5C0F\u306E\u8981\u7D20\
-    \ (\u5B58\u5728\u3057\u306A\u3051\u308C\u3070 -1)\n    int next(int i) const {\n\
-    \        if (i < 0) i = 0;\n        if (i >= n) return -1;\n        for (int h\
-    \ = 0; h < lg; h++) {\n            if ((i >> 6) == (int)seg[h].size()) break;\n\
-    \            uint64_t d = seg[h][i >> 6] >> (i & 63);\n            if (d == 0)\
-    \ {\n                i = (i >> 6) + 1;\n                continue;\n          \
-    \  }\n            i += __builtin_ctzll(d);\n            for (int g = h - 1; g\
-    \ >= 0; g--) {\n                i <<= 6;\n                i += __builtin_ctzll(seg[g][i\
-    \ >> 6]);\n            }\n            return i;\n        }\n        return -1;\n\
+    \   w &= ~(1ULL << (i & 63));\n            // \u30EF\u30FC\u30C9\u304C\u307E\u3060\
+    \u7A7A\u3067\u306A\u3051\u308C\u3070\u4E0A\u306E\u6BB5\u306F\u5909\u308F\u3089\
+    \u306A\u3044\n            if (w) break;\n            i >>= 6;\n        }\n   \
+    \ }\n\n    // i \u4EE5\u4E0A\u306E\u6700\u5C0F\u306E\u8981\u7D20 (\u5B58\u5728\
+    \u3057\u306A\u3051\u308C\u3070 -1)\n    int next(int i) const {\n        if (i\
+    \ < 0) i = 0;\n        if (i >= n) return -1;\n        for (int h = 0; h < lg;\
+    \ h++) {\n            if ((i >> 6) == (int)seg[h].size()) break;\n           \
+    \ uint64_t d = seg[h][i >> 6] >> (i & 63);\n            if (d == 0) {\n      \
+    \          i = (i >> 6) + 1;\n                continue;\n            }\n     \
+    \       i += __builtin_ctzll(d);\n            for (int g = h - 1; g >= 0; g--)\
+    \ {\n                i <<= 6;\n                i += __builtin_ctzll(seg[g][i >>\
+    \ 6]);\n            }\n            return i;\n        }\n        return -1;\n\
     \    }\n\n    // i \u4EE5\u4E0B\u306E\u6700\u5927\u306E\u8981\u7D20 (\u5B58\u5728\
     \u3057\u306A\u3051\u308C\u3070 -1)\n    int prev(int i) const {\n        if (i\
     \ >= n) i = n - 1;\n        for (int h = 0; h < lg; h++) {\n            if (i\
@@ -271,8 +273,8 @@ data:
   isVerificationFile: true
   path: test/predecessor_problem.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 10:34:42+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/predecessor_problem.test.cpp
 layout: document

@@ -1,31 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/acted_monoid.hpp
     title: "\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9 (Acted Monoid)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/monoid.hpp
     title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/range_affine_range_sum.test.cpp
     title: test/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/unittest/lazy_segment_tree.test.cpp
     title: test/unittest/lazy_segment_tree.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
+    links:
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -48,27 +49,28 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"algebra/monoid.hpp\"\n\n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\
-    \u306B\u6E21\u3059\u30E2\u30CE\u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\
-    \u578B; static S op(const S &a, const S &b); static S e();\n// op \u306F\u7D50\
-    \u5408\u7684\u3067\uFF0Ce \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300C\
-    a \u304C\u5DE6 (\u5148)\uFF0Cb \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\
-    \u6570 f(x) = a x + b\ntemplate <class T>\nstruct Affine {\n    T a = T(1), b\
-    \ = T(0);\n    Affine() = default;\n    Affine(T a, T b) : a(a), b(b) {}\n   \
-    \ T operator()(const T &x) const { return a * x + b; }\n    T eval(const T &x)\
-    \ const { return a * x + b; }\n    // \u300C\u5148\u306B *this\uFF0C\u6B21\u306B\
-    \ g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n    Affine then(const Affine\
-    \ &g) const { return Affine(a * g.a, b * g.a + g.b); }\n    friend bool operator==(const\
-    \ Affine &f, const Affine &g) { return f.a == g.a && f.b == g.b; }\n    friend\
-    \ bool operator!=(const Affine &f, const Affine &g) { return !(f == g); }\n};\n\
-    \n// \u548C\ntemplate <class T>\nstruct MonoidSum {\n    using S = T;\n    static\
-    \ S op(const S &a, const S &b) { return a + b; }\n    static S e() { return S(0);\
-    \ }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::max())\n\
-    template <class T>\nstruct MonoidMin {\n    using S = T;\n    static S op(const\
-    \ S &a, const S &b) { return b < a ? b : a; }\n    static S e() { return numeric_limits<T>::max();\
-    \ }\n};\n\n// \u6700\u5927\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::lowest())\n\
-    template <class T>\nstruct MonoidMax {\n    using S = T;\n    static S op(const\
-    \ S &a, const S &b) { return a < b ? b : a; }\n    static S e() { return numeric_limits<T>::lowest();\
+    \ 3 \"algebra/monoid.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n\
+    // \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u30E2\u30CE\
+    \u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\u578B; static S op(const\
+    \ S &a, const S &b); static S e();\n// op \u306F\u7D50\u5408\u7684\u3067\uFF0C\
+    e \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300Ca \u304C\u5DE6 (\u5148)\uFF0C\
+    b \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\u6570 f(x) = a x + b\ntemplate\
+    \ <class T>\nstruct Affine {\n    T a = T(1), b = T(0);\n    Affine() = default;\n\
+    \    Affine(T a, T b) : a(a), b(b) {}\n    T operator()(const T &x) const { return\
+    \ a * x + b; }\n    T eval(const T &x) const { return a * x + b; }\n    // \u300C\
+    \u5148\u306B *this\uFF0C\u6B21\u306B g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n\
+    \    Affine then(const Affine &g) const { return Affine(a * g.a, b * g.a + g.b);\
+    \ }\n    friend bool operator==(const Affine &f, const Affine &g) { return f.a\
+    \ == g.a && f.b == g.b; }\n    friend bool operator!=(const Affine &f, const Affine\
+    \ &g) { return !(f == g); }\n};\n\n// \u548C\ntemplate <class T>\nstruct MonoidSum\
+    \ {\n    using S = T;\n    static S op(const S &a, const S &b) { return a + b;\
+    \ }\n    static S e() { return S(0); }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\
+    \u5143\u306F numeric_limits<T>::max())\ntemplate <class T>\nstruct MonoidMin {\n\
+    \    using S = T;\n    static S op(const S &a, const S &b) { return b < a ? b\
+    \ : a; }\n    static S e() { return numeric_limits<T>::max(); }\n};\n\n// \u6700\
+    \u5927\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::lowest())\ntemplate\
+    \ <class T>\nstruct MonoidMax {\n    using S = T;\n    static S op(const S &a,\
+    \ const S &b) { return a < b ? b : a; }\n    static S e() { return numeric_limits<T>::lowest();\
     \ }\n};\n\n// xor\ntemplate <class T>\nstruct MonoidXor {\n    using S = T;\n\
     \    static S op(const S &a, const S &b) { return a ^ b; }\n    static S e() {\
     \ return S(0); }\n};\n\n// 1 \u6B21\u95A2\u6570\u306E\u5408\u6210\uFF0Eop(f, g)\
@@ -80,16 +82,16 @@ data:
     \ k) \u56DE\u306E op\ntemplate <class M>\ntypename M::S monoid_pow(typename M::S\
     \ x, long long k) {\n    typename M::S r = M::e();\n    while (k) {\n        if\
     \ (k & 1) r = M::op(r, x);\n        k >>= 1;\n        if (k) x = M::op(x, x);\n\
-    \    }\n    return r;\n}\n#line 3 \"algebra/acted_monoid.hpp\"\n\n// \u9045\u5EF6\
-    \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u300C\u4F5C\
-    \u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9\u300D(ACL \u306E lazy_segtree \u3068\
-    \u540C\u3058\u898F\u7D04)\n// \u5F62\u5F0F:\n//   using S = \u5024\u306E\u578B\
-    ;   static S op(S, S);  static S e();\n//   using F = \u4F5C\u7528\u306E\u578B\
-    ; static S mapping(F f, S x);  // f \u3092 x \u306B\u4F5C\u7528\u3055\u305B\u308B\
-    \n//                       static F composition(F f, F g);  // \u5148\u306B g\uFF0C\
-    \u6B21\u306B f (f \u2218 g)\n//                       static F id();\n\n// \u533A\
-    \u9593 1 \u6B21\u95A2\u6570\u4F5C\u7528\u30FB\u533A\u9593\u548C\uFF0ES \u306F\
-    \ {\u548C, \u9577\u3055}\n// \u521D\u671F\u5024\u306F ActedAffineSum<T>::make(x)\
+    \    }\n    return r;\n}\n#line 3 \"algebra/acted_monoid.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\
+    \u300C\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9\u300D(ACL \u306E lazy_segtree\
+    \ \u3068\u540C\u3058\u898F\u7D04)\n// \u5F62\u5F0F:\n//   using S = \u5024\u306E\
+    \u578B;   static S op(S, S);  static S e();\n//   using F = \u4F5C\u7528\u306E\
+    \u578B; static S mapping(F f, S x);  // f \u3092 x \u306B\u4F5C\u7528\u3055\u305B\
+    \u308B\n//                       static F composition(F f, F g);  // \u5148\u306B\
+    \ g\uFF0C\u6B21\u306B f (f \u2218 g)\n//                       static F id();\n\
+    \n// \u533A\u9593 1 \u6B21\u95A2\u6570\u4F5C\u7528\u30FB\u533A\u9593\u548C\uFF0E\
+    S \u306F {\u548C, \u9577\u3055}\n// \u521D\u671F\u5024\u306F ActedAffineSum<T>::make(x)\
     \ (= {x, 1}) \u3067\u4F5C\u308B\ntemplate <class T>\nstruct ActedAffineSum {\n\
     \    struct S {\n        T sum, len;\n    };\n    using F = Affine<T>;\n    static\
     \ S make(const T &x) { return {x, T(1)}; }\n    static S op(const S &a, const\
@@ -148,69 +150,8 @@ data:
     \ const S &b) { return M::op(a, b); }\n    static S e() { return M::e(); }\n \
     \   static S mapping(const F &, const S &x) { return x; }\n    static F composition(const\
     \ F &, const F &) { return F(); }\n    static F id() { return F(); }\n};\n#line\
-    \ 4 \"data_structure/lazy_segment_tree.hpp\"\n\n// \u9045\u5EF6\u30BB\u30B0\u30E1\
-    \u30F3\u30C8\u6728 (\u533A\u9593\u4F5C\u7528\u30FB\u533A\u9593\u7A4D)\n// AM \u306F\
-    \u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9 (algebra/acted_monoid.hpp \u53C2\
-    \u7167\uFF0E\u898F\u7D04\u306F ACL \u306E lazy_segtree \u3068\u540C\u3058)\ntemplate\
-    \ <class AM>\nstruct LazySegmentTree {\n    using S = typename AM::S;\n    using\
-    \ F = typename AM::F;\n    int n, sz, lg;\n    vector<S> d;\n    vector<F> lz;\n\
-    \n    LazySegmentTree(int n = 0) : LazySegmentTree(vector<S>(n, AM::e())) {}\n\
-    \n    LazySegmentTree(const vector<S> &a) : n(a.size()) {\n        lg = 0;\n \
-    \       while ((1 << lg) < n) lg++;\n        sz = 1 << lg;\n        d.assign(2\
-    \ * sz, AM::e());\n        lz.assign(sz, AM::id());\n        copy(a.begin(), a.end(),\
-    \ d.begin() + sz);\n        for (int i = sz - 1; i >= 1; i--) update(i);\n   \
-    \ }\n\n    int size() const { return n; }\n\n    // a[p] = x\n    void set(int\
-    \ p, const S &x) {\n        p += sz;\n        for (int i = lg; i >= 1; i--) push(p\
-    \ >> i);\n        d[p] = x;\n        for (int i = 1; i <= lg; i++) update(p >>\
-    \ i);\n    }\n\n    S get(int p) {\n        p += sz;\n        for (int i = lg;\
-    \ i >= 1; i--) push(p >> i);\n        return d[p];\n    }\n\n    // op(a[l], ...,\
-    \ a[r-1])\uFF0El == r \u306A\u3089 e()\n    S prod(int l, int r) {\n        if\
-    \ (l == r) return AM::e();\n        l += sz, r += sz;\n        for (int i = lg;\
-    \ i >= 1; i--) {\n            if (((l >> i) << i) != l) push(l >> i);\n      \
-    \      if (((r >> i) << i) != r) push((r - 1) >> i);\n        }\n        S sml\
-    \ = AM::e(), smr = AM::e();\n        while (l < r) {\n            if (l & 1) sml\
-    \ = AM::op(sml, d[l++]);\n            if (r & 1) smr = AM::op(d[--r], smr);\n\
-    \            l >>= 1, r >>= 1;\n        }\n        return AM::op(sml, smr);\n\
-    \    }\n\n    S all_prod() const { return d[1]; }\n\n    // a[p] = f(a[p])\n \
-    \   void apply(int p, const F &f) {\n        p += sz;\n        for (int i = lg;\
-    \ i >= 1; i--) push(p >> i);\n        d[p] = AM::mapping(f, d[p]);\n        for\
-    \ (int i = 1; i <= lg; i++) update(p >> i);\n    }\n\n    // i in [l, r) \u306B\
-    \u3064\u3044\u3066 a[i] = f(a[i])\n    void apply(int l, int r, const F &f) {\n\
-    \        if (l == r) return;\n        l += sz, r += sz;\n        for (int i =\
-    \ lg; i >= 1; i--) {\n            if (((l >> i) << i) != l) push(l >> i);\n  \
-    \          if (((r >> i) << i) != r) push((r - 1) >> i);\n        }\n        {\n\
-    \            int l2 = l, r2 = r;\n            while (l < r) {\n              \
-    \  if (l & 1) all_apply(l++, f);\n                if (r & 1) all_apply(--r, f);\n\
-    \                l >>= 1, r >>= 1;\n            }\n            l = l2, r = r2;\n\
-    \        }\n        for (int i = 1; i <= lg; i++) {\n            if (((l >> i)\
-    \ << i) != l) update(l >> i);\n            if (((r >> i) << i) != r) update((r\
-    \ - 1) >> i);\n        }\n    }\n\n    // g(op(a[l], ..., a[r-1])) \u304C true\
-    \ \u3068\u306A\u308B\u6700\u5927\u306E r (g(e()) \u306F true \u3067\u3042\u308B\
-    \u3053\u3068)\n    template <class G>\n    int max_right(int l, G g) {\n     \
-    \   if (l == n) return n;\n        l += sz;\n        for (int i = lg; i >= 1;\
-    \ i--) push(l >> i);\n        S sm = AM::e();\n        do {\n            while\
-    \ (l % 2 == 0) l >>= 1;\n            if (!g(AM::op(sm, d[l]))) {\n           \
-    \     while (l < sz) {\n                    push(l);\n                    l =\
-    \ 2 * l;\n                    if (g(AM::op(sm, d[l]))) sm = AM::op(sm, d[l++]);\n\
-    \                }\n                return l - sz;\n            }\n          \
-    \  sm = AM::op(sm, d[l++]);\n        } while ((l & -l) != l);\n        return\
-    \ n;\n    }\n\n    // g(op(a[l], ..., a[r-1])) \u304C true \u3068\u306A\u308B\u6700\
-    \u5C0F\u306E l (g(e()) \u306F true \u3067\u3042\u308B\u3053\u3068)\n    template\
-    \ <class G>\n    int min_left(int r, G g) {\n        if (r == 0) return 0;\n \
-    \       r += sz;\n        for (int i = lg; i >= 1; i--) push((r - 1) >> i);\n\
-    \        S sm = AM::e();\n        do {\n            r--;\n            while (r\
-    \ > 1 && (r % 2)) r >>= 1;\n            if (!g(AM::op(d[r], sm))) {\n        \
-    \        while (r < sz) {\n                    push(r);\n                    r\
-    \ = 2 * r + 1;\n                    if (g(AM::op(d[r], sm))) sm = AM::op(d[r--],\
-    \ sm);\n                }\n                return r + 1 - sz;\n            }\n\
-    \            sm = AM::op(d[r], sm);\n        } while ((r & -r) != r);\n      \
-    \  return 0;\n    }\n\n  private:\n    void update(int k) { d[k] = AM::op(d[2\
-    \ * k], d[2 * k + 1]); }\n    void all_apply(int k, const F &f) {\n        d[k]\
-    \ = AM::mapping(f, d[k]);\n        if (k < sz) lz[k] = AM::composition(f, lz[k]);\n\
-    \    }\n    void push(int k) {\n        all_apply(2 * k, lz[k]);\n        all_apply(2\
-    \ * k + 1, lz[k]);\n        lz[k] = AM::id();\n    }\n};\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n#include \"../algebra/acted_monoid.hpp\"\
-    \n\n// \u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u533A\u9593\u4F5C\u7528\
+    \ 4 \"data_structure/lazy_segment_tree.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u533A\u9593\u4F5C\u7528\
     \u30FB\u533A\u9593\u7A4D)\n// AM \u306F\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\
     \u30C9 (algebra/acted_monoid.hpp \u53C2\u7167\uFF0E\u898F\u7D04\u306F ACL \u306E\
     \ lazy_segtree \u3068\u540C\u3058)\ntemplate <class AM>\nstruct LazySegmentTree\
@@ -270,6 +211,68 @@ data:
     \ F &f) {\n        d[k] = AM::mapping(f, d[k]);\n        if (k < sz) lz[k] = AM::composition(f,\
     \ lz[k]);\n    }\n    void push(int k) {\n        all_apply(2 * k, lz[k]);\n \
     \       all_apply(2 * k + 1, lz[k]);\n        lz[k] = AM::id();\n    }\n};\n"
+  code: "#pragma once\n#include \"../template.hpp\"\n#include \"../algebra/acted_monoid.hpp\"\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u9045\u5EF6\u30BB\u30B0\
+    \u30E1\u30F3\u30C8\u6728 (\u533A\u9593\u4F5C\u7528\u30FB\u533A\u9593\u7A4D)\n\
+    // AM \u306F\u4F5C\u7528\u4ED8\u304D\u30E2\u30CE\u30A4\u30C9 (algebra/acted_monoid.hpp\
+    \ \u53C2\u7167\uFF0E\u898F\u7D04\u306F ACL \u306E lazy_segtree \u3068\u540C\u3058\
+    )\ntemplate <class AM>\nstruct LazySegmentTree {\n    using S = typename AM::S;\n\
+    \    using F = typename AM::F;\n    int n, sz, lg;\n    vector<S> d;\n    vector<F>\
+    \ lz;\n\n    LazySegmentTree(int n = 0) : LazySegmentTree(vector<S>(n, AM::e()))\
+    \ {}\n\n    LazySegmentTree(const vector<S> &a) : n(a.size()) {\n        lg =\
+    \ 0;\n        while ((1 << lg) < n) lg++;\n        sz = 1 << lg;\n        d.assign(2\
+    \ * sz, AM::e());\n        lz.assign(sz, AM::id());\n        copy(a.begin(), a.end(),\
+    \ d.begin() + sz);\n        for (int i = sz - 1; i >= 1; i--) update(i);\n   \
+    \ }\n\n    int size() const { return n; }\n\n    // a[p] = x\n    void set(int\
+    \ p, const S &x) {\n        p += sz;\n        for (int i = lg; i >= 1; i--) push(p\
+    \ >> i);\n        d[p] = x;\n        for (int i = 1; i <= lg; i++) update(p >>\
+    \ i);\n    }\n\n    S get(int p) {\n        p += sz;\n        for (int i = lg;\
+    \ i >= 1; i--) push(p >> i);\n        return d[p];\n    }\n\n    // op(a[l], ...,\
+    \ a[r-1])\uFF0El == r \u306A\u3089 e()\n    S prod(int l, int r) {\n        if\
+    \ (l == r) return AM::e();\n        l += sz, r += sz;\n        for (int i = lg;\
+    \ i >= 1; i--) {\n            if (((l >> i) << i) != l) push(l >> i);\n      \
+    \      if (((r >> i) << i) != r) push((r - 1) >> i);\n        }\n        S sml\
+    \ = AM::e(), smr = AM::e();\n        while (l < r) {\n            if (l & 1) sml\
+    \ = AM::op(sml, d[l++]);\n            if (r & 1) smr = AM::op(d[--r], smr);\n\
+    \            l >>= 1, r >>= 1;\n        }\n        return AM::op(sml, smr);\n\
+    \    }\n\n    S all_prod() const { return d[1]; }\n\n    // a[p] = f(a[p])\n \
+    \   void apply(int p, const F &f) {\n        p += sz;\n        for (int i = lg;\
+    \ i >= 1; i--) push(p >> i);\n        d[p] = AM::mapping(f, d[p]);\n        for\
+    \ (int i = 1; i <= lg; i++) update(p >> i);\n    }\n\n    // i in [l, r) \u306B\
+    \u3064\u3044\u3066 a[i] = f(a[i])\n    void apply(int l, int r, const F &f) {\n\
+    \        if (l == r) return;\n        l += sz, r += sz;\n        for (int i =\
+    \ lg; i >= 1; i--) {\n            if (((l >> i) << i) != l) push(l >> i);\n  \
+    \          if (((r >> i) << i) != r) push((r - 1) >> i);\n        }\n        {\n\
+    \            int l2 = l, r2 = r;\n            while (l < r) {\n              \
+    \  if (l & 1) all_apply(l++, f);\n                if (r & 1) all_apply(--r, f);\n\
+    \                l >>= 1, r >>= 1;\n            }\n            l = l2, r = r2;\n\
+    \        }\n        for (int i = 1; i <= lg; i++) {\n            if (((l >> i)\
+    \ << i) != l) update(l >> i);\n            if (((r >> i) << i) != r) update((r\
+    \ - 1) >> i);\n        }\n    }\n\n    // g(op(a[l], ..., a[r-1])) \u304C true\
+    \ \u3068\u306A\u308B\u6700\u5927\u306E r (g(e()) \u306F true \u3067\u3042\u308B\
+    \u3053\u3068)\n    template <class G>\n    int max_right(int l, G g) {\n     \
+    \   if (l == n) return n;\n        l += sz;\n        for (int i = lg; i >= 1;\
+    \ i--) push(l >> i);\n        S sm = AM::e();\n        do {\n            while\
+    \ (l % 2 == 0) l >>= 1;\n            if (!g(AM::op(sm, d[l]))) {\n           \
+    \     while (l < sz) {\n                    push(l);\n                    l =\
+    \ 2 * l;\n                    if (g(AM::op(sm, d[l]))) sm = AM::op(sm, d[l++]);\n\
+    \                }\n                return l - sz;\n            }\n          \
+    \  sm = AM::op(sm, d[l++]);\n        } while ((l & -l) != l);\n        return\
+    \ n;\n    }\n\n    // g(op(a[l], ..., a[r-1])) \u304C true \u3068\u306A\u308B\u6700\
+    \u5C0F\u306E l (g(e()) \u306F true \u3067\u3042\u308B\u3053\u3068)\n    template\
+    \ <class G>\n    int min_left(int r, G g) {\n        if (r == 0) return 0;\n \
+    \       r += sz;\n        for (int i = lg; i >= 1; i--) push((r - 1) >> i);\n\
+    \        S sm = AM::e();\n        do {\n            r--;\n            while (r\
+    \ > 1 && (r % 2)) r >>= 1;\n            if (!g(AM::op(d[r], sm))) {\n        \
+    \        while (r < sz) {\n                    push(r);\n                    r\
+    \ = 2 * r + 1;\n                    if (g(AM::op(d[r], sm))) sm = AM::op(d[r--],\
+    \ sm);\n                }\n                return r + 1 - sz;\n            }\n\
+    \            sm = AM::op(d[r], sm);\n        } while ((r & -r) != r);\n      \
+    \  return 0;\n    }\n\n  private:\n    void update(int k) { d[k] = AM::op(d[2\
+    \ * k], d[2 * k + 1]); }\n    void all_apply(int k, const F &f) {\n        d[k]\
+    \ = AM::mapping(f, d[k]);\n        if (k < sz) lz[k] = AM::composition(f, lz[k]);\n\
+    \    }\n    void push(int k) {\n        all_apply(2 * k, lz[k]);\n        all_apply(2\
+    \ * k + 1, lz[k]);\n        lz[k] = AM::id();\n    }\n};\n"
   dependsOn:
   - template.hpp
   - algebra/acted_monoid.hpp
@@ -278,8 +281,8 @@ data:
   isVerificationFile: false
   path: data_structure/lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2026-10-14 23:17:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/unittest/lazy_segment_tree.test.cpp
   - test/range_affine_range_sum.test.cpp

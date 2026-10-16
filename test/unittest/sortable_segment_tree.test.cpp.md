@@ -1,43 +1,43 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/monoid.hpp
     title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/fast_set.hpp
     title: "64 \u5206\u6728\u306B\u3088\u308B\u6574\u6570\u96C6\u5408 (Fast Set)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/sortable_segment_tree.hpp
     title: "\u533A\u9593\u30BD\u30FC\u30C8\u304C\u3067\u304D\u308B\u30BB\u30B0\u30E1\
       \u30F3\u30C8\u6728 (Sortable Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modint.hpp
     title: "ModInt (\u6CD5\u304C\u30B3\u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E\
       \ modint)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -56,31 +56,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -215,62 +216,63 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"math/modint.hpp\"\
-    \n\n// \u6CD5 MOD \u304C \u30B3\u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E\
-    \ modint\n// MOD < 2^31 \u3067\u3042\u308B\u3053\u3068 (\u7D20\u6570\u3067\u306A\
-    \u304F\u3066\u3082\u3088\u3044\uFF0E\u305F\u3060\u3057 inv() \u306F MOD \u3068\
-    \u4E92\u3044\u306B\u7D20\u306A\u5024\u306B\u5BFE\u3057\u3066\u306E\u307F\u6709\
-    \u52B9)\n// \u30A4\u30F3\u30BF\u30FC\u30D5\u30A7\u30FC\u30B9\u306F ACL (atcoder::static_modint)\
-    \ \u3068\u63C3\u3048\u3066\u3042\u308B\uFF0E\n// \u3053\u306E\u30E9\u30A4\u30D6\
-    \u30E9\u30EA\u306E\u4ED6\u306E\u30D5\u30A1\u30A4\u30EB (fastio \u306A\u3069) \u306F\
-    \ ACL \u306E modint \u3067\u3082\u305D\u306E\u307E\u307E\u52D5\u304F\ntemplate\
-    \ <uint32_t MOD>\nstruct ModInt {\n    static_assert(1 <= MOD && MOD < (1u <<\
-    \ 31), \"MOD must be in [1, 2^31)\");\n    using mint = ModInt;\n    uint32_t\
-    \ v;\n\n    static constexpr int mod() { return MOD; }\n\n    constexpr ModInt()\
-    \ : v(0) {}\n\n    template <class T, enable_if_t<is_integral_v<T>, nullptr_t>\
-    \ = nullptr>\n    constexpr ModInt(T x) : v(0) {\n        if constexpr (is_signed_v<T>)\
-    \ {\n            long long y = (long long)(x % (long long)MOD);\n            if\
-    \ (y < 0) y += MOD;\n            v = uint32_t(y);\n        } else {\n        \
-    \    v = uint32_t(x % MOD);\n        }\n    }\n\n    // 0 <= x < MOD \u304C\u5206\
-    \u304B\u3063\u3066\u3044\u308B\u3068\u304D\u306B\u5270\u4F59\u3092\u53D6\u3089\
-    \u305A\u306B\u4F5C\u308B\n    static constexpr mint raw(int x) {\n        mint\
-    \ r;\n        r.v = x;\n        return r;\n    }\n\n    // ACL (\u73FE\u884C\u7248\
-    ) \u3068\u540C\u3058\u304F int \u3067\u8FD4\u3059\n    constexpr int val() const\
-    \ { return int(v); }\n\n    constexpr mint &operator+=(const mint &r) {\n    \
-    \    v += r.v;\n        if (v >= MOD) v -= MOD;\n        return *this;\n    }\n\
-    \    constexpr mint &operator-=(const mint &r) {\n        v += MOD - r.v;\n  \
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u6CD5 MOD \u304C \u30B3\
+    \u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E modint\n// MOD < 2^31 \u3067\u3042\
+    \u308B\u3053\u3068 (\u7D20\u6570\u3067\u306A\u304F\u3066\u3082\u3088\u3044\uFF0E\
+    \u305F\u3060\u3057 inv() \u306F MOD \u3068\u4E92\u3044\u306B\u7D20\u306A\u5024\
+    \u306B\u5BFE\u3057\u3066\u306E\u307F\u6709\u52B9)\n// \u30A4\u30F3\u30BF\u30FC\
+    \u30D5\u30A7\u30FC\u30B9\u306F ACL (atcoder::static_modint) \u3068\u63C3\u3048\
+    \u3066\u3042\u308B\uFF0E\n// \u3053\u306E\u30E9\u30A4\u30D6\u30E9\u30EA\u306E\u4ED6\
+    \u306E\u30D5\u30A1\u30A4\u30EB (fastio \u306A\u3069) \u306F ACL \u306E modint\
+    \ \u3067\u3082\u305D\u306E\u307E\u307E\u52D5\u304F\ntemplate <uint32_t MOD>\n\
+    struct ModInt {\n    static_assert(1 <= MOD && MOD < (1u << 31), \"MOD must be\
+    \ in [1, 2^31)\");\n    using mint = ModInt;\n    uint32_t v;\n\n    static constexpr\
+    \ int mod() { return MOD; }\n\n    constexpr ModInt() : v(0) {}\n\n    template\
+    \ <class T, enable_if_t<is_integral_v<T>, nullptr_t> = nullptr>\n    constexpr\
+    \ ModInt(T x) : v(0) {\n        if constexpr (is_signed_v<T>) {\n            long\
+    \ long y = (long long)(x % (long long)MOD);\n            if (y < 0) y += MOD;\n\
+    \            v = uint32_t(y);\n        } else {\n            v = uint32_t(x %\
+    \ MOD);\n        }\n    }\n\n    // 0 <= x < MOD \u304C\u5206\u304B\u3063\u3066\
+    \u3044\u308B\u3068\u304D\u306B\u5270\u4F59\u3092\u53D6\u3089\u305A\u306B\u4F5C\
+    \u308B\n    static constexpr mint raw(int x) {\n        mint r;\n        r.v =\
+    \ x;\n        return r;\n    }\n\n    // ACL (\u73FE\u884C\u7248) \u3068\u540C\
+    \u3058\u304F int \u3067\u8FD4\u3059\n    constexpr int val() const { return int(v);\
+    \ }\n\n    constexpr mint &operator+=(const mint &r) {\n        v += r.v;\n  \
     \      if (v >= MOD) v -= MOD;\n        return *this;\n    }\n    constexpr mint\
-    \ &operator*=(const mint &r) {\n        // MOD \u304C\u5B9A\u6570\u306A\u306E\u3067\
-    \ % \u306F\u4E57\u7B97\u3068\u30B7\u30D5\u30C8\u306B\u6700\u9069\u5316\u3055\u308C\
-    \u308B\n        v = uint32_t((uint64_t)v * r.v % MOD);\n        return *this;\n\
-    \    }\n    constexpr mint &operator/=(const mint &r) { return *this *= r.inv();\
-    \ }\n\n    constexpr mint operator+() const { return *this; }\n    constexpr mint\
-    \ operator-() const { return raw(v == 0 ? 0 : MOD - v); }\n\n    constexpr mint\
-    \ &operator++() { return *this += raw(1); }\n    constexpr mint &operator--()\
-    \ { return *this -= raw(1); }\n    constexpr mint operator++(int) { mint r = *this;\
-    \ ++*this; return r; }\n    constexpr mint operator--(int) { mint r = *this; --*this;\
-    \ return r; }\n\n    friend constexpr mint operator+(mint l, const mint &r) {\
-    \ return l += r; }\n    friend constexpr mint operator-(mint l, const mint &r)\
-    \ { return l -= r; }\n    friend constexpr mint operator*(mint l, const mint &r)\
-    \ { return l *= r; }\n    friend constexpr mint operator/(mint l, const mint &r)\
-    \ { return l /= r; }\n    friend constexpr bool operator==(const mint &l, const\
-    \ mint &r) { return l.v == r.v; }\n    friend constexpr bool operator!=(const\
-    \ mint &l, const mint &r) { return l.v != r.v; }\n\n    // this^n (n < 0 \u306A\
-    \u3089\u9006\u5143\u306E -n \u4E57)\n    constexpr mint pow(long long n) const\
-    \ {\n        mint x = n >= 0 ? *this : inv(), r = raw(1 % MOD);\n        unsigned\
-    \ long long e = n >= 0 ? (unsigned long long)n : 0ULL - (unsigned long long)n;\n\
-    \        while (e) {\n            if (e & 1) r *= x;\n            x *= x;\n  \
-    \          e >>= 1;\n        }\n        return r;\n    }\n\n    // \u62E1\u5F35\
-    \u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5\u306B\u3088\u308B\
-    \u9006\u5143 (MOD \u304C\u7D20\u6570\u3067\u306A\u304F\u3066\u3082 gcd(v, MOD)\
-    \ = 1 \u306A\u3089\u6B63\u3057\u3044)\n    constexpr mint inv() const {\n    \
-    \    long long a = v, b = MOD, x = 1, y = 0;\n        while (b) {\n          \
-    \  long long t = a / b;\n            a -= t * b, swap(a, b);\n            x -=\
-    \ t * y, swap(x, y);\n        }\n        assert(a == 1);\n        return mint(x);\n\
-    \    }\n\n    friend ostream &operator<<(ostream &os, const mint &x) { return\
-    \ os << x.v; }\n    friend istream &operator>>(istream &is, mint &x) {\n     \
-    \   long long t;\n        is >> t;\n        x = mint(t);\n        return is;\n\
-    \    }\n};\n\nusing ModInt998244353 = ModInt<998244353>;\nusing ModInt1000000007\
-    \ = ModInt<1000000007>;\n#line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
+    \ &operator-=(const mint &r) {\n        v += MOD - r.v;\n        if (v >= MOD)\
+    \ v -= MOD;\n        return *this;\n    }\n    constexpr mint &operator*=(const\
+    \ mint &r) {\n        // MOD \u304C\u5B9A\u6570\u306A\u306E\u3067 % \u306F\u4E57\
+    \u7B97\u3068\u30B7\u30D5\u30C8\u306B\u6700\u9069\u5316\u3055\u308C\u308B\n   \
+    \     v = uint32_t((uint64_t)v * r.v % MOD);\n        return *this;\n    }\n \
+    \   constexpr mint &operator/=(const mint &r) { return *this *= r.inv(); }\n\n\
+    \    constexpr mint operator+() const { return *this; }\n    constexpr mint operator-()\
+    \ const { return raw(v == 0 ? 0 : MOD - v); }\n\n    constexpr mint &operator++()\
+    \ { return *this += raw(1); }\n    constexpr mint &operator--() { return *this\
+    \ -= raw(1); }\n    constexpr mint operator++(int) { mint r = *this; ++*this;\
+    \ return r; }\n    constexpr mint operator--(int) { mint r = *this; --*this; return\
+    \ r; }\n\n    friend constexpr mint operator+(mint l, const mint &r) { return\
+    \ l += r; }\n    friend constexpr mint operator-(mint l, const mint &r) { return\
+    \ l -= r; }\n    friend constexpr mint operator*(mint l, const mint &r) { return\
+    \ l *= r; }\n    friend constexpr mint operator/(mint l, const mint &r) { return\
+    \ l /= r; }\n    friend constexpr bool operator==(const mint &l, const mint &r)\
+    \ { return l.v == r.v; }\n    friend constexpr bool operator!=(const mint &l,\
+    \ const mint &r) { return l.v != r.v; }\n\n    // this^n (n < 0 \u306A\u3089\u9006\
+    \u5143\u306E -n \u4E57)\n    constexpr mint pow(long long n) const {\n       \
+    \ mint x = n >= 0 ? *this : inv(), r = raw(1 % MOD);\n        unsigned long long\
+    \ e = n >= 0 ? (unsigned long long)n : 0ULL - (unsigned long long)n;\n       \
+    \ while (e) {\n            if (e & 1) r *= x;\n            x *= x;\n         \
+    \   e >>= 1;\n        }\n        return r;\n    }\n\n    // \u62E1\u5F35\u30E6\
+    \u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5\u306B\u3088\u308B\u9006\
+    \u5143 (MOD \u304C\u7D20\u6570\u3067\u306A\u304F\u3066\u3082 gcd(v, MOD) = 1 \u306A\
+    \u3089\u6B63\u3057\u3044)\n    constexpr mint inv() const {\n        long long\
+    \ a = v, b = MOD, x = 1, y = 0;\n        while (b) {\n            long long t\
+    \ = a / b;\n            a -= t * b, swap(a, b);\n            x -= t * y, swap(x,\
+    \ y);\n        }\n        assert(a == 1);\n        return mint(x);\n    }\n\n\
+    \    friend ostream &operator<<(ostream &os, const mint &x) { return os << x.v;\
+    \ }\n    friend istream &operator>>(istream &is, mint &x) {\n        long long\
+    \ t;\n        is >> t;\n        x = mint(t);\n        return is;\n    }\n};\n\n\
+    using ModInt998244353 = ModInt<998244353>;\nusing ModInt1000000007 = ModInt<1000000007>;\n\
+    #line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
     #include <atcoder/all>\nusing namespace atcoder;\n#endif\n// QCfium\u6CD5\u3092\
     \u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\u30C8\u30A2\u30A6\u30C8\u3092\u5916\
     \u3059\n/*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
@@ -292,27 +294,28 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"algebra/monoid.hpp\"\n\n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\
-    \u306B\u6E21\u3059\u30E2\u30CE\u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\
-    \u578B; static S op(const S &a, const S &b); static S e();\n// op \u306F\u7D50\
-    \u5408\u7684\u3067\uFF0Ce \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300C\
-    a \u304C\u5DE6 (\u5148)\uFF0Cb \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\
-    \u6570 f(x) = a x + b\ntemplate <class T>\nstruct Affine {\n    T a = T(1), b\
-    \ = T(0);\n    Affine() = default;\n    Affine(T a, T b) : a(a), b(b) {}\n   \
-    \ T operator()(const T &x) const { return a * x + b; }\n    T eval(const T &x)\
-    \ const { return a * x + b; }\n    // \u300C\u5148\u306B *this\uFF0C\u6B21\u306B\
-    \ g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n    Affine then(const Affine\
-    \ &g) const { return Affine(a * g.a, b * g.a + g.b); }\n    friend bool operator==(const\
-    \ Affine &f, const Affine &g) { return f.a == g.a && f.b == g.b; }\n    friend\
-    \ bool operator!=(const Affine &f, const Affine &g) { return !(f == g); }\n};\n\
-    \n// \u548C\ntemplate <class T>\nstruct MonoidSum {\n    using S = T;\n    static\
-    \ S op(const S &a, const S &b) { return a + b; }\n    static S e() { return S(0);\
-    \ }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::max())\n\
-    template <class T>\nstruct MonoidMin {\n    using S = T;\n    static S op(const\
-    \ S &a, const S &b) { return b < a ? b : a; }\n    static S e() { return numeric_limits<T>::max();\
-    \ }\n};\n\n// \u6700\u5927\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::lowest())\n\
-    template <class T>\nstruct MonoidMax {\n    using S = T;\n    static S op(const\
-    \ S &a, const S &b) { return a < b ? b : a; }\n    static S e() { return numeric_limits<T>::lowest();\
+    \ 3 \"algebra/monoid.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n\
+    // \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u30E2\u30CE\
+    \u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\u578B; static S op(const\
+    \ S &a, const S &b); static S e();\n// op \u306F\u7D50\u5408\u7684\u3067\uFF0C\
+    e \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300Ca \u304C\u5DE6 (\u5148)\uFF0C\
+    b \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\u6570 f(x) = a x + b\ntemplate\
+    \ <class T>\nstruct Affine {\n    T a = T(1), b = T(0);\n    Affine() = default;\n\
+    \    Affine(T a, T b) : a(a), b(b) {}\n    T operator()(const T &x) const { return\
+    \ a * x + b; }\n    T eval(const T &x) const { return a * x + b; }\n    // \u300C\
+    \u5148\u306B *this\uFF0C\u6B21\u306B g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n\
+    \    Affine then(const Affine &g) const { return Affine(a * g.a, b * g.a + g.b);\
+    \ }\n    friend bool operator==(const Affine &f, const Affine &g) { return f.a\
+    \ == g.a && f.b == g.b; }\n    friend bool operator!=(const Affine &f, const Affine\
+    \ &g) { return !(f == g); }\n};\n\n// \u548C\ntemplate <class T>\nstruct MonoidSum\
+    \ {\n    using S = T;\n    static S op(const S &a, const S &b) { return a + b;\
+    \ }\n    static S e() { return S(0); }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\
+    \u5143\u306F numeric_limits<T>::max())\ntemplate <class T>\nstruct MonoidMin {\n\
+    \    using S = T;\n    static S op(const S &a, const S &b) { return b < a ? b\
+    \ : a; }\n    static S e() { return numeric_limits<T>::max(); }\n};\n\n// \u6700\
+    \u5927\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::lowest())\ntemplate\
+    \ <class T>\nstruct MonoidMax {\n    using S = T;\n    static S op(const S &a,\
+    \ const S &b) { return a < b ? b : a; }\n    static S e() { return numeric_limits<T>::lowest();\
     \ }\n};\n\n// xor\ntemplate <class T>\nstruct MonoidXor {\n    using S = T;\n\
     \    static S op(const S &a, const S &b) { return a ^ b; }\n    static S e() {\
     \ return S(0); }\n};\n\n// 1 \u6B21\u95A2\u6570\u306E\u5408\u6210\uFF0Eop(f, g)\
@@ -335,72 +338,73 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"data_structure/fast_set.hpp\"\n\n// 64 \u5206\u6728\u306B\u3088\u308B [0,\
-    \ n) \u306E\u6574\u6570\u96C6\u5408\n// \u633F\u5165\u30FB\u524A\u9664\u30FB\u5B58\
-    \u5728\u5224\u5B9A\u30FB\u6B21\u306E\u8981\u7D20\u30FB\u524D\u306E\u8981\u7D20\
-    \u3092 O(log_64 n) \u3067\u51E6\u7406\u3059\u308B\nstruct FastSet {\n    int n,\
-    \ lg;\n    // seg[0] \u304C\u6700\u4E0B\u6BB5\uFF0Eseg[h+1] \u306E bit i \u306F\
-    \ seg[h] \u306E i \u756A\u76EE\u306E\u30EF\u30FC\u30C9\u304C 0 \u3067\u306A\u3044\
-    \u304B\u3092\u8868\u3059\n    vector<vector<uint64_t>> seg;\n\n    FastSet(int\
-    \ n = 0) : n(n) {\n        int m = n;\n        do {\n            seg.push_back(vector<uint64_t>(std::max(1,\
-    \ (m + 63) >> 6)));\n            m = (m + 63) >> 6;\n        } while (m > 1);\n\
-    \        lg = seg.size();\n    }\n\n    // f(i) \u304C true \u306E i \u3092\u5168\
-    \u3066\u5165\u308C\u305F\u72B6\u614B\u3067\u521D\u671F\u5316\u3059\u308B\uFF0E\
-    O(n)\n    template <class F>\n    FastSet(int n, F f) : FastSet(n) {\n       \
-    \ for (int i = 0; i < n; i++) if (f(i)) seg[0][i >> 6] |= 1ULL << (i & 63);\n\
-    \        build_upper();\n    }\n\n    // \u6700\u4E0B\u6BB5\u304B\u3089\u4E0A\u306E\
-    \u6BB5\u3092\u4F5C\u308A\u76F4\u3059\n    void build_upper() {\n        for (int\
-    \ h = 0; h + 1 < lg; h++) {\n            fill(seg[h + 1].begin(), seg[h + 1].end(),\
-    \ 0);\n            for (size_t i = 0; i < seg[h].size(); i++) if (seg[h][i]) seg[h\
-    \ + 1][i >> 6] |= 1ULL << (i & 63);\n        }\n    }\n\n    int size() const\
-    \ { return n; }\n\n    bool contains(int i) const { return seg[0][i >> 6] >> (i\
-    \ & 63) & 1; }\n    bool operator[](int i) const { return contains(i); }\n\n \
-    \   void insert(int i) {\n        for (int h = 0; h < lg; h++) {\n           \
-    \ uint64_t &w = seg[h][i >> 6];\n            bool was_empty = w == 0;\n      \
-    \      w |= 1ULL << (i & 63);\n            // \u3059\u3067\u306B\u4E0A\u306E\u6BB5\
-    \u306B\u30D5\u30E9\u30B0\u304C\u7ACB\u3063\u3066\u3044\u308B\u306E\u3067\u6253\
-    \u3061\u5207\u308B\n            if (!was_empty) break;\n            i >>= 6;\n\
-    \        }\n    }\n\n    void erase(int i) {\n        for (int h = 0; h < lg;\
-    \ h++) {\n            uint64_t &w = seg[h][i >> 6];\n            w &= ~(1ULL <<\
-    \ (i & 63));\n            // \u30EF\u30FC\u30C9\u304C\u307E\u3060\u7A7A\u3067\u306A\
-    \u3051\u308C\u3070\u4E0A\u306E\u6BB5\u306F\u5909\u308F\u3089\u306A\u3044\n   \
-    \         if (w) break;\n            i >>= 6;\n        }\n    }\n\n    // i \u4EE5\
-    \u4E0A\u306E\u6700\u5C0F\u306E\u8981\u7D20 (\u5B58\u5728\u3057\u306A\u3051\u308C\
-    \u3070 -1)\n    int next(int i) const {\n        if (i < 0) i = 0;\n        if\
-    \ (i >= n) return -1;\n        for (int h = 0; h < lg; h++) {\n            if\
-    \ ((i >> 6) == (int)seg[h].size()) break;\n            uint64_t d = seg[h][i >>\
-    \ 6] >> (i & 63);\n            if (d == 0) {\n                i = (i >> 6) + 1;\n\
-    \                continue;\n            }\n            i += __builtin_ctzll(d);\n\
-    \            for (int g = h - 1; g >= 0; g--) {\n                i <<= 6;\n  \
-    \              i += __builtin_ctzll(seg[g][i >> 6]);\n            }\n        \
-    \    return i;\n        }\n        return -1;\n    }\n\n    // i \u4EE5\u4E0B\u306E\
-    \u6700\u5927\u306E\u8981\u7D20 (\u5B58\u5728\u3057\u306A\u3051\u308C\u3070 -1)\n\
-    \    int prev(int i) const {\n        if (i >= n) i = n - 1;\n        for (int\
-    \ h = 0; h < lg; h++) {\n            if (i < 0) break;\n            uint64_t d\
-    \ = seg[h][i >> 6] << (63 - (i & 63));\n            if (d == 0) {\n          \
-    \      i = (i >> 6) - 1;\n                continue;\n            }\n         \
-    \   i -= __builtin_clzll(d);\n            for (int g = h - 1; g >= 0; g--) {\n\
-    \                i <<= 6;\n                i += 63 - __builtin_clzll(seg[g][i\
+    \ 3 \"data_structure/fast_set.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// 64 \u5206\u6728\u306B\u3088\u308B [0, n) \u306E\u6574\u6570\u96C6\u5408\n\
+    // \u633F\u5165\u30FB\u524A\u9664\u30FB\u5B58\u5728\u5224\u5B9A\u30FB\u6B21\u306E\
+    \u8981\u7D20\u30FB\u524D\u306E\u8981\u7D20\u3092 O(log_64 n) \u3067\u51E6\u7406\
+    \u3059\u308B\nstruct FastSet {\n    int n, lg;\n    // seg[0] \u304C\u6700\u4E0B\
+    \u6BB5\uFF0Eseg[h+1] \u306E bit i \u306F seg[h] \u306E i \u756A\u76EE\u306E\u30EF\
+    \u30FC\u30C9\u304C 0 \u3067\u306A\u3044\u304B\u3092\u8868\u3059\n    vector<vector<uint64_t>>\
+    \ seg;\n\n    FastSet(int n = 0) : n(n) {\n        int m = n;\n        do {\n\
+    \            seg.push_back(vector<uint64_t>(std::max(1, (m + 63) >> 6)));\n  \
+    \          m = (m + 63) >> 6;\n        } while (m > 1);\n        lg = seg.size();\n\
+    \    }\n\n    // f(i) \u304C true \u306E i \u3092\u5168\u3066\u5165\u308C\u305F\
+    \u72B6\u614B\u3067\u521D\u671F\u5316\u3059\u308B\uFF0EO(n)\n    template <class\
+    \ F>\n    FastSet(int n, F f) : FastSet(n) {\n        for (int i = 0; i < n; i++)\
+    \ if (f(i)) seg[0][i >> 6] |= 1ULL << (i & 63);\n        build_upper();\n    }\n\
+    \n    // \u6700\u4E0B\u6BB5\u304B\u3089\u4E0A\u306E\u6BB5\u3092\u4F5C\u308A\u76F4\
+    \u3059\n    void build_upper() {\n        for (int h = 0; h + 1 < lg; h++) {\n\
+    \            fill(seg[h + 1].begin(), seg[h + 1].end(), 0);\n            for (size_t\
+    \ i = 0; i < seg[h].size(); i++) if (seg[h][i]) seg[h + 1][i >> 6] |= 1ULL <<\
+    \ (i & 63);\n        }\n    }\n\n    int size() const { return n; }\n\n    bool\
+    \ contains(int i) const { return seg[0][i >> 6] >> (i & 63) & 1; }\n    bool operator[](int\
+    \ i) const { return contains(i); }\n\n    void insert(int i) {\n        for (int\
+    \ h = 0; h < lg; h++) {\n            uint64_t &w = seg[h][i >> 6];\n         \
+    \   bool was_empty = w == 0;\n            w |= 1ULL << (i & 63);\n           \
+    \ // \u3059\u3067\u306B\u4E0A\u306E\u6BB5\u306B\u30D5\u30E9\u30B0\u304C\u7ACB\u3063\
+    \u3066\u3044\u308B\u306E\u3067\u6253\u3061\u5207\u308B\n            if (!was_empty)\
+    \ break;\n            i >>= 6;\n        }\n    }\n\n    void erase(int i) {\n\
+    \        for (int h = 0; h < lg; h++) {\n            uint64_t &w = seg[h][i >>\
+    \ 6];\n            w &= ~(1ULL << (i & 63));\n            // \u30EF\u30FC\u30C9\
+    \u304C\u307E\u3060\u7A7A\u3067\u306A\u3051\u308C\u3070\u4E0A\u306E\u6BB5\u306F\
+    \u5909\u308F\u3089\u306A\u3044\n            if (w) break;\n            i >>= 6;\n\
+    \        }\n    }\n\n    // i \u4EE5\u4E0A\u306E\u6700\u5C0F\u306E\u8981\u7D20\
+    \ (\u5B58\u5728\u3057\u306A\u3051\u308C\u3070 -1)\n    int next(int i) const {\n\
+    \        if (i < 0) i = 0;\n        if (i >= n) return -1;\n        for (int h\
+    \ = 0; h < lg; h++) {\n            if ((i >> 6) == (int)seg[h].size()) break;\n\
+    \            uint64_t d = seg[h][i >> 6] >> (i & 63);\n            if (d == 0)\
+    \ {\n                i = (i >> 6) + 1;\n                continue;\n          \
+    \  }\n            i += __builtin_ctzll(d);\n            for (int g = h - 1; g\
+    \ >= 0; g--) {\n                i <<= 6;\n                i += __builtin_ctzll(seg[g][i\
     \ >> 6]);\n            }\n            return i;\n        }\n        return -1;\n\
-    \    }\n\n    // \u6700\u5C0F\u306E\u8981\u7D20 (\u7A7A\u306A\u3089 -1)\n    int\
-    \ min() const { return next(0); }\n    // \u6700\u5927\u306E\u8981\u7D20 (\u7A7A\
-    \u306A\u3089 -1)\n    int max() const { return prev(n - 1); }\n    bool empty()\
-    \ const { return seg[lg - 1][0] == 0; }\n\n    // [l, r) \u306B\u542B\u307E\u308C\
-    \u308B\u8981\u7D20\u3092\u6607\u9806\u306B f \u306B\u6E21\u3059\n    template\
-    \ <class F>\n    void enumerate(int l, int r, F f) const {\n        for (int x\
-    \ = next(l); x != -1 && x < r; x = next(x + 1)) f(x);\n    }\n};\n#line 2 \"template.hpp\"\
-    \nusing namespace std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\n\
-    using namespace atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\
-    \u30B3\u30E1\u30F3\u30C8\u30A2\u30A6\u30C8\u3092\u5916\u3059\n/*/\n#pragma GCC\
-    \ optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\")\n#pragma GCC target(\"\
-    avx2,bmi,bmi2,lzcnt,popcnt\")\n#pragma GCC target(\"avx,avx2,fma\")\n#pragma GCC\
-    \ target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma\")\n//*/\n#define\
-    \ rep(i,n) for(int i=0;i<n;i++)\n#define Rep(i,a,b) for(int i=a;i<b;i++)\n#define\
-    \ ALL(x) (x).begin(),(x).end()\n#define dbgv(x); for(auto now : x) cout << now\
-    \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
-    using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
-    \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 4 \"data_structure/segment_tree.hpp\"\
-    \n\n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u4E00\u70B9\u66F4\u65B0\u30FB\u533A\
+    \    }\n\n    // i \u4EE5\u4E0B\u306E\u6700\u5927\u306E\u8981\u7D20 (\u5B58\u5728\
+    \u3057\u306A\u3051\u308C\u3070 -1)\n    int prev(int i) const {\n        if (i\
+    \ >= n) i = n - 1;\n        for (int h = 0; h < lg; h++) {\n            if (i\
+    \ < 0) break;\n            uint64_t d = seg[h][i >> 6] << (63 - (i & 63));\n \
+    \           if (d == 0) {\n                i = (i >> 6) - 1;\n               \
+    \ continue;\n            }\n            i -= __builtin_clzll(d);\n           \
+    \ for (int g = h - 1; g >= 0; g--) {\n                i <<= 6;\n             \
+    \   i += 63 - __builtin_clzll(seg[g][i >> 6]);\n            }\n            return\
+    \ i;\n        }\n        return -1;\n    }\n\n    // \u6700\u5C0F\u306E\u8981\u7D20\
+    \ (\u7A7A\u306A\u3089 -1)\n    int min() const { return next(0); }\n    // \u6700\
+    \u5927\u306E\u8981\u7D20 (\u7A7A\u306A\u3089 -1)\n    int max() const { return\
+    \ prev(n - 1); }\n    bool empty() const { return seg[lg - 1][0] == 0; }\n\n \
+    \   // [l, r) \u306B\u542B\u307E\u308C\u308B\u8981\u7D20\u3092\u6607\u9806\u306B\
+    \ f \u306B\u6E21\u3059\n    template <class F>\n    void enumerate(int l, int\
+    \ r, F f) const {\n        for (int x = next(l); x != -1 && x < r; x = next(x\
+    \ + 1)) f(x);\n    }\n};\n#line 2 \"template.hpp\"\nusing namespace std;\n#if\
+    \ __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace atcoder;\n\
+    #endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\u30C8\u30A2\
+    \u30A6\u30C8\u3092\u5916\u3059\n/*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
+    )\n#pragma GCC target(\"avx2,bmi,bmi2,lzcnt,popcnt\")\n#pragma GCC target(\"avx,avx2,fma\"\
+    )\n#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma\"\
+    )\n//*/\n#define rep(i,n) for(int i=0;i<n;i++)\n#define Rep(i,a,b) for(int i=a;i<b;i++)\n\
+    #define ALL(x) (x).begin(),(x).end()\n#define dbgv(x); for(auto now : x) cout\
+    \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
+    \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
+    \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
+    \ 4 \"data_structure/segment_tree.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u4E00\u70B9\u66F4\u65B0\u30FB\u533A\
     \u9593\u7A4D)\n// M \u306F\u30E2\u30CE\u30A4\u30C9 (algebra/monoid.hpp \u53C2\u7167\
     )\uFF0E\u975E\u53EF\u63DB\u3067\u3082\u3088\u3044\ntemplate <class M>\nstruct\
     \ SegmentTree {\n    using S = typename M::S;\n    int n, sz, lg;\n    vector<S>\
@@ -438,62 +442,62 @@ data:
     \ sm = M::op(d[r--], sm);\n                }\n                return r + 1 - sz;\n\
     \            }\n            sm = M::op(d[r], sm);\n        } while ((r & -r) !=\
     \ r);\n        return 0;\n    }\n};\n#line 6 \"data_structure/sortable_segment_tree.hpp\"\
-    \n\n// \u533A\u9593\u30BD\u30FC\u30C8\u304C\u3067\u304D\u308B\u30BB\u30B0\u30E1\
-    \u30F3\u30C8\u6728\n// \u5404\u4F4D\u7F6E i \u306B (\u30AD\u30FC k_i, \u5024 a_i)\
-    \ \u3092\u6301\u3061\uFF0C\u4E00\u70B9\u66F4\u65B0\u30FB\u533A\u9593\u7A4D\u30FB\
-    \u533A\u9593\u3092\u30AD\u30FC\u306E\u6607\u9806 / \u964D\u9806\u306B\u30BD\u30FC\
-    \u30C8\u3092\u51E6\u7406\u3059\u308B\n// M \u306F\u30E2\u30CE\u30A4\u30C9 (\u975E\
-    \u53EF\u63DB\u3067\u3082\u3088\u3044)\uFF0E\u30AD\u30FC\u306F [0, 2^LOG) \u306E\
-    \u6574\u6570\u3067\uFF0C\u5168\u3066\u76F8\u7570\u306A\u308B\u3053\u3068\n//\n\
-    // \u30BD\u30FC\u30C8\u6E08\u307F\u306E\u9023\u7D9A\u90E8\u5206 (\u30E9\u30F3\
-    ) \u3054\u3068\u306B\uFF0C\u30AD\u30FC\u306E 2 \u5206\u30C8\u30E9\u30A4 (\u8981\
-    \u7D20\u6570\u30FB\u6607\u9806\u306E\u7A4D\u30FB\u964D\u9806\u306E\u7A4D\u3092\
-    \u6301\u3064) \u3067\u7BA1\u7406\u3059\u308B\uFF0E\n// \u30BD\u30FC\u30C8\u306F\
-    \u30C8\u30E9\u30A4\u306E\u30DE\u30FC\u30B8\uFF0C\u30E9\u30F3\u306E\u9014\u4E2D\
-    \u3067\u5207\u308B\u306E\u306F\u30C8\u30E9\u30A4\u306E\u8981\u7D20\u6570\u3067\
-    \u306E\u5206\u5272\uFF0E\n// \u30E9\u30F3\u306E\u5148\u982D\u4F4D\u7F6E\u306B\u300C\
-    \u305D\u306E\u30E9\u30F3\u306E\u7A4D\u300D\u3092\u7F6E\u3044\u305F\u30BB\u30B0\
-    \u30E1\u30F3\u30C8\u6728\u3067\u533A\u9593\u7A4D\u3092\u8A08\u7B97\u3059\u308B\
-    \uFF0E\n// \u8A08\u7B97\u91CF: \u5168\u4F53\u3067\u306A\u3089\u3057 O((n + q)\
-    \ LOG) \u56DE\u306E\u30C8\u30E9\u30A4\u64CD\u4F5C + \u5404\u64CD\u4F5C O(log n)\n\
-    template <class M, int LOG = 30>\nstruct SortableSegmentTree {\n    using S =\
-    \ typename M::S;\n    struct TNode {\n        int ch[2];\n        int cnt;\n \
-    \       S fwd, bwd;  // \u30AD\u30FC\u306E\u6607\u9806 / \u964D\u9806\u306B\u4E26\
-    \u3079\u305F\u3068\u304D\u306E\u7A4D\n    };\n    int n;\n    vector<TNode> tr;\n\
-    \    vector<int> free_nodes;\n    FastSet starts;       // \u30E9\u30F3\u306E\u5148\
-    \u982D\u4F4D\u7F6E\n    vector<int> root;     // root[s]: s \u304B\u3089\u59CB\
-    \u307E\u308B\u30E9\u30F3\u306E\u30C8\u30E9\u30A4\n    vector<char> desc;    //\
-    \ desc[s]: \u30E9\u30F3\u304C\u964D\u9806\u304B\n    SegmentTree<M> seg;   //\
-    \ seg[s] = \u30E9\u30F3\u306E\u7A4D (\u30E9\u30F3\u306E\u5148\u982D\u4EE5\u5916\
-    \u306F e())\n\n    // keys[i] \u3068 vals[i] \u3067\u521D\u671F\u5316 (\u5404\u8981\
-    \u7D20\u304C\u9577\u3055 1 \u306E\u30E9\u30F3)\n    SortableSegmentTree(const\
-    \ vector<long long> &keys, const vector<S> &vals)\n        : n(keys.size()), starts(n,\
-    \ [](int) { return true; }), root(n), desc(n, 0), seg(vals) {\n        assert(keys.size()\
-    \ == vals.size());\n        tr.reserve((size_t)n * (LOG + 1) + 1);\n        tr.push_back({{0,\
-    \ 0}, 0, M::e(), M::e()});  // 0 \u756A\u306F\u7A7A\n        for (int i = 0; i\
-    \ < n; i++) root[i] = make_single(keys[i], vals[i]);\n    }\n\n    int size()\
-    \ const { return n; }\n\n    // \u4F4D\u7F6E i \u3092 (key, x) \u306B\u3059\u308B\
-    \n    void set(int i, long long key, const S &x) {\n        split(i), split(i\
-    \ + 1);\n        free_trie(root[i]);\n        root[i] = make_single(key, x);\n\
-    \        desc[i] = 0;\n        seg.set(i, x);\n    }\n\n    // \u4F4D\u7F6E i\
-    \ \u306E (\u30AD\u30FC, \u5024)\n    pair<long long, S> get(int i) const {\n \
-    \       int s = starts.prev(i);\n        int v = root[s], k = i - s;\n       \
-    \ if (desc[s]) k = tr[v].cnt - 1 - k;\n        long long key = 0;\n        for\
-    \ (int d = LOG; d > 0; d--) {\n            int c0 = tr[v].ch[0];\n           \
-    \ if (k < tr[c0].cnt) {\n                v = c0;\n            } else {\n     \
-    \           k -= tr[c0].cnt;\n                v = tr[v].ch[1];\n             \
-    \   key |= 1LL << (d - 1);\n            }\n        }\n        return {key, tr[v].fwd};\n\
-    \    }\n\n    // op(a[l], ..., a[r-1])\uFF0El == r \u306A\u3089 e()\n    S prod(int\
-    \ l, int r) {\n        if (l >= r) return M::e();\n        split(l), split(r);\n\
-    \        return seg.prod(l, r);\n    }\n    S all_prod() const { return seg.all_prod();\
-    \ }\n\n    // [l, r) \u3092\u30AD\u30FC\u306E\u6607\u9806\u306B\u30BD\u30FC\u30C8\
-    \u3059\u308B\n    void sort_asc(int l, int r) { sort_range(l, r, false); }\n \
-    \   // [l, r) \u3092\u30AD\u30FC\u306E\u964D\u9806\u306B\u30BD\u30FC\u30C8\u3059\
-    \u308B\n    void sort_desc(int l, int r) { sort_range(l, r, true); }\n\n  private:\n\
-    \    int new_node() {\n        if (!free_nodes.empty()) {\n            int v =\
-    \ free_nodes.back();\n            free_nodes.pop_back();\n            return v;\n\
-    \        }\n        tr.push_back({});\n        return int(tr.size()) - 1;\n  \
-    \  }\n    void free_trie(int v) {\n        if (!v) return;\n        free_trie(tr[v].ch[0]),\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u533A\u9593\u30BD\u30FC\
+    \u30C8\u304C\u3067\u304D\u308B\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\n// \u5404\u4F4D\
+    \u7F6E i \u306B (\u30AD\u30FC k_i, \u5024 a_i) \u3092\u6301\u3061\uFF0C\u4E00\u70B9\
+    \u66F4\u65B0\u30FB\u533A\u9593\u7A4D\u30FB\u533A\u9593\u3092\u30AD\u30FC\u306E\
+    \u6607\u9806 / \u964D\u9806\u306B\u30BD\u30FC\u30C8\u3092\u51E6\u7406\u3059\u308B\
+    \n// M \u306F\u30E2\u30CE\u30A4\u30C9 (\u975E\u53EF\u63DB\u3067\u3082\u3088\u3044\
+    )\uFF0E\u30AD\u30FC\u306F [0, 2^LOG) \u306E\u6574\u6570\u3067\uFF0C\u5168\u3066\
+    \u76F8\u7570\u306A\u308B\u3053\u3068\n//\n// \u30BD\u30FC\u30C8\u6E08\u307F\u306E\
+    \u9023\u7D9A\u90E8\u5206 (\u30E9\u30F3) \u3054\u3068\u306B\uFF0C\u30AD\u30FC\u306E\
+    \ 2 \u5206\u30C8\u30E9\u30A4 (\u8981\u7D20\u6570\u30FB\u6607\u9806\u306E\u7A4D\
+    \u30FB\u964D\u9806\u306E\u7A4D\u3092\u6301\u3064) \u3067\u7BA1\u7406\u3059\u308B\
+    \uFF0E\n// \u30BD\u30FC\u30C8\u306F\u30C8\u30E9\u30A4\u306E\u30DE\u30FC\u30B8\uFF0C\
+    \u30E9\u30F3\u306E\u9014\u4E2D\u3067\u5207\u308B\u306E\u306F\u30C8\u30E9\u30A4\
+    \u306E\u8981\u7D20\u6570\u3067\u306E\u5206\u5272\uFF0E\n// \u30E9\u30F3\u306E\u5148\
+    \u982D\u4F4D\u7F6E\u306B\u300C\u305D\u306E\u30E9\u30F3\u306E\u7A4D\u300D\u3092\
+    \u7F6E\u3044\u305F\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u3067\u533A\u9593\u7A4D\
+    \u3092\u8A08\u7B97\u3059\u308B\uFF0E\n// \u8A08\u7B97\u91CF: \u5168\u4F53\u3067\
+    \u306A\u3089\u3057 O((n + q) LOG) \u56DE\u306E\u30C8\u30E9\u30A4\u64CD\u4F5C +\
+    \ \u5404\u64CD\u4F5C O(log n)\ntemplate <class M, int LOG = 30>\nstruct SortableSegmentTree\
+    \ {\n    using S = typename M::S;\n    struct TNode {\n        int ch[2];\n  \
+    \      int cnt;\n        S fwd, bwd;  // \u30AD\u30FC\u306E\u6607\u9806 / \u964D\
+    \u9806\u306B\u4E26\u3079\u305F\u3068\u304D\u306E\u7A4D\n    };\n    int n;\n \
+    \   vector<TNode> tr;\n    vector<int> free_nodes;\n    FastSet starts;      \
+    \ // \u30E9\u30F3\u306E\u5148\u982D\u4F4D\u7F6E\n    vector<int> root;     //\
+    \ root[s]: s \u304B\u3089\u59CB\u307E\u308B\u30E9\u30F3\u306E\u30C8\u30E9\u30A4\
+    \n    vector<char> desc;    // desc[s]: \u30E9\u30F3\u304C\u964D\u9806\u304B\n\
+    \    SegmentTree<M> seg;   // seg[s] = \u30E9\u30F3\u306E\u7A4D (\u30E9\u30F3\u306E\
+    \u5148\u982D\u4EE5\u5916\u306F e())\n\n    // keys[i] \u3068 vals[i] \u3067\u521D\
+    \u671F\u5316 (\u5404\u8981\u7D20\u304C\u9577\u3055 1 \u306E\u30E9\u30F3)\n   \
+    \ SortableSegmentTree(const vector<long long> &keys, const vector<S> &vals)\n\
+    \        : n(keys.size()), starts(n, [](int) { return true; }), root(n), desc(n,\
+    \ 0), seg(vals) {\n        assert(keys.size() == vals.size());\n        tr.reserve((size_t)n\
+    \ * (LOG + 1) + 1);\n        tr.push_back({{0, 0}, 0, M::e(), M::e()});  // 0\
+    \ \u756A\u306F\u7A7A\n        for (int i = 0; i < n; i++) root[i] = make_single(keys[i],\
+    \ vals[i]);\n    }\n\n    int size() const { return n; }\n\n    // \u4F4D\u7F6E\
+    \ i \u3092 (key, x) \u306B\u3059\u308B\n    void set(int i, long long key, const\
+    \ S &x) {\n        split(i), split(i + 1);\n        free_trie(root[i]);\n    \
+    \    root[i] = make_single(key, x);\n        desc[i] = 0;\n        seg.set(i,\
+    \ x);\n    }\n\n    // \u4F4D\u7F6E i \u306E (\u30AD\u30FC, \u5024)\n    pair<long\
+    \ long, S> get(int i) const {\n        int s = starts.prev(i);\n        int v\
+    \ = root[s], k = i - s;\n        if (desc[s]) k = tr[v].cnt - 1 - k;\n       \
+    \ long long key = 0;\n        for (int d = LOG; d > 0; d--) {\n            int\
+    \ c0 = tr[v].ch[0];\n            if (k < tr[c0].cnt) {\n                v = c0;\n\
+    \            } else {\n                k -= tr[c0].cnt;\n                v = tr[v].ch[1];\n\
+    \                key |= 1LL << (d - 1);\n            }\n        }\n        return\
+    \ {key, tr[v].fwd};\n    }\n\n    // op(a[l], ..., a[r-1])\uFF0El == r \u306A\u3089\
+    \ e()\n    S prod(int l, int r) {\n        if (l >= r) return M::e();\n      \
+    \  split(l), split(r);\n        return seg.prod(l, r);\n    }\n    S all_prod()\
+    \ const { return seg.all_prod(); }\n\n    // [l, r) \u3092\u30AD\u30FC\u306E\u6607\
+    \u9806\u306B\u30BD\u30FC\u30C8\u3059\u308B\n    void sort_asc(int l, int r) {\
+    \ sort_range(l, r, false); }\n    // [l, r) \u3092\u30AD\u30FC\u306E\u964D\u9806\
+    \u306B\u30BD\u30FC\u30C8\u3059\u308B\n    void sort_desc(int l, int r) { sort_range(l,\
+    \ r, true); }\n\n  private:\n    int new_node() {\n        if (!free_nodes.empty())\
+    \ {\n            int v = free_nodes.back();\n            free_nodes.pop_back();\n\
+    \            return v;\n        }\n        tr.push_back({});\n        return int(tr.size())\
+    \ - 1;\n    }\n    void free_trie(int v) {\n        if (!v) return;\n        free_trie(tr[v].ch[0]),\
     \ free_trie(tr[v].ch[1]);\n        free_nodes.push_back(v);\n    }\n    void pull(int\
     \ v) {\n        int a = tr[v].ch[0], b = tr[v].ch[1];\n        // \u4E0A\u306E\
     \u65B9\u306E\u6BB5\u306F\u5B50\u304C\u7247\u65B9\u3060\u3051\u306E\u3053\u3068\
@@ -620,8 +624,8 @@ data:
   isVerificationFile: true
   path: test/unittest/sortable_segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 11:35:48+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/unittest/sortable_segment_tree.test.cpp
 layout: document

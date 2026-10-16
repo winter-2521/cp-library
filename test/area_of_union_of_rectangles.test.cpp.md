@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/area_of_union_of_rectangles.hpp
     title: "\u9577\u65B9\u5F62\u306E\u548C\u96C6\u5408\u306E\u9762\u7A4D (Area of\
       \ Union of Rectangles)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -37,31 +37,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -196,54 +197,54 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/area_of_union_of_rectangles.hpp\"\
-    \n\n// \u9577\u65B9\u5F62\u306E\u548C\u96C6\u5408\u306E\u9762\u7A4D (Area of Union\
-    \ of Rectangles)\n// x \u306E\u5C0F\u3055\u3044\u9806\u306B\u8D70\u67FB\u3057\uFF0C\
-    y \u65B9\u5411\u3092\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u3067\u7BA1\u7406\u3059\
-    \u308B\uFF0E\u5404\u30CE\u30FC\u30C9\u306F\n//   cnt: \u3053\u306E\u30CE\u30FC\
-    \u30C9\u306E\u533A\u9593\u300C\u5168\u4F53\u300D\u3092\u3061\u3087\u3046\u3069\
-    \u8986\u3063\u3066\u3044\u308B\u9577\u65B9\u5F62\u306E\u6570 (\u5B50\u306B\u306F\
-    \u4F1D\u3048\u306A\u3044)\n//   cov: \u3053\u306E\u30CE\u30FC\u30C9\u306E\u533A\
-    \u9593\u306E\u3046\u3061\uFF0C\u3053\u306E\u30CE\u30FC\u30C9\u4EE5\u4E0B\u306E\
-    \ cnt \u3067\u8986\u308F\u308C\u3066\u3044\u308B\u9577\u3055\n// \u3092\u6301\u3061\
-    \uFF0Ccov = (cnt > 0 ? \u533A\u9593\u306E\u9577\u3055 : \u5B50\u306E cov \u306E\
-    \u548C)\uFF0E\u9045\u5EF6\u4F1D\u64AD\u304C\u8981\u3089\u306A\u3044\u306E\u3067\
-    \u901F\u3044\uFF0EO(n log n)\n// \u9577\u65B9\u5F62 i \u306F [l[i], r[i]] \xD7\
-    \ [d[i], u[i]] (\u9762\u7A4D\u306F\u9589\u533A\u9593\u3067\u3082\u534A\u958B\u533A\
-    \u9593\u3067\u3082\u540C\u3058)\ntemplate <class T>\nT area_of_union_of_rectangles(const\
-    \ vector<T> &l, const vector<T> &d, const vector<T> &r, const vector<T> &u) {\n\
-    \    int n = l.size();\n    // y \u5EA7\u6A19\u3092 (\u5024, 2i \u307E\u305F\u306F\
-    \ 2i+1) \u3067\u30BD\u30FC\u30C8\u3057\u3066\u756A\u53F7\u3092\u632F\u308B (\u4E8C\
-    \u5206\u63A2\u7D22\u3057\u306A\u3044)\n    vector<pair<T, int>> yv(2 * n);\n \
-    \   for (int i = 0; i < n; i++) yv[2 * i] = {d[i], 2 * i}, yv[2 * i + 1] = {u[i],\
-    \ 2 * i + 1};\n    sort(yv.begin(), yv.end());\n    vector<T> ys;\n    ys.reserve(2\
-    \ * n);\n    vector<int> yi(2 * n);  // yi[2i] = d[i] \u306E\u756A\u53F7\uFF0C\
-    yi[2i+1] = u[i] \u306E\u756A\u53F7\n    for (auto &[y, id] : yv) {\n        if\
-    \ (ys.empty() || ys.back() != y) ys.push_back(y);\n        yi[id] = ys.size()\
-    \ - 1;\n    }\n    int m = (int)ys.size() - 1;\n    if (m <= 0) return T(0);\n\
-    \    int sz = 1;\n    while (sz < m) sz <<= 1;\n    struct Node {\n        T cov,\
-    \ len;\n        int cnt;\n    };\n    vector<Node> t(2 * sz, Node{T(0), T(0),\
-    \ 0});\n    for (int i = 0; i < m; i++) t[sz + i].len = ys[i + 1] - ys[i];\n \
-    \   for (int k = sz - 1; k >= 1; k--) t[k].len = t[2 * k].len + t[2 * k + 1].len;\n\
-    \    auto fix = [&](int k) { t[k].cov = t[k].cnt ? t[k].len : (k < sz ? t[2 *\
-    \ k].cov + t[2 * k + 1].cov : T(0)); };\n    auto update = [&](int a, int b, int\
-    \ c) {  // y \u306E\u533A\u9593 [a, b) \u306E\u88AB\u8986\u56DE\u6570\u306B c\
-    \ \u3092\u8DB3\u3059\n        int a0 = a + sz, b0 = b + sz;\n        for (int\
-    \ x = a0, y = b0; x < y; x >>= 1, y >>= 1) {\n            if (x & 1) t[x].cnt\
-    \ += c, fix(x), x++;\n            if (y & 1) --y, t[y].cnt += c, fix(y);\n   \
-    \     }\n        for (int k = a0 >> 1; k; k >>= 1) fix(k);\n        for (int k\
-    \ = (b0 - 1) >> 1; k; k >>= 1) fix(k);\n    };\n    // \u30A4\u30D9\u30F3\u30C8\
-    : \u9577\u65B9\u5F62 i \u306E\u5DE6\u7AEF\u3067 +1 (\u756A\u53F7 i)\uFF0C\u53F3\
-    \u7AEF\u3067 -1 (\u756A\u53F7 ~i)\n    vector<pair<T, int>> ev;\n    ev.reserve(2\
-    \ * n);\n    for (int i = 0; i < n; i++) ev.emplace_back(l[i], i), ev.emplace_back(r[i],\
-    \ ~i);\n    sort(ev.begin(), ev.end());\n    T res(0);\n    for (int k = 0; k\
-    \ < (int)ev.size(); k++) {\n        if (k > 0) res += t[1].cov * (ev[k].first\
-    \ - ev[k - 1].first);\n        int i = ev[k].second;\n        if (i >= 0) update(yi[2\
-    \ * i], yi[2 * i + 1], 1);\n        else update(yi[2 * ~i], yi[2 * ~i + 1], -1);\n\
-    \    }\n    return res;\n}\n#line 4 \"test/area_of_union_of_rectangles.test.cpp\"\
-    \n\nint main() {\n    int n;\n    fin >> n;\n    vector<long long> l(n), d(n),\
-    \ r(n), u(n);\n    for (int i = 0; i < n; i++) fin >> l[i] >> d[i] >> r[i] >>\
-    \ u[i];\n    fout << area_of_union_of_rectangles(l, d, r, u) << '\\n';\n    return\
-    \ 0;\n}\n"
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u9577\u65B9\u5F62\u306E\
+    \u548C\u96C6\u5408\u306E\u9762\u7A4D (Area of Union of Rectangles)\n// x \u306E\
+    \u5C0F\u3055\u3044\u9806\u306B\u8D70\u67FB\u3057\uFF0Cy \u65B9\u5411\u3092\u30BB\
+    \u30B0\u30E1\u30F3\u30C8\u6728\u3067\u7BA1\u7406\u3059\u308B\uFF0E\u5404\u30CE\
+    \u30FC\u30C9\u306F\n//   cnt: \u3053\u306E\u30CE\u30FC\u30C9\u306E\u533A\u9593\
+    \u300C\u5168\u4F53\u300D\u3092\u3061\u3087\u3046\u3069\u8986\u3063\u3066\u3044\
+    \u308B\u9577\u65B9\u5F62\u306E\u6570 (\u5B50\u306B\u306F\u4F1D\u3048\u306A\u3044\
+    )\n//   cov: \u3053\u306E\u30CE\u30FC\u30C9\u306E\u533A\u9593\u306E\u3046\u3061\
+    \uFF0C\u3053\u306E\u30CE\u30FC\u30C9\u4EE5\u4E0B\u306E cnt \u3067\u8986\u308F\u308C\
+    \u3066\u3044\u308B\u9577\u3055\n// \u3092\u6301\u3061\uFF0Ccov = (cnt > 0 ? \u533A\
+    \u9593\u306E\u9577\u3055 : \u5B50\u306E cov \u306E\u548C)\uFF0E\u9045\u5EF6\u4F1D\
+    \u64AD\u304C\u8981\u3089\u306A\u3044\u306E\u3067\u901F\u3044\uFF0EO(n log n)\n\
+    // \u9577\u65B9\u5F62 i \u306F [l[i], r[i]] \xD7 [d[i], u[i]] (\u9762\u7A4D\u306F\
+    \u9589\u533A\u9593\u3067\u3082\u534A\u958B\u533A\u9593\u3067\u3082\u540C\u3058\
+    )\ntemplate <class T>\nT area_of_union_of_rectangles(const vector<T> &l, const\
+    \ vector<T> &d, const vector<T> &r, const vector<T> &u) {\n    int n = l.size();\n\
+    \    // y \u5EA7\u6A19\u3092 (\u5024, 2i \u307E\u305F\u306F 2i+1) \u3067\u30BD\
+    \u30FC\u30C8\u3057\u3066\u756A\u53F7\u3092\u632F\u308B (\u4E8C\u5206\u63A2\u7D22\
+    \u3057\u306A\u3044)\n    vector<pair<T, int>> yv(2 * n);\n    for (int i = 0;\
+    \ i < n; i++) yv[2 * i] = {d[i], 2 * i}, yv[2 * i + 1] = {u[i], 2 * i + 1};\n\
+    \    sort(yv.begin(), yv.end());\n    vector<T> ys;\n    ys.reserve(2 * n);\n\
+    \    vector<int> yi(2 * n);  // yi[2i] = d[i] \u306E\u756A\u53F7\uFF0Cyi[2i+1]\
+    \ = u[i] \u306E\u756A\u53F7\n    for (auto &[y, id] : yv) {\n        if (ys.empty()\
+    \ || ys.back() != y) ys.push_back(y);\n        yi[id] = ys.size() - 1;\n    }\n\
+    \    int m = (int)ys.size() - 1;\n    if (m <= 0) return T(0);\n    int sz = 1;\n\
+    \    while (sz < m) sz <<= 1;\n    struct Node {\n        T cov, len;\n      \
+    \  int cnt;\n    };\n    vector<Node> t(2 * sz, Node{T(0), T(0), 0});\n    for\
+    \ (int i = 0; i < m; i++) t[sz + i].len = ys[i + 1] - ys[i];\n    for (int k =\
+    \ sz - 1; k >= 1; k--) t[k].len = t[2 * k].len + t[2 * k + 1].len;\n    auto fix\
+    \ = [&](int k) { t[k].cov = t[k].cnt ? t[k].len : (k < sz ? t[2 * k].cov + t[2\
+    \ * k + 1].cov : T(0)); };\n    auto update = [&](int a, int b, int c) {  // y\
+    \ \u306E\u533A\u9593 [a, b) \u306E\u88AB\u8986\u56DE\u6570\u306B c \u3092\u8DB3\
+    \u3059\n        int a0 = a + sz, b0 = b + sz;\n        for (int x = a0, y = b0;\
+    \ x < y; x >>= 1, y >>= 1) {\n            if (x & 1) t[x].cnt += c, fix(x), x++;\n\
+    \            if (y & 1) --y, t[y].cnt += c, fix(y);\n        }\n        for (int\
+    \ k = a0 >> 1; k; k >>= 1) fix(k);\n        for (int k = (b0 - 1) >> 1; k; k >>=\
+    \ 1) fix(k);\n    };\n    // \u30A4\u30D9\u30F3\u30C8: \u9577\u65B9\u5F62 i \u306E\
+    \u5DE6\u7AEF\u3067 +1 (\u756A\u53F7 i)\uFF0C\u53F3\u7AEF\u3067 -1 (\u756A\u53F7\
+    \ ~i)\n    vector<pair<T, int>> ev;\n    ev.reserve(2 * n);\n    for (int i =\
+    \ 0; i < n; i++) ev.emplace_back(l[i], i), ev.emplace_back(r[i], ~i);\n    sort(ev.begin(),\
+    \ ev.end());\n    T res(0);\n    for (int k = 0; k < (int)ev.size(); k++) {\n\
+    \        if (k > 0) res += t[1].cov * (ev[k].first - ev[k - 1].first);\n     \
+    \   int i = ev[k].second;\n        if (i >= 0) update(yi[2 * i], yi[2 * i + 1],\
+    \ 1);\n        else update(yi[2 * ~i], yi[2 * ~i + 1], -1);\n    }\n    return\
+    \ res;\n}\n#line 4 \"test/area_of_union_of_rectangles.test.cpp\"\n\nint main()\
+    \ {\n    int n;\n    fin >> n;\n    vector<long long> l(n), d(n), r(n), u(n);\n\
+    \    for (int i = 0; i < n; i++) fin >> l[i] >> d[i] >> r[i] >> u[i];\n    fout\
+    \ << area_of_union_of_rectangles(l, d, r, u) << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/area_of_union_of_rectangles\"\
     \n#include \"../io/fastio.hpp\"\n#include \"../data_structure/area_of_union_of_rectangles.hpp\"\
     \n\nint main() {\n    int n;\n    fin >> n;\n    vector<long long> l(n), d(n),\
@@ -258,7 +259,7 @@ data:
   isVerificationFile: true
   path: test/area_of_union_of_rectangles.test.cpp
   requiredBy: []
-  timestamp: '2026-10-15 00:08:07+09:00'
+  timestamp: '2026-10-17 01:04:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/area_of_union_of_rectangles.test.cpp

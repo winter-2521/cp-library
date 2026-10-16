@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/csr.hpp
     title: "CSR (\u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\
       \u6301\u3064)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/cycle_detection.hpp
     title: "\u9589\u8DEF\u691C\u51FA (Cycle Detection)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -39,31 +39,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -209,31 +210,32 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"graph/csr.hpp\"\
-    \n\n// \u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\
-    \u3064 (Compressed Sparse Row)\n// \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v]\
-    \ .. start[v+1])\uFF0Evector<vector<int>> \u3088\u308A\u901F\u304F\u30E1\u30E2\
-    \u30EA\u3082\u5C11\u306A\u3044\ntemplate <class E>\nstruct CSR {\n    vector<int>\
-    \ start;\n    vector<E> elist;\n    CSR() = default;\n    // edges[i] = (from,\
-    \ \u4E2D\u8EAB)\n    CSR(int n, const vector<pair<int, E>> &edges) : start(n +\
-    \ 1, 0), elist(edges.size()) {\n        for (auto &e : edges) start[e.first +\
-    \ 1]++;\n        for (int i = 1; i <= n; i++) start[i] += start[i - 1];\n    \
-    \    vector<int> pos(start.begin(), start.end() - 1);\n        for (auto &e :\
-    \ edges) elist[pos[e.first]++] = e.second;\n    }\n    int size() const { return\
-    \ (int)start.size() - 1; }\n};\n#line 4 \"graph/cycle_detection.hpp\"\n\n// \u9589\
-    \u8DEF\u691C\u51FA\n// find_cycle_directed(n, edges)   : \u6709\u5411\u30B0\u30E9\
-    \u30D5\u306E\u9589\u8DEF\u3092 1 \u3064\uFF0E\u8FBA\u756A\u53F7\u306E\u5217 (\u306A\
-    \u3051\u308C\u3070\u7A7A)\n// find_cycle_undirected(n, edges) : \u7121\u5411\u30B0\
-    \u30E9\u30D5\u306E\u9589\u8DEF\u3092 1 \u3064\uFF0E{\u9802\u70B9\u306E\u5217,\
-    \ \u8FBA\u756A\u53F7\u306E\u5217} (\u306A\u3051\u308C\u3070\u7A7A)\n// \u3069\u3061\
-    \u3089\u3082\u975E\u518D\u5E30\u306E DFS \u3067 O(n + m)\n\ninline vector<int>\
-    \ find_cycle_directed(int n, const vector<pair<int, int>> &edges) {\n    int m\
-    \ = edges.size();\n    vector<pair<int, int>> el(m);\n    for (int i = 0; i <\
-    \ m; i++) el[i] = {edges[i].first, i};\n    CSR<int> g(n, el);\n    // state:\
-    \ 0 = \u672A\u8A2A\u554F\uFF0C1 = \u63A2\u7D22\u4E2D (\u30B9\u30BF\u30C3\u30AF\
-    \u306B\u3042\u308B)\uFF0C2 = \u7D42\u4E86\n    vector<char> state(n, 0);\n   \
-    \ vector<int> it(n), par_edge(n, -1), stk;\n    for (int s = 0; s < n; s++) {\n\
-    \        if (state[s]) continue;\n        stk.push_back(s), state[s] = 1, it[s]\
-    \ = g.start[s];\n        while (!stk.empty()) {\n            int v = stk.back();\n\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u96A3\u63A5\u30EA\u30B9\
+    \u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\u3064 (Compressed Sparse Row)\n\
+    // \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v] .. start[v+1])\uFF0E\
+    vector<vector<int>> \u3088\u308A\u901F\u304F\u30E1\u30E2\u30EA\u3082\u5C11\u306A\
+    \u3044\ntemplate <class E>\nstruct CSR {\n    vector<int> start;\n    vector<E>\
+    \ elist;\n    CSR() = default;\n    // edges[i] = (from, \u4E2D\u8EAB)\n    CSR(int\
+    \ n, const vector<pair<int, E>> &edges) : start(n + 1, 0), elist(edges.size())\
+    \ {\n        for (auto &e : edges) start[e.first + 1]++;\n        for (int i =\
+    \ 1; i <= n; i++) start[i] += start[i - 1];\n        vector<int> pos(start.begin(),\
+    \ start.end() - 1);\n        for (auto &e : edges) elist[pos[e.first]++] = e.second;\n\
+    \    }\n    int size() const { return (int)start.size() - 1; }\n};\n#line 4 \"\
+    graph/cycle_detection.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n\
+    // \u9589\u8DEF\u691C\u51FA\n// find_cycle_directed(n, edges)   : \u6709\u5411\
+    \u30B0\u30E9\u30D5\u306E\u9589\u8DEF\u3092 1 \u3064\uFF0E\u8FBA\u756A\u53F7\u306E\
+    \u5217 (\u306A\u3051\u308C\u3070\u7A7A)\n// find_cycle_undirected(n, edges) :\
+    \ \u7121\u5411\u30B0\u30E9\u30D5\u306E\u9589\u8DEF\u3092 1 \u3064\uFF0E{\u9802\
+    \u70B9\u306E\u5217, \u8FBA\u756A\u53F7\u306E\u5217} (\u306A\u3051\u308C\u3070\u7A7A\
+    )\n// \u3069\u3061\u3089\u3082\u975E\u518D\u5E30\u306E DFS \u3067 O(n + m)\n\n\
+    inline vector<int> find_cycle_directed(int n, const vector<pair<int, int>> &edges)\
+    \ {\n    int m = edges.size();\n    vector<pair<int, int>> el(m);\n    for (int\
+    \ i = 0; i < m; i++) el[i] = {edges[i].first, i};\n    CSR<int> g(n, el);\n  \
+    \  // state: 0 = \u672A\u8A2A\u554F\uFF0C1 = \u63A2\u7D22\u4E2D (\u30B9\u30BF\u30C3\
+    \u30AF\u306B\u3042\u308B)\uFF0C2 = \u7D42\u4E86\n    vector<char> state(n, 0);\n\
+    \    vector<int> it(n), par_edge(n, -1), stk;\n    for (int s = 0; s < n; s++)\
+    \ {\n        if (state[s]) continue;\n        stk.push_back(s), state[s] = 1,\
+    \ it[s] = g.start[s];\n        while (!stk.empty()) {\n            int v = stk.back();\n\
     \            if (it[v] == g.start[v + 1]) {\n                state[v] = 2, stk.pop_back();\n\
     \                continue;\n            }\n            int e = g.elist[it[v]++],\
     \ to = edges[e].second;\n            if (state[to] == 0) {\n                par_edge[to]\
@@ -286,7 +288,7 @@ data:
   isVerificationFile: true
   path: test/cycle_detection.test.cpp
   requiredBy: []
-  timestamp: '2026-10-15 00:32:43+09:00'
+  timestamp: '2026-10-17 01:04:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/cycle_detection.test.cpp

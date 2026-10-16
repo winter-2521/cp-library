@@ -1,31 +1,31 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/csr.hpp
     title: "CSR (\u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\
       \u6301\u3064)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/incremental_scc.hpp
     title: "\u8FBA\u306E\u8FFD\u52A0\u3068\u5F37\u9023\u7D50\u6210\u5206 (Incremental\
       \ SCC)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/k_shortest_walk.hpp
     title: "K \u6700\u77ED\u8DEF (K-Shortest Walk, Eppstein)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -44,31 +44,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -214,21 +215,22 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"graph/csr.hpp\"\
-    \n\n// \u96A3\u63A5\u30EA\u30B9\u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\
-    \u3064 (Compressed Sparse Row)\n// \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v]\
-    \ .. start[v+1])\uFF0Evector<vector<int>> \u3088\u308A\u901F\u304F\u30E1\u30E2\
-    \u30EA\u3082\u5C11\u306A\u3044\ntemplate <class E>\nstruct CSR {\n    vector<int>\
-    \ start;\n    vector<E> elist;\n    CSR() = default;\n    // edges[i] = (from,\
-    \ \u4E2D\u8EAB)\n    CSR(int n, const vector<pair<int, E>> &edges) : start(n +\
-    \ 1, 0), elist(edges.size()) {\n        for (auto &e : edges) start[e.first +\
-    \ 1]++;\n        for (int i = 1; i <= n; i++) start[i] += start[i - 1];\n    \
-    \    vector<int> pos(start.begin(), start.end() - 1);\n        for (auto &e :\
-    \ edges) elist[pos[e.first]++] = e.second;\n    }\n    int size() const { return\
-    \ (int)start.size() - 1; }\n};\n#line 4 \"graph/incremental_scc.hpp\"\n\n// \u8FBA\
-    \u3092\u9806\u306B\u8FFD\u52A0\u3057\u3066\u3044\u304F\u6709\u5411\u30B0\u30E9\
-    \u30D5\u306E\u5F37\u9023\u7D50\u6210\u5206 (Incremental SCC)\uFF0E\u30AA\u30D5\
-    \u30E9\u30A4\u30F3 (\u8FBA\u3092\u5168\u90E8\u5148\u8AAD\u307F\u3059\u308B)\n\
-    // incremental_scc(n, edges) \u306F\u5404\u8FBA i \u306B\u3064\u3044\u3066\u300C\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u96A3\u63A5\u30EA\u30B9\
+    \u30C8\u3092 1 \u672C\u306E\u914D\u5217\u3067\u6301\u3064 (Compressed Sparse Row)\n\
+    // \u9802\u70B9 v \u306E\u96A3\u63A5\u306F elist[start[v] .. start[v+1])\uFF0E\
+    vector<vector<int>> \u3088\u308A\u901F\u304F\u30E1\u30E2\u30EA\u3082\u5C11\u306A\
+    \u3044\ntemplate <class E>\nstruct CSR {\n    vector<int> start;\n    vector<E>\
+    \ elist;\n    CSR() = default;\n    // edges[i] = (from, \u4E2D\u8EAB)\n    CSR(int\
+    \ n, const vector<pair<int, E>> &edges) : start(n + 1, 0), elist(edges.size())\
+    \ {\n        for (auto &e : edges) start[e.first + 1]++;\n        for (int i =\
+    \ 1; i <= n; i++) start[i] += start[i - 1];\n        vector<int> pos(start.begin(),\
+    \ start.end() - 1);\n        for (auto &e : edges) elist[pos[e.first]++] = e.second;\n\
+    \    }\n    int size() const { return (int)start.size() - 1; }\n};\n#line 4 \"\
+    graph/incremental_scc.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n\
+    // \u8FBA\u3092\u9806\u306B\u8FFD\u52A0\u3057\u3066\u3044\u304F\u6709\u5411\u30B0\
+    \u30E9\u30D5\u306E\u5F37\u9023\u7D50\u6210\u5206 (Incremental SCC)\uFF0E\u30AA\
+    \u30D5\u30E9\u30A4\u30F3 (\u8FBA\u3092\u5168\u90E8\u5148\u8AAD\u307F\u3059\u308B\
+    )\n// incremental_scc(n, edges) \u306F\u5404\u8FBA i \u306B\u3064\u3044\u3066\u300C\
     \u8FBA 0..t-1 \u3092\u8FFD\u52A0\u3057\u305F\u6642\u70B9\u3067 i \u306E\u4E21\u7AEF\
     \u304C\u540C\u3058\u5F37\u9023\u7D50\u6210\u5206\u306B\u306A\u308B\u6700\u5C0F\
     \u306E t\u300D\u3092\u8FD4\u3059\n// (\u306A\u3089\u306A\u3051\u308C\u3070 m +\
@@ -301,100 +303,101 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 4 \"graph/k_shortest_walk.hpp\"\n\n// s \u304B\u3089 t \u3078\u306E\u77ED\u3044\
-    \u65B9\u304B\u3089 K \u500B\u306E\u30A6\u30A9\u30FC\u30AF (\u540C\u3058\u9802\u70B9\
-    \u30FB\u8FBA\u3092\u4F55\u5EA6\u901A\u3063\u3066\u3082\u3088\u3044\u8DEF) \u306E\
-    \u9577\u3055 (Eppstein \u6CD5)\n// \u8FBA\u306E\u91CD\u307F\u306F\u975E\u8CA0\uFF0E\
-    \u8FD4\u308A\u5024\u306F\u9577\u3055\u306E\u6607\u9806\u3067\uFF0CK \u500B\u306B\
-    \u6E80\u305F\u306A\u3051\u308C\u3070\u305D\u306E\u5206\u3060\u3051\n// 1. t \u3078\
-    \u306E\u6700\u77ED\u8DDD\u96E2 dist \u3068\uFF0C\u5404\u9802\u70B9\u304B\u3089\
-    \ t \u3078\u306E\u6700\u77ED\u8DEF\u6728\u3092\u4F5C\u308B\n// 2. \u6700\u77ED\
-    \u8DEF\u6728\u306B\u4F7F\u308F\u306A\u3044\u8FBA e = (u \u2192 w) \u3092\u300C\
-    \u5BC4\u308A\u9053\u300D\u3068\u547C\u3073\uFF0C\u305D\u306E\u8FFD\u52A0\u30B3\
-    \u30B9\u30C8 \u03B4(e) = c + dist[w] - dist[u] >= 0\n// 3. H[v] = v \u304B\u3089\
-    \u6700\u77ED\u8DEF\u6728\u3067 t \u306B\u5411\u304B\u3046\u9014\u4E2D\u306E\u9802\
-    \u70B9\u304B\u3089\u51FA\u308B\u5BC4\u308A\u9053\u5168\u90E8\u3092 \u03B4 \u3067\
-    \u307E\u3068\u3081\u305F\u6C38\u7D9A\u30D2\u30FC\u30D7 (H[v] = H[\u89AA] + v \u306E\
-    \u5BC4\u308A\u9053)\n// 4. \u30A6\u30A9\u30FC\u30AF\u306F\u300C\u5BC4\u308A\u9053\
-    \u306E\u5217\u300D\u3068 1 \u5BFE 1 \u306B\u5BFE\u5FDC\u3057\uFF0C\u305D\u308C\
-    \u3092\u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC\u3067\u5C0F\u3055\u3044\
-    \u9806\u306B\u53D6\u308A\u51FA\u3059\n// O((n + m) log m + K log K)\ntemplate\
-    \ <class T>\nvector<T> k_shortest_walks(int n, const vector<tuple<int, int, T>>\
-    \ &edges, int s, int t, int K) {\n    int m = edges.size();\n    const T INF =\
-    \ numeric_limits<T>::max();\n    // \u9006\u5411\u304D\u306E Dijkstra (t \u304B\
-    \u3089)\n    vector<pair<int, int>> rel(m);\n    for (int i = 0; i < m; i++) rel[i]\
-    \ = {get<1>(edges[i]), i};\n    CSR<int> rg(n, rel);\n    vector<T> dist(n, INF);\n\
-    \    vector<int> tree_edge(n, -1), order;  // tree_edge[v]: v \u304B\u3089 t \u3078\
-    \u306E\u6700\u77ED\u8DEF\u6728\u3067\u4F7F\u3046\u8FBA\n    order.reserve(n);\n\
-    \    {\n        priority_queue<pair<T, int>, vector<pair<T, int>>, greater<>>\
-    \ pq;\n        dist[t] = 0, pq.push({0, t});\n        while (!pq.empty()) {\n\
-    \            auto [d, v] = pq.top();\n            pq.pop();\n            if (d\
-    \ != dist[v]) continue;\n            order.push_back(v);\n            for (int\
-    \ i = rg.start[v]; i < rg.start[v + 1]; i++) {\n                int e = rg.elist[i],\
-    \ u = get<0>(edges[e]);\n                T nd = d + get<2>(edges[e]);\n      \
-    \          if (nd < dist[u]) dist[u] = nd, tree_edge[u] = e, pq.push({nd, u});\n\
-    \            }\n        }\n    }\n    vector<T> res;\n    if (dist[s] == INF)\
-    \ return res;\n    // \u6C38\u7D9A leftist heap (\u30AD\u30FC\u306F \u03B4\uFF0C\
-    \u5024\u306F\u5BC4\u308A\u9053\u306E\u884C\u304D\u5148\u306E\u9802\u70B9)\n  \
-    \  struct Node {\n        T key;\n        int to, l, r, rk;\n    };\n    vector<Node>\
-    \ hp{{T(0), -1, 0, 0, 0}};  // 0 \u756A\u306F\u7A7A\n    auto merge = [&](auto\
-    \ self, int a, int b) -> int {\n        if (!a || !b) return a ^ b;\n        if\
-    \ (hp[b].key < hp[a].key) swap(a, b);\n        Node nd = hp[a];\n        int r\
-    \ = self(self, nd.r, b);\n        nd.r = r;\n        if (hp[nd.l].rk < hp[nd.r].rk)\
-    \ swap(nd.l, nd.r);\n        nd.rk = hp[nd.r].rk + 1;\n        hp.push_back(nd);\n\
-    \        return hp.size() - 1;\n    };\n    vector<pair<int, int>> fel(m);\n \
-    \   for (int i = 0; i < m; i++) fel[i] = {get<0>(edges[i]), i};\n    CSR<int>\
-    \ fg(n, fel);\n    vector<int> H(n, 0);\n    // t \u306B\u8FD1\u3044\u9806 (dist\
-    \ \u306E\u6607\u9806) \u306B H \u3092\u4F5C\u308B\n    for (int v : order) {\n\
-    \        int h = v == t ? 0 : H[get<1>(edges[tree_edge[v]])];\n        for (int\
-    \ i = fg.start[v]; i < fg.start[v + 1]; i++) {\n            int e = fg.elist[i],\
-    \ w = get<1>(edges[e]);\n            if (e == tree_edge[v] || dist[w] == INF)\
-    \ continue;\n            T delta = get<2>(edges[e]) + dist[w] - dist[v];\n   \
-    \         hp.push_back({delta, w, 0, 0, 1});\n            h = merge(merge, h,\
-    \ (int)hp.size() - 1);\n        }\n        H[v] = h;\n    }\n    res.push_back(dist[s]);\n\
-    \    priority_queue<pair<T, int>, vector<pair<T, int>>, greater<>> pq;  // (\u9577\
-    \u3055, \u30D2\u30FC\u30D7\u306E\u30CE\u30FC\u30C9)\n    if (H[s]) pq.push({dist[s]\
-    \ + hp[H[s]].key, H[s]});\n    while ((int)res.size() < K && !pq.empty()) {\n\
-    \        auto [d, x] = pq.top();\n        pq.pop();\n        res.push_back(d);\n\
-    \        // \u540C\u3058\u30D2\u30FC\u30D7\u306E\u4E2D\u3067\u6B21\u306E\u5BC4\
-    \u308A\u9053\u306B\u66FF\u3048\u308B\n        for (int c : {hp[x].l, hp[x].r})\n\
-    \            if (c) pq.push({d - hp[x].key + hp[c].key, c});\n        // \u3053\
-    \u306E\u5BC4\u308A\u9053\u306E\u5F8C\u306B\uFF0C\u884C\u304D\u5148\u304B\u3089\
-    \u66F4\u306B\u5BC4\u308A\u9053\u3092\u8DB3\u3059\n        int nh = H[hp[x].to];\n\
-    \        if (nh) pq.push({d + hp[nh].key, nh});\n    }\n    return res;\n}\n#line\
-    \ 5 \"test/unittest/incremental_scc_k_shortest.test.cpp\"\n\n// incremental_scc\
-    \ \u3092\u300C\u8FBA\u3092 1 \u672C\u305A\u3064\u8DB3\u3057\u3066\u5230\u9054\u53EF\
-    \u80FD\u6027\u3092\u8A08\u7B97\u3057\u76F4\u3059\u300D\u611A\u76F4\u3068\uFF0C\
-    \n// k_shortest_walks \u3092\u300C\u30A6\u30A9\u30FC\u30AF\u3092\u512A\u5148\u5EA6\
-    \u4ED8\u304D\u30AD\u30E5\u30FC\u3067\u5168\u90E8\u5217\u6319\u3059\u308B\u300D\
-    \u611A\u76F4\u3068\u7167\u5408\u3059\u308B\n\nint main() {\n    mt19937_64 rng(37);\n\
-    \    for (int it = 0; it < 2000; it++) {\n        int n = rng() % 6 + 1, m = rng()\
-    \ % 12;\n        vector<pair<int, int>> es(m);\n        for (auto &[a, b] : es)\
-    \ a = rng() % n, b = rng() % n;\n        auto t = incremental_scc(n, es);\n  \
-    \      vector<int> exp(m, m + 1);\n        vector<vector<char>> reach(n, vector<char>(n,\
-    \ 0));\n        for (int i = 0; i < n; i++) reach[i][i] = 1;\n        for (int\
-    \ k = 1; k <= m; k++) {\n            auto [a, b] = es[k - 1];\n            for\
-    \ (int i = 0; i < n; i++)\n                for (int j = 0; j < n; j++)\n     \
-    \               if (reach[i][a] && reach[b][j]) reach[i][j] = 1;\n           \
-    \ for (int e = 0; e < k; e++)\n                if (exp[e] == m + 1 && reach[es[e].first][es[e].second]\
-    \ && reach[es[e].second][es[e].first]) exp[e] = k;\n        }\n        assert(t\
-    \ == exp);\n    }\n    for (int it = 0; it < 2000; it++) {\n        int n = rng()\
-    \ % 5 + 1, m = rng() % 8, K = rng() % 30 + 1;\n        vector<tuple<int, int,\
-    \ long long>> es(m);\n        for (auto &[a, b, c] : es) a = rng() % n, b = rng()\
-    \ % n, c = rng() % 4 + 1;\n        int s = rng() % n, t = rng() % n;\n       \
-    \ auto res = k_shortest_walks(n, es, s, t, K);\n        // \u611A\u76F4: (\u9577\
-    \u3055, \u9802\u70B9) \u3092\u53D6\u308A\u51FA\u3059\u305F\u3073\u306B\u5168\u3066\
-    \u306E\u8FBA\u3067\u4F38\u3070\u3059\uFF0Et \u3092\u53D6\u308A\u51FA\u3057\u305F\
-    \u9806\u304C\u7B54\u3048\n        vector<long long> exp;\n        priority_queue<pair<long\
-    \ long, int>, vector<pair<long long, int>>, greater<>> pq;\n        pq.push({0,\
-    \ s});\n        int pops = 0;\n        while (!pq.empty() && (int)exp.size() <\
-    \ K && pops < 20000) {\n            auto [d, v] = pq.top();\n            pq.pop();\n\
-    \            pops++;\n            if (v == t) exp.push_back(d);\n            for\
-    \ (auto [a, b, c] : es)\n                if (a == v) pq.push({d + c, b});\n  \
-    \      }\n        if (pops >= 20000) continue;  // \u611A\u76F4\u304C\u7D42\u308F\
-    \u3089\u306A\u3044\u30B1\u30FC\u30B9\u306F\u98DB\u3070\u3059\n        assert(res\
-    \ == exp);\n    }\n    long long a_, b_;\n    fin >> a_ >> b_;\n    fout << a_\
-    \ + b_ << '\\n';\n    return 0;\n}\n"
+    \ 4 \"graph/k_shortest_walk.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// s \u304B\u3089 t \u3078\u306E\u77ED\u3044\u65B9\u304B\u3089 K \u500B\u306E\
+    \u30A6\u30A9\u30FC\u30AF (\u540C\u3058\u9802\u70B9\u30FB\u8FBA\u3092\u4F55\u5EA6\
+    \u901A\u3063\u3066\u3082\u3088\u3044\u8DEF) \u306E\u9577\u3055 (Eppstein \u6CD5\
+    )\n// \u8FBA\u306E\u91CD\u307F\u306F\u975E\u8CA0\uFF0E\u8FD4\u308A\u5024\u306F\
+    \u9577\u3055\u306E\u6607\u9806\u3067\uFF0CK \u500B\u306B\u6E80\u305F\u306A\u3051\
+    \u308C\u3070\u305D\u306E\u5206\u3060\u3051\n// 1. t \u3078\u306E\u6700\u77ED\u8DDD\
+    \u96E2 dist \u3068\uFF0C\u5404\u9802\u70B9\u304B\u3089 t \u3078\u306E\u6700\u77ED\
+    \u8DEF\u6728\u3092\u4F5C\u308B\n// 2. \u6700\u77ED\u8DEF\u6728\u306B\u4F7F\u308F\
+    \u306A\u3044\u8FBA e = (u \u2192 w) \u3092\u300C\u5BC4\u308A\u9053\u300D\u3068\
+    \u547C\u3073\uFF0C\u305D\u306E\u8FFD\u52A0\u30B3\u30B9\u30C8 \u03B4(e) = c + dist[w]\
+    \ - dist[u] >= 0\n// 3. H[v] = v \u304B\u3089\u6700\u77ED\u8DEF\u6728\u3067 t\
+    \ \u306B\u5411\u304B\u3046\u9014\u4E2D\u306E\u9802\u70B9\u304B\u3089\u51FA\u308B\
+    \u5BC4\u308A\u9053\u5168\u90E8\u3092 \u03B4 \u3067\u307E\u3068\u3081\u305F\u6C38\
+    \u7D9A\u30D2\u30FC\u30D7 (H[v] = H[\u89AA] + v \u306E\u5BC4\u308A\u9053)\n// 4.\
+    \ \u30A6\u30A9\u30FC\u30AF\u306F\u300C\u5BC4\u308A\u9053\u306E\u5217\u300D\u3068\
+    \ 1 \u5BFE 1 \u306B\u5BFE\u5FDC\u3057\uFF0C\u305D\u308C\u3092\u512A\u5148\u5EA6\
+    \u4ED8\u304D\u30AD\u30E5\u30FC\u3067\u5C0F\u3055\u3044\u9806\u306B\u53D6\u308A\
+    \u51FA\u3059\n// O((n + m) log m + K log K)\ntemplate <class T>\nvector<T> k_shortest_walks(int\
+    \ n, const vector<tuple<int, int, T>> &edges, int s, int t, int K) {\n    int\
+    \ m = edges.size();\n    const T INF = numeric_limits<T>::max();\n    // \u9006\
+    \u5411\u304D\u306E Dijkstra (t \u304B\u3089)\n    vector<pair<int, int>> rel(m);\n\
+    \    for (int i = 0; i < m; i++) rel[i] = {get<1>(edges[i]), i};\n    CSR<int>\
+    \ rg(n, rel);\n    vector<T> dist(n, INF);\n    vector<int> tree_edge(n, -1),\
+    \ order;  // tree_edge[v]: v \u304B\u3089 t \u3078\u306E\u6700\u77ED\u8DEF\u6728\
+    \u3067\u4F7F\u3046\u8FBA\n    order.reserve(n);\n    {\n        priority_queue<pair<T,\
+    \ int>, vector<pair<T, int>>, greater<>> pq;\n        dist[t] = 0, pq.push({0,\
+    \ t});\n        while (!pq.empty()) {\n            auto [d, v] = pq.top();\n \
+    \           pq.pop();\n            if (d != dist[v]) continue;\n            order.push_back(v);\n\
+    \            for (int i = rg.start[v]; i < rg.start[v + 1]; i++) {\n         \
+    \       int e = rg.elist[i], u = get<0>(edges[e]);\n                T nd = d +\
+    \ get<2>(edges[e]);\n                if (nd < dist[u]) dist[u] = nd, tree_edge[u]\
+    \ = e, pq.push({nd, u});\n            }\n        }\n    }\n    vector<T> res;\n\
+    \    if (dist[s] == INF) return res;\n    // \u6C38\u7D9A leftist heap (\u30AD\
+    \u30FC\u306F \u03B4\uFF0C\u5024\u306F\u5BC4\u308A\u9053\u306E\u884C\u304D\u5148\
+    \u306E\u9802\u70B9)\n    struct Node {\n        T key;\n        int to, l, r,\
+    \ rk;\n    };\n    vector<Node> hp{{T(0), -1, 0, 0, 0}};  // 0 \u756A\u306F\u7A7A\
+    \n    auto merge = [&](auto self, int a, int b) -> int {\n        if (!a || !b)\
+    \ return a ^ b;\n        if (hp[b].key < hp[a].key) swap(a, b);\n        Node\
+    \ nd = hp[a];\n        int r = self(self, nd.r, b);\n        nd.r = r;\n     \
+    \   if (hp[nd.l].rk < hp[nd.r].rk) swap(nd.l, nd.r);\n        nd.rk = hp[nd.r].rk\
+    \ + 1;\n        hp.push_back(nd);\n        return hp.size() - 1;\n    };\n   \
+    \ vector<pair<int, int>> fel(m);\n    for (int i = 0; i < m; i++) fel[i] = {get<0>(edges[i]),\
+    \ i};\n    CSR<int> fg(n, fel);\n    vector<int> H(n, 0);\n    // t \u306B\u8FD1\
+    \u3044\u9806 (dist \u306E\u6607\u9806) \u306B H \u3092\u4F5C\u308B\n    for (int\
+    \ v : order) {\n        int h = v == t ? 0 : H[get<1>(edges[tree_edge[v]])];\n\
+    \        for (int i = fg.start[v]; i < fg.start[v + 1]; i++) {\n            int\
+    \ e = fg.elist[i], w = get<1>(edges[e]);\n            if (e == tree_edge[v] ||\
+    \ dist[w] == INF) continue;\n            T delta = get<2>(edges[e]) + dist[w]\
+    \ - dist[v];\n            hp.push_back({delta, w, 0, 0, 1});\n            h =\
+    \ merge(merge, h, (int)hp.size() - 1);\n        }\n        H[v] = h;\n    }\n\
+    \    res.push_back(dist[s]);\n    priority_queue<pair<T, int>, vector<pair<T,\
+    \ int>>, greater<>> pq;  // (\u9577\u3055, \u30D2\u30FC\u30D7\u306E\u30CE\u30FC\
+    \u30C9)\n    if (H[s]) pq.push({dist[s] + hp[H[s]].key, H[s]});\n    while ((int)res.size()\
+    \ < K && !pq.empty()) {\n        auto [d, x] = pq.top();\n        pq.pop();\n\
+    \        res.push_back(d);\n        // \u540C\u3058\u30D2\u30FC\u30D7\u306E\u4E2D\
+    \u3067\u6B21\u306E\u5BC4\u308A\u9053\u306B\u66FF\u3048\u308B\n        for (int\
+    \ c : {hp[x].l, hp[x].r})\n            if (c) pq.push({d - hp[x].key + hp[c].key,\
+    \ c});\n        // \u3053\u306E\u5BC4\u308A\u9053\u306E\u5F8C\u306B\uFF0C\u884C\
+    \u304D\u5148\u304B\u3089\u66F4\u306B\u5BC4\u308A\u9053\u3092\u8DB3\u3059\n   \
+    \     int nh = H[hp[x].to];\n        if (nh) pq.push({d + hp[nh].key, nh});\n\
+    \    }\n    return res;\n}\n#line 5 \"test/unittest/incremental_scc_k_shortest.test.cpp\"\
+    \n\n// incremental_scc \u3092\u300C\u8FBA\u3092 1 \u672C\u305A\u3064\u8DB3\u3057\
+    \u3066\u5230\u9054\u53EF\u80FD\u6027\u3092\u8A08\u7B97\u3057\u76F4\u3059\u300D\
+    \u611A\u76F4\u3068\uFF0C\n// k_shortest_walks \u3092\u300C\u30A6\u30A9\u30FC\u30AF\
+    \u3092\u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC\u3067\u5168\u90E8\u5217\
+    \u6319\u3059\u308B\u300D\u611A\u76F4\u3068\u7167\u5408\u3059\u308B\n\nint main()\
+    \ {\n    mt19937_64 rng(37);\n    for (int it = 0; it < 2000; it++) {\n      \
+    \  int n = rng() % 6 + 1, m = rng() % 12;\n        vector<pair<int, int>> es(m);\n\
+    \        for (auto &[a, b] : es) a = rng() % n, b = rng() % n;\n        auto t\
+    \ = incremental_scc(n, es);\n        vector<int> exp(m, m + 1);\n        vector<vector<char>>\
+    \ reach(n, vector<char>(n, 0));\n        for (int i = 0; i < n; i++) reach[i][i]\
+    \ = 1;\n        for (int k = 1; k <= m; k++) {\n            auto [a, b] = es[k\
+    \ - 1];\n            for (int i = 0; i < n; i++)\n                for (int j =\
+    \ 0; j < n; j++)\n                    if (reach[i][a] && reach[b][j]) reach[i][j]\
+    \ = 1;\n            for (int e = 0; e < k; e++)\n                if (exp[e] ==\
+    \ m + 1 && reach[es[e].first][es[e].second] && reach[es[e].second][es[e].first])\
+    \ exp[e] = k;\n        }\n        assert(t == exp);\n    }\n    for (int it =\
+    \ 0; it < 2000; it++) {\n        int n = rng() % 5 + 1, m = rng() % 8, K = rng()\
+    \ % 30 + 1;\n        vector<tuple<int, int, long long>> es(m);\n        for (auto\
+    \ &[a, b, c] : es) a = rng() % n, b = rng() % n, c = rng() % 4 + 1;\n        int\
+    \ s = rng() % n, t = rng() % n;\n        auto res = k_shortest_walks(n, es, s,\
+    \ t, K);\n        // \u611A\u76F4: (\u9577\u3055, \u9802\u70B9) \u3092\u53D6\u308A\
+    \u51FA\u3059\u305F\u3073\u306B\u5168\u3066\u306E\u8FBA\u3067\u4F38\u3070\u3059\
+    \uFF0Et \u3092\u53D6\u308A\u51FA\u3057\u305F\u9806\u304C\u7B54\u3048\n       \
+    \ vector<long long> exp;\n        priority_queue<pair<long long, int>, vector<pair<long\
+    \ long, int>>, greater<>> pq;\n        pq.push({0, s});\n        int pops = 0;\n\
+    \        while (!pq.empty() && (int)exp.size() < K && pops < 20000) {\n      \
+    \      auto [d, v] = pq.top();\n            pq.pop();\n            pops++;\n \
+    \           if (v == t) exp.push_back(d);\n            for (auto [a, b, c] : es)\n\
+    \                if (a == v) pq.push({d + c, b});\n        }\n        if (pops\
+    \ >= 20000) continue;  // \u611A\u76F4\u304C\u7D42\u308F\u3089\u306A\u3044\u30B1\
+    \u30FC\u30B9\u306F\u98DB\u3070\u3059\n        assert(res == exp);\n    }\n   \
+    \ long long a_, b_;\n    fin >> a_ >> b_;\n    fout << a_ + b_ << '\\n';\n   \
+    \ return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"../../io/fastio.hpp\"\
     \n#include \"../../graph/incremental_scc.hpp\"\n#include \"../../graph/k_shortest_walk.hpp\"\
     \n\n// incremental_scc \u3092\u300C\u8FBA\u3092 1 \u672C\u305A\u3064\u8DB3\u3057\
@@ -440,8 +443,8 @@ data:
   isVerificationFile: true
   path: test/unittest/incremental_scc_k_shortest.test.cpp
   requiredBy: []
-  timestamp: '2026-10-15 00:32:43+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/unittest/incremental_scc_k_shortest.test.cpp
 layout: document

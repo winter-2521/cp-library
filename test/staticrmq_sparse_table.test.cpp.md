@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/sparse_table.hpp
     title: Sparse Table
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/staticrmq
@@ -36,31 +36,32 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"io/fastio.hpp\"\n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;\
-    \  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\
-    \u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\
-    \u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\
-    \u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\
-    \u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\
-    \u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\
-    \u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E\
-    \ 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\
-    \u8868\nstruct DigitTable {\n    char d[10000][4];\n    constexpr DigitTable()\
-    \ : d() {\n        for (int i = 0; i < 10000; i++) {\n            int x = i;\n\
-    \            for (int j = 3; j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n\
-    \        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\n// __int128\
-    \ \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\
-    \u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\
-    \ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct is_int128<__int128>\
-    \ : true_type {};\ntemplate <> struct is_int128<unsigned __int128> : true_type\
-    \ {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\
-    \u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of\
-    \ { using type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128>\
-    \ { using type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t\
-    \ = typename unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v\
-    \ = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n\
-    // ModInt \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\
-    \uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
+    \ 3 \"io/fastio.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\
+    \u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\
+    \u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin\
+    \ / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\
+    \u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\
+    \u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\
+    \u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\
+    \u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t\
+    \ BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\
+    \u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n\
+    \    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int i\
+    \ = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
+    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
+    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
+    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
+    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
+    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
+    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
+    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
+    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
+    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
+    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
+    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
+    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
+    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
+    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
     \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
     \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
     template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
@@ -195,27 +196,28 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"data_structure/sparse_table.hpp\"\
-    \n\n// Sparse Table\n// \u51AA\u7B49\u306A\u6F14\u7B97 (min, max, gcd, and, or\
-    \ \u306A\u3069) \u306E\u533A\u9593\u30AF\u30A8\u30EA\u3092\uFF0C\u69CB\u7BC9 O(n\
-    \ log n)\u30FB\u30AF\u30A8\u30EA O(1) \u3067\u51E6\u7406\u3059\u308B\n// SparseTable\
-    \ st(a, [](int x, int y) { return min(x, y); });\ntemplate <class T, class Op>\n\
-    struct SparseTable {\n    int n, lg;\n    Op op;\n    // t[k * n + i] = op(a[i],\
-    \ ..., a[i + 2^k - 1])  (1 \u672C\u306E\u914D\u5217\u306B\u307E\u3068\u3081\u3066\
-    \u30AD\u30E3\u30C3\u30B7\u30E5\u52B9\u7387\u3092\u4E0A\u3052\u308B)\n    vector<T>\
-    \ t;\n\n    SparseTable(const vector<T> &a, Op op) : n(a.size()), op(op) {\n \
-    \       lg = 1;\n        while ((1 << lg) <= n) lg++;\n        t.resize((size_t)lg\
-    \ * max(n, 1));\n        copy(a.begin(), a.end(), t.begin());\n        for (int\
-    \ k = 1; k < lg; k++) {\n            const T *src = t.data() + (size_t)(k - 1)\
-    \ * n;\n            T *dst = t.data() + (size_t)k * n;\n            int half =\
-    \ 1 << (k - 1);\n            for (int i = 0; i + (1 << k) <= n; i++) dst[i] =\
-    \ op(src[i], src[i + half]);\n        }\n    }\n\n    // op(a[l], ..., a[r-1])\uFF0E\
-    l < r \u3067\u3042\u308B\u3053\u3068\n    T prod(int l, int r) const {\n     \
-    \   int k = 31 - __builtin_clz(r - l);\n        return op(t[(size_t)k * n + l],\
-    \ t[(size_t)k * n + r - (1 << k)]);\n    }\n};\n#line 4 \"test/staticrmq_sparse_table.test.cpp\"\
-    \n\nint main() {\n    int n, q;\n    fin >> n >> q;\n    vector<int> a(n);\n \
-    \   fin >> a;\n    SparseTable st(a, [](int x, int y) { return x < y ? x : y;\
-    \ });\n    while (q--) {\n        int l, r;\n        fin >> l >> r;\n        fout\
-    \ << st.prod(l, r) << '\\n';\n    }\n    return 0;\n}\n"
+    \n\n// https://github.com/winter-2521/cp-library\n\n// Sparse Table\n// \u51AA\
+    \u7B49\u306A\u6F14\u7B97 (min, max, gcd, and, or \u306A\u3069) \u306E\u533A\u9593\
+    \u30AF\u30A8\u30EA\u3092\uFF0C\u69CB\u7BC9 O(n log n)\u30FB\u30AF\u30A8\u30EA\
+    \ O(1) \u3067\u51E6\u7406\u3059\u308B\n// SparseTable st(a, [](int x, int y) {\
+    \ return min(x, y); });\ntemplate <class T, class Op>\nstruct SparseTable {\n\
+    \    int n, lg;\n    Op op;\n    // t[k * n + i] = op(a[i], ..., a[i + 2^k - 1])\
+    \  (1 \u672C\u306E\u914D\u5217\u306B\u307E\u3068\u3081\u3066\u30AD\u30E3\u30C3\
+    \u30B7\u30E5\u52B9\u7387\u3092\u4E0A\u3052\u308B)\n    vector<T> t;\n\n    SparseTable(const\
+    \ vector<T> &a, Op op) : n(a.size()), op(op) {\n        lg = 1;\n        while\
+    \ ((1 << lg) <= n) lg++;\n        t.resize((size_t)lg * max(n, 1));\n        copy(a.begin(),\
+    \ a.end(), t.begin());\n        for (int k = 1; k < lg; k++) {\n            const\
+    \ T *src = t.data() + (size_t)(k - 1) * n;\n            T *dst = t.data() + (size_t)k\
+    \ * n;\n            int half = 1 << (k - 1);\n            for (int i = 0; i +\
+    \ (1 << k) <= n; i++) dst[i] = op(src[i], src[i + half]);\n        }\n    }\n\n\
+    \    // op(a[l], ..., a[r-1])\uFF0El < r \u3067\u3042\u308B\u3053\u3068\n    T\
+    \ prod(int l, int r) const {\n        int k = 31 - __builtin_clz(r - l);\n   \
+    \     return op(t[(size_t)k * n + l], t[(size_t)k * n + r - (1 << k)]);\n    }\n\
+    };\n#line 4 \"test/staticrmq_sparse_table.test.cpp\"\n\nint main() {\n    int\
+    \ n, q;\n    fin >> n >> q;\n    vector<int> a(n);\n    fin >> a;\n    SparseTable\
+    \ st(a, [](int x, int y) { return x < y ? x : y; });\n    while (q--) {\n    \
+    \    int l, r;\n        fin >> l >> r;\n        fout << st.prod(l, r) << '\\n';\n\
+    \    }\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include \"\
     ../io/fastio.hpp\"\n#include \"../data_structure/sparse_table.hpp\"\n\nint main()\
     \ {\n    int n, q;\n    fin >> n >> q;\n    vector<int> a(n);\n    fin >> a;\n\
@@ -230,8 +232,8 @@ data:
   isVerificationFile: true
   path: test/staticrmq_sparse_table.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 10:14:40+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/staticrmq_sparse_table.test.cpp
 layout: document

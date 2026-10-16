@@ -1,42 +1,42 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/monoid.hpp
     title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/dual_segment_tree.hpp
     title: "\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dual Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/dynamic_segment_tree.hpp
     title: "\u52D5\u7684\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Dynamic Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (Segment Tree)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: io/fastio.hpp
     title: "\u9AD8\u901F\u5165\u51FA\u529B (Fast I/O)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modint.hpp
     title: "ModInt (\u6CD5\u304C\u30B3\u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E\
       \ modint)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -55,50 +55,50 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"io/fastio.hpp\"\
-    \n\n// \u9AD8\u901F\u5165\u51FA\u529B\n// fin >> a >> b;  fout << a + b << '\\\
-    n';  \u306E\u3088\u3046\u306B cin / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\
-    \u3046\n// cin / cout / scanf / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\
-    \u306F\u3044\u3051\u306A\u3044\n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\
-    \u4F4D\u3067\u8AAD\u3080\u306E\u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\
-    \u30A3\u30D6\u554F\u984C\u306B\u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio\
-    \ {\n\n// \u5165\u51FA\u529B\u30D0\u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\n\
-    constexpr size_t BUF_SIZE = 1 << 17;\n\n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\
-    \u5B57\u5217\u3092\u524D\u8A08\u7B97\u3057\u3066\u304A\u304F\u8868\nstruct DigitTable\
-    \ {\n    char d[10000][4];\n    constexpr DigitTable() : d() {\n        for (int\
-    \ i = 0; i < 10000; i++) {\n            int x = i;\n            for (int j = 3;\
-    \ j >= 0; j--) d[i][j] = char('0' + x % 10), x /= 10;\n        }\n    }\n};\n\
-    inline constexpr DigitTable digit_table{};\n\n// __int128 \u306F -std=c++17 (gnu\
-    \ \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral \u306B\u306A\u3089\u306A\u3044\
-    \u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\u308B\ntemplate <class T> struct\
-    \ is_int128 : false_type {};\ntemplate <> struct is_int128<__int128> : true_type\
-    \ {};\ntemplate <> struct is_int128<unsigned __int128> : true_type {};\n\n// \u7B26\
-    \u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\u5FDC\u3059\u308B\u7B26\u53F7\
-    \u306A\u3057\u6574\u6570\u578B\ntemplate <class T> struct unsigned_of { using\
-    \ type = make_unsigned_t<T>; };\ntemplate <> struct unsigned_of<__int128> { using\
-    \ type = unsigned __int128; };\ntemplate <class T> using unsigned_of_t = typename\
-    \ unsigned_of<T>::type;\n\ntemplate <class T> constexpr bool is_integer_v = (is_integral_v<T>\
-    \ && !is_same_v<T, bool> && !is_same_v<T, char>) || is_int128<T>::value;\n// ModInt\
-    \ \u306E\u3088\u3046\u306B val() \u3067\u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\
-    \u6574\u6570\u304B\u3089\u69CB\u7BC9\u3067\u304D\u308B\u578B\ntemplate <class\
-    \ T, class = void> struct has_val : false_type {};\ntemplate <class T> struct\
-    \ has_val<T, void_t<decltype(declval<const T &>().val())>> : true_type {};\n\n\
-    template <class T> constexpr bool is_signed_integer_v = is_same_v<T, __int128>\
-    \ || (is_integral_v<T> && is_signed_v<T>);\n\nstruct Reader {\n    // \u6570\u5024\
-    \u3092\u8AAD\u3080\u524D\u306B\u5E38\u306B TOKEN_MARGIN \u6587\u5B57\u4EE5\u4E0A\
-    \u304C buf \u306B\u6B8B\u3063\u3066\u3044\u308B\u3088\u3046\u306B\u3057\u3066\uFF0C\
-    \u6570\u5024\u306E\u8AAD\u307F\u8FBC\u307F\u4E2D\u306E\u5883\u754C\u30C1\u30A7\
-    \u30C3\u30AF\u3092\u7701\u304F\n    static constexpr size_t TOKEN_MARGIN = 64;\n\
-    \    char buf[BUF_SIZE + TOKEN_MARGIN + 8];\n    size_t pos = 0, len = 0;\n  \
-    \  bool eof = false;\n\n    // \u672A\u8AAD\u90E8\u5206\u3092\u5148\u982D\u306B\
-    \u5BC4\u305B\u3066\u304B\u3089\u8AAD\u307F\u8DB3\u3059\n    void refill() {\n\
-    \        size_t rem = len - pos;\n        memmove(buf, buf + pos, rem);\n    \
-    \    pos = 0, len = rem;\n        while (!eof && len < TOKEN_MARGIN) {\n     \
-    \       size_t r = fread(buf + len, 1, BUF_SIZE - len, stdin);\n            if\
-    \ (r == 0) eof = true;\n            len += r;\n        }\n        // 8 \u30D0\u30A4\
-    \u30C8\u5358\u4F4D\u3067\u6570\u5B57\u3092\u8AAD\u3080\u3068\u304D\u306B\u672B\
-    \u5C3E\u306E\u5148\u3092\u8AAD\u3093\u3067\u3082\u6B62\u307E\u308B\u3088\u3046\
-    \u756A\u5175\u3092\u7F6E\u304F\n        memset(buf + len, 0, 8);\n    }\n\n  \
-    \  // \u7A7A\u767D\u3092\u8AAD\u307F\u98DB\u3070\u3059\uFF0E\u8AAD\u307F\u7D42\
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u9AD8\u901F\u5165\u51FA\
+    \u529B\n// fin >> a >> b;  fout << a + b << '\\n';  \u306E\u3088\u3046\u306B cin\
+    \ / cout \u3068\u540C\u3058\u611F\u899A\u3067\u4F7F\u3046\n// cin / cout / scanf\
+    \ / printf \u3068\u6DF7\u305C\u3066\u4F7F\u3063\u3066\u306F\u3044\u3051\u306A\u3044\
+    \n// \u5165\u529B\u306F\u30D6\u30ED\u30C3\u30AF\u5358\u4F4D\u3067\u8AAD\u3080\u306E\
+    \u3067\uFF0C\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C\u306B\
+    \u306F\u4F7F\u3048\u306A\u3044\n\nnamespace fastio {\n\n// \u5165\u51FA\u529B\u30D0\
+    \u30C3\u30D5\u30A1\u306E\u5927\u304D\u3055\nconstexpr size_t BUF_SIZE = 1 << 17;\n\
+    \n// 0000 ~ 9999 \u306E 4 \u6841\u306E\u6587\u5B57\u5217\u3092\u524D\u8A08\u7B97\
+    \u3057\u3066\u304A\u304F\u8868\nstruct DigitTable {\n    char d[10000][4];\n \
+    \   constexpr DigitTable() : d() {\n        for (int i = 0; i < 10000; i++) {\n\
+    \            int x = i;\n            for (int j = 3; j >= 0; j--) d[i][j] = char('0'\
+    \ + x % 10), x /= 10;\n        }\n    }\n};\ninline constexpr DigitTable digit_table{};\n\
+    \n// __int128 \u306F -std=c++17 (gnu \u62E1\u5F35\u306A\u3057) \u3060\u3068 is_integral\
+    \ \u306B\u306A\u3089\u306A\u3044\u306E\u3067\u81EA\u524D\u3067\u5224\u5B9A\u3059\
+    \u308B\ntemplate <class T> struct is_int128 : false_type {};\ntemplate <> struct\
+    \ is_int128<__int128> : true_type {};\ntemplate <> struct is_int128<unsigned __int128>\
+    \ : true_type {};\n\n// \u7B26\u53F7\u4ED8\u304D\u6574\u6570\u578B\u306B\u5BFE\
+    \u5FDC\u3059\u308B\u7B26\u53F7\u306A\u3057\u6574\u6570\u578B\ntemplate <class\
+    \ T> struct unsigned_of { using type = make_unsigned_t<T>; };\ntemplate <> struct\
+    \ unsigned_of<__int128> { using type = unsigned __int128; };\ntemplate <class\
+    \ T> using unsigned_of_t = typename unsigned_of<T>::type;\n\ntemplate <class T>\
+    \ constexpr bool is_integer_v = (is_integral_v<T> && !is_same_v<T, bool> && !is_same_v<T,\
+    \ char>) || is_int128<T>::value;\n// ModInt \u306E\u3088\u3046\u306B val() \u3067\
+    \u6574\u6570\u5024\u3092\u8FD4\u3057\uFF0C\u6574\u6570\u304B\u3089\u69CB\u7BC9\
+    \u3067\u304D\u308B\u578B\ntemplate <class T, class = void> struct has_val : false_type\
+    \ {};\ntemplate <class T> struct has_val<T, void_t<decltype(declval<const T &>().val())>>\
+    \ : true_type {};\n\ntemplate <class T> constexpr bool is_signed_integer_v = is_same_v<T,\
+    \ __int128> || (is_integral_v<T> && is_signed_v<T>);\n\nstruct Reader {\n    //\
+    \ \u6570\u5024\u3092\u8AAD\u3080\u524D\u306B\u5E38\u306B TOKEN_MARGIN \u6587\u5B57\
+    \u4EE5\u4E0A\u304C buf \u306B\u6B8B\u3063\u3066\u3044\u308B\u3088\u3046\u306B\u3057\
+    \u3066\uFF0C\u6570\u5024\u306E\u8AAD\u307F\u8FBC\u307F\u4E2D\u306E\u5883\u754C\
+    \u30C1\u30A7\u30C3\u30AF\u3092\u7701\u304F\n    static constexpr size_t TOKEN_MARGIN\
+    \ = 64;\n    char buf[BUF_SIZE + TOKEN_MARGIN + 8];\n    size_t pos = 0, len =\
+    \ 0;\n    bool eof = false;\n\n    // \u672A\u8AAD\u90E8\u5206\u3092\u5148\u982D\
+    \u306B\u5BC4\u305B\u3066\u304B\u3089\u8AAD\u307F\u8DB3\u3059\n    void refill()\
+    \ {\n        size_t rem = len - pos;\n        memmove(buf, buf + pos, rem);\n\
+    \        pos = 0, len = rem;\n        while (!eof && len < TOKEN_MARGIN) {\n \
+    \           size_t r = fread(buf + len, 1, BUF_SIZE - len, stdin);\n         \
+    \   if (r == 0) eof = true;\n            len += r;\n        }\n        // 8 \u30D0\
+    \u30A4\u30C8\u5358\u4F4D\u3067\u6570\u5B57\u3092\u8AAD\u3080\u3068\u304D\u306B\
+    \u672B\u5C3E\u306E\u5148\u3092\u8AAD\u3093\u3067\u3082\u6B62\u307E\u308B\u3088\
+    \u3046\u756A\u5175\u3092\u7F6E\u304F\n        memset(buf + len, 0, 8);\n    }\n\
+    \n    // \u7A7A\u767D\u3092\u8AAD\u307F\u98DB\u3070\u3059\uFF0E\u8AAD\u307F\u7D42\
     \u308F\u3063\u305F\u5F8C\u306F TOKEN_MARGIN \u6587\u5B57\u4EE5\u4E0A(\u307E\u305F\
     \u306F EOF \u307E\u3067)\u304C\u6B8B\u3063\u3066\u3044\u308B\n    void skip_space()\
     \ {\n        while (true) {\n            if (len - pos < TOKEN_MARGIN && !eof)\
@@ -214,62 +214,63 @@ data:
     \ << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long long;\n\
     using ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef pair<ll,\
     \ ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line 3 \"math/modint.hpp\"\
-    \n\n// \u6CD5 MOD \u304C \u30B3\u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E\
-    \ modint\n// MOD < 2^31 \u3067\u3042\u308B\u3053\u3068 (\u7D20\u6570\u3067\u306A\
-    \u304F\u3066\u3082\u3088\u3044\uFF0E\u305F\u3060\u3057 inv() \u306F MOD \u3068\
-    \u4E92\u3044\u306B\u7D20\u306A\u5024\u306B\u5BFE\u3057\u3066\u306E\u307F\u6709\
-    \u52B9)\n// \u30A4\u30F3\u30BF\u30FC\u30D5\u30A7\u30FC\u30B9\u306F ACL (atcoder::static_modint)\
-    \ \u3068\u63C3\u3048\u3066\u3042\u308B\uFF0E\n// \u3053\u306E\u30E9\u30A4\u30D6\
-    \u30E9\u30EA\u306E\u4ED6\u306E\u30D5\u30A1\u30A4\u30EB (fastio \u306A\u3069) \u306F\
-    \ ACL \u306E modint \u3067\u3082\u305D\u306E\u307E\u307E\u52D5\u304F\ntemplate\
-    \ <uint32_t MOD>\nstruct ModInt {\n    static_assert(1 <= MOD && MOD < (1u <<\
-    \ 31), \"MOD must be in [1, 2^31)\");\n    using mint = ModInt;\n    uint32_t\
-    \ v;\n\n    static constexpr int mod() { return MOD; }\n\n    constexpr ModInt()\
-    \ : v(0) {}\n\n    template <class T, enable_if_t<is_integral_v<T>, nullptr_t>\
-    \ = nullptr>\n    constexpr ModInt(T x) : v(0) {\n        if constexpr (is_signed_v<T>)\
-    \ {\n            long long y = (long long)(x % (long long)MOD);\n            if\
-    \ (y < 0) y += MOD;\n            v = uint32_t(y);\n        } else {\n        \
-    \    v = uint32_t(x % MOD);\n        }\n    }\n\n    // 0 <= x < MOD \u304C\u5206\
-    \u304B\u3063\u3066\u3044\u308B\u3068\u304D\u306B\u5270\u4F59\u3092\u53D6\u3089\
-    \u305A\u306B\u4F5C\u308B\n    static constexpr mint raw(int x) {\n        mint\
-    \ r;\n        r.v = x;\n        return r;\n    }\n\n    // ACL (\u73FE\u884C\u7248\
-    ) \u3068\u540C\u3058\u304F int \u3067\u8FD4\u3059\n    constexpr int val() const\
-    \ { return int(v); }\n\n    constexpr mint &operator+=(const mint &r) {\n    \
-    \    v += r.v;\n        if (v >= MOD) v -= MOD;\n        return *this;\n    }\n\
-    \    constexpr mint &operator-=(const mint &r) {\n        v += MOD - r.v;\n  \
+    \n\n// https://github.com/winter-2521/cp-library\n\n// \u6CD5 MOD \u304C \u30B3\
+    \u30F3\u30D1\u30A4\u30EB\u6642\u5B9A\u6570\u306E modint\n// MOD < 2^31 \u3067\u3042\
+    \u308B\u3053\u3068 (\u7D20\u6570\u3067\u306A\u304F\u3066\u3082\u3088\u3044\uFF0E\
+    \u305F\u3060\u3057 inv() \u306F MOD \u3068\u4E92\u3044\u306B\u7D20\u306A\u5024\
+    \u306B\u5BFE\u3057\u3066\u306E\u307F\u6709\u52B9)\n// \u30A4\u30F3\u30BF\u30FC\
+    \u30D5\u30A7\u30FC\u30B9\u306F ACL (atcoder::static_modint) \u3068\u63C3\u3048\
+    \u3066\u3042\u308B\uFF0E\n// \u3053\u306E\u30E9\u30A4\u30D6\u30E9\u30EA\u306E\u4ED6\
+    \u306E\u30D5\u30A1\u30A4\u30EB (fastio \u306A\u3069) \u306F ACL \u306E modint\
+    \ \u3067\u3082\u305D\u306E\u307E\u307E\u52D5\u304F\ntemplate <uint32_t MOD>\n\
+    struct ModInt {\n    static_assert(1 <= MOD && MOD < (1u << 31), \"MOD must be\
+    \ in [1, 2^31)\");\n    using mint = ModInt;\n    uint32_t v;\n\n    static constexpr\
+    \ int mod() { return MOD; }\n\n    constexpr ModInt() : v(0) {}\n\n    template\
+    \ <class T, enable_if_t<is_integral_v<T>, nullptr_t> = nullptr>\n    constexpr\
+    \ ModInt(T x) : v(0) {\n        if constexpr (is_signed_v<T>) {\n            long\
+    \ long y = (long long)(x % (long long)MOD);\n            if (y < 0) y += MOD;\n\
+    \            v = uint32_t(y);\n        } else {\n            v = uint32_t(x %\
+    \ MOD);\n        }\n    }\n\n    // 0 <= x < MOD \u304C\u5206\u304B\u3063\u3066\
+    \u3044\u308B\u3068\u304D\u306B\u5270\u4F59\u3092\u53D6\u3089\u305A\u306B\u4F5C\
+    \u308B\n    static constexpr mint raw(int x) {\n        mint r;\n        r.v =\
+    \ x;\n        return r;\n    }\n\n    // ACL (\u73FE\u884C\u7248) \u3068\u540C\
+    \u3058\u304F int \u3067\u8FD4\u3059\n    constexpr int val() const { return int(v);\
+    \ }\n\n    constexpr mint &operator+=(const mint &r) {\n        v += r.v;\n  \
     \      if (v >= MOD) v -= MOD;\n        return *this;\n    }\n    constexpr mint\
-    \ &operator*=(const mint &r) {\n        // MOD \u304C\u5B9A\u6570\u306A\u306E\u3067\
-    \ % \u306F\u4E57\u7B97\u3068\u30B7\u30D5\u30C8\u306B\u6700\u9069\u5316\u3055\u308C\
-    \u308B\n        v = uint32_t((uint64_t)v * r.v % MOD);\n        return *this;\n\
-    \    }\n    constexpr mint &operator/=(const mint &r) { return *this *= r.inv();\
-    \ }\n\n    constexpr mint operator+() const { return *this; }\n    constexpr mint\
-    \ operator-() const { return raw(v == 0 ? 0 : MOD - v); }\n\n    constexpr mint\
-    \ &operator++() { return *this += raw(1); }\n    constexpr mint &operator--()\
-    \ { return *this -= raw(1); }\n    constexpr mint operator++(int) { mint r = *this;\
-    \ ++*this; return r; }\n    constexpr mint operator--(int) { mint r = *this; --*this;\
-    \ return r; }\n\n    friend constexpr mint operator+(mint l, const mint &r) {\
-    \ return l += r; }\n    friend constexpr mint operator-(mint l, const mint &r)\
-    \ { return l -= r; }\n    friend constexpr mint operator*(mint l, const mint &r)\
-    \ { return l *= r; }\n    friend constexpr mint operator/(mint l, const mint &r)\
-    \ { return l /= r; }\n    friend constexpr bool operator==(const mint &l, const\
-    \ mint &r) { return l.v == r.v; }\n    friend constexpr bool operator!=(const\
-    \ mint &l, const mint &r) { return l.v != r.v; }\n\n    // this^n (n < 0 \u306A\
-    \u3089\u9006\u5143\u306E -n \u4E57)\n    constexpr mint pow(long long n) const\
-    \ {\n        mint x = n >= 0 ? *this : inv(), r = raw(1 % MOD);\n        unsigned\
-    \ long long e = n >= 0 ? (unsigned long long)n : 0ULL - (unsigned long long)n;\n\
-    \        while (e) {\n            if (e & 1) r *= x;\n            x *= x;\n  \
-    \          e >>= 1;\n        }\n        return r;\n    }\n\n    // \u62E1\u5F35\
-    \u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5\u306B\u3088\u308B\
-    \u9006\u5143 (MOD \u304C\u7D20\u6570\u3067\u306A\u304F\u3066\u3082 gcd(v, MOD)\
-    \ = 1 \u306A\u3089\u6B63\u3057\u3044)\n    constexpr mint inv() const {\n    \
-    \    long long a = v, b = MOD, x = 1, y = 0;\n        while (b) {\n          \
-    \  long long t = a / b;\n            a -= t * b, swap(a, b);\n            x -=\
-    \ t * y, swap(x, y);\n        }\n        assert(a == 1);\n        return mint(x);\n\
-    \    }\n\n    friend ostream &operator<<(ostream &os, const mint &x) { return\
-    \ os << x.v; }\n    friend istream &operator>>(istream &is, mint &x) {\n     \
-    \   long long t;\n        is >> t;\n        x = mint(t);\n        return is;\n\
-    \    }\n};\n\nusing ModInt998244353 = ModInt<998244353>;\nusing ModInt1000000007\
-    \ = ModInt<1000000007>;\n#line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
+    \ &operator-=(const mint &r) {\n        v += MOD - r.v;\n        if (v >= MOD)\
+    \ v -= MOD;\n        return *this;\n    }\n    constexpr mint &operator*=(const\
+    \ mint &r) {\n        // MOD \u304C\u5B9A\u6570\u306A\u306E\u3067 % \u306F\u4E57\
+    \u7B97\u3068\u30B7\u30D5\u30C8\u306B\u6700\u9069\u5316\u3055\u308C\u308B\n   \
+    \     v = uint32_t((uint64_t)v * r.v % MOD);\n        return *this;\n    }\n \
+    \   constexpr mint &operator/=(const mint &r) { return *this *= r.inv(); }\n\n\
+    \    constexpr mint operator+() const { return *this; }\n    constexpr mint operator-()\
+    \ const { return raw(v == 0 ? 0 : MOD - v); }\n\n    constexpr mint &operator++()\
+    \ { return *this += raw(1); }\n    constexpr mint &operator--() { return *this\
+    \ -= raw(1); }\n    constexpr mint operator++(int) { mint r = *this; ++*this;\
+    \ return r; }\n    constexpr mint operator--(int) { mint r = *this; --*this; return\
+    \ r; }\n\n    friend constexpr mint operator+(mint l, const mint &r) { return\
+    \ l += r; }\n    friend constexpr mint operator-(mint l, const mint &r) { return\
+    \ l -= r; }\n    friend constexpr mint operator*(mint l, const mint &r) { return\
+    \ l *= r; }\n    friend constexpr mint operator/(mint l, const mint &r) { return\
+    \ l /= r; }\n    friend constexpr bool operator==(const mint &l, const mint &r)\
+    \ { return l.v == r.v; }\n    friend constexpr bool operator!=(const mint &l,\
+    \ const mint &r) { return l.v != r.v; }\n\n    // this^n (n < 0 \u306A\u3089\u9006\
+    \u5143\u306E -n \u4E57)\n    constexpr mint pow(long long n) const {\n       \
+    \ mint x = n >= 0 ? *this : inv(), r = raw(1 % MOD);\n        unsigned long long\
+    \ e = n >= 0 ? (unsigned long long)n : 0ULL - (unsigned long long)n;\n       \
+    \ while (e) {\n            if (e & 1) r *= x;\n            x *= x;\n         \
+    \   e >>= 1;\n        }\n        return r;\n    }\n\n    // \u62E1\u5F35\u30E6\
+    \u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5\u306B\u3088\u308B\u9006\
+    \u5143 (MOD \u304C\u7D20\u6570\u3067\u306A\u304F\u3066\u3082 gcd(v, MOD) = 1 \u306A\
+    \u3089\u6B63\u3057\u3044)\n    constexpr mint inv() const {\n        long long\
+    \ a = v, b = MOD, x = 1, y = 0;\n        while (b) {\n            long long t\
+    \ = a / b;\n            a -= t * b, swap(a, b);\n            x -= t * y, swap(x,\
+    \ y);\n        }\n        assert(a == 1);\n        return mint(x);\n    }\n\n\
+    \    friend ostream &operator<<(ostream &os, const mint &x) { return os << x.v;\
+    \ }\n    friend istream &operator>>(istream &is, mint &x) {\n        long long\
+    \ t;\n        is >> t;\n        x = mint(t);\n        return is;\n    }\n};\n\n\
+    using ModInt998244353 = ModInt<998244353>;\nusing ModInt1000000007 = ModInt<1000000007>;\n\
+    #line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
     #include <atcoder/all>\nusing namespace atcoder;\n#endif\n// QCfium\u6CD5\u3092\
     \u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\u30C8\u30A2\u30A6\u30C8\u3092\u5916\
     \u3059\n/*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
@@ -291,27 +292,28 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"algebra/monoid.hpp\"\n\n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\
-    \u306B\u6E21\u3059\u30E2\u30CE\u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\
-    \u578B; static S op(const S &a, const S &b); static S e();\n// op \u306F\u7D50\
-    \u5408\u7684\u3067\uFF0Ce \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300C\
-    a \u304C\u5DE6 (\u5148)\uFF0Cb \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\
-    \u6570 f(x) = a x + b\ntemplate <class T>\nstruct Affine {\n    T a = T(1), b\
-    \ = T(0);\n    Affine() = default;\n    Affine(T a, T b) : a(a), b(b) {}\n   \
-    \ T operator()(const T &x) const { return a * x + b; }\n    T eval(const T &x)\
-    \ const { return a * x + b; }\n    // \u300C\u5148\u306B *this\uFF0C\u6B21\u306B\
-    \ g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n    Affine then(const Affine\
-    \ &g) const { return Affine(a * g.a, b * g.a + g.b); }\n    friend bool operator==(const\
-    \ Affine &f, const Affine &g) { return f.a == g.a && f.b == g.b; }\n    friend\
-    \ bool operator!=(const Affine &f, const Affine &g) { return !(f == g); }\n};\n\
-    \n// \u548C\ntemplate <class T>\nstruct MonoidSum {\n    using S = T;\n    static\
-    \ S op(const S &a, const S &b) { return a + b; }\n    static S e() { return S(0);\
-    \ }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::max())\n\
-    template <class T>\nstruct MonoidMin {\n    using S = T;\n    static S op(const\
-    \ S &a, const S &b) { return b < a ? b : a; }\n    static S e() { return numeric_limits<T>::max();\
-    \ }\n};\n\n// \u6700\u5927\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::lowest())\n\
-    template <class T>\nstruct MonoidMax {\n    using S = T;\n    static S op(const\
-    \ S &a, const S &b) { return a < b ? b : a; }\n    static S e() { return numeric_limits<T>::lowest();\
+    \ 3 \"algebra/monoid.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\n\
+    // \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u306A\u3069\u306B\u6E21\u3059\u30E2\u30CE\
+    \u30A4\u30C9\n// \u5F62\u5F0F: using S = \u5024\u306E\u578B; static S op(const\
+    \ S &a, const S &b); static S e();\n// op \u306F\u7D50\u5408\u7684\u3067\uFF0C\
+    e \u306F\u5358\u4F4D\u5143\uFF0Eop(a, b) \u306F\u300Ca \u304C\u5DE6 (\u5148)\uFF0C\
+    b \u304C\u53F3 (\u5F8C)\u300D\n\n// 1 \u6B21\u95A2\u6570 f(x) = a x + b\ntemplate\
+    \ <class T>\nstruct Affine {\n    T a = T(1), b = T(0);\n    Affine() = default;\n\
+    \    Affine(T a, T b) : a(a), b(b) {}\n    T operator()(const T &x) const { return\
+    \ a * x + b; }\n    T eval(const T &x) const { return a * x + b; }\n    // \u300C\
+    \u5148\u306B *this\uFF0C\u6B21\u306B g\u300D\u3092\u8868\u3059\u95A2\u6570 g(f(x))\n\
+    \    Affine then(const Affine &g) const { return Affine(a * g.a, b * g.a + g.b);\
+    \ }\n    friend bool operator==(const Affine &f, const Affine &g) { return f.a\
+    \ == g.a && f.b == g.b; }\n    friend bool operator!=(const Affine &f, const Affine\
+    \ &g) { return !(f == g); }\n};\n\n// \u548C\ntemplate <class T>\nstruct MonoidSum\
+    \ {\n    using S = T;\n    static S op(const S &a, const S &b) { return a + b;\
+    \ }\n    static S e() { return S(0); }\n};\n\n// \u6700\u5C0F\u5024 (\u5358\u4F4D\
+    \u5143\u306F numeric_limits<T>::max())\ntemplate <class T>\nstruct MonoidMin {\n\
+    \    using S = T;\n    static S op(const S &a, const S &b) { return b < a ? b\
+    \ : a; }\n    static S e() { return numeric_limits<T>::max(); }\n};\n\n// \u6700\
+    \u5927\u5024 (\u5358\u4F4D\u5143\u306F numeric_limits<T>::lowest())\ntemplate\
+    \ <class T>\nstruct MonoidMax {\n    using S = T;\n    static S op(const S &a,\
+    \ const S &b) { return a < b ? b : a; }\n    static S e() { return numeric_limits<T>::lowest();\
     \ }\n};\n\n// xor\ntemplate <class T>\nstruct MonoidXor {\n    using S = T;\n\
     \    static S op(const S &a, const S &b) { return a ^ b; }\n    static S e() {\
     \ return S(0); }\n};\n\n// 1 \u6B21\u95A2\u6570\u306E\u5408\u6210\uFF0Eop(f, g)\
@@ -323,45 +325,89 @@ data:
     \ k) \u56DE\u306E op\ntemplate <class M>\ntypename M::S monoid_pow(typename M::S\
     \ x, long long k) {\n    typename M::S r = M::e();\n    while (k) {\n        if\
     \ (k & 1) r = M::op(r, x);\n        k >>= 1;\n        if (k) x = M::op(x, x);\n\
-    \    }\n    return r;\n}\n#line 4 \"data_structure/segment_tree.hpp\"\n\n// \u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728 (\u4E00\u70B9\u66F4\u65B0\u30FB\u533A\u9593\u7A4D\
-    )\n// M \u306F\u30E2\u30CE\u30A4\u30C9 (algebra/monoid.hpp \u53C2\u7167)\uFF0E\
-    \u975E\u53EF\u63DB\u3067\u3082\u3088\u3044\ntemplate <class M>\nstruct SegmentTree\
-    \ {\n    using S = typename M::S;\n    int n, sz, lg;\n    vector<S> d;\n\n  \
-    \  SegmentTree(int n = 0) : SegmentTree(vector<S>(n, M::e())) {}\n\n    SegmentTree(const\
-    \ vector<S> &a) : n(a.size()) {\n        lg = 0;\n        while ((1 << lg) < n)\
-    \ lg++;\n        sz = 1 << lg;\n        d.assign(2 * sz, M::e());\n        copy(a.begin(),\
-    \ a.end(), d.begin() + sz);\n        for (int i = sz - 1; i >= 1; i--) d[i] =\
-    \ M::op(d[2 * i], d[2 * i + 1]);\n    }\n\n    int size() const { return n; }\n\
-    \n    // a[p] = x\n    void set(int p, const S &x) {\n        p += sz;\n     \
-    \   d[p] = x;\n        for (p >>= 1; p; p >>= 1) d[p] = M::op(d[2 * p], d[2 *\
-    \ p + 1]);\n    }\n\n    // a[p] = op(a[p], x)\n    void multiply(int p, const\
-    \ S &x) { set(p, M::op(d[p + sz], x)); }\n\n    S get(int p) const { return d[p\
-    \ + sz]; }\n    S operator[](int p) const { return d[p + sz]; }\n\n    // op(a[l],\
-    \ ..., a[r-1])\uFF0El == r \u306A\u3089 e()\n    S prod(int l, int r) const {\n\
-    \        S sml = M::e(), smr = M::e();\n        l += sz, r += sz;\n        while\
-    \ (l < r) {\n            if (l & 1) sml = M::op(sml, d[l++]);\n            if\
-    \ (r & 1) smr = M::op(d[--r], smr);\n            l >>= 1, r >>= 1;\n        }\n\
-    \        return M::op(sml, smr);\n    }\n\n    S all_prod() const { return d[1];\
-    \ }\n\n    // g(op(a[l], ..., a[r-1])) \u304C true \u3068\u306A\u308B\u6700\u5927\
-    \u306E r \u3092\u8FD4\u3059 (g(e()) \u306F true \u3067\u3042\u308B\u3053\u3068\
-    )\n    template <class G>\n    int max_right(int l, G g) const {\n        if (l\
-    \ == n) return n;\n        l += sz;\n        S sm = M::e();\n        do {\n  \
-    \          while (l % 2 == 0) l >>= 1;\n            if (!g(M::op(sm, d[l]))) {\n\
-    \                while (l < sz) {\n                    l = 2 * l;\n          \
-    \          if (g(M::op(sm, d[l]))) sm = M::op(sm, d[l++]);\n                }\n\
-    \                return l - sz;\n            }\n            sm = M::op(sm, d[l++]);\n\
-    \        } while ((l & -l) != l);\n        return n;\n    }\n\n    // g(op(a[l],\
-    \ ..., a[r-1])) \u304C true \u3068\u306A\u308B\u6700\u5C0F\u306E l \u3092\u8FD4\
-    \u3059 (g(e()) \u306F true \u3067\u3042\u308B\u3053\u3068)\n    template <class\
-    \ G>\n    int min_left(int r, G g) const {\n        if (r == 0) return 0;\n  \
-    \      r += sz;\n        S sm = M::e();\n        do {\n            r--;\n    \
-    \        while (r > 1 && (r % 2)) r >>= 1;\n            if (!g(M::op(d[r], sm)))\
-    \ {\n                while (r < sz) {\n                    r = 2 * r + 1;\n  \
-    \                  if (g(M::op(d[r], sm))) sm = M::op(d[r--], sm);\n         \
-    \       }\n                return r + 1 - sz;\n            }\n            sm =\
-    \ M::op(d[r], sm);\n        } while ((r & -r) != r);\n        return 0;\n    }\n\
-    };\n#line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
+    \    }\n    return r;\n}\n#line 4 \"data_structure/segment_tree.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u4E00\u70B9\u66F4\u65B0\u30FB\u533A\
+    \u9593\u7A4D)\n// M \u306F\u30E2\u30CE\u30A4\u30C9 (algebra/monoid.hpp \u53C2\u7167\
+    )\uFF0E\u975E\u53EF\u63DB\u3067\u3082\u3088\u3044\ntemplate <class M>\nstruct\
+    \ SegmentTree {\n    using S = typename M::S;\n    int n, sz, lg;\n    vector<S>\
+    \ d;\n\n    SegmentTree(int n = 0) : SegmentTree(vector<S>(n, M::e())) {}\n\n\
+    \    SegmentTree(const vector<S> &a) : n(a.size()) {\n        lg = 0;\n      \
+    \  while ((1 << lg) < n) lg++;\n        sz = 1 << lg;\n        d.assign(2 * sz,\
+    \ M::e());\n        copy(a.begin(), a.end(), d.begin() + sz);\n        for (int\
+    \ i = sz - 1; i >= 1; i--) d[i] = M::op(d[2 * i], d[2 * i + 1]);\n    }\n\n  \
+    \  int size() const { return n; }\n\n    // a[p] = x\n    void set(int p, const\
+    \ S &x) {\n        p += sz;\n        d[p] = x;\n        for (p >>= 1; p; p >>=\
+    \ 1) d[p] = M::op(d[2 * p], d[2 * p + 1]);\n    }\n\n    // a[p] = op(a[p], x)\n\
+    \    void multiply(int p, const S &x) { set(p, M::op(d[p + sz], x)); }\n\n   \
+    \ S get(int p) const { return d[p + sz]; }\n    S operator[](int p) const { return\
+    \ d[p + sz]; }\n\n    // op(a[l], ..., a[r-1])\uFF0El == r \u306A\u3089 e()\n\
+    \    S prod(int l, int r) const {\n        S sml = M::e(), smr = M::e();\n   \
+    \     l += sz, r += sz;\n        while (l < r) {\n            if (l & 1) sml =\
+    \ M::op(sml, d[l++]);\n            if (r & 1) smr = M::op(d[--r], smr);\n    \
+    \        l >>= 1, r >>= 1;\n        }\n        return M::op(sml, smr);\n    }\n\
+    \n    S all_prod() const { return d[1]; }\n\n    // g(op(a[l], ..., a[r-1])) \u304C\
+    \ true \u3068\u306A\u308B\u6700\u5927\u306E r \u3092\u8FD4\u3059 (g(e()) \u306F\
+    \ true \u3067\u3042\u308B\u3053\u3068)\n    template <class G>\n    int max_right(int\
+    \ l, G g) const {\n        if (l == n) return n;\n        l += sz;\n        S\
+    \ sm = M::e();\n        do {\n            while (l % 2 == 0) l >>= 1;\n      \
+    \      if (!g(M::op(sm, d[l]))) {\n                while (l < sz) {\n        \
+    \            l = 2 * l;\n                    if (g(M::op(sm, d[l]))) sm = M::op(sm,\
+    \ d[l++]);\n                }\n                return l - sz;\n            }\n\
+    \            sm = M::op(sm, d[l++]);\n        } while ((l & -l) != l);\n     \
+    \   return n;\n    }\n\n    // g(op(a[l], ..., a[r-1])) \u304C true \u3068\u306A\
+    \u308B\u6700\u5C0F\u306E l \u3092\u8FD4\u3059 (g(e()) \u306F true \u3067\u3042\
+    \u308B\u3053\u3068)\n    template <class G>\n    int min_left(int r, G g) const\
+    \ {\n        if (r == 0) return 0;\n        r += sz;\n        S sm = M::e();\n\
+    \        do {\n            r--;\n            while (r > 1 && (r % 2)) r >>= 1;\n\
+    \            if (!g(M::op(d[r], sm))) {\n                while (r < sz) {\n  \
+    \                  r = 2 * r + 1;\n                    if (g(M::op(d[r], sm)))\
+    \ sm = M::op(d[r--], sm);\n                }\n                return r + 1 - sz;\n\
+    \            }\n            sm = M::op(d[r], sm);\n        } while ((r & -r) !=\
+    \ r);\n        return 0;\n    }\n};\n#line 2 \"template.hpp\"\nusing namespace\
+    \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
+    \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
+    \u30C8\u30A2\u30A6\u30C8\u3092\u5916\u3059\n/*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
+    )\n#pragma GCC target(\"avx2,bmi,bmi2,lzcnt,popcnt\")\n#pragma GCC target(\"avx,avx2,fma\"\
+    )\n#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma\"\
+    )\n//*/\n#define rep(i,n) for(int i=0;i<n;i++)\n#define Rep(i,a,b) for(int i=a;i<b;i++)\n\
+    #define ALL(x) (x).begin(),(x).end()\n#define dbgv(x); for(auto now : x) cout\
+    \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
+    \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
+    \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
+    \ 4 \"data_structure/dual_segment_tree.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u533A\u9593\u4F5C\u7528\
+    \u30FB\u4E00\u70B9\u53D6\u5F97)\n// \u5404\u4F4D\u7F6E i \u306B\u4F5C\u7528 F_i\
+    \ (\u306F\u3058\u3081 e()) \u3092\u6301\u3061\uFF0C\u533A\u9593 [l, r) \u306E\u5404\
+    \ F_i \u3092 op(F_i, f) \u306B\u66F4\u65B0\u3059\u308B\uFF0E\n// M \u306F\u30E2\
+    \u30CE\u30A4\u30C9\u3067\uFF0Cop(x, y) \u306F\u300C\u5148\u306B x\uFF0C\u6B21\u306B\
+    \ y\u300D\u3068\u3044\u3046\u6642\u7CFB\u5217\u9806\u306E\u5408\u6210 (\u975E\u53EF\
+    \u63DB\u3067\u3082\u3088\u3044)\n// \u4F8B: DualSegmentTree<MonoidAffine<mint>>\
+    \ \u3067\u533A\u9593 1 \u6B21\u95A2\u6570\u4F5C\u7528\uFF0Cget(i)(a[i]) \u3067\
+    \u73FE\u5728\u306E\u5024\ntemplate <class M>\nstruct DualSegmentTree {\n    using\
+    \ S = typename M::S;\n    int n, sz, lg;\n    vector<S> lz;\n\n    DualSegmentTree(int\
+    \ n = 0) : n(n) {\n        lg = 0;\n        while ((1 << lg) < n) lg++;\n    \
+    \    sz = 1 << lg;\n        lz.assign(2 * sz, M::e());\n    }\n\n    int size()\
+    \ const { return n; }\n\n    // i in [l, r) \u306B\u3064\u3044\u3066 F_i = op(F_i,\
+    \ f)\n    void apply(int l, int r, const S &f) {\n        if (l >= r) return;\n\
+    \        l += sz, r += sz;\n        // \u975E\u53EF\u63DB\u306A\u306E\u3067\uFF0C\
+    \u5148\u306B\u5883\u754C\u306E\u7956\u5148\u306E\u4F5C\u7528\u3092\u4E0B\u308D\
+    \u3057\u3066\u304A\u304F\n        for (int i = lg; i >= 1; i--) {\n          \
+    \  if (((l >> i) << i) != l) push(l >> i);\n            if (((r >> i) << i) !=\
+    \ r) push((r - 1) >> i);\n        }\n        while (l < r) {\n            if (l\
+    \ & 1) lz[l] = M::op(lz[l], f), l++;\n            if (r & 1) --r, lz[r] = M::op(lz[r],\
+    \ f);\n            l >>= 1, r >>= 1;\n        }\n    }\n\n    // F_p = op(F_p,\
+    \ f)\n    void apply(int p, const S &f) { apply(p, p + 1, f); }\n\n    // F_p\
+    \ (\u4F4D\u7F6E p \u306B\u3053\u308C\u307E\u3067\u306B\u4F5C\u7528\u3057\u305F\
+    \u5168\u3066\u3092\u6642\u7CFB\u5217\u9806\u306B\u5408\u6210\u3057\u305F\u3082\
+    \u306E)\n    S get(int p) const {\n        p += sz;\n        S res = lz[p];\n\
+    \        // \u7956\u5148\u306E\u4F5C\u7528\u306E\u65B9\u304C\u65B0\u3057\u3044\
+    \n        for (p >>= 1; p; p >>= 1) res = M::op(res, lz[p]);\n        return res;\n\
+    \    }\n    S operator[](int p) const { return get(p); }\n\n    // F_p = f \u306B\
+    \u7F6E\u304D\u63DB\u3048\u308B\n    void set(int p, const S &f) {\n        p +=\
+    \ sz;\n        for (int i = lg; i >= 1; i--) push(p >> i);\n        lz[p] = f;\n\
+    \    }\n\n  private:\n    void push(int k) {\n        lz[2 * k] = M::op(lz[2 *\
+    \ k], lz[k]);\n        lz[2 * k + 1] = M::op(lz[2 * k + 1], lz[k]);\n        lz[k]\
+    \ = M::e();\n    }\n};\n#line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
     #include <atcoder/all>\nusing namespace atcoder;\n#endif\n// QCfium\u6CD5\u3092\
     \u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\u30C8\u30A2\u30A6\u30C8\u3092\u5916\
     \u3059\n/*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
@@ -372,113 +418,69 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 4 \"data_structure/dual_segment_tree.hpp\"\n\n// \u53CC\u5BFE\u30BB\u30B0\u30E1\
-    \u30F3\u30C8\u6728 (\u533A\u9593\u4F5C\u7528\u30FB\u4E00\u70B9\u53D6\u5F97)\n\
-    // \u5404\u4F4D\u7F6E i \u306B\u4F5C\u7528 F_i (\u306F\u3058\u3081 e()) \u3092\
-    \u6301\u3061\uFF0C\u533A\u9593 [l, r) \u306E\u5404 F_i \u3092 op(F_i, f) \u306B\
-    \u66F4\u65B0\u3059\u308B\uFF0E\n// M \u306F\u30E2\u30CE\u30A4\u30C9\u3067\uFF0C\
-    op(x, y) \u306F\u300C\u5148\u306B x\uFF0C\u6B21\u306B y\u300D\u3068\u3044\u3046\
-    \u6642\u7CFB\u5217\u9806\u306E\u5408\u6210 (\u975E\u53EF\u63DB\u3067\u3082\u3088\
-    \u3044)\n// \u4F8B: DualSegmentTree<MonoidAffine<mint>> \u3067\u533A\u9593 1 \u6B21\
-    \u95A2\u6570\u4F5C\u7528\uFF0Cget(i)(a[i]) \u3067\u73FE\u5728\u306E\u5024\ntemplate\
-    \ <class M>\nstruct DualSegmentTree {\n    using S = typename M::S;\n    int n,\
-    \ sz, lg;\n    vector<S> lz;\n\n    DualSegmentTree(int n = 0) : n(n) {\n    \
-    \    lg = 0;\n        while ((1 << lg) < n) lg++;\n        sz = 1 << lg;\n   \
-    \     lz.assign(2 * sz, M::e());\n    }\n\n    int size() const { return n; }\n\
-    \n    // i in [l, r) \u306B\u3064\u3044\u3066 F_i = op(F_i, f)\n    void apply(int\
-    \ l, int r, const S &f) {\n        if (l >= r) return;\n        l += sz, r +=\
-    \ sz;\n        // \u975E\u53EF\u63DB\u306A\u306E\u3067\uFF0C\u5148\u306B\u5883\
-    \u754C\u306E\u7956\u5148\u306E\u4F5C\u7528\u3092\u4E0B\u308D\u3057\u3066\u304A\
-    \u304F\n        for (int i = lg; i >= 1; i--) {\n            if (((l >> i) <<\
-    \ i) != l) push(l >> i);\n            if (((r >> i) << i) != r) push((r - 1) >>\
-    \ i);\n        }\n        while (l < r) {\n            if (l & 1) lz[l] = M::op(lz[l],\
-    \ f), l++;\n            if (r & 1) --r, lz[r] = M::op(lz[r], f);\n           \
-    \ l >>= 1, r >>= 1;\n        }\n    }\n\n    // F_p = op(F_p, f)\n    void apply(int\
-    \ p, const S &f) { apply(p, p + 1, f); }\n\n    // F_p (\u4F4D\u7F6E p \u306B\u3053\
-    \u308C\u307E\u3067\u306B\u4F5C\u7528\u3057\u305F\u5168\u3066\u3092\u6642\u7CFB\
-    \u5217\u9806\u306B\u5408\u6210\u3057\u305F\u3082\u306E)\n    S get(int p) const\
-    \ {\n        p += sz;\n        S res = lz[p];\n        // \u7956\u5148\u306E\u4F5C\
-    \u7528\u306E\u65B9\u304C\u65B0\u3057\u3044\n        for (p >>= 1; p; p >>= 1)\
-    \ res = M::op(res, lz[p]);\n        return res;\n    }\n    S operator[](int p)\
-    \ const { return get(p); }\n\n    // F_p = f \u306B\u7F6E\u304D\u63DB\u3048\u308B\
-    \n    void set(int p, const S &f) {\n        p += sz;\n        for (int i = lg;\
-    \ i >= 1; i--) push(p >> i);\n        lz[p] = f;\n    }\n\n  private:\n    void\
-    \ push(int k) {\n        lz[2 * k] = M::op(lz[2 * k], lz[k]);\n        lz[2 *\
-    \ k + 1] = M::op(lz[2 * k + 1], lz[k]);\n        lz[k] = M::e();\n    }\n};\n\
-    #line 2 \"template.hpp\"\nusing namespace std;\n#if __has_include(<atcoder/all>)\n\
-    #include <atcoder/all>\nusing namespace atcoder;\n#endif\n// QCfium\u6CD5\u3092\
-    \u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\u30C8\u30A2\u30A6\u30C8\u3092\u5916\
-    \u3059\n/*/\n#pragma GCC optimize(\"Ofast,unroll-loops,no-stack-protector,fast-math\"\
-    )\n#pragma GCC target(\"avx2,bmi,bmi2,lzcnt,popcnt\")\n#pragma GCC target(\"avx,avx2,fma\"\
-    )\n#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma\"\
-    )\n//*/\n#define rep(i,n) for(int i=0;i<n;i++)\n#define Rep(i,a,b) for(int i=a;i<b;i++)\n\
-    #define ALL(x) (x).begin(),(x).end()\n#define dbgv(x); for(auto now : x) cout\
-    \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
-    \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
-    \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 4 \"data_structure/dynamic_segment_tree.hpp\"\n\n// \u52D5\u7684\u30BB\u30B0\
-    \u30E1\u30F3\u30C8\u6728 (\u6DFB\u5B57\u304C\u5927\u304D\u3044\u5834\u5408\u306E\
-    \u4E00\u70B9\u66F4\u65B0\u30FB\u533A\u9593\u7A4D)\n// \u6DFB\u5B57\u306F [0, n)\
-    \ (n \u306F 2^62 \u7A0B\u5EA6\u307E\u3067)\uFF0E\u306F\u3058\u3081\u5168\u3066\
-    \ e()\n//\n// \u5404\u30CE\u30FC\u30C9\u306F\u300C\u533A\u9593 [lo, hi) \u306E\
-    \u4E2D\u306E 1 \u8981\u7D20 (\u4F4D\u7F6E idx, \u5024 val)\u300D\u3068\u90E8\u5206\
-    \u6728\u5168\u4F53\u306E\u7A4D\u3092\u6301\u3064\uFF0E\n// \u5DE6\u306E\u5B50\u306E\
-    \u90E8\u5206\u6728\u306E\u4F4D\u7F6E < idx < \u53F3\u306E\u5B50\u306E\u90E8\u5206\
-    \u6728\u306E\u4F4D\u7F6E \u3068\u3044\u3046\u9806\u5E8F\u3092\u4FDD\u3064\u306E\
-    \u3067\uFF0C\n// \u30CE\u30FC\u30C9\u6570\u306F\u5024\u3092\u8A2D\u5B9A\u3057\u305F\
-    \u4F4D\u7F6E\u306E\u500B\u6570\u3068\u7B49\u3057\u304F\uFF0C\u30E1\u30E2\u30EA\
-    \u306F O(\u66F4\u65B0\u56DE\u6570)\uFF0E\u5404\u64CD\u4F5C O(log n)\ntemplate\
-    \ <class M>\nstruct DynamicSegmentTree {\n    using S = typename M::S;\n    struct\
-    \ Node {\n        long long idx;\n        S val, prod;\n        int l, r;\n  \
-    \  };\n    long long n;\n    vector<Node> t;\n    int root = -1;\n\n    DynamicSegmentTree(long\
-    \ long n = 0) : n(n) {}\n\n    // \u66F4\u65B0\u56DE\u6570\u306E\u898B\u8FBC\u307F\
-    \u3092\u6E21\u3059\u3068\u518D\u78BA\u4FDD\u3092\u907F\u3051\u3089\u308C\u308B\
-    \n    void reserve(int k) { t.reserve(k); }\n\n    // a[p] = x\n    void set(long\
-    \ long p, S x) { root = set(root, 0, n, p, x); }\n\n    // a[p] (\u8A2D\u5B9A\u3055\
-    \u308C\u3066\u3044\u306A\u3051\u308C\u3070 e())\n    S get(long long p) const\
-    \ {\n        int v = root;\n        long long lo = 0, hi = n;\n        while (v\
-    \ != -1) {\n            if (t[v].idx == p) return t[v].val;\n            long\
-    \ long mid = (lo + hi) >> 1;\n            if (p < mid) v = t[v].l, hi = mid;\n\
-    \            else v = t[v].r, lo = mid;\n        }\n        return M::e();\n \
-    \   }\n    S operator[](long long p) const { return get(p); }\n\n    // op(a[l],\
-    \ ..., a[r-1])\uFF0El == r \u306A\u3089 e()\n    S prod(long long l, long long\
-    \ r) const {\n        if (l >= r) return M::e();\n        return prod(root, 0,\
-    \ n, l, r);\n    }\n\n    S all_prod() const { return root == -1 ? M::e() : t[root].prod;\
-    \ }\n\n  private:\n    S prod_of(int v) const { return v == -1 ? M::e() : t[v].prod;\
-    \ }\n    void update(int v) { t[v].prod = M::op(M::op(prod_of(t[v].l), t[v].val),\
-    \ prod_of(t[v].r)); }\n\n    int set(int v, long long lo, long long hi, long long\
-    \ p, S x) {\n        if (v == -1) {\n            t.push_back({p, x, x, -1, -1});\n\
-    \            return int(t.size()) - 1;\n        }\n        if (t[v].idx == p)\
-    \ {\n            t[v].val = x;\n            update(v);\n            return v;\n\
-    \        }\n        long long mid = (lo + hi) >> 1;\n        if (p < mid) {\n\
-    \            // \u30CE\u30FC\u30C9\u306E\u8981\u7D20\u306E\u65B9\u304C\u5DE6\u306B\
-    \u3042\u308C\u3070\u5165\u308C\u66FF\u3048\u3066\uFF0C\u9806\u5E8F\u3092\u4FDD\
-    \u3064\n            if (t[v].idx < p) swap(t[v].idx, p), swap(t[v].val, x);\n\
-    \            int c = set(t[v].l, lo, mid, p, x);\n            t[v].l = c;\n  \
-    \      } else {\n            if (p < t[v].idx) swap(t[v].idx, p), swap(t[v].val,\
-    \ x);\n            int c = set(t[v].r, mid, hi, p, x);\n            t[v].r = c;\n\
-    \        }\n        update(v);\n        return v;\n    }\n\n    S prod(int v,\
-    \ long long lo, long long hi, long long l, long long r) const {\n        if (v\
-    \ == -1 || hi <= l || r <= lo) return M::e();\n        if (l <= lo && hi <= r)\
-    \ return t[v].prod;\n        long long mid = (lo + hi) >> 1;\n        S res =\
-    \ prod(t[v].l, lo, mid, l, r);\n        if (l <= t[v].idx && t[v].idx < r) res\
-    \ = M::op(res, t[v].val);\n        return M::op(res, prod(t[v].r, mid, hi, l,\
-    \ r));\n    }\n};\n#line 7 \"test/unittest/segment_tree.test.cpp\"\n\n// SegmentTree\
-    \ / DualSegmentTree / DynamicSegmentTree \u3092\u611A\u76F4\u3068\u7167\u5408\u3059\
-    \u308B (\u975E\u53EF\u63DB\u306A 1 \u6B21\u95A2\u6570\u306E\u5408\u6210\u3067\u78BA\
-    \u8A8D)\n\nusing mint = ModInt998244353;\nusing F = Affine<mint>;\nusing MA =\
-    \ MonoidAffine<mint>;\n\nF rand_f(mt19937_64 &rng) { return F(rng() % 5 + 1, rng()\
-    \ % 5); }\nF brute(const vector<F> &a, int l, int r) {\n    F res;\n    for (int\
-    \ i = l; i < r; i++) res = res.then(a[i]);\n    return res;\n}\n\nint main() {\n\
-    \    mt19937_64 rng(21);\n    // SegmentTree\n    for (int n : {0, 1, 2, 3, 5,\
-    \ 8, 13, 64, 100}) {\n        vector<F> a(n);\n        for (auto &x : a) x = rand_f(rng);\n\
-    \        SegmentTree<MA> seg(a);\n        SegmentTree<MonoidSum<long long>> sum_seg(n);\n\
-    \        vector<long long> b(n, 0);\n        for (int it = 0; it < 2000; it++)\
-    \ {\n            int t = rng() % 4;\n            if (t == 0 && n > 0) {\n    \
-    \            int p = rng() % n;\n                a[p] = rand_f(rng);\n       \
-    \         seg.set(p, a[p]);\n                long long v = rng() % 10;\n     \
-    \           b[p] = v, sum_seg.set(p, v);\n            } else if (t == 1 && n >\
-    \ 0) {\n                int p = rng() % n;\n                F f = rand_f(rng);\n\
+    \ 4 \"data_structure/dynamic_segment_tree.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n// \u52D5\u7684\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (\u6DFB\u5B57\u304C\u5927\
+    \u304D\u3044\u5834\u5408\u306E\u4E00\u70B9\u66F4\u65B0\u30FB\u533A\u9593\u7A4D\
+    )\n// \u6DFB\u5B57\u306F [0, n) (n \u306F 2^62 \u7A0B\u5EA6\u307E\u3067)\uFF0E\
+    \u306F\u3058\u3081\u5168\u3066 e()\n//\n// \u5404\u30CE\u30FC\u30C9\u306F\u300C\
+    \u533A\u9593 [lo, hi) \u306E\u4E2D\u306E 1 \u8981\u7D20 (\u4F4D\u7F6E idx, \u5024\
+    \ val)\u300D\u3068\u90E8\u5206\u6728\u5168\u4F53\u306E\u7A4D\u3092\u6301\u3064\
+    \uFF0E\n// \u5DE6\u306E\u5B50\u306E\u90E8\u5206\u6728\u306E\u4F4D\u7F6E < idx\
+    \ < \u53F3\u306E\u5B50\u306E\u90E8\u5206\u6728\u306E\u4F4D\u7F6E \u3068\u3044\u3046\
+    \u9806\u5E8F\u3092\u4FDD\u3064\u306E\u3067\uFF0C\n// \u30CE\u30FC\u30C9\u6570\u306F\
+    \u5024\u3092\u8A2D\u5B9A\u3057\u305F\u4F4D\u7F6E\u306E\u500B\u6570\u3068\u7B49\
+    \u3057\u304F\uFF0C\u30E1\u30E2\u30EA\u306F O(\u66F4\u65B0\u56DE\u6570)\uFF0E\u5404\
+    \u64CD\u4F5C O(log n)\ntemplate <class M>\nstruct DynamicSegmentTree {\n    using\
+    \ S = typename M::S;\n    struct Node {\n        long long idx;\n        S val,\
+    \ prod;\n        int l, r;\n    };\n    long long n;\n    vector<Node> t;\n  \
+    \  int root = -1;\n\n    DynamicSegmentTree(long long n = 0) : n(n) {}\n\n   \
+    \ // \u66F4\u65B0\u56DE\u6570\u306E\u898B\u8FBC\u307F\u3092\u6E21\u3059\u3068\u518D\
+    \u78BA\u4FDD\u3092\u907F\u3051\u3089\u308C\u308B\n    void reserve(int k) { t.reserve(k);\
+    \ }\n\n    // a[p] = x\n    void set(long long p, S x) { root = set(root, 0, n,\
+    \ p, x); }\n\n    // a[p] (\u8A2D\u5B9A\u3055\u308C\u3066\u3044\u306A\u3051\u308C\
+    \u3070 e())\n    S get(long long p) const {\n        int v = root;\n        long\
+    \ long lo = 0, hi = n;\n        while (v != -1) {\n            if (t[v].idx ==\
+    \ p) return t[v].val;\n            long long mid = (lo + hi) >> 1;\n         \
+    \   if (p < mid) v = t[v].l, hi = mid;\n            else v = t[v].r, lo = mid;\n\
+    \        }\n        return M::e();\n    }\n    S operator[](long long p) const\
+    \ { return get(p); }\n\n    // op(a[l], ..., a[r-1])\uFF0El == r \u306A\u3089\
+    \ e()\n    S prod(long long l, long long r) const {\n        if (l >= r) return\
+    \ M::e();\n        return prod(root, 0, n, l, r);\n    }\n\n    S all_prod() const\
+    \ { return root == -1 ? M::e() : t[root].prod; }\n\n  private:\n    S prod_of(int\
+    \ v) const { return v == -1 ? M::e() : t[v].prod; }\n    void update(int v) {\
+    \ t[v].prod = M::op(M::op(prod_of(t[v].l), t[v].val), prod_of(t[v].r)); }\n\n\
+    \    int set(int v, long long lo, long long hi, long long p, S x) {\n        if\
+    \ (v == -1) {\n            t.push_back({p, x, x, -1, -1});\n            return\
+    \ int(t.size()) - 1;\n        }\n        if (t[v].idx == p) {\n            t[v].val\
+    \ = x;\n            update(v);\n            return v;\n        }\n        long\
+    \ long mid = (lo + hi) >> 1;\n        if (p < mid) {\n            // \u30CE\u30FC\
+    \u30C9\u306E\u8981\u7D20\u306E\u65B9\u304C\u5DE6\u306B\u3042\u308C\u3070\u5165\
+    \u308C\u66FF\u3048\u3066\uFF0C\u9806\u5E8F\u3092\u4FDD\u3064\n            if (t[v].idx\
+    \ < p) swap(t[v].idx, p), swap(t[v].val, x);\n            int c = set(t[v].l,\
+    \ lo, mid, p, x);\n            t[v].l = c;\n        } else {\n            if (p\
+    \ < t[v].idx) swap(t[v].idx, p), swap(t[v].val, x);\n            int c = set(t[v].r,\
+    \ mid, hi, p, x);\n            t[v].r = c;\n        }\n        update(v);\n  \
+    \      return v;\n    }\n\n    S prod(int v, long long lo, long long hi, long\
+    \ long l, long long r) const {\n        if (v == -1 || hi <= l || r <= lo) return\
+    \ M::e();\n        if (l <= lo && hi <= r) return t[v].prod;\n        long long\
+    \ mid = (lo + hi) >> 1;\n        S res = prod(t[v].l, lo, mid, l, r);\n      \
+    \  if (l <= t[v].idx && t[v].idx < r) res = M::op(res, t[v].val);\n        return\
+    \ M::op(res, prod(t[v].r, mid, hi, l, r));\n    }\n};\n#line 7 \"test/unittest/segment_tree.test.cpp\"\
+    \n\n// SegmentTree / DualSegmentTree / DynamicSegmentTree \u3092\u611A\u76F4\u3068\
+    \u7167\u5408\u3059\u308B (\u975E\u53EF\u63DB\u306A 1 \u6B21\u95A2\u6570\u306E\u5408\
+    \u6210\u3067\u78BA\u8A8D)\n\nusing mint = ModInt998244353;\nusing F = Affine<mint>;\n\
+    using MA = MonoidAffine<mint>;\n\nF rand_f(mt19937_64 &rng) { return F(rng() %\
+    \ 5 + 1, rng() % 5); }\nF brute(const vector<F> &a, int l, int r) {\n    F res;\n\
+    \    for (int i = l; i < r; i++) res = res.then(a[i]);\n    return res;\n}\n\n\
+    int main() {\n    mt19937_64 rng(21);\n    // SegmentTree\n    for (int n : {0,\
+    \ 1, 2, 3, 5, 8, 13, 64, 100}) {\n        vector<F> a(n);\n        for (auto &x\
+    \ : a) x = rand_f(rng);\n        SegmentTree<MA> seg(a);\n        SegmentTree<MonoidSum<long\
+    \ long>> sum_seg(n);\n        vector<long long> b(n, 0);\n        for (int it\
+    \ = 0; it < 2000; it++) {\n            int t = rng() % 4;\n            if (t ==\
+    \ 0 && n > 0) {\n                int p = rng() % n;\n                a[p] = rand_f(rng);\n\
+    \                seg.set(p, a[p]);\n                long long v = rng() % 10;\n\
+    \                b[p] = v, sum_seg.set(p, v);\n            } else if (t == 1 &&\
+    \ n > 0) {\n                int p = rng() % n;\n                F f = rand_f(rng);\n\
     \                a[p] = a[p].then(f);\n                seg.multiply(p, f);\n \
     \               assert(seg.get(p) == a[p] && seg[p] == a[p]);\n            } else\
     \ if (t == 2) {\n                int l = rng() % (n + 1), r = rng() % (n + 1);\n\
@@ -601,8 +603,8 @@ data:
   isVerificationFile: true
   path: test/unittest/segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2026-10-12 11:35:48+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-17 01:04:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/unittest/segment_tree.test.cpp
 layout: document

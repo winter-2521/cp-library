@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy:
@@ -18,6 +18,7 @@ data:
   attributes:
     links:
     - https://ei1333.github.io/library/graph/graph-template.hpp
+    - https://github.com/winter-2521/cp-library
   bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n#if __has_include(<atcoder/all>)\n#include <atcoder/all>\nusing namespace\
     \ atcoder;\n#endif\n// QCfium\u6CD5\u3092\u4F7F\u3046\u6642\u306F\u30B3\u30E1\u30F3\
@@ -29,14 +30,14 @@ data:
     \ << now << \" \"; cout << endl;\n//using P = pair<int,int>;\nusing ll = long\
     \ long;\nusing ull = unsigned long long;\ntypedef pair<int, int> pii;\ntypedef\
     \ pair<ll, ll> pll;\ntypedef vector<ll> vll;\ntypedef vector<int> vint;\n#line\
-    \ 3 \"graph/graph-template.hpp\"\n\n/*\n\u5927\u304D\u3081\u306E\u9053\u5177\u3092\
-    \u4F5C\u308A\u305F\u304F\u306A\u3063\u305F\u6642\u7528\u306B\u30B0\u30E9\u30D5\
-    \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\u3092\u4F5C\u308A\u307E\u3057\u305F\n\u3069\
-    \u3093\u306A\u6A5F\u80FD\u304C\u6B32\u3057\u304F\u306A\u308B\u304B\u898B\u901A\
-    \u305B\u306A\u3044\u306E\u3067\u4E00\u65E6\u3046\u3057\u3055\u3093\u306E\u30E9\
-    \u30A4\u30D6\u30E9\u30EA\u3092\u53C2\u8003\u306B\u6574\u5099\u3057\u3066\u307E\
-    \u3059 (\u6B32\u3057\u3044\u6A5F\u80FD\u304C\u5897\u3048\u305F\u3089\u5909\u308F\
-    \u308B\u304B\u3082)\nhttps://ei1333.github.io/library/graph/graph-template.hpp\n\
+    \ 3 \"graph/graph-template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n/*\n\u5927\u304D\u3081\u306E\u9053\u5177\u3092\u4F5C\u308A\u305F\u304F\u306A\
+    \u3063\u305F\u6642\u7528\u306B\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
+    \u30C8\u3092\u4F5C\u308A\u307E\u3057\u305F\n\u3069\u3093\u306A\u6A5F\u80FD\u304C\
+    \u6B32\u3057\u304F\u306A\u308B\u304B\u898B\u901A\u305B\u306A\u3044\u306E\u3067\
+    \u4E00\u65E6\u3046\u3057\u3055\u3093\u306E\u30E9\u30A4\u30D6\u30E9\u30EA\u3092\
+    \u53C2\u8003\u306B\u6574\u5099\u3057\u3066\u307E\u3059 (\u6B32\u3057\u3044\u6A5F\
+    \u80FD\u304C\u5897\u3048\u305F\u3089\u5909\u308F\u308B\u304B\u3082)\nhttps://ei1333.github.io/library/graph/graph-template.hpp\n\
     */\n\ntemplate <typename T = int>\nstruct Edge {\n    // \u8FBA\u306Efrom , to\n\
     \    int from, to;\n\n    // \u91CD\u307F\u4ED8\u304D\u30B0\u30E9\u30D5\u7528\u30B3\
     \u30B9\u30C8\n    T cost;\n\n    // \u6A4B\u306E\u5217\u6319\u7B49\u304C\u5FC5\
@@ -56,14 +57,14 @@ data:
     \u3089\u751F\u3048\u3066\u308B\u8FBA\u306E\u96C6\u5408\u3092\u8FD4\u3059\n   \
     \ inline vector<Edge<T> > &operator[](const int &k) { return g[k]; }\n    inline\
     \ const vector<Edge<T> > &operator[](const int &k) const { return g[k]; }\n};\n"
-  code: "#pragma once\n#include \"../template.hpp\"\n\n/*\n\u5927\u304D\u3081\u306E\
-    \u9053\u5177\u3092\u4F5C\u308A\u305F\u304F\u306A\u3063\u305F\u6642\u7528\u306B\
-    \u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\u3092\u4F5C\u308A\u307E\
-    \u3057\u305F\n\u3069\u3093\u306A\u6A5F\u80FD\u304C\u6B32\u3057\u304F\u306A\u308B\
-    \u304B\u898B\u901A\u305B\u306A\u3044\u306E\u3067\u4E00\u65E6\u3046\u3057\u3055\
-    \u3093\u306E\u30E9\u30A4\u30D6\u30E9\u30EA\u3092\u53C2\u8003\u306B\u6574\u5099\
-    \u3057\u3066\u307E\u3059 (\u6B32\u3057\u3044\u6A5F\u80FD\u304C\u5897\u3048\u305F\
-    \u3089\u5909\u308F\u308B\u304B\u3082)\nhttps://ei1333.github.io/library/graph/graph-template.hpp\n\
+  code: "#pragma once\n#include \"../template.hpp\"\n\n// https://github.com/winter-2521/cp-library\n\
+    \n/*\n\u5927\u304D\u3081\u306E\u9053\u5177\u3092\u4F5C\u308A\u305F\u304F\u306A\
+    \u3063\u305F\u6642\u7528\u306B\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
+    \u30C8\u3092\u4F5C\u308A\u307E\u3057\u305F\n\u3069\u3093\u306A\u6A5F\u80FD\u304C\
+    \u6B32\u3057\u304F\u306A\u308B\u304B\u898B\u901A\u305B\u306A\u3044\u306E\u3067\
+    \u4E00\u65E6\u3046\u3057\u3055\u3093\u306E\u30E9\u30A4\u30D6\u30E9\u30EA\u3092\
+    \u53C2\u8003\u306B\u6574\u5099\u3057\u3066\u307E\u3059 (\u6B32\u3057\u3044\u6A5F\
+    \u80FD\u304C\u5897\u3048\u305F\u3089\u5909\u308F\u308B\u304B\u3082)\nhttps://ei1333.github.io/library/graph/graph-template.hpp\n\
     */\n\ntemplate <typename T = int>\nstruct Edge {\n    // \u8FBA\u306Efrom , to\n\
     \    int from, to;\n\n    // \u91CD\u307F\u4ED8\u304D\u30B0\u30E9\u30D5\u7528\u30B3\
     \u30B9\u30C8\n    T cost;\n\n    // \u6A4B\u306E\u5217\u6319\u7B49\u304C\u5FC5\
@@ -89,7 +90,7 @@ data:
   path: graph/graph-template.hpp
   requiredBy:
   - graph/dijkstra.hpp
-  timestamp: '2024-11-05 15:14:50+09:00'
+  timestamp: '2026-10-17 01:04:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dijkstra.test.cpp
